@@ -1,4 +1,4 @@
-# swars-re-helpers
+# synd-re-helpers
 
 Recovering symbols for the game Syndicate by Bullfrog.
 
