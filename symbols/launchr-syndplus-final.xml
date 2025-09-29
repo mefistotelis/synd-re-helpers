@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="yes"?>
 <?program_dtd version="1"?>
 
-<PROGRAM NAME="SYND.EXE" EXE_PATH="D:\source\disasm\synd_intro\SYND.EXE" EXE_FORMAT="Linear Executable (LE)" INPUT_MD5="&#xf0;h&#x93;&#xff;&#xe7;&#x9e;8]u&#xd2;T&#xa4;[&#xdc;&#x8c;&#xd2;">
-    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="D:\source\disasm\synd_intro\launchr-syndplus-final.idb" TIMESTAMP="2025-09-19 20:17" />
+<PROGRAM NAME="SYND.EXE" EXE_PATH="SYND.EXE" EXE_FORMAT="Linear Executable (LE)" INPUT_MD5="&#xf0;h&#x93;&#xff;&#xe7;&#x9e;8]u&#xd2;T&#xa4;[&#xdc;&#x8c;&#xd2;">
+    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="launchr-syndplus-final.idb" TIMESTAMP="2025-09-19 20:17" />
     <PROCESSOR NAME="80386p" ENDIAN="little" ADDRESS_MODEL="32-bit" />
     <COMPILER NAME="Watcom C++" />
     <MEMORY_MAP>
@@ -1124,7 +1124,7 @@ ES = segment address of block to change
 BX = new size in paragraphs </COMMENT>
         <COMMENT ADDRESS="0x184D6" TYPE="end-of-line">DOS - 2+ - MOVE FILE READ/WRITE POINTER (LSEEK)
 AL = method: offset from present location </COMMENT>
-        <COMMENT ADDRESS="0x10000" TYPE="pre">; File Name   : D:\source\disasm\synd_intro\SYND.EXE 
+        <COMMENT ADDRESS="0x10000" TYPE="pre">; File Name   : SYND.EXE 
 ; Format      : Linear Executable (LE) 
 ; Target operating system         OS/2 
 ; Module Version                  00000000h (     0. ) 

@@ -9,10 +9,24 @@
   Address         Publics by Value
 
  0001:00010003       ___begtext
+ 0001:00010010       check_for_danger
+ 0001:000101E0       syndicate
+ 0001:000104C0       level_failed
+ 0001:00010510       level_complete
+ 0001:000105E0       check_end_level
+ 0001:00010E20       random
+ 0001:00011EA0       click_map
+ 0001:00015B10       process_computer_players
+ 0001:00015C60       CPDoTurn
+ 0001:00017510       getrdist
  0001:000175B0       jpt_17E75
  0001:000180BA       def_17E75
  0001:00018238       jpt_18270
  0001:00018537       def_18270
+ 0001:00018810       process_day
+ 0001:00018BD0       AdjustStateHappiness
+ 0001:00018CF0       GetRevenueFromCity
+ 0001:00018D80       ComputerPlaysMap
  0001:00018F30       draw_date_nc
  0001:0001A250       DLL_read
  0001:0001A2B0       DLL_size
@@ -36,11 +50,38 @@
  0001:0001B1A0       LbFileLength_
  0001:0001B210       LbFileLengthRnc
  0001:0001B2E0       nullsub_1
+ 0001:0001B2F0       draw_rect
  0001:0001B370       LbScreenSetGraphicsWindow
+ 0001:0001B5D0       scircle
+ 0001:0001BBD0       ccircle
+ 0001:0001BEC0       draw_tact_map
+ 0001:0001CD10       which_frame_person
+ 0001:0001D180       set_all_changes
+ 0001:0001D450       draw_mapwho
+ 0001:0001DF10       copy_back
+ 0001:0001E300       full_redraw
+ 0001:0001E400       scroll_map
  0001:0001EA20       nullsub_2
+ 0001:0001EB80       move_effects
  0001:0001FB50       jpt_21874
  0001:000227D9       def_21874
+ 0001:00023540       GetTeamMemberName
+ 0001:000237B0       reset_mission_info
+ 0001:00023880       set_default_player
+ 0001:00023F10       cheat
+ 0001:000246D0       transfer_people_into_player
+ 0001:00024C80       init_players_people
+ 0001:00024FE0       free_map_level
+ 0001:000252B0       load_map_level
+ 0001:000253F0       init_effect
+ 0001:00025560       single_play
+ 0001:00025580       multi_play
+ 0001:000256F0       initialise_player
+ 0001:00025790       set_network_player
+ 0001:000258F0       give_person_new_command
+ 0001:00025A10       process_action
  0001:00026EB0       jpt_27219
+ 0001:00026EF0       LoadSaveGame
  0001:000272A8       def_27219
  0001:000273C0       atoi_hex
  0001:000274A0       main
@@ -48,20 +89,95 @@
  0001:00027A70       timer2_cb
  0001:00027BF0       LbMouseSetup
  0001:00027C60       LbSpriteSetup
+ 0001:00027DB0       correct_buttons
+ 0001:00029250       move_it
+ 0001:000292D0       move_worlds
+ 0001:00029760       jpt_2998D
+ 0001:00029825       def_2998D
  0001:0002B580       LbMouseReset
+ 0001:0002B940       move_objects
+ 0001:0002C2E0       set_mission_complete
+ 0001:0002C640       setup_panel
+ 0001:0002C880       process_players_turn
+ 0001:0002D0E0       draw_panel
+ 0001:0002D610       make_packet
+ 0001:0002ED20       clear_weapons
+ 0001:00031DF0       person_danger
+ 0001:00031EC0       person_use_weapon
+ 0001:00031F60       fn_S_PERSON_STAND
+ 0001:00031FC0       fn_S_PERSON_NEXT_COMMAND
+ 0001:00032130       fn_S_PERSON_GOTO_POINT
+ 0001:000321C0       fn_S_PERSON_GOTO_STRUCTURE
+ 0001:00032300       fn_S_PERSON_MOVE_INTO_VEHICLE
+ 0001:00032480       fn_S_PERSON_MOVE_OUT_OF_VEHICLE
+ 0001:00032560       fn_S_PERSON_PASSENGER
+ 0001:00032720       fn_S_PERSON_PICKUP_WEAPON
+ 0001:00032840       fn_S_PERSON_DROP_WEAPON
+ 0001:00032870       fn_S_PERSON_SELECT_WEAPON
+ 0001:00032890       fn_S_PERSON_WAIT_FOR_MODEL
+ 0001:000328E0       fn_S_PERSON_WAIT_FOR_TIME
+ 0001:00032930       fn_S_PERSON_HUG_RIGHT
+ 0001:00032AA0       fn_S_PERSON_HUG_LEFT
+ 0001:00032C10       fn_S_PERSON_ON_FIRE
+ 0001:00032CE0       fn_S_PERSON_HIT_BY_FIRE
+ 0001:00032DC0       fn_S_PERSON_FLY_BACK
+ 0001:00032EA0       fn_S_PERSON_HIT_BY_EXPLOSION
+ 0001:00032F00       fn_S_PERSON_HIT_BY_BULLET
+ 0001:00032F60       fn_S_PERSON_HIT_BY_VEHICLE
+ 0001:00032FC0       fn_S_PERSON_HIT_BY_LASER
+ 0001:00033050       fn_S_PERSON_DYING
+ 0001:00033090       fn_S_PERSON_DYING_ON_FIRE
+ 0001:000330D0       fn_S_PERSON_DEAD
+ 0001:000330F0       fn_S_PERSON_DEAD_ON_FIRE
+ 0001:00033120       fn_S_PERSON_GUARD_AREA
+ 0001:00033230       fn_S_PERSON_WANDER
+ 0001:00033370       fn_S_PERSON_PERSUADED
+ 0001:00033660       fn_S_PERSON_RUNAWAY
+ 0001:00033740       fn_S_PERSON_GIVE_WARNING
+ 0001:000337B0       fn_S_PERSON_FOLLOW_AND_ATTACK
+ 0001:00033B40       fn_S_PERSON_DROWN
+ 0001:00033B80       fn_S_PERSON_WAIT_TO_CROSS_ROAD
+ 0001:00033C00       fn_S_PERSON_WALK_OFF_ROAD
+ 0001:00033DC0       fn_S_PERSON_WAIT_FOR_TRIGGER
+ 0001:00033E60       fn_S_PERSON_WAIT_FOR_TRAIN
+ 0001:00033F70       fn_S_PERSON_ALLOW_PASSENGERS
+ 0001:00033FB0       fn_S_PERSON_USE_WEAPON
+ 0001:00034030       fn_S_PERSON_BEING_PERSUADED
+ 0001:00034110       move_people
  0001:00034AAA       nullsub_8
  0001:00034AB0       jpt_35899
  0001:00035D05       def_35899
+ 0001:00035E20       DoResearch
  0001:000374E0       nullsub_3
  0001:000375C0       jpt_3775C
  0001:000375D0       jpt_378BB
+ 0001:00037600       select
  0001:00037852       def_3775C
  0001:00037BE6       def_378BB
+ 0001:00037F80       level_finished
+ 0001:000382E0       load_text
+ 0001:00038350       load_player
+ 0001:00038420       save_player
+ 0001:00038540       load_save_text
  0001:000385C0       init_sound
- 0001:00038F50       draw_text
+ 0001:000387E0       SetBFMidiSampleStatus
+ 0001:00038A40       StopAllSounds
+ 0001:00038A60       DisplayScreenTitle
+ 0001:00038F00       GetLineWidth
+ 0001:00038F50       new_show_text
+ 0001:00039890       move_vehicles
+ 0001:00039EC0       which_weapon
+ 0001:0003A070       count_weapons
+ 0001:0003A100       weapon_is_empty
+ 0001:0003A390       choose_best_weapon
+ 0001:0003A5C0       choose_best_weapon_or_same
+ 0001:0003A8B0       create_ammo_effect
+ 0001:0003A970       move_weapons
  0001:0003B4E0       load_global_timbre
  0001:0003B5B0       InitMIDI
- 0001:0003BA10       IsMIDIPlaying
+ 0001:0003B8A0       syndicate_start_music
+ 0001:0003B940       BFMidiStopMusic
+ 0001:0003BA10       BFMidiIsMusicPlaying
  0001:0003BA40       ShutdownMIDI
  0001:0003BB38       find_proc
  0001:0003BB64       call_driver
@@ -312,7 +428,10 @@
  0001:00040F50       __doserror_
  0001:00040F63       spawnvpe
  0001:000410AF       strchr
+ 0001:00041D6C       vertical_line
+ 0001:00041EEE       horizontal_line
  0001:0004225E       jpt_42257
+ 0001:00048842       draw_horizontal
  0001:0004C136       LbPaletteSet
  0001:0004C1A7       LbScreenSetup
  0001:0004CEF1       nullsub_6
@@ -322,7 +441,7 @@
  0001:0004FA51       LbMemorySet
  0001:0004FCEC       LbScreenWaitVbi
  0001:0004FDE5       a123456789abcde_1
- 0002:00050004       fmt
+ 0002:00050004       aGameDat
  0002:00050018       aDataMap02dDat
  0002:0005002C       aD
  0002:00050030       aDataMbrieoutDa
@@ -380,22 +499,22 @@
  0002:0005031C       aSouthAfrica
  0002:0005032C       aAfriqueDuSud
  0002:0005033C       aSudAfrica
- 0002:00050347       aIwesternEurope
- 0002:00050357       aReuropeDeLOues
+ 0002:00050348       aWesternEurope
+ 0002:00050358       aEuropeDeLOuest
  0002:0005036C       aEuropaOccident
- 0002:0005037F       aBscandinavia
+ 0002:00050380       aScandinavia
  0002:0005038C       aScandinavie
  0002:00050398       aCentralEurope
- 0002:000503A7       aYeuropeCentral
+ 0002:000503A8       aEuropeCentrale
  0002:000503B8       aEuropaCentrale
  0002:000503C8       aEasternEurope
  0002:000503D8       aEuropeDeLEst
  0002:000503E8       aEuropaOriental
- 0002:000503F9       aRnIran
+ 0002:000503FC       aIran
  0002:00050401       aE
- 0002:00050403       aRindia
- 0002:0005040A       aDinde
- 0002:00050411       aUespacificRim
+ 0002:00050404       aIndia
+ 0002:0005040C       aInde
+ 0002:00050414       aPacificRim
  0002:00050420       aCeintureDuPaci
  0002:00050436       aA
  0002:00050438       aBacinoPacifico
@@ -477,24 +596,24 @@
  0002:00050874       aAccelerateurDe
  0002:00050894       aAcceleratoreAt
  0002:000508AC       aCryoChamber
- 0002:000508B9       aIdwleChambreCr
+ 0002:000508BC       aLeChambreCryo
  0002:000508CC       aVaniIbernanti
  0002:000508DC       aTakeWeapon
  0002:000508E8       aPrendreArme
- 0002:000508F5       aOntprendiArma
+ 0002:000508F8       aPrendiArma
  0002:00050904       aDestroyCar
  0002:00050910       aDetruireVoitur
- 0002:00050921       aCcedistruggiAu
+ 0002:00050924       aDistruggiAuto
  0002:00050934       aUseVehicle
  0002:00050940       aUtiliserVehicu
- 0002:00050952       aTiusaIlVeicolo
+ 0002:00050954       aUsaIlVeicolo
  0002:00050964       aEvacuate
- 0002:0005096D       aBerevacuer
+ 0002:00050970       aEvacuer
  0002:00050978       aSgombera
  0002:00050981       aYo
  0002:00050984       aPersuade
- 0002:0005098D       aNanpersuader
- 0002:0005099A       aEaconvinci
+ 0002:00050990       aPersuader
+ 0002:0005099C       aConvinci
  0002:000509A8       aProtect
  0002:000509B0       aProteger
  0002:000509B9       aMa
@@ -502,155 +621,156 @@
  0002:000509C5       aAr
  0002:000509C8       aAssassinate
  0002:000509D4       aAssassiner
- 0002:000509DF       aTuccidi
+ 0002:000509E0       aUccidi
  0002:000509E8       aEliminateAgent
- 0002:000509F9       aTileliminerAge
+ 0002:000509FC       aEliminerAgents
  0002:00050A0C       aEliminaAgenti
  0002:00050A1C       aMissionComplet
  0002:00050A2D       aEr
  0002:00050A30       aMissionTermine
- 0002:00050A41       aAdemissCompiut
+ 0002:00050A44       aMissCompiuta
  0002:00050A54       aPressSpace
  0002:00050A60       aAppuiBEspace
- 0002:00050A6F       aRpremiSpazio
+ 0002:00050A70       aPremiSpazio
  0002:00050A7D       aAr_0
  0002:00050A80       aMissionFailed
- 0002:00050A8F       aAmissionEchoue
+ 0002:00050A90       aMissionEchouee
  0002:00050AA0       aMissioneFallit
  0002:00050AB4       aGoing
- 0002:00050ABA       aErenRoute
+ 0002:00050ABC       aEnRoute
  0002:00050AC8       aVai
  0002:00050ACC       aPickupWeapon
  0002:00050ADA       aR
  0002:00050ADC       aRaccogliArma
  0002:00050AEC       aFollow
- 0002:00050AF3       aSsuivre
- 0002:00050AFB       aUsegui
+ 0002:00050AF4       aSuivre
+ 0002:00050AFC       aSegui
  0002:00050B04       aDropWeapon
  0002:00050B10       aPoserArme
- 0002:00050B1B       aRlasciaArma
+ 0002:00050B1C       aLasciaArma
  0002:00050B28       aHitByBullet
- 0002:00050B36       aIlblesse
- 0002:00050B3F       aScrivellato
+ 0002:00050B38       aBlesse
+ 0002:00050B40       aCrivellato
  0002:00050B4C       aHitByCar
- 0002:00050B57       aLaccidente
- 0002:00050B62       aIninvestito
+ 0002:00050B58       aAccidente
+ 0002:00050B64       aInvestito
  0002:00050B70       aOnFire
  0002:00050B78       aEnFeu
- 0002:00050B7F       aKincendiato
+ 0002:00050B80       aIncendiato
  0002:00050B8C       aEnergyDrain
- 0002:00050B9A       aEeperteEnergie
+ 0002:00050B9C       aPerteEnergie
  0002:00050BAC       aCaloEnergia
  0002:00050BBC       aDead
- 0002:00050BC1       aOsemort
+ 0002:00050BC4       aMort
  0002:00050BC9       aE_0
- 0002:00050BCB       aRmorto
+ 0002:00050BCC       aMorto
  0002:00050BD4       aObserving
- 0002:00050BDE       aBenObservation
- 0002:00050BEF       aSesamina
+ 0002:00050BE0       aEnObservation
+ 0002:00050BF0       aEsamina
  0002:00050BF8       aAwol
- 0002:00050BFD       aItAbsenceIlleg
- 0002:00050C0F       aTassente
+ 0002:00050C00       aAbsenceIlleg
+ 0002:00050C10       aAssente
  0002:00050C18       aRunningAway
  0002:00050C28       aEnFuite
- 0002:00050C31       aNcescappo
+ 0002:00050C34       aScappo
  0002:00050C3C       aDrowning
- 0002:00050C45       aAinnoyade
- 0002:00050C4F       aTannego
+ 0002:00050C48       aNoyade
+ 0002:00050C50       aAnnego
  0002:00050C58       aDangerCar
- 0002:00050C63       aEdangerVoiture
- 0002:00050C73       aEpericoloAuto
+ 0002:00050C64       aDangerVoiture
+ 0002:00050C74       aPericoloAuto
  0002:00050C84       aUsingWeapon
- 0002:00050C91       aNOutiliseArme
- 0002:00050CA1       aSamarmaInUso
+ 0002:00050C94       aUtiliseArme
+ 0002:00050CA4       aArmaInUso
  0002:00050CB0       aChipRemoved
- 0002:00050CBF       aTpuceRetiree
- 0002:00050CCD       aNgChipRimosso
+ 0002:00050CC0       aPuceRetiree
+ 0002:00050CD0       aChipRimosso
  0002:00050CE0       aMainMenu
- 0002:00050CEA       aCemenuPrincipa
- 0002:00050CFB       aGmenuPrincipal
+ 0002:00050CEC       aMenuPrincipal
+ 0002:00050CFC       aMenuPrincipale
  0002:00050D0C       aLoadSaveGame
- 0002:00050D1B       aEchSauvPartie
+ 0002:00050D1C       aChSauvPartie
  0002:00050D2C       aSalvaCaricaGio
  0002:00050D40       aMultiPlayer
- 0002:00050D4D       aTilmultiJoueur
- 0002:00050D5E       aMamultiplayer
+ 0002:00050D50       aMultiJoueurs
+ 0002:00050D60       aMultiplayer
  0002:00050D6C       aMissionBrief
- 0002:00050D7A       aCebriefingMiss
+ 0002:00050D7C       aBriefingMissio
  0002:00050D90       aPianoMissione
  0002:00050DA0       aTeamSelection
- 0002:00050DAF       aUchoixDeLEquip
- 0002:00050DC2       aAvselezioneSqu
+ 0002:00050DB0       aChoixDeLEquipe
+ 0002:00050DC4       aSelezioneSquad
  0002:00050DD8       aResearch
- 0002:00050DE1       aCarecherche
+ 0002:00050DE4       aRecherche
  0002:00050DF0       aRicerca
  0002:00050DF8       aMissionDebrief
- 0002:00050E0B       aRdebriefingMis
- 0002:00050E1F       aSresocontoMiss
+ 0002:00050E0C       aDebriefingMiss
+ 0002:00050E20       aResocontoMissi
  0002:00050E34       aAccept
  0002:00050E3C       aAccepter
- 0002:00050E45       aSioconferma
+ 0002:00050E48       aConferma
  0002:00050E54       aMenu
  0002:00050E59       aN
- 0002:00050E5B       aUok
+ 0002:00050E5C       aOk
  0002:00050E60       aCancel
- 0002:00050E67       aEannuler
+ 0002:00050E68       aAnnuler
  0002:00050E70       aAnnulla
  0002:00050E78       aBrief
- 0002:00050E7E       aDrbriefing
- 0002:00050E89       aRchpiano
+ 0002:00050E80       aBriefing
+ 0002:00050E8C       aPiano
  0002:00050E94       aTeam
  0002:00050E9C       aEquipe
  0002:00050EA4       aSquadra
  0002:00050EAC       aMods
- 0002:00050EB1       aEfimodifs
- 0002:00050EBB       aRmodif
+ 0002:00050EB4       aModifs
+ 0002:00050EBC       aModif
  0002:00050EC4       aEquip
  0002:00050ECC       aEquiper
  0002:00050ED4       aEquipag
  0002:00050EE0       aSell
  0002:00050EE8       aVendre
- 0002:00050EEF       aRvendi
+ 0002:00050EF0       aVendi
  0002:00050EF8       aPurchase
- 0002:00050F01       aEnuacheter
+ 0002:00050F04       aAcheter
  0002:00050F0C       aCompra
  0002:00050F14       aReload
  0002:00050F1C       aRecharg
- 0002:00050F25       aRiericar
+ 0002:00050F28       aRicar
  0002:00050F30       aFunding
- 0002:00050F39       aIanbudget
+ 0002:00050F3C       aBudget
  0002:00050F48       aFondi
  0002:00050F50       aFunding_0
- 0002:00050F59       aOdsbudget
+ 0002:00050F5C       aBudget_0
  0002:00050F65       aS_2
- 0002:00050F67       aRFondi
+ 0002:00050F68       aFondi_0
  0002:00050F70       aInfo
  0002:00050F78       aEnhance
  0002:00050F80       aDetails
  0002:00050F88       aDettagli
  0002:00050F94       aLoad
  0002:00050F99       aE_1
- 0002:00050F9B       aRcharg
- 0002:00050FA3       aFcarica
+ 0002:00050F9C       aCharg
+ 0002:00050FA4       aCarica
  0002:00050FAC       aSave
- 0002:00050FB1       aChesauver
- 0002:00050FBB       aPsalva
- 0002:00050FC2       aLomap
+ 0002:00050FB4       aSauver
+ 0002:00050FBC       aSalva
+ 0002:00050FC4       aMap
  0002:00050FC8       aCarte
- 0002:00050FCE       aGMappa
+ 0002:00050FD0       aMappa
  0002:00050FD8       aReplay
- 0002:00050FDF       aDrejouer
+ 0002:00050FE0       aRejouer
  0002:00050FE8       aName
- 0002:00050FED       aTNom
+ 0002:00050FF0       aNom
  0002:00050FF4       aNome
  0002:00050FF9       aDi
  0002:00050FFC       aPop
  0002:00051000       aPop_0
  0002:00051008       aStat
- 0002:0005100D       aTTax
+ 0002:00051010       aTax
  0002:00051014       aTaxe
  0002:00051019       aDi_0
  0002:0005101C       aTass
+ 0002:00051024       aOwn
  0002:00051028       aProp
  0002:00051030       aUnknown
  0002:00051038       aInconnue
@@ -659,42 +779,42 @@
  0002:0005105B       aEjoyeuse
  0002:00051064       aMoltoFelice
  0002:00051074       aHappy
- 0002:0005107A       aRtgaie
- 0002:00051081       aAppfelice
+ 0002:0005107C       aGaie
+ 0002:00051084       aFelice
  0002:0005108C       aContent
  0002:00051094       aContente
- 0002:0005109D       aTSoddisfatto
+ 0002:000510A0       aSoddisfatto
  0002:000510AC       aUnhappy
  0002:000510B4       aMecontente
- 0002:000510BF       aInfelice
+ 0002:000510C0       aInfelice
  0002:000510C9       aDi_1
  0002:000510CC       aDiscontent
  0002:000510D8       aFurieuse
- 0002:000510E1       aNkninsoddisfat
+ 0002:000510E4       aInsoddisfatto
  0002:000510F4       aRebellious
  0002:00051100       aRebelle
  0002:00051108       aRibelle
  0002:00051110       aEmpty
- 0002:00051116       aLtvide
- 0002:0005111D       aIcevuoto
+ 0002:00051118       aVide
+ 0002:00051120       aVuoto
  0002:00051128       aSpecialAgent
- 0002:00051136       aLiagentSpecial
- 0002:00051146       aNtagenteSpecia
+ 0002:00051138       aAgentSpecial
+ 0002:00051148       aAgenteSpeciale
  0002:00051158       aSelectDetailTo
  0002:00051170       aChoixDuDetailA
- 0002:0005118B       aIscegliLeModif
+ 0002:0005118C       aScegliLeModifi
  0002:000511A0       aColourAndLogo
  0002:000511B0       aCouleurEtLogo
  0002:000511C0       aColoreELogo
  0002:000511D0       aCompanyName
- 0002:000511DD       aGennomDeLaSoci
- 0002:000511F2       aNtnomeCompagni
+ 0002:000511E0       aNomDeLaSociete
+ 0002:000511F4       aNomeCompagnia
  0002:00051204       aYourName
- 0002:0005120E       aAivotreNom
+ 0002:00051210       aVotreNom
  0002:0005121A       aE_2
  0002:0005121C       aIlTuoNome
  0002:00051228       aChangeColourAn
- 0002:0005123F       aLchangerCouleu
+ 0002:00051240       aChangerCouleur
  0002:00051258       aCambiaColoreEL
  0002:00051270       aColour
  0002:00051278       aCouleur
@@ -708,10 +828,10 @@
  0002:000512D4       aEnterYourName
  0002:000512E4       aEntrezVotreNom
  0002:000512F5       aO
- 0002:000512F7       aLinserisciIlNo
+ 0002:000512F8       aInserisciIlNom
  0002:0005130C       aCost
- 0002:00051311       aACprix
- 0002:00051319       aECosto
+ 0002:00051314       aPrix
+ 0002:0005131C       aCosto
  0002:00051324       aAmmo
  0002:00051329       aR_0
  0002:0005132C       aMun
@@ -720,19 +840,19 @@
  0002:0005133C       aPortee
  0002:00051344       aRaggio
  0002:0005134C       aShot
- 0002:00051351       aYNcoups
- 0002:0005135A       aDicolpo
+ 0002:00051354       aCoups
+ 0002:0005135C       aColpo
  0002:00051364       aAutomatic
  0002:00051370       aAutomatique
  0002:0005137C       aAutomatica
  0002:00051388       aHeavy
- 0002:0005138E       aYoarmeLourde
+ 0002:00051390       aArmeLourde
  0002:0005139C       aGrossoCalibro
  0002:000513AC       aAssault
  0002:000513B4       aArmeDAssaut
  0002:000513C4       aAssalto
  0002:000513CC       aMiscellaneous
- 0002:000513DA       aRDivers
+ 0002:000513DC       aDivers
  0002:000513E4       aVarioTipo
  0002:000513F0       aMinFunding
  0002:000513FC       aBudgetMini
@@ -744,230 +864,229 @@
  0002:00051444       aInRicerca
  0002:00051450       aLoggingOut
  0002:0005145C       aFinDuJeu
- 0002:00051467       aAinUscita
+ 0002:00051468       aInUscita
  0002:00051474       aLoadingMultipl
  0002:00051488       aChargMultijoue
- 0002:0005149B       aIcaricaMultipl
+ 0002:0005149C       aCaricaMultipla
  0002:000514B0       aLoadingGame
- 0002:000514BD       aMichargementPa
- 0002:000514D2       aDgcaricamentoG
+ 0002:000514C0       aChargementPart
+ 0002:000514D4       aCaricamentoGio
  0002:000514E8       aMissionStatus
  0002:000514F8       aStatutDeLaMiss
- 0002:0005150E       aNStatoMissione
+ 0002:00051510       aStatoMissione
  0002:00051520       aCompleted
- 0002:0005152A       aLtterminee
- 0002:00051535       aHarcompletata
+ 0002:0005152C       aTerminee
+ 0002:00051538       aCompletata
  0002:00051544       aWithdrewFromMi
  0002:0005155C       aRetireDeLaMiss
  0002:00051574       aRitiratoDallaM
  0002:0005158C       aFailed
- 0002:00051593       aOechouee
+ 0002:00051594       aEchouee
  0002:0005159C       aFallita
  0002:000515A4       aAgentsUsed
- 0002:000515B1       aMisagentsUtili
+ 0002:000515B4       aAgentsUtilises
  0002:000515C4       aAgentiImpiegat
  0002:000515D8       aNewAgentsGaine
- 0002:000515EB       aEagentsRecuper
- 0002:000515FD       aIthnuoviAgenti
+ 0002:000515EC       aAgentsRecupere
+ 0002:00051600       aNuoviAgentiAcq
  0002:00051618       aTimeInMission
- 0002:00051629       aEmedureeDeLaMi
+ 0002:0005162C       aDureeDeLaMissi
  0002:00051640       aTempoDellaMiss
  0002:00051658       aHours
- 0002:0005165E       aEnheures
- 0002:00051667       aOre
+ 0002:00051660       aHeures
+ 0002:00051668       aOre
  0002:0005166C       aDays
- 0002:00051671       aSUjours
+ 0002:00051674       aJours
  0002:0005167A       aS_3
  0002:0005167C       aGiorni
  0002:00051684       aValueOfDamage
- 0002:00051697       aEdegatsSubis
- 0002:000516A5       aResammontareDe
+ 0002:00051698       aDegatsSubis
+ 0002:000516A8       aAmmontareDeiDa
  0002:000516BC       aEnemyAgentsKil
- 0002:000516D1       aOnAgentsEnnemi
+ 0002:000516D4       aAgentsEnnemisT
  0002:000516E8       aAgentiNemiciEl
  0002:00051700       aCriminalsKille
  0002:00051714       aCriminelsElimi
  0002:00051728       aCriminaliElimi
  0002:0005173C       aCiviliansKille
- 0002:0005174F       aEcivilsTues
+ 0002:00051750       aCivilsTues
  0002:0005175C       aCiviliUccisi
  0002:0005176C       aPoliceKilled
- 0002:0005177B       aGpoliciersTues
+ 0002:0005177C       aPoliciersTues
  0002:0005178C       aPoliziottiUcci
  0002:0005179E       aS_4
  0002:000517A0       aGuardsKilled
- 0002:000517AF       aLgardesTues
+ 0002:000517B0       aGardesTues
  0002:000517BC       aGuardieUccise
  0002:000517CC       aPeoplePersuade
  0002:000517E0       aPersonnesConva
  0002:000517F8       aPersoneConvint
  0002:0005180C       aHitAccuracy
- 0002:0005181A       aViprecisionDeT
- 0002:0005182D       aEKcolpiPrecisi
+ 0002:0005181C       aPrecisionDeTir
+ 0002:00051830       aColpiPrecisi
  0002:00051840       aNoBulletsFired
- 0002:00051851       aIUpasDeBallesU
+ 0002:00051854       aPasDeBallesUti
  0002:0005186C       aProiettiliNonS
  0002:00051884       aResearchOn
  0002:00051890       aRechercheSur
- 0002:0005189E       aRsricercaAttiv
+ 0002:000518A0       aRicercaAttivat
  0002:000518B4       aNewWeaponryHas
  0002:000518D4       aUneNouvelleArm
  0002:000518F4       aNuoviArmamenti
  0002:00051910       aToTheResearchD
- 0002:0005192B       aIauDepartement
+ 0002:0005192C       aAuDepartementD
  0002:0005194C       aAlDipartimento
  0002:00051968       aMissionStatist
- 0002:0005197B       aEstatistiquesM
- 0002:00051991       aLledatiStatist
+ 0002:0005197C       aStatistiquesMi
+ 0002:00051994       aDatiStatistici
  0002:000519B0       aReplacementMet
- 0002:000519FA       aRcjambesDeRemp
+ 0002:000519FC       aJambesDeRempla
  0002:00051A58       aGambeMetallich
- 0002:00051ABE       aAcplasteelLegs
- 0002:00051B23       aJambesEnPlaSte
+ 0002:00051AC0       aPlasteelLegsLi
+ 0002:00051B24       aJambesEnPlaSte
  0002:00051B88       aGambeInPlastee
- 0002:00051BFA       aTCybermeshLegs
+ 0002:00051BFC       aCybermeshLegsP
  0002:00051C6C       aJambesCyberMes
- 0002:00051CD2       aRegambeCyberMe
- 0002:00051D55       aEtireplacement
- 0002:00051DAF       aNbrasDeRemplac
- 0002:00051E22       aSebracciaMetal
- 0002:00051E96       aYdplasteelArms
+ 0002:00051CD4       aGambeCyberMesh
+ 0002:00051D58       aReplacementMet_0
+ 0002:00051DB0       aBrasDeRemplace
+ 0002:00051E24       aBracciaMetalli
+ 0002:00051E98       aPlasteelArmsLi
  0002:00051EFC       aEnPlasteelPlus
- 0002:00051F53       aPbracciaInPlas
+ 0002:00051F54       aBracciaInPlast
  0002:00051FD0       aCybermeshArmsP
- 0002:00052039       aDebrasCybermes
- 0002:000520B5       aMubracciaCyber
- 0002:00052133       aTmetalChestCag
- 0002:0005217E       aErpoitrineMeta
- 0002:000521DF       aCgabbiaToracic
- 0002:00052247       aAplasteelChest
- 0002:0005229E       aBiplasteelPlus
- 0002:00052309       aElGabbiaToraci
+ 0002:0005203C       aBrasCybermeshN
+ 0002:000520B8       aBracciaCyberMe
+ 0002:00052134       aMetalChestCage
+ 0002:00052180       aPoitrineMetall
+ 0002:000521E0       aGabbiaToracica_0
+ 0002:00052248       aPlasteelChestC
+ 0002:000522A0       aPlasteelPlusLe
+ 0002:0005230C       aGabbiaToracica_1
  0002:00052374       aCybermeshChest
  0002:000523E0       aPoitrineCyberm
  0002:00052444       aGabbiaToracica
- 0002:000524C7       aHeartStimulato
- 0002:00052513       aMstimulateurCa
- 0002:00052565       aODstimolatoreC
- 0002:000525B7       aAheartAccelera
- 0002:00052623       aSaccelerateurE
+ 0002:000524C8       aHeartStimulato
+ 0002:00052514       aStimulateurCar
+ 0002:00052568       aStimolatoreCar
+ 0002:000525B8       aHeartAccelerat
+ 0002:00052624       aAccelerateurEt
  0002:0005268C       aAcceleratoreCa
- 0002:00052707       aYcyberneticHea
+ 0002:00052708       aCyberneticHear
  0002:00052788       aCoeurCyberneTi
- 0002:000527F5       aEmCuoreCiberne
+ 0002:000527F8       aCuoreCiberneTi
  0002:00052888       aVisionEnhancer
- 0002:000528DD       aSoOptimiseurDe
- 0002:00052949       aEnamplificator
- 0002:000529A5       aDeenhancedMode
- 0002:000529FE       aAmmodeleV1Amel
- 0002:00052A59       aEenmodelloAvan
- 0002:00052ABA       aVlatestNeurocy
- 0002:00052B37       aTimplantsNeuro
- 0002:00052BA9       aHTlUltimoInnes
- 0002:00052C23       aNneuralEnhance
- 0002:00052C5D       aRadoptimiseurN
- 0002:00052CAD       aODintensificat
- 0002:00052D03       aNeuroCnsDevice
- 0002:00052D76       aToappareilNeur
- 0002:00052DE7       aWdispositivoNe
+ 0002:000528E0       aOptimiseurDeVi
+ 0002:0005294C       aAmplificatoreV
+ 0002:000529A8       aEnhancedModelO
+ 0002:00052A00       aModeleV1Amelio
+ 0002:00052A5C       aModelloAvanzat
+ 0002:00052ABC       aLatestNeurocyb
+ 0002:00052B38       aImplantsNeuroC
+ 0002:00052BAC       aLUltimoInnesto
+ 0002:00052C24       aNeuralEnhancer
+ 0002:00052C60       aOptimiseurNeur
+ 0002:00052CB0       aIntensificator
+ 0002:00052D04       aNeuroCnsDevice
+ 0002:00052D78       aAppareilNeuroL
+ 0002:00052DE8       aDispositivoNeu
  0002:00052E58       aCerebralMultip
- 0002:00052ED2       aIomultiplicate
- 0002:00052F33       aOmoltiplicator
+ 0002:00052ED4       aMultiplicateur
+ 0002:00052F34       aMoltiplicatore
  0002:00052FB8       aLegsV1
  0002:00052FC0       aJambesV1
- 0002:00052FCA       aTigambeV1
- 0002:00052FD5       aIvelegsV2
+ 0002:00052FCC       aGambeV1
+ 0002:00052FD8       aLegsV2
  0002:00052FE0       aJambesV2
- 0002:00052FEA       aRegambeV2
- 0002:00052FF5       aLiclegsV3
+ 0002:00052FEC       aGambeV2
+ 0002:00052FF8       aLegsV3
  0002:00053000       aJambesV3
- 0002:0005300A       aOlgambeV3
- 0002:00053015       aUnaarmsV1
+ 0002:0005300C       aGambeV3
+ 0002:00053018       aArmsV1
  0002:00053020       aBrasV1
  0002:00053028       aBracciaV1
- 0002:00053033       aCarmsV2
+ 0002:00053034       aArmsV2
  0002:0005303C       aBrasV2
  0002:00053044       aBracciaV2
- 0002:0005304F       aHarmsV3
+ 0002:00053050       aArmsV3
  0002:00053058       aBrasV3
  0002:00053060       aBracciaV3
- 0002:0005306B       a1chestV1
+ 0002:0005306C       aChestV1
  0002:00053075       a1
- 0002:00053077       aTpoitrineV1
+ 0002:00053078       aPoitrineV1
  0002:00053084       aToraceV1
- 0002:0005308E       aAmchestV2
- 0002:00053099       aGampoitrineV2
+ 0002:00053090       aChestV2
+ 0002:0005309C       aPoitrineV2
  0002:000530A8       aToraceV2
- 0002:000530B2       aSChestV3
- 0002:000530BD       aEVpoitrineV3
+ 0002:000530B4       aChestV3
+ 0002:000530C0       aPoitrineV3
  0002:000530CC       aToraceV3
- 0002:000530D6       aRaheartV1
- 0002:000530E1       aArmcoeurV1
- 0002:000530ED       aV2cuoreV1
+ 0002:000530D8       aHeartV1
+ 0002:000530E4       aCoeurV1
+ 0002:000530F0       aCuoreV1
  0002:000530F9       aV2
  0002:000530FC       aHeartV2
  0002:00053108       aCoeurV2
- 0002:00053111       aRaccuoreV2
- 0002:0005311D       aHesheartV3
- 0002:00053129       aOitcoeurV3
- 0002:00053135       aOracuoreV3
- 0002:00053141       aHeseyesV1
+ 0002:00053114       aCuoreV2
+ 0002:00053120       aHeartV3
+ 0002:0005312C       aCoeurV3
+ 0002:00053138       aCuoreV3
+ 0002:00053144       aEyesV1
  0002:0005314C       aYeuxV1
  0002:00053154       aOcchiV1
- 0002:0005315D       aEVeyesV2
+ 0002:00053160       aEyesV2
  0002:00053168       aYeuxV2
  0002:00053170       aOcchiV2
  0002:00053179       aV3
  0002:0005317C       aEyesV3
  0002:00053184       aYeuxV3
  0002:0005318C       aOcchiV3
- 0002:00053195       aOeubrainV1
- 0002:000531A1       aUorcerveauV1
- 0002:000531AF       aRcervelloV1
+ 0002:00053198       aBrainV1
+ 0002:000531A4       aCerveauV1
+ 0002:000531B0       aCervelloV1
  0002:000531BC       aBrainV2
- 0002:000531C5       aRaccerveauV2
- 0002:000531D3       aScervelloV2
+ 0002:000531C8       aCerveauV2
+ 0002:000531D4       aCervelloV2
  0002:000531E0       aBrainV3
- 0002:000531E9       aOracerveauV3
- 0002:000531F7       aScervelloV3
+ 0002:000531EC       aCerveauV3
+ 0002:000531F8       aCervelloV3
  0002:00053204       aPersuadertron
- 0002:00053212       aVpersuadotron
+ 0002:00053214       aPersuadotron
  0002:00053221       aV2_0
  0002:00053224       aPistol
- 0002:0005322B       a2pistolet
+ 0002:0005322C       aPistolet
  0002:00053235       aV3_0
  0002:00053238       aPistola
  0002:00053240       aGaussGun
- 0002:0005324A       aEupistoletGaus
- 0002:0005325B       aVpistolaGauss
+ 0002:0005324C       aPistoletGauss
+ 0002:0005325C       aPistolaGauss
  0002:0005326C       aShotgun
  0002:00053274       aFusil
- 0002:0005327A       aRvfucile
- 0002:00053283       aSuzi
+ 0002:0005327C       aFucile
+ 0002:00053284       aUzi
  0002:00053288       aMiniGun
- 0002:00053291       aRaipM
+ 0002:00053294       aPM
  0002:00053298       aMiniPistola
  0002:000532A5       a3
- 0002:000532A7       aSlaser
- 0002:000532AE       aLoflamer
- 0002:000532B7       aSlanceFlammes
- 0002:000532C6       aRslanciafiamme
- 0002:000532D5       aIstlongRange
- 0002:000532E3       aTlonguePortee
- 0002:000532F2       aUslungaGittata
- 0002:00053302       aEtscanner
+ 0002:000532A8       aLaser
+ 0002:000532B0       aFlamer
+ 0002:000532B8       aLanceFlammes
+ 0002:000532C8       aLanciafiamme
+ 0002:000532D8       aLongRange
+ 0002:000532E4       aLonguePortee
+ 0002:000532F4       aLungaGittata
+ 0002:00053304       aScanner
  0002:0005330C       aMedikit
  0002:00053314       aKitMedico
  0002:00053320       aTimeBomb
- 0002:0005332A       aSibombeARetrd
+ 0002:0005332C       aBombeARetrd
  0002:0005333C       aBombaATempo
  0002:0005334A       aM
  0002:0005334C       aAccessCard
  0002:00053358       aCarteDAcces
- 0002:00053366       aAmschedaAccess
- 0002:00053377       aEaccessCard1
- 0002:00053385       aMme
- 0002:0005338A       aStaccessCard2
+ 0002:00053368       aSchedaAccesso
+ 0002:00053378       aAccessCard1
+ 0002:0005338C       aAccessCard2
  0002:000533A0       aAutoMapper
  0002:000533AC       aCartographe
  0002:000533B8       aEnergyShield
@@ -976,23 +1095,23 @@
  0002:000533E4       aShield1
  0002:000533F0       aShield2
  0002:000533FC       aConfigureCompa
- 0002:0005340E       aRtconfigurerSo
- 0002:00053423       aAconfiguraComp
+ 0002:00053410       aConfigurerSoci
+ 0002:00053424       aConfiguraCompa
  0002:00053438       aBeginMission
- 0002:00053446       aCcommencerMiss
- 0002:0005345A       aApinizioMissio
+ 0002:00053448       aCommencerMissi
+ 0002:0005345C       aInizioMissione
  0002:0005346C       aLoadAndSaveGam
  0002:00053480       aChargSauverPar
- 0002:00053495       aD1CaricaESalva
- 0002:000534AD       aGurmultiplayer
- 0002:000534C1       aGurjeuMultiJou
- 0002:000534D6       aUrgiocoMultipl
- 0002:000534EA       aMirestartGame
- 0002:000534F9       aNcenouvellePar
+ 0002:00053498       aCaricaESalvaGi
+ 0002:000534B0       aMultiplayerGam
+ 0002:000534C4       aJeuMultiJoueur
+ 0002:000534D8       aGiocoMultiplay
+ 0002:000534EC       aRestartGame
+ 0002:000534FC       aNouvellePartie
  0002:0005350C       aRicominciaPart
- 0002:0005351F       aDquitToDos
+ 0002:00053520       aQuitToDos
  0002:0005352C       aRetourAuDos
- 0002:0005353A       aPaesciAlDos
+ 0002:0005353C       aEsciAlDos
  0002:00053548       aDataMlosaoutDa
  0002:0005355C       aIntroNul
  0002:0005356C       aInvalidOptionS
@@ -1050,55 +1169,55 @@
  0002:000539B4       aMultiplayerLev_7
  0002:000539C8       aMultiplayerLev_8
  0002:000539E0       aAfshar
- 0002:000539E7       aArnold
+ 0002:000539E8       aArnold
  0002:000539F0       aBaird
- 0002:000539F6       aLabaldwin
+ 0002:000539F8       aBaldwin
  0002:00053A00       aBlack
- 0002:00053A06       aLtboyd
- 0002:00053A0D       aErBoyesen
+ 0002:00053A08       aBoyd
+ 0002:00053A10       aBoyesen
  0002:00053A18       aBrazier
  0002:00053A20       aBrown
- 0002:00053A26       aVebush
- 0002:00053A2D       aUltcarr
- 0002:00053A35       aErChrismas
- 0002:00053A41       aUltclinton
+ 0002:00053A28       aBush
+ 0002:00053A30       aCarr
+ 0002:00053A38       aChrismas
+ 0002:00053A44       aClinton
  0002:00053A4C       aCooper
  0002:00053A54       aCorpes
- 0002:00053A5B       aAcox
+ 0002:00053A5C       aCox
  0002:00053A60       aDawson
  0002:00053A68       aDonkin
- 0002:00053A6F       aAdiskett
+ 0002:00053A70       aDiskett
  0002:00053A78       aDunne
- 0002:00053A7E       aLaedgar
- 0002:00053A86       aVeevans
- 0002:00053A8E       aLtfairley
+ 0002:00053A80       aEdgar
+ 0002:00053A88       aEvans
+ 0002:00053A90       aFairley
  0002:00053A98       aFawcett
  0002:00053AA0       aFlint
- 0002:00053AA6       aLafloyd
+ 0002:00053AA8       aFloyd
  0002:00053AAE       aN_0
  0002:00053AB0       aGriffiths
- 0002:00053ABA       aYdharris
- 0002:00053AC3       aEhastings
+ 0002:00053ABC       aHarris
+ 0002:00053AC4       aHastings
  0002:00053ACD       aEr_0
  0002:00053AD0       aHerbert
  0002:00053AD8       aHickman
  0002:00053AE0       aHicks
- 0002:00053AE6       aRHill
- 0002:00053AED       aMasjames
- 0002:00053AF6       aInjeffery
+ 0002:00053AE8       aHill
+ 0002:00053AF0       aJames
+ 0002:00053AF8       aJeffery
  0002:00053B00       aJoeseph
  0002:00053B08       aJohnson
  0002:00053B10       aJohnston
- 0002:00053B19       aOnkjones
+ 0002:00053B1C       aJones
  0002:00053B24       aLewis
- 0002:00053B2A       aLalindsell
- 0002:00053B35       aVanlockley
+ 0002:00053B2C       aLindsell
+ 0002:00053B38       aLockley
  0002:00053B40       aMartin
- 0002:00053B47       aCmcentee
+ 0002:00053B48       aMcentee
  0002:00053B50       aMclaughin
  0002:00053B5A       aN_1
  0002:00053B5C       aMolyneux
- 0002:00053B66       aYdmunro
+ 0002:00053B68       aMunro
  0002:00053B70       aMorris
  0002:00053B78       aMumford
  0002:00053B80       aNixon
@@ -1157,11 +1276,18 @@
  0002:00054720       a4
  0002:00054744       str
  0002:0005478C       a5
+ 0002:00054D94       sndcard_irq
+ 0002:00054D96       sndcard_dma
+ 0002:00054D98       sndcard_ioaddr
  0002:00054FAC       mmapblk_load_files
  0002:00055044       aSynd
  0002:00055308       pointer_sprites
  0002:0005530C       pointer_sprites_end
  0002:00055310       pointer_data
+ 0002:0005534C       smpdata
+ 0002:00055350       smptable
+ 0002:00055354       smptable_end
+ 0002:0005535C       map_buf
  0002:00055368       WScreen
  0002:00055378       palette
  0002:00055380       GraphicsWindowX
@@ -1192,6 +1318,7 @@
  0002:0005BDC4       rtn_seg
  0002:0005BDC6       timer_handle
  0002:0005BDCA       local_DS
+ 0002:0005BDCC       CURRENT_REV
  0002:0005C080       __iob
  0002:0005C294       stored_stk
  0002:0005C296       aStackOverflow
@@ -1209,8 +1336,19 @@
  0002:0005C328       __Rest8087
  0002:0005DEFC       timer2
  0002:0005DF3C       mouse_backup
+ 0002:000605D4       packets
+ 0002:00060AA0       m_select_pal
  0002:00060B02       a11
- 0002:00061BE4       a7
+ 0002:00060B45       is_multiplayer_game
+ 0002:00060B49       midi_available
+ 0002:00060B4A       sound_available
+ 0002:00061BC8       m_sprites_end
+ 0002:00061BCC       m_font_data
+ 0002:00061BD0       m_spr_data
+ 0002:00061BD4       m_font_end
+ 0002:00061BD8       m_font
+ 0002:00061BE0       m_logos
+ 0002:00061BE4       m_sprites
  0002:00061DEC       DIGhdriver
  0002:00061DF0       DIGdll
  0002:00061DF4       DIGdrvr

@@ -63,3 +63,80 @@ struct __attribute__((packed)) __attribute__((aligned(2))) TbSprite
   char SHeight;
 };
 
+/* 6 */
+struct Packet
+{
+  __int16 field_0;
+  __int16 field_2;
+  __int16 field_4;
+  __int16 field_6;
+  __int16 field_8;
+  __int16 field_A;
+  char field_C;
+  char Action;
+};
+
+/* 7 */
+enum PacketActions
+{
+  PAct_NONE = 0x0,
+  PAct_1 = 0x1,
+  PAct_2 = 0x2,
+  PAct_3 = 0x3,
+  PAct_4 = 0x4,
+  PAct_5 = 0x5,
+  PAct_6 = 0x6,
+  PAct_7 = 0x7,
+  PAct_8 = 0x8,
+  PAct_9 = 0x9,
+  PAct_a = 0xA,
+  PAct_b = 0xB,
+  PAct_c = 0xC,
+  PAct_d = 0xD,
+  PAct_e = 0xE,
+  PAct_f = 0xF,
+  PAct_10 = 0x10,
+  PAct_11 = 0x11,
+  PAct_12 = 0x12,
+  PAct_13 = 0x13,
+  PAct_14 = 0x14,
+  PAct_15 = 0x15,
+  PAct_16 = 0x16,
+  PAct_17 = 0x17,
+  PAct_18 = 0x18,
+  PAct_19 = 0x19,
+  PAct_1a = 0x1A,
+  PAct_1b = 0x1B,
+  PAct_1c = 0x1C,
+  PAct_1d = 0x1D,
+  PAct_1e = 0x1E,
+  PAct_1f = 0x1F,
+  PAct_20 = 0x20,
+  PAct_21 = 0x21,
+  PAct_22 = 0x22,
+  PAct_23 = 0x23,
+  PAct_24 = 0x24,
+  PAct_25 = 0x25,
+  PAct_26 = 0x26,
+  PAct_27 = 0x27,
+  PAct_28 = 0x28,
+  PAct_29 = 0x29,
+  PAct_2a = 0x2A,
+  PAct_2b = 0x2B,
+  PAct_2c = 0x2C,
+  PAct_2d = 0x2D,
+  PAct_2e = 0x2E,
+  PAct_2f = 0x2F,
+  PAct_30 = 0x30,
+  PAct_31 = 0x31,
+  PAct_32 = 0x32,
+  PAct_33 = 0x33,
+  PAct_34 = 0x34,
+  PAct_35 = 0x35,
+  PAct_36 = 0x36,
+  PAct_37 = 0x37,
+  PAct_38 = 0x38,
+  PAct_39 = 0x39,
+  PAct_3a = 0x3A,
+};
+
