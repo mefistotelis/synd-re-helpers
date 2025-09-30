@@ -45,3 +45,37 @@ any disassembler; to load it into Ida Pro, use
 * `xml` format is developed for more complex sharing
 of symbols between Ida Pro and Ghidra. Use Ghidra IDAPro
 Extensions to load them into any of these tools.
+
+## Quick start - ghidra or IDA Pro
+
+Here is a simple quick start procedure, to use these
+files with _IDA Pro_ or _ghidra_ - the two most popular
+tools (sorry BinaryNinja fans!).
+
+1. Download _ghidra_. Yes, even if you want to use IDA
+ Pro. That's the first step, don't question it.
+
+2. [IDA Only] The _ghidra_ distribution includes a plugin
+ for use with _IDA Pro_. The _XML exporter plugin_ is
+ used to export databases as XML files so that they
+ can be imported into both tools. This allows to migrate
+ between these disassemblers, both ways. To add the
+ _XML exporter plugin_ to your IDA installation, locate
+ the folders in the `<ghidra_dir>/Extensions/IDAPro`
+ folder. Get IDA Pro version which the exporter supports,
+ and copy the python files into `<IDA_dir>/plugins`.
+
+3. [ghidra Only] Install Java JDK which your version of
+ _ghidra_ supports, and then install _ghidra_. I'm
+ serious, check the JDK version carefully, or this will
+ not be as quick as you expect.
+
+4. Open the proper binary executable file from `bin`
+ folder into your tool of choice, you may skip analysis
+ as the XML replaces everything. Then use _XML importer
+ plugin_ to load the `.xml` file from `symbols` folder.
+
+5. Done. You're ready to go.
+
+
+Have a fascinating experience!
