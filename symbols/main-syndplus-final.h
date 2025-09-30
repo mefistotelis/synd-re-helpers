@@ -140,3 +140,36 @@ enum PacketActions
   PAct_3a = 0x3A,
 };
 
+/* 8 */
+struct __attribute__((packed)) __attribute__((aligned(1))) NCB
+{
+  char Command;
+  char RetCode;
+  char Lsn;
+  char Num;
+  __int16 BufferPtr;
+  __int16 BufferPtrSeg;
+  __int16 Length;
+  char CallName[16];
+  char Name[16];
+  char Rto;
+  char Sto;
+  int Post;
+  char LanaNum;
+  char CmdCPlt;
+  char Reserve[14];
+  char Segment;
+};
+
+/* 9 */
+struct DWORDREGS
+{
+  int r_eax;
+  int r_ebx;
+  int r_ecx;
+  int r_edx;
+  int r_esi;
+  int r_edi;
+  int cflag;
+};
+

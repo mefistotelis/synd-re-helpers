@@ -2,7 +2,7 @@
 <?program_dtd version="1"?>
 
 <PROGRAM NAME="main-syndplus-final.exe" EXE_PATH="main-syndplus-final.exe" EXE_FORMAT="Linear Executable (LE)" INPUT_MD5="gD&#xee;&#xcf;&#x95;p&#xb9;&#x9e;D&#xce;&#xdf;K&#xac;">
-    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="main-syndplus-final.idb" TIMESTAMP="2025-09-29 14:25" />
+    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="main-syndplus-final.idb" TIMESTAMP="2025-09-30 23:31" />
     <PROCESSOR NAME="metapc" ENDIAN="little" ADDRESS_MODEL="32-bit" />
     <COMPILER NAME="Watcom C++" />
     <DATATYPES>
@@ -23,6 +23,33 @@
             <MEMBER OFFSET="0xA" NAME="field_A" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0xD" NAME="Action" DATATYPE="byte" SIZE="0x1" />
+        </STRUCTURE>
+        <STRUCTURE NAME="NCB" SIZE="0x41">
+            <MEMBER OFFSET="0x0" NAME="Command" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1" NAME="RetCode" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x2" NAME="Lsn" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x3" NAME="Num" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4" NAME="BufferPtr" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="BufferPtrSeg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Length" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="CallName" DATATYPE="byte" SIZE="0x10" />
+            <MEMBER OFFSET="0x1A" NAME="Name" DATATYPE="byte" SIZE="0x10" />
+            <MEMBER OFFSET="0x2A" NAME="Rto" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x2B" NAME="Sto" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x2C" NAME="Post" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x30" NAME="LanaNum" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x31" NAME="CmdCPlt" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x32" NAME="Reserve" DATATYPE="byte" SIZE="0xE" />
+            <MEMBER OFFSET="0x40" NAME="Segment" DATATYPE="byte" SIZE="0x1" />
+        </STRUCTURE>
+        <STRUCTURE NAME="DWORDREGS" SIZE="0x1C">
+            <MEMBER OFFSET="0x0" NAME="r_eax" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x4" NAME="r_ebx" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x8" NAME="r_ecx" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0xC" NAME="r_edx" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x10" NAME="r_esi" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x14" NAME="r_edi" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x18" NAME="cflag" DATATYPE="dword" SIZE="0x4" />
         </STRUCTURE>
         <STRUCTURE NAME="TbSprite" SIZE="0x6">
             <MEMBER OFFSET="0x0" NAME="Data" DATATYPE="pointer" SIZE="0x4" />
@@ -5592,10 +5619,13 @@
             <TYPEINFO_CMT>byte_55038</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55044" DATATYPE="string" SIZE="0xF">
-            <TYPEINFO_CMT>aSynd</TYPEINFO_CMT>
+            <TYPEINFO_CMT>Network__Name</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x55056" DATATYPE="byte[6]" SIZE="0x6">
-            <TYPEINFO_CMT>byte_55056</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x55056" DATATYPE="byte" SIZE="0x1">
+            <TYPEINFO_CMT>Network__MasterNcb__Command</TYPEINFO_CMT>
+        </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x55057" DATATYPE="byte" SIZE="0x1">
+            <TYPEINFO_CMT>Network__MasterNcb__RetCode</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5505C" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5505C</TYPEINFO_CMT>
@@ -6811,10 +6841,10 @@
             <TYPEINFO_CMT>word_5DF2E</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5DF30" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5DF30</TYPEINFO_CMT>
+            <TYPEINFO_CMT>Network__Status</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5DF38" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5DF38</TYPEINFO_CMT>
+            <TYPEINFO_CMT>net_recv_buffer_size</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5DF3C" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>mouse_backup</TYPEINFO_CMT>
@@ -7250,7 +7280,7 @@
             <TYPEINFO_CMT>word_60B0A</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B0C" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_60B0C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>Network__NumberOfSlots</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B0E" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_60B0E</TYPEINFO_CMT>
@@ -7265,7 +7295,7 @@
             <TYPEINFO_CMT>word_60B14</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B16" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_60B16</TYPEINFO_CMT>
+            <TYPEINFO_CMT>Network__Slot</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B18" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_60B18</TYPEINFO_CMT>
@@ -7364,7 +7394,7 @@
             <TYPEINFO_CMT>midi_available</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4A" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>sound_available</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SoundInstalled</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4B" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_60B4B</TYPEINFO_CMT>
@@ -9208,7 +9238,7 @@
         <COMMENT ADDRESS="0x251CA" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x251DE" TYPE="end-of-line">fname </COMMENT>
         <COMMENT ADDRESS="0x251E7" TYPE="end-of-line">a2 </COMMENT>
-        <COMMENT ADDRESS="0x251EF" TYPE="end-of-line">p_pal </COMMENT>
+        <COMMENT ADDRESS="0x251EF" TYPE="end-of-line">p_buf </COMMENT>
         <COMMENT ADDRESS="0x251FE" TYPE="end-of-line">palette </COMMENT>
         <COMMENT ADDRESS="0x2531B" TYPE="end-of-line">fname </COMMENT>
         <COMMENT ADDRESS="0x253B7" TYPE="end-of-line">fname </COMMENT>
@@ -10343,8 +10373,20 @@ Return: AH = scan code, AL = character </COMMENT>
 ; Virtual Size      : 0001C632h 
 ; Number of Pages   : 28 (present in the file) 
 ; Attributes (00002043): Readable Writable PreloadPages Big  </COMMENT>
+        <COMMENT ADDRESS="0x1765E" TYPE="end-of-line">inlined load_background_screen() </COMMENT>
         <COMMENT ADDRESS="0x1AD88" TYPE="end-of-line">LbMemoryAllocLow </COMMENT>
         <COMMENT ADDRESS="0x274CE" TYPE="end-of-line">inlined play_syndicate_intro() </COMMENT>
+        <COMMENT ADDRESS="0x2A6C1" TYPE="end-of-line">inlined __NETBios__() </COMMENT>
+        <COMMENT ADDRESS="0x2A75F" TYPE="end-of-line">MasterNcb-&gt;Command=0x7f; </COMMENT>
+        <COMMENT ADDRESS="0x2A924" TYPE="end-of-line">ncb-&gt;Command=ADD_NAME </COMMENT>
+        <COMMENT ADDRESS="0x2AA74" TYPE="end-of-line">ncb-&gt;Command=DELETE_NAME; </COMMENT>
+        <COMMENT ADDRESS="0x2AAF9" TYPE="end-of-line">Ncb-&gt;Command=LISTEN; </COMMENT>
+        <COMMENT ADDRESS="0x2AC39" TYPE="end-of-line">Ncb-&gt;Command=CALL; </COMMENT>
+        <COMMENT ADDRESS="0x2ADB8" TYPE="end-of-line">ncb-&gt;Command=SEND; </COMMENT>
+        <COMMENT ADDRESS="0x2AE37" TYPE="end-of-line">ncb-&gt;Command=RECEIVE; </COMMENT>
+        <COMMENT ADDRESS="0x2AEF3" TYPE="end-of-line">Ncb-&gt;Command=CANCEL; </COMMENT>
+        <COMMENT ADDRESS="0x2AF83" TYPE="end-of-line">ncb-&gt;Command=HANG_UP; </COMMENT>
+        <COMMENT ADDRESS="0x2B0DF" TYPE="end-of-line">Free Memory, edx=selector </COMMENT>
         <COMMENT ADDRESS="0x342A6" TYPE="end-of-line">inlined empty fn_S_PERSON_WAITING_TO_MOVE() </COMMENT>
         <COMMENT ADDRESS="0x3441A" TYPE="end-of-line">inlined fn_S_PERSON_ASHES() </COMMENT>
         <COMMENT ADDRESS="0x34429" TYPE="end-of-line">inlined fn_S_PERSON_CHECK_CROSS_ROAD() </COMMENT>
@@ -10362,19 +10404,56 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x10510" NAME="level_complete" />
         <SYMBOL ADDRESS="0x105E0" NAME="check_end_level" />
         <SYMBOL ADDRESS="0x10E20" NAME="random" />
+        <SYMBOL ADDRESS="0x10E60" NAME="mission_briefing" />
+        <SYMBOL ADDRESS="0x11A70" NAME="draw_brief_tact_map" />
         <SYMBOL ADDRESS="0x11EA0" NAME="click_map" />
+        <SYMBOL ADDRESS="0x12150" NAME="sight_colide" />
+        <SYMBOL ADDRESS="0x122D0" NAME="get_altitude_point1" />
+        <SYMBOL ADDRESS="0x12340" NAME="get_altitude_point2" />
+        <SYMBOL ADDRESS="0x12400" NAME="check_point1" />
+        <SYMBOL ADDRESS="0x125F0" NAME="check_point2" />
+        <SYMBOL ADDRESS="0x127A0" NAME="set_who_shot_me" />
+        <SYMBOL ADDRESS="0x12880" NAME="sprite_colide" />
+        <SYMBOL ADDRESS="0x13870" NAME="bullet_colide" />
+        <SYMBOL ADDRESS="0x14620" NAME="bullet_try_colide" />
+        <SYMBOL ADDRESS="0x15170" NAME="check_area_for_person_unique" />
+        <SYMBOL ADDRESS="0x152E0" NAME="check_square_for_model" />
+        <SYMBOL ADDRESS="0x153A0" NAME="bump_person" />
+        <SYMBOL ADDRESS="0x15560" NAME="init_computer_players" />
+        <SYMBOL ADDRESS="0x15660" NAME="InitAComputerPlayer" />
         <SYMBOL ADDRESS="0x15B10" NAME="process_computer_players" />
         <SYMBOL ADDRESS="0x15C60" NAME="CPDoTurn" />
+        <SYMBOL ADDRESS="0x16260" NAME="CPShouldIShootMyTarget" />
+        <SYMBOL ADDRESS="0x16350" NAME="CPTargetAlive" />
+        <SYMBOL ADDRESS="0x16380" NAME="CPGotoOldStateAndRelax" />
+        <SYMBOL ADDRESS="0x163F0" NAME="CPShootPerson" />
+        <SYMBOL ADDRESS="0x16480" NAME="CPPersuadePerson" />
+        <SYMBOL ADDRESS="0x16550" NAME="CPDoObjectiveStep" />
+        <SYMBOL ADDRESS="0x16930" NAME="CPDestroyVehicle" />
+        <SYMBOL ADDRESS="0x16AB0" NAME="CPCompletedObjectiveStep" />
+        <SYMBOL ADDRESS="0x16E40" NAME="CPGetObjective" />
+        <SYMBOL ADDRESS="0x16FB0" NAME="CPCanAgentDoMission" />
+        <SYMBOL ADDRESS="0x170E0" NAME="CPSetupDoMissionObjective" />
+        <SYMBOL ADDRESS="0x17200" NAME="CPDoIOwnWeapon" />
+        <SYMBOL ADDRESS="0x17250" NAME="CPGetFirstObjectiveInList" />
+        <SYMBOL ADDRESS="0x172A0" NAME="CPSetupNewObjective" />
+        <SYMBOL ADDRESS="0x17300" NAME="CPFollowAndAttackTarget" />
         <SYMBOL ADDRESS="0x17510" NAME="getrdist" />
+        <SYMBOL ADDRESS="0x17580" NAME="CPLivingHAgents" />
         <SYMBOL ADDRESS="0x175B0" NAME="jpt_17E75" />
+        <SYMBOL ADDRESS="0x175C0" NAME="configure_company" />
         <SYMBOL ADDRESS="0x180BA" NAME="def_17E75" />
         <SYMBOL ADDRESS="0x18238" NAME="jpt_18270" />
         <SYMBOL ADDRESS="0x18537" NAME="def_18270" />
+        <SYMBOL ADDRESS="0x186F0" NAME="draw_logo" />
         <SYMBOL ADDRESS="0x18810" NAME="process_day" />
         <SYMBOL ADDRESS="0x18BD0" NAME="AdjustStateHappiness" />
         <SYMBOL ADDRESS="0x18CF0" NAME="GetRevenueFromCity" />
         <SYMBOL ADDRESS="0x18D80" NAME="ComputerPlaysMap" />
-        <SYMBOL ADDRESS="0x18F30" NAME="draw_date_nc" />
+        <SYMBOL ADDRESS="0x18EB0" NAME="HowManyStatesDoIOwn" />
+        <SYMBOL ADDRESS="0x18EF0" NAME="GetNthOwnedState" />
+        <SYMBOL ADDRESS="0x18F30" NAME="ShowGameTime" />
+        <SYMBOL ADDRESS="0x18FF0" NAME="debrief" />
         <SYMBOL ADDRESS="0x1A250" NAME="DLL_read" />
         <SYMBOL ADDRESS="0x1A2B0" NAME="DLL_size" />
         <SYMBOL ADDRESS="0x1A400" NAME="DLL_load" />
@@ -10406,21 +10485,42 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x1D180" NAME="set_all_changes" />
         <SYMBOL ADDRESS="0x1D450" NAME="draw_mapwho" />
         <SYMBOL ADDRESS="0x1DF10" NAME="copy_back" />
+        <SYMBOL ADDRESS="0x1E1C0" NAME="draw_agent_element" />
         <SYMBOL ADDRESS="0x1E300" NAME="full_redraw" />
         <SYMBOL ADDRESS="0x1E400" NAME="scroll_map" />
         <SYMBOL ADDRESS="0x1EA20" NAME="nullsub_2" />
+        <SYMBOL ADDRESS="0x1EA30" NAME="init_fireball" />
         <SYMBOL ADDRESS="0x1EB80" NAME="move_effects" />
         <SYMBOL ADDRESS="0x1FB50" NAME="jpt_21874" />
+        <SYMBOL ADDRESS="0x1FBC0" NAME="equip_team" />
         <SYMBOL ADDRESS="0x227D9" NAME="def_21874" />
+        <SYMBOL ADDRESS="0x22850" NAME="draw_ammo_for_this_weapon" />
+        <SYMBOL ADDRESS="0x228D0" NAME="which_item_selected" />
+        <SYMBOL ADDRESS="0x22A10" NAME="ShowInfoOnEquipItem" />
+        <SYMBOL ADDRESS="0x22E20" NAME="WhichIconSelected" />
+        <SYMBOL ADDRESS="0x22EB0" NAME="ShowAvailableParts" />
+        <SYMBOL ADDRESS="0x22FE0" NAME="ShowAvailableEquipment" />
+        <SYMBOL ADDRESS="0x23120" NAME="PurchasePart" />
+        <SYMBOL ADDRESS="0x23370" NAME="PurchaseWeapon" />
+        <SYMBOL ADDRESS="0x23430" NAME="GetNextAvailableWeaponSlot" />
+        <SYMBOL ADDRESS="0x234A0" NAME="GetNextAvailableWeaponSlot2" />
+        <SYMBOL ADDRESS="0x23510" NAME="ThisPlayerInTeam" />
         <SYMBOL ADDRESS="0x23540" NAME="GetTeamMemberName" />
+        <SYMBOL ADDRESS="0x235D0" NAME="init_map_data" />
+        <SYMBOL ADDRESS="0x23650" NAME="adjust_vehicles" />
         <SYMBOL ADDRESS="0x237B0" NAME="reset_mission_info" />
         <SYMBOL ADDRESS="0x23880" NAME="set_default_player" />
         <SYMBOL ADDRESS="0x23F10" NAME="cheat" />
         <SYMBOL ADDRESS="0x246D0" NAME="transfer_people_into_player" />
         <SYMBOL ADDRESS="0x24C80" NAME="init_players_people" />
+        <SYMBOL ADDRESS="0x24F60" NAME="init_a_players_weapon" />
+        <SYMBOL ADDRESS="0x24FC0" NAME="clear_savegame" />
         <SYMBOL ADDRESS="0x24FE0" NAME="free_map_level" />
+        <SYMBOL ADDRESS="0x25020" NAME="set_structure_ends" />
+        <SYMBOL ADDRESS="0x25110" NAME="init_level_data" />
         <SYMBOL ADDRESS="0x252B0" NAME="load_map_level" />
         <SYMBOL ADDRESS="0x253F0" NAME="init_effect" />
+        <SYMBOL ADDRESS="0x25460" NAME="init_weapon" />
         <SYMBOL ADDRESS="0x25560" NAME="single_play" />
         <SYMBOL ADDRESS="0x25580" NAME="multi_play" />
         <SYMBOL ADDRESS="0x256F0" NAME="initialise_player" />
@@ -10435,12 +10535,41 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x27A20" NAME="print_command_opts" />
         <SYMBOL ADDRESS="0x27A70" NAME="timer2_cb" />
         <SYMBOL ADDRESS="0x27BF0" NAME="LbMouseSetup" />
+        <SYMBOL ADDRESS="0x27C30" NAME="setup_a_sprite" />
         <SYMBOL ADDRESS="0x27C60" NAME="LbSpriteSetup" />
         <SYMBOL ADDRESS="0x27DB0" NAME="correct_buttons" />
+        <SYMBOL ADDRESS="0x27E00" NAME="map_selection" />
         <SYMBOL ADDRESS="0x29250" NAME="move_it" />
+        <SYMBOL ADDRESS="0x29270" NAME="remove_model" />
+        <SYMBOL ADDRESS="0x29290" NAME="animate_model" />
         <SYMBOL ADDRESS="0x292D0" NAME="move_worlds" />
+        <SYMBOL ADDRESS="0x29460" NAME="get_angle" />
+        <SYMBOL ADDRESS="0x29530" NAME="move_mapwho" />
+        <SYMBOL ADDRESS="0x29660" NAME="move_off_mapwho" />
+        <SYMBOL ADDRESS="0x296D0" NAME="move_on_mapwho" />
         <SYMBOL ADDRESS="0x29760" NAME="jpt_2998D" />
         <SYMBOL ADDRESS="0x29825" NAME="def_2998D" />
+        <SYMBOL ADDRESS="0x29A10" NAME="ExchangeNetwork_0" />
+        <SYMBOL ADDRESS="0x29B70" NAME="ExchangeNetwork" />
+        <SYMBOL ADDRESS="0x2A340" NAME="StopNetwork" />
+        <SYMBOL ADDRESS="0x2A4D0" NAME="SetupNetwork" />
+        <SYMBOL ADDRESS="0x2A5C0" NAME="ResetNetwork" />
+        <SYMBOL ADDRESS="0x2A640" NAME="__NETBios__" />
+        <SYMBOL ADDRESS="0x2A730" NAME="__NETCheckBios__" />
+        <SYMBOL ADDRESS="0x2A790" NAME="ResetNetSlot" />
+        <SYMBOL ADDRESS="0x2A7C0" NAME="NetMyLowAlloc" />
+        <SYMBOL ADDRESS="0x2A880" NAME="__NETAdd__" />
+        <SYMBOL ADDRESS="0x2A9D0" NAME="__NETDelete__" />
+        <SYMBOL ADDRESS="0x2AAE0" NAME="__NETListen__" />
+        <SYMBOL ADDRESS="0x2AC20" NAME="__NETCall__" />
+        <SYMBOL ADDRESS="0x2AD60" NAME="net_send" />
+        <SYMBOL ADDRESS="0x2AE10" NAME="net_receive" />
+        <SYMBOL ADDRESS="0x2AEE0" NAME="__NETCancel__" />
+        <SYMBOL ADDRESS="0x2AF70" NAME="__NETHangUp__" />
+        <SYMBOL ADDRESS="0x2B0A0" NAME="NetMyFree" />
+        <SYMBOL ADDRESS="0x2B130" NAME="SendNetwork" />
+        <SYMBOL ADDRESS="0x2B1B0" NAME="ReceiveNetwork" />
+        <SYMBOL ADDRESS="0x2B260" NAME="ErrLogNetwork" />
         <SYMBOL ADDRESS="0x2B580" NAME="LbMouseReset" />
         <SYMBOL ADDRESS="0x2B940" NAME="move_objects" />
         <SYMBOL ADDRESS="0x2C2E0" NAME="set_mission_complete" />
@@ -10449,6 +10578,9 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x2D0E0" NAME="draw_panel" />
         <SYMBOL ADDRESS="0x2D610" NAME="make_packet" />
         <SYMBOL ADDRESS="0x2ED20" NAME="clear_weapons" />
+        <SYMBOL ADDRESS="0x2EE30" NAME="draw_bars" />
+        <SYMBOL ADDRESS="0x30E40" NAME="cp_i_can_see_and_shoot_person" />
+        <SYMBOL ADDRESS="0x310C0" NAME="i_can_see_and_shoot_vehicle" />
         <SYMBOL ADDRESS="0x31DF0" NAME="person_danger" />
         <SYMBOL ADDRESS="0x31EC0" NAME="person_use_weapon" />
         <SYMBOL ADDRESS="0x31F60" NAME="fn_S_PERSON_STAND" />
@@ -10491,16 +10623,23 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x33FB0" NAME="fn_S_PERSON_USE_WEAPON" />
         <SYMBOL ADDRESS="0x34030" NAME="fn_S_PERSON_BEING_PERSUADED" />
         <SYMBOL ADDRESS="0x34110" NAME="move_people" />
+        <SYMBOL ADDRESS="0x34590" NAME="weakest_player" />
+        <SYMBOL ADDRESS="0x34820" NAME="closest_player" />
         <SYMBOL ADDRESS="0x34AAA" NAME="nullsub_8" />
         <SYMBOL ADDRESS="0x34AB0" NAME="jpt_35899" />
+        <SYMBOL ADDRESS="0x34AD0" NAME="ResearchAndDevelop" />
         <SYMBOL ADDRESS="0x35D05" NAME="def_35899" />
         <SYMBOL ADDRESS="0x35E20" NAME="DoResearch" />
+        <SYMBOL ADDRESS="0x36190" NAME="CompleteResearch" />
+        <SYMBOL ADDRESS="0x36350" NAME="GetWeaponName" />
         <SYMBOL ADDRESS="0x374E0" NAME="nullsub_3" />
         <SYMBOL ADDRESS="0x375C0" NAME="jpt_3775C" />
         <SYMBOL ADDRESS="0x375D0" NAME="jpt_378BB" />
         <SYMBOL ADDRESS="0x37600" NAME="select" />
         <SYMBOL ADDRESS="0x37852" NAME="def_3775C" />
         <SYMBOL ADDRESS="0x37BE6" NAME="def_378BB" />
+        <SYMBOL ADDRESS="0x37E90" NAME="LbScreenSwapLo" />
+        <SYMBOL ADDRESS="0x37EF0" NAME="show_opt" />
         <SYMBOL ADDRESS="0x37F80" NAME="level_finished" />
         <SYMBOL ADDRESS="0x382E0" NAME="load_text" />
         <SYMBOL ADDRESS="0x38350" NAME="load_player" />
@@ -10508,17 +10647,38 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x38540" NAME="load_save_text" />
         <SYMBOL ADDRESS="0x385C0" NAME="init_sound" />
         <SYMBOL ADDRESS="0x387E0" NAME="SetBFMidiSampleStatus" />
+        <SYMBOL ADDRESS="0x38A20" NAME="FreeSound" />
         <SYMBOL ADDRESS="0x38A40" NAME="StopAllSounds" />
         <SYMBOL ADDRESS="0x38A60" NAME="DisplayScreenTitle" />
+        <SYMBOL ADDRESS="0x38AC0" NAME="DrawScreenGadget" />
+        <SYMBOL ADDRESS="0x38B50" NAME="DrawAcceptGadget" />
+        <SYMBOL ADDRESS="0x38BF0" NAME="DrawMenuGadget" />
+        <SYMBOL ADDRESS="0x38C90" NAME="show_text_file" />
+        <SYMBOL ADDRESS="0x38EA0" NAME="get_word_width" />
         <SYMBOL ADDRESS="0x38F00" NAME="GetLineWidth" />
         <SYMBOL ADDRESS="0x38F50" NAME="new_show_text" />
+        <SYMBOL ADDRESS="0x390C0" NAME="get_line" />
+        <SYMBOL ADDRESS="0x394E0" NAME="kill_driver_and_passengers" />
+        <SYMBOL ADDRESS="0x395D0" NAME="affect_vehicle" />
+        <SYMBOL ADDRESS="0x39660" NAME="vehicle_moving" />
+        <SYMBOL ADDRESS="0x39730" NAME="vehicle_on_fire" />
         <SYMBOL ADDRESS="0x39890" NAME="move_vehicles" />
         <SYMBOL ADDRESS="0x39EC0" NAME="which_weapon" />
+        <SYMBOL ADDRESS="0x39F10" NAME="weapon_to_person" />
+        <SYMBOL ADDRESS="0x39FB0" NAME="weapons_in_weight" />
+        <SYMBOL ADDRESS="0x39FF0" NAME="weapon_time_in_use" />
+        <SYMBOL ADDRESS="0x3A030" NAME="person_has_weapon" />
         <SYMBOL ADDRESS="0x3A070" NAME="count_weapons" />
+        <SYMBOL ADDRESS="0x3A0A0" NAME="auto_weapon" />
+        <SYMBOL ADDRESS="0x3A0D0" NAME="fatal_weapon" />
         <SYMBOL ADDRESS="0x3A100" NAME="weapon_is_empty" />
+        <SYMBOL ADDRESS="0x3A130" NAME="drop_weapon" />
+        <SYMBOL ADDRESS="0x3A1D0" NAME="drop_all_weapons" />
+        <SYMBOL ADDRESS="0x3A300" NAME="kill_all_weapons" />
         <SYMBOL ADDRESS="0x3A390" NAME="choose_best_weapon" />
         <SYMBOL ADDRESS="0x3A5C0" NAME="choose_best_weapon_or_same" />
         <SYMBOL ADDRESS="0x3A8B0" NAME="create_ammo_effect" />
+        <SYMBOL ADDRESS="0x3A900" NAME="affect_weapon" />
         <SYMBOL ADDRESS="0x3A970" NAME="move_weapons" />
         <SYMBOL ADDRESS="0x3B4E0" NAME="load_global_timbre" />
         <SYMBOL ADDRESS="0x3B5B0" NAME="InitMIDI" />
@@ -10778,17 +10938,25 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x40F63" NAME="spawnvpe" />
         <SYMBOL ADDRESS="0x410AF" NAME="strchr" />
         <SYMBOL ADDRESS="0x41D6C" NAME="vertical_line" />
+        <SYMBOL ADDRESS="0x41E2D" NAME="pvertical_line" />
         <SYMBOL ADDRESS="0x41EEE" NAME="horizontal_line" />
         <SYMBOL ADDRESS="0x4225E" NAME="jpt_42257" />
+        <SYMBOL ADDRESS="0x423F8" NAME="rectangle" />
+        <SYMBOL ADDRESS="0x4276B" NAME="prectangle" />
+        <SYMBOL ADDRESS="0x42AEE" NAME="pixel_plot" />
         <SYMBOL ADDRESS="0x48842" NAME="draw_horizontal" />
         <SYMBOL ADDRESS="0x4C136" NAME="LbPaletteSet" />
         <SYMBOL ADDRESS="0x4C1A7" NAME="LbScreenSetup" />
         <SYMBOL ADDRESS="0x4CEF1" NAME="nullsub_6" />
+        <SYMBOL ADDRESS="0x4CEF2" NAME="LbSpriteDraw_unkn2" />
+        <SYMBOL ADDRESS="0x4CF80" NAME="LbSpriteDraw" />
         <SYMBOL ADDRESS="0x4F5D0" NAME="nullsub_7" />
         <SYMBOL ADDRESS="0x4F69A" NAME="nullsub_12" />
         <SYMBOL ADDRESS="0x4F8E4" NAME="nullsub_11" />
         <SYMBOL ADDRESS="0x4FA51" NAME="LbMemorySet" />
+        <SYMBOL ADDRESS="0x4FA93" NAME="LbMemoryCopy" />
         <SYMBOL ADDRESS="0x4FCEC" NAME="LbScreenWaitVbi" />
+        <SYMBOL ADDRESS="0x4FCFA" NAME="read_key" />
         <SYMBOL ADDRESS="0x4FDE5" NAME="a123456789abcde_1" />
         <SYMBOL ADDRESS="0x50004" NAME="aGameDat" />
         <SYMBOL ADDRESS="0x50018" NAME="aDataMap02dDat" />
@@ -11629,7 +11797,9 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x54D96" NAME="sndcard_dma" />
         <SYMBOL ADDRESS="0x54D98" NAME="sndcard_ioaddr" />
         <SYMBOL ADDRESS="0x54FAC" NAME="mmapblk_load_files" />
-        <SYMBOL ADDRESS="0x55044" NAME="aSynd" />
+        <SYMBOL ADDRESS="0x55044" NAME="Network__Name" />
+        <SYMBOL ADDRESS="0x55056" NAME="Network__MasterNcb__Command" />
+        <SYMBOL ADDRESS="0x55057" NAME="Network__MasterNcb__RetCode" />
         <SYMBOL ADDRESS="0x55308" NAME="pointer_sprites" />
         <SYMBOL ADDRESS="0x5530C" NAME="pointer_sprites_end" />
         <SYMBOL ADDRESS="0x55310" NAME="pointer_data" />
@@ -11684,13 +11854,17 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x5C324" NAME="__Save8087" />
         <SYMBOL ADDRESS="0x5C328" NAME="__Rest8087" />
         <SYMBOL ADDRESS="0x5DEFC" NAME="timer2" />
+        <SYMBOL ADDRESS="0x5DF30" NAME="Network__Status" />
+        <SYMBOL ADDRESS="0x5DF38" NAME="net_recv_buffer_size" />
         <SYMBOL ADDRESS="0x5DF3C" NAME="mouse_backup" />
         <SYMBOL ADDRESS="0x605D4" NAME="packets" />
         <SYMBOL ADDRESS="0x60AA0" NAME="m_select_pal" />
         <SYMBOL ADDRESS="0x60B02" NAME="a11" />
+        <SYMBOL ADDRESS="0x60B0C" NAME="Network__NumberOfSlots" />
+        <SYMBOL ADDRESS="0x60B16" NAME="Network__Slot" />
         <SYMBOL ADDRESS="0x60B45" NAME="is_multiplayer_game" />
         <SYMBOL ADDRESS="0x60B49" NAME="midi_available" />
-        <SYMBOL ADDRESS="0x60B4A" NAME="sound_available" />
+        <SYMBOL ADDRESS="0x60B4A" NAME="SoundInstalled" />
         <SYMBOL ADDRESS="0x61BC8" NAME="m_sprites_end" />
         <SYMBOL ADDRESS="0x61BCC" NAME="m_font_data" />
         <SYMBOL ADDRESS="0x61BD0" NAME="m_spr_data" />
@@ -11761,9 +11935,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x10E60">
+        <FUNCTION ENTRY_POINT="0x10E60" NAME="mission_briefing">
             <ADDRESS_RANGE START="0x10E60" END="0x11A22" />
-            <TYPEINFO_CMT>sub_10E60</TYPEINFO_CMT>
+            <TYPEINFO_CMT>mission_briefing</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xD4" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xE4" FRAME_PTR_OFFSET="-0xD4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xBC" FRAME_PTR_OFFSET="-0xAC" DATATYPE="dword" SIZE="0x4" />
@@ -11787,9 +11961,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0x18" NAME="a11" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x11A70">
+        <FUNCTION ENTRY_POINT="0x11A70" NAME="draw_brief_tact_map">
             <ADDRESS_RANGE START="0x11A70" END="0x11E33" />
-            <TYPEINFO_CMT>sub_11A70</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_brief_tact_map</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x2C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" DATATYPE="dword" SIZE="0x4" />
@@ -11815,9 +11989,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="word" SIZE="0x10" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x12150">
+        <FUNCTION ENTRY_POINT="0x12150" NAME="sight_colide">
             <ADDRESS_RANGE START="0x12150" END="0x122C9" />
-            <TYPEINFO_CMT>sub_12150</TYPEINFO_CMT>
+            <TYPEINFO_CMT>sight_colide</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
@@ -11826,53 +12000,53 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x122D0">
+        <FUNCTION ENTRY_POINT="0x122D0" NAME="get_altitude_point1">
             <ADDRESS_RANGE START="0x122D0" END="0x1233F" />
-            <TYPEINFO_CMT>sub_122D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_altitude_point1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x12340">
+        <FUNCTION ENTRY_POINT="0x12340" NAME="get_altitude_point2">
             <ADDRESS_RANGE START="0x12340" END="0x123AF" />
-            <TYPEINFO_CMT>sub_12340</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_altitude_point2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x12400">
+        <FUNCTION ENTRY_POINT="0x12400" NAME="check_point1">
             <ADDRESS_RANGE START="0x12400" END="0x1259D" />
-            <TYPEINFO_CMT>sub_12400</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_point1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x125F0">
+        <FUNCTION ENTRY_POINT="0x125F0" NAME="check_point2">
             <ADDRESS_RANGE START="0x125F0" END="0x1279F" />
-            <TYPEINFO_CMT>sub_125F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_point2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x127A0">
+        <FUNCTION ENTRY_POINT="0x127A0" NAME="set_who_shot_me">
             <ADDRESS_RANGE START="0x127A0" END="0x127B7" />
-            <TYPEINFO_CMT>sub_127A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>set_who_shot_me</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x12880">
+        <FUNCTION ENTRY_POINT="0x12880" NAME="sprite_colide">
             <ADDRESS_RANGE START="0x12880" END="0x13793" />
-            <TYPEINFO_CMT>sub_12880</TYPEINFO_CMT>
+            <TYPEINFO_CMT>sprite_colide</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x80" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x80" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x7C" DATATYPE="dword" SIZE="0x4" />
@@ -11912,9 +12086,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x20" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x13870">
+        <FUNCTION ENTRY_POINT="0x13870" NAME="bullet_colide">
             <ADDRESS_RANGE START="0x13870" END="0x1454F" />
-            <TYPEINFO_CMT>sub_13870</TYPEINFO_CMT>
+            <TYPEINFO_CMT>bullet_colide</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x30" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x30" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" DATATYPE="dword" SIZE="0x4" />
@@ -11934,9 +12108,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x20" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x14620">
+        <FUNCTION ENTRY_POINT="0x14620" NAME="bullet_try_colide">
             <ADDRESS_RANGE START="0x14620" END="0x15160" />
-            <TYPEINFO_CMT>sub_14620</TYPEINFO_CMT>
+            <TYPEINFO_CMT>bullet_try_colide</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x94" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x94" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x90" DATATYPE="dword" SIZE="0x4" />
@@ -11980,9 +12154,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x1C" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x15170">
+        <FUNCTION ENTRY_POINT="0x15170" NAME="check_area_for_person_unique">
             <ADDRESS_RANGE START="0x15170" END="0x152D0" />
-            <TYPEINFO_CMT>sub_15170</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_area_for_person_unique</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x20" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
@@ -11997,9 +12171,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x20" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x152E0">
+        <FUNCTION ENTRY_POINT="0x152E0" NAME="check_square_for_model">
             <ADDRESS_RANGE START="0x152E0" END="0x15393" />
-            <TYPEINFO_CMT>sub_152E0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_square_for_model</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
@@ -12009,9 +12183,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x18" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x153A0">
+        <FUNCTION ENTRY_POINT="0x153A0" NAME="bump_person">
             <ADDRESS_RANGE START="0x153A0" END="0x1555A" />
-            <TYPEINFO_CMT>sub_153A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>bump_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x24" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
@@ -12027,14 +12201,14 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x1C" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x15560">
+        <FUNCTION ENTRY_POINT="0x15560" NAME="init_computer_players">
             <ADDRESS_RANGE START="0x15560" END="0x1564E" />
-            <TYPEINFO_CMT>sub_15560</TYPEINFO_CMT>
+            <TYPEINFO_CMT>init_computer_players</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x15660">
+        <FUNCTION ENTRY_POINT="0x15660" NAME="InitAComputerPlayer">
             <ADDRESS_RANGE START="0x15660" END="0x15B03" />
-            <TYPEINFO_CMT>sub_15660</TYPEINFO_CMT>
+            <TYPEINFO_CMT>InitAComputerPlayer</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
@@ -12066,9 +12240,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16260">
+        <FUNCTION ENTRY_POINT="0x16260" NAME="CPShouldIShootMyTarget">
             <ADDRESS_RANGE START="0x16260" END="0x1634E" />
-            <TYPEINFO_CMT>sub_16260</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPShouldIShootMyTarget</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
@@ -12076,9 +12250,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16350">
+        <FUNCTION ENTRY_POINT="0x16350" NAME="CPTargetAlive">
             <ADDRESS_RANGE START="0x16350" END="0x1637A" />
-            <TYPEINFO_CMT>sub_16350</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPTargetAlive</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12086,18 +12260,18 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16380">
+        <FUNCTION ENTRY_POINT="0x16380" NAME="CPGotoOldStateAndRelax">
             <ADDRESS_RANGE START="0x16380" END="0x163E5" />
-            <TYPEINFO_CMT>sub_16380</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPGotoOldStateAndRelax</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x163F0">
+        <FUNCTION ENTRY_POINT="0x163F0" NAME="CPShootPerson">
             <ADDRESS_RANGE START="0x163F0" END="0x16471" />
-            <TYPEINFO_CMT>sub_163F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPShootPerson</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12106,18 +12280,18 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16480">
+        <FUNCTION ENTRY_POINT="0x16480" NAME="CPPersuadePerson">
             <ADDRESS_RANGE START="0x16480" END="0x164E0" />
-            <TYPEINFO_CMT>sub_16480</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPPersuadePerson</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16550">
+        <FUNCTION ENTRY_POINT="0x16550" NAME="CPDoObjectiveStep">
             <ADDRESS_RANGE START="0x16550" END="0x16922" />
-            <TYPEINFO_CMT>sub_16550</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPDoObjectiveStep</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12127,9 +12301,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x18" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16930">
+        <FUNCTION ENTRY_POINT="0x16930" NAME="CPDestroyVehicle">
             <ADDRESS_RANGE START="0x16930" END="0x16A41" />
-            <TYPEINFO_CMT>sub_16930</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPDestroyVehicle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12137,9 +12311,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16AB0">
+        <FUNCTION ENTRY_POINT="0x16AB0" NAME="CPCompletedObjectiveStep">
             <ADDRESS_RANGE START="0x16AB0" END="0x16E31" />
-            <TYPEINFO_CMT>sub_16AB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPCompletedObjectiveStep</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
@@ -12148,9 +12322,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16E40">
+        <FUNCTION ENTRY_POINT="0x16E40" NAME="CPGetObjective">
             <ADDRESS_RANGE START="0x16E40" END="0x16FA2" />
-            <TYPEINFO_CMT>sub_16E40</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPGetObjective</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
@@ -12158,48 +12332,48 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x16FB0">
+        <FUNCTION ENTRY_POINT="0x16FB0" NAME="CPCanAgentDoMission">
             <ADDRESS_RANGE START="0x16FB0" END="0x17004" />
-            <TYPEINFO_CMT>sub_16FB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPCanAgentDoMission</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x170E0">
+        <FUNCTION ENTRY_POINT="0x170E0" NAME="CPSetupDoMissionObjective">
             <ADDRESS_RANGE START="0x170E0" END="0x171F2" />
-            <TYPEINFO_CMT>sub_170E0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPSetupDoMissionObjective</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x17200">
+        <FUNCTION ENTRY_POINT="0x17200" NAME="CPDoIOwnWeapon">
             <ADDRESS_RANGE START="0x17200" END="0x17245" />
-            <TYPEINFO_CMT>sub_17200</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPDoIOwnWeapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x17250">
+        <FUNCTION ENTRY_POINT="0x17250" NAME="CPGetFirstObjectiveInList">
             <ADDRESS_RANGE START="0x17250" END="0x17274" />
-            <TYPEINFO_CMT>sub_17250</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPGetFirstObjectiveInList</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x172A0">
+        <FUNCTION ENTRY_POINT="0x172A0" NAME="CPSetupNewObjective">
             <ADDRESS_RANGE START="0x172A0" END="0x172FA" />
-            <TYPEINFO_CMT>sub_172A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPSetupNewObjective</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x17300">
+        <FUNCTION ENTRY_POINT="0x17300" NAME="CPFollowAndAttackTarget">
             <ADDRESS_RANGE START="0x17300" END="0x17500" />
-            <TYPEINFO_CMT>sub_17300</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPFollowAndAttackTarget</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12216,14 +12390,14 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x17580">
+        <FUNCTION ENTRY_POINT="0x17580" NAME="CPLivingHAgents">
             <ADDRESS_RANGE START="0x17580" END="0x175A9" />
-            <TYPEINFO_CMT>sub_17580</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CPLivingHAgents</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x175C0">
+        <FUNCTION ENTRY_POINT="0x175C0" NAME="configure_company">
             <ADDRESS_RANGE START="0x175C0" END="0x18236" />
-            <TYPEINFO_CMT>sub_175C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>configure_company</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xF4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xF4" DATATYPE="byte" SIZE="0x14" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x90" DATATYPE="byte" SIZE="0x1" />
@@ -12289,9 +12463,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x186F0">
+        <FUNCTION ENTRY_POINT="0x186F0" NAME="draw_logo">
             <ADDRESS_RANGE START="0x186F0" END="0x18791" />
-            <TYPEINFO_CMT>sub_186F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_logo</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
@@ -12346,31 +12520,31 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x18EB0">
+        <FUNCTION ENTRY_POINT="0x18EB0" NAME="HowManyStatesDoIOwn">
             <ADDRESS_RANGE START="0x18EB0" END="0x18EE2" />
-            <TYPEINFO_CMT>sub_18EB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>HowManyStatesDoIOwn</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x18EF0">
+        <FUNCTION ENTRY_POINT="0x18EF0" NAME="GetNthOwnedState">
             <ADDRESS_RANGE START="0x18EF0" END="0x18F26" />
-            <TYPEINFO_CMT>sub_18EF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>GetNthOwnedState</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x18F30" NAME="draw_date_nc">
+        <FUNCTION ENTRY_POINT="0x18F30" NAME="ShowGameTime">
             <ADDRESS_RANGE START="0x18F30" END="0x18FED" />
-            <TYPEINFO_CMT>draw_date_nc</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ShowGameTime</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x2C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" NAME="locstr" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x18FF0">
+        <FUNCTION ENTRY_POINT="0x18FF0" NAME="debrief">
             <ADDRESS_RANGE START="0x18FF0" END="0x1A235" />
-            <TYPEINFO_CMT>sub_18FF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>debrief</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x11C" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x12C" FRAME_PTR_OFFSET="-0x11C" NAME="out" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" FRAME_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
@@ -12829,9 +13003,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x1E1C0">
+        <FUNCTION ENTRY_POINT="0x1E1C0" NAME="draw_agent_element">
             <ADDRESS_RANGE START="0x1E1C0" END="0x1E2FC" />
-            <TYPEINFO_CMT>sub_1E1C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_agent_element</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -12867,9 +13041,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>nullsub_2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x1EA30">
+        <FUNCTION ENTRY_POINT="0x1EA30" NAME="init_fireball">
             <ADDRESS_RANGE START="0x1EA30" END="0x1EAA6" />
-            <TYPEINFO_CMT>sub_1EA30</TYPEINFO_CMT>
+            <TYPEINFO_CMT>init_fireball</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12890,9 +13064,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x1FBC0">
+        <FUNCTION ENTRY_POINT="0x1FBC0" NAME="equip_team">
             <ADDRESS_RANGE START="0x1FBC0" END="0x22848" />
-            <TYPEINFO_CMT>sub_1FBC0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>equip_team</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x68" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x78" FRAME_PTR_OFFSET="-0x68" NAME="out" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x50" FRAME_PTR_OFFSET="-0x40" DATATYPE="dword" SIZE="0x4" />
@@ -12913,9 +13087,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x22850">
+        <FUNCTION ENTRY_POINT="0x22850" NAME="draw_ammo_for_this_weapon">
             <ADDRESS_RANGE START="0x22850" END="0x228C0" />
-            <TYPEINFO_CMT>sub_22850</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_ammo_for_this_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -12923,9 +13097,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x228D0">
+        <FUNCTION ENTRY_POINT="0x228D0" NAME="which_item_selected">
             <ADDRESS_RANGE START="0x228D0" END="0x22A09" />
-            <TYPEINFO_CMT>sub_228D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>which_item_selected</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -12939,9 +13113,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x28" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x22A10">
+        <FUNCTION ENTRY_POINT="0x22A10" NAME="ShowInfoOnEquipItem">
             <ADDRESS_RANGE START="0x22A10" END="0x22E13" />
-            <TYPEINFO_CMT>sub_22A10</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ShowInfoOnEquipItem</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x38" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x38" NAME="out" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x1" />
@@ -12953,63 +13127,63 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x98" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x22E20">
+        <FUNCTION ENTRY_POINT="0x22E20" NAME="WhichIconSelected">
             <ADDRESS_RANGE START="0x22E20" END="0x22EA1" />
-            <TYPEINFO_CMT>sub_22E20</TYPEINFO_CMT>
+            <TYPEINFO_CMT>WhichIconSelected</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x22EB0">
+        <FUNCTION ENTRY_POINT="0x22EB0" NAME="ShowAvailableParts">
             <ADDRESS_RANGE START="0x22EB0" END="0x22FDA" />
-            <TYPEINFO_CMT>sub_22EB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ShowAvailableParts</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="word" SIZE="0x14" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x22FE0">
+        <FUNCTION ENTRY_POINT="0x22FE0" NAME="ShowAvailableEquipment">
             <ADDRESS_RANGE START="0x22FE0" END="0x23115" />
-            <TYPEINFO_CMT>sub_22FE0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ShowAvailableEquipment</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="word" SIZE="0x14" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x23120">
+        <FUNCTION ENTRY_POINT="0x23120" NAME="PurchasePart">
             <ADDRESS_RANGE START="0x23120" END="0x2336E" />
-            <TYPEINFO_CMT>sub_23120</TYPEINFO_CMT>
+            <TYPEINFO_CMT>PurchasePart</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x23370">
+        <FUNCTION ENTRY_POINT="0x23370" NAME="PurchaseWeapon">
             <ADDRESS_RANGE START="0x23370" END="0x2342A" />
-            <TYPEINFO_CMT>sub_23370</TYPEINFO_CMT>
+            <TYPEINFO_CMT>PurchaseWeapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x23430">
+        <FUNCTION ENTRY_POINT="0x23430" NAME="GetNextAvailableWeaponSlot">
             <ADDRESS_RANGE START="0x23430" END="0x2349C" />
-            <TYPEINFO_CMT>sub_23430</TYPEINFO_CMT>
+            <TYPEINFO_CMT>GetNextAvailableWeaponSlot</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x234A0">
+        <FUNCTION ENTRY_POINT="0x234A0" NAME="GetNextAvailableWeaponSlot2">
             <ADDRESS_RANGE START="0x234A0" END="0x23504" />
-            <TYPEINFO_CMT>sub_234A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>GetNextAvailableWeaponSlot2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x23510">
+        <FUNCTION ENTRY_POINT="0x23510" NAME="ThisPlayerInTeam">
             <ADDRESS_RANGE START="0x23510" END="0x2353E" />
-            <TYPEINFO_CMT>sub_23510</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ThisPlayerInTeam</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
@@ -13021,9 +13195,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x235D0">
+        <FUNCTION ENTRY_POINT="0x235D0" NAME="init_map_data">
             <ADDRESS_RANGE START="0x235D0" END="0x23603" />
-            <TYPEINFO_CMT>sub_235D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>init_map_data</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -13033,9 +13207,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_23610</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x23650">
+        <FUNCTION ENTRY_POINT="0x23650" NAME="adjust_vehicles">
             <ADDRESS_RANGE START="0x23650" END="0x237A5" />
-            <TYPEINFO_CMT>sub_23650</TYPEINFO_CMT>
+            <TYPEINFO_CMT>adjust_vehicles</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x237B0" NAME="reset_mission_info">
@@ -13085,18 +13259,18 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x24F60">
+        <FUNCTION ENTRY_POINT="0x24F60" NAME="init_a_players_weapon">
             <ADDRESS_RANGE START="0x24F60" END="0x24FB0" />
-            <TYPEINFO_CMT>sub_24F60</TYPEINFO_CMT>
+            <TYPEINFO_CMT>init_a_players_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x24FC0">
+        <FUNCTION ENTRY_POINT="0x24FC0" NAME="clear_savegame">
             <ADDRESS_RANGE START="0x24FC0" END="0x24FDA" />
-            <TYPEINFO_CMT>sub_24FC0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>clear_savegame</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x24FE0" NAME="free_map_level">
@@ -13104,16 +13278,16 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>free_map_level</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x25020">
+        <FUNCTION ENTRY_POINT="0x25020" NAME="set_structure_ends">
             <ADDRESS_RANGE START="0x25020" END="0x250B3" />
-            <TYPEINFO_CMT>sub_25020</TYPEINFO_CMT>
+            <TYPEINFO_CMT>set_structure_ends</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x25110">
+        <FUNCTION ENTRY_POINT="0x25110" NAME="init_level_data">
             <ADDRESS_RANGE START="0x25110" END="0x252AE" />
-            <TYPEINFO_CMT>sub_25110</TYPEINFO_CMT>
+            <TYPEINFO_CMT>init_level_data</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x24" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="fname" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="fname" DATATYPE="qword" SIZE="0x20" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x252B0" NAME="load_map_level">
@@ -13133,9 +13307,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x25460">
+        <FUNCTION ENTRY_POINT="0x25460" NAME="init_weapon">
             <ADDRESS_RANGE START="0x25460" END="0x254CA" />
-            <TYPEINFO_CMT>sub_25460</TYPEINFO_CMT>
+            <TYPEINFO_CMT>init_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -13275,9 +13449,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_27C00</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x27C30">
+        <FUNCTION ENTRY_POINT="0x27C30" NAME="setup_a_sprite">
             <ADDRESS_RANGE START="0x27C30" END="0x27C50" />
-            <TYPEINFO_CMT>sub_27C30</TYPEINFO_CMT>
+            <TYPEINFO_CMT>setup_a_sprite</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -13308,9 +13482,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>correct_buttons</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x27E00">
+        <FUNCTION ENTRY_POINT="0x27E00" NAME="map_selection">
             <ADDRESS_RANGE START="0x27E00" END="0x28485" />
-            <TYPEINFO_CMT>sub_27E00</TYPEINFO_CMT>
+            <TYPEINFO_CMT>map_selection</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" NAME="a2" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
@@ -13404,16 +13578,16 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x29250" END="0x2926D" />
             <TYPEINFO_CMT>move_it</TYPEINFO_CMT>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29270">
+        <FUNCTION ENTRY_POINT="0x29270" NAME="remove_model">
             <ADDRESS_RANGE START="0x29270" END="0x29285" />
-            <TYPEINFO_CMT>sub_29270</TYPEINFO_CMT>
+            <TYPEINFO_CMT>remove_model</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29290">
+        <FUNCTION ENTRY_POINT="0x29290" NAME="animate_model">
             <ADDRESS_RANGE START="0x29290" END="0x292C9" />
-            <TYPEINFO_CMT>sub_29290</TYPEINFO_CMT>
+            <TYPEINFO_CMT>animate_model</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -13453,9 +13627,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29460">
+        <FUNCTION ENTRY_POINT="0x29460" NAME="get_angle">
             <ADDRESS_RANGE START="0x29460" END="0x29474" />
-            <TYPEINFO_CMT>sub_29460</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_angle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13470,9 +13644,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29530">
+        <FUNCTION ENTRY_POINT="0x29530" NAME="move_mapwho">
             <ADDRESS_RANGE START="0x29530" END="0x29653" />
-            <TYPEINFO_CMT>sub_29530</TYPEINFO_CMT>
+            <TYPEINFO_CMT>move_mapwho</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -13480,16 +13654,16 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x11" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29660">
+        <FUNCTION ENTRY_POINT="0x29660" NAME="move_off_mapwho">
             <ADDRESS_RANGE START="0x29660" END="0x296C9" />
-            <TYPEINFO_CMT>sub_29660</TYPEINFO_CMT>
+            <TYPEINFO_CMT>move_off_mapwho</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x296D0">
+        <FUNCTION ENTRY_POINT="0x296D0" NAME="move_on_mapwho">
             <ADDRESS_RANGE START="0x296D0" END="0x29751" />
-            <TYPEINFO_CMT>sub_296D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>move_on_mapwho</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -13505,17 +13679,17 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29A10">
+        <FUNCTION ENTRY_POINT="0x29A10" NAME="ExchangeNetwork_0">
             <ADDRESS_RANGE START="0x29A10" END="0x29B6C" />
-            <TYPEINFO_CMT>sub_29A10</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ExchangeNetwork_0</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x28" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" NAME="out" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29B70">
+        <FUNCTION ENTRY_POINT="0x29B70" NAME="ExchangeNetwork">
             <ADDRESS_RANGE START="0x29B70" END="0x29CDA" />
-            <TYPEINFO_CMT>sub_29B70</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ExchangeNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -13537,31 +13711,31 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_2A2B0</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A340">
+        <FUNCTION ENTRY_POINT="0x2A340" NAME="StopNetwork">
             <ADDRESS_RANGE START="0x2A340" END="0x2A4C0" />
-            <TYPEINFO_CMT>sub_2A340</TYPEINFO_CMT>
+            <TYPEINFO_CMT>StopNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x24" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" NAME="out" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="slot" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A4D0">
+        <FUNCTION ENTRY_POINT="0x2A4D0" NAME="SetupNetwork">
             <ADDRESS_RANGE START="0x2A4D0" END="0x2A5B4" />
-            <TYPEINFO_CMT>sub_2A4D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SetupNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A5C0">
+        <FUNCTION ENTRY_POINT="0x2A5C0" NAME="ResetNetwork">
             <ADDRESS_RANGE START="0x2A5C0" END="0x2A63E" />
-            <TYPEINFO_CMT>sub_2A5C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ResetNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A640">
+        <FUNCTION ENTRY_POINT="0x2A640" NAME="__NETBios__">
             <ADDRESS_RANGE START="0x2A640" END="0x2A725" />
-            <TYPEINFO_CMT>sub_2A640</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETBios__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x80" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x80" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x80" NAME="ncb" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x70" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x64" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x5E" DATATYPE="word" SIZE="0x2" />
@@ -13576,76 +13750,77 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A730">
+        <FUNCTION ENTRY_POINT="0x2A730" NAME="__NETCheckBios__">
             <ADDRESS_RANGE START="0x2A730" END="0x2A78D" />
-            <TYPEINFO_CMT>sub_2A730</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETCheckBios__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A790">
+        <FUNCTION ENTRY_POINT="0x2A790" NAME="ResetNetSlot">
             <ADDRESS_RANGE START="0x2A790" END="0x2A7B1" />
-            <TYPEINFO_CMT>sub_2A790</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ResetNetSlot</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A7C0">
+        <FUNCTION ENTRY_POINT="0x2A7C0" NAME="NetMyLowAlloc">
             <ADDRESS_RANGE START="0x2A7C0" END="0x2A878" />
-            <TYPEINFO_CMT>sub_2A7C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>NetMyLowAlloc</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x48" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x48" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x44" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x48" DATATYPE="DWORDREGS" SIZE="0x1C" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A880">
+        <FUNCTION ENTRY_POINT="0x2A880" NAME="__NETAdd__">
             <ADDRESS_RANGE START="0x2A880" END="0x2A9C5" />
-            <TYPEINFO_CMT>sub_2A880</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETAdd__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="anonymous_0" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2A9D0">
+        <FUNCTION ENTRY_POINT="0x2A9D0" NAME="__NETDelete__">
             <ADDRESS_RANGE START="0x2A9D0" END="0x2AAD1" />
-            <TYPEINFO_CMT>sub_2A9D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETDelete__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="anonymous_0" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2AAE0">
+        <FUNCTION ENTRY_POINT="0x2AAE0" NAME="__NETListen__">
             <ADDRESS_RANGE START="0x2AAE0" END="0x2AC18" />
-            <TYPEINFO_CMT>sub_2AAE0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETListen__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x18" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2AC20">
+        <FUNCTION ENTRY_POINT="0x2AC20" NAME="__NETCall__">
             <ADDRESS_RANGE START="0x2AC20" END="0x2AD56" />
-            <TYPEINFO_CMT>sub_2AC20</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETCall__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x18" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2AD60">
+        <FUNCTION ENTRY_POINT="0x2AD60" NAME="net_send">
             <ADDRESS_RANGE START="0x2AD60" END="0x2AE0C" />
-            <TYPEINFO_CMT>sub_2AD60</TYPEINFO_CMT>
+            <TYPEINFO_CMT>net_send</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13653,9 +13828,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2AE10">
+        <FUNCTION ENTRY_POINT="0x2AE10" NAME="net_receive">
             <ADDRESS_RANGE START="0x2AE10" END="0x2AED5" />
-            <TYPEINFO_CMT>sub_2AE10</TYPEINFO_CMT>
+            <TYPEINFO_CMT>net_receive</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13663,17 +13838,17 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2AEE0">
+        <FUNCTION ENTRY_POINT="0x2AEE0" NAME="__NETCancel__">
             <ADDRESS_RANGE START="0x2AEE0" END="0x2AF66" />
-            <TYPEINFO_CMT>sub_2AEE0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETCancel__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2AF70">
+        <FUNCTION ENTRY_POINT="0x2AF70" NAME="__NETHangUp__">
             <ADDRESS_RANGE START="0x2AF70" END="0x2AFD6" />
-            <TYPEINFO_CMT>sub_2AF70</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__NETHangUp__</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -13692,21 +13867,20 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B0A0">
+        <FUNCTION ENTRY_POINT="0x2B0A0" NAME="NetMyFree">
             <ADDRESS_RANGE START="0x2B0A0" END="0x2B121" />
-            <TYPEINFO_CMT>sub_2B0A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>NetMyFree</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x40" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x40" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x34" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x40" NAME="regs" DATATYPE="DWORDREGS" SIZE="0x1C" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="selector" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B130">
+        <FUNCTION ENTRY_POINT="0x2B130" NAME="SendNetwork">
             <ADDRESS_RANGE START="0x2B130" END="0x2B1A1" />
-            <TYPEINFO_CMT>sub_2B130</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SendNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13714,19 +13888,19 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B1B0">
+        <FUNCTION ENTRY_POINT="0x2B1B0" NAME="ReceiveNetwork">
             <ADDRESS_RANGE START="0x2B1B0" END="0x2B23B" />
-            <TYPEINFO_CMT>sub_2B1B0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ReceiveNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="t_ncb" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="data_width" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B260">
+        <FUNCTION ENTRY_POINT="0x2B260" NAME="ErrLogNetwork">
             <ADDRESS_RANGE START="0x2B260" END="0x2B281" />
-            <TYPEINFO_CMT>sub_2B260</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ErrLogNetwork</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13910,9 +14084,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_2EDA0</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2EE30">
+        <FUNCTION ENTRY_POINT="0x2EE30" NAME="draw_bars">
             <ADDRESS_RANGE START="0x2EE30" END="0x2F782" />
-            <TYPEINFO_CMT>sub_2EE30</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_bars</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
@@ -14116,9 +14290,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30E40">
+        <FUNCTION ENTRY_POINT="0x30E40" NAME="cp_i_can_see_and_shoot_person">
             <ADDRESS_RANGE START="0x30E40" END="0x30EA5" />
-            <TYPEINFO_CMT>sub_30E40</TYPEINFO_CMT>
+            <TYPEINFO_CMT>cp_i_can_see_and_shoot_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14140,9 +14314,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x310C0">
+        <FUNCTION ENTRY_POINT="0x310C0" NAME="i_can_see_and_shoot_vehicle">
             <ADDRESS_RANGE START="0x310C0" END="0x31243" />
-            <TYPEINFO_CMT>sub_310C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_can_see_and_shoot_vehicle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x1C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="byte" SIZE="0x1" />
@@ -14480,24 +14654,24 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>move_people</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x34590">
+        <FUNCTION ENTRY_POINT="0x34590" NAME="weakest_player">
             <ADDRESS_RANGE START="0x34590" END="0x346BF" />
-            <TYPEINFO_CMT>sub_34590</TYPEINFO_CMT>
+            <TYPEINFO_CMT>weakest_player</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x34820">
+        <FUNCTION ENTRY_POINT="0x34820" NAME="closest_player">
             <ADDRESS_RANGE START="0x34820" END="0x348DD" />
-            <TYPEINFO_CMT>sub_34820</TYPEINFO_CMT>
+            <TYPEINFO_CMT>closest_player</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x34AD0">
+        <FUNCTION ENTRY_POINT="0x34AD0" NAME="ResearchAndDevelop">
             <ADDRESS_RANGE START="0x34AD0" END="0x35E1F" />
-            <TYPEINFO_CMT>sub_34AD0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ResearchAndDevelop</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x98" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xA8" FRAME_PTR_OFFSET="-0x98" NAME="out" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xA4" FRAME_PTR_OFFSET="-0x94" NAME="anonymous_0" DATATYPE="dword" SIZE="0x4" />
@@ -14550,9 +14724,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36190">
+        <FUNCTION ENTRY_POINT="0x36190" NAME="CompleteResearch">
             <ADDRESS_RANGE START="0x36190" END="0x36331" />
-            <TYPEINFO_CMT>sub_36190</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CompleteResearch</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x18" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
@@ -14560,9 +14734,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36350">
+        <FUNCTION ENTRY_POINT="0x36350" NAME="GetWeaponName">
             <ADDRESS_RANGE START="0x36350" END="0x3643E" />
-            <TYPEINFO_CMT>sub_36350</TYPEINFO_CMT>
+            <TYPEINFO_CMT>GetWeaponName</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14725,14 +14899,14 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_37E40</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37E90">
+        <FUNCTION ENTRY_POINT="0x37E90" NAME="LbScreenSwapLo">
             <ADDRESS_RANGE START="0x37E90" END="0x37EED" />
-            <TYPEINFO_CMT>sub_37E90</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbScreenSwapLo</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37EF0">
+        <FUNCTION ENTRY_POINT="0x37EF0" NAME="show_opt">
             <ADDRESS_RANGE START="0x37EF0" END="0x37F70" />
-            <TYPEINFO_CMT>sub_37EF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>show_opt</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -14829,9 +15003,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_388F0</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38A20">
+        <FUNCTION ENTRY_POINT="0x38A20" NAME="FreeSound">
             <ADDRESS_RANGE START="0x38A20" END="0x38A35" />
-            <TYPEINFO_CMT>sub_38A20</TYPEINFO_CMT>
+            <TYPEINFO_CMT>FreeSound</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x38A40" NAME="StopAllSounds">
@@ -14846,9 +15020,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="a6" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38AC0">
+        <FUNCTION ENTRY_POINT="0x38AC0" NAME="DrawScreenGadget">
             <ADDRESS_RANGE START="0x38AC0" END="0x38B40" />
-            <TYPEINFO_CMT>sub_38AC0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawScreenGadget</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="a6" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a3" DATATYPE="dword" SIZE="0x4" />
@@ -14859,19 +15033,19 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x1C" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38B50">
+        <FUNCTION ENTRY_POINT="0x38B50" NAME="DrawAcceptGadget">
             <ADDRESS_RANGE START="0x38B50" END="0x38BE3" />
-            <TYPEINFO_CMT>sub_38B50</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawAcceptGadget</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38BF0">
+        <FUNCTION ENTRY_POINT="0x38BF0" NAME="DrawMenuGadget">
             <ADDRESS_RANGE START="0x38BF0" END="0x38C83" />
-            <TYPEINFO_CMT>sub_38BF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawMenuGadget</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38C90">
+        <FUNCTION ENTRY_POINT="0x38C90" NAME="show_text_file">
             <ADDRESS_RANGE START="0x38C90" END="0x38E9A" />
-            <TYPEINFO_CMT>sub_38C90</TYPEINFO_CMT>
+            <TYPEINFO_CMT>show_text_file</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x1C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
@@ -14888,9 +15062,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x2C" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38EA0">
+        <FUNCTION ENTRY_POINT="0x38EA0" NAME="get_word_width">
             <ADDRESS_RANGE START="0x38EA0" END="0x38EFB" />
-            <TYPEINFO_CMT>sub_38EA0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_word_width</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14925,9 +15099,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x28" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x390C0">
+        <FUNCTION ENTRY_POINT="0x390C0" NAME="get_line">
             <ADDRESS_RANGE START="0x390C0" END="0x3949A" />
-            <TYPEINFO_CMT>sub_390C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_line</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x6C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x6C" NAME="a6" DATATYPE="byte" SIZE="0x54" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
@@ -14956,9 +15130,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x394E0">
+        <FUNCTION ENTRY_POINT="0x394E0" NAME="kill_driver_and_passengers">
             <ADDRESS_RANGE START="0x394E0" END="0x39524" />
-            <TYPEINFO_CMT>sub_394E0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>kill_driver_and_passengers</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -14970,24 +15144,24 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x395D0">
+        <FUNCTION ENTRY_POINT="0x395D0" NAME="affect_vehicle">
             <ADDRESS_RANGE START="0x395D0" END="0x39656" />
-            <TYPEINFO_CMT>sub_395D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>affect_vehicle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39660">
+        <FUNCTION ENTRY_POINT="0x39660" NAME="vehicle_moving">
             <ADDRESS_RANGE START="0x39660" END="0x3972B" />
-            <TYPEINFO_CMT>sub_39660</TYPEINFO_CMT>
+            <TYPEINFO_CMT>vehicle_moving</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39730">
+        <FUNCTION ENTRY_POINT="0x39730" NAME="vehicle_on_fire">
             <ADDRESS_RANGE START="0x39730" END="0x397D5" />
-            <TYPEINFO_CMT>sub_39730</TYPEINFO_CMT>
+            <TYPEINFO_CMT>vehicle_on_fire</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -15006,31 +15180,31 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39F10">
+        <FUNCTION ENTRY_POINT="0x39F10" NAME="weapon_to_person">
             <ADDRESS_RANGE START="0x39F10" END="0x39FA3" />
-            <TYPEINFO_CMT>sub_39F10</TYPEINFO_CMT>
+            <TYPEINFO_CMT>weapon_to_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39FB0">
+        <FUNCTION ENTRY_POINT="0x39FB0" NAME="weapons_in_weight">
             <ADDRESS_RANGE START="0x39FB0" END="0x39FEA" />
-            <TYPEINFO_CMT>sub_39FB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>weapons_in_weight</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39FF0">
+        <FUNCTION ENTRY_POINT="0x39FF0" NAME="weapon_time_in_use">
             <ADDRESS_RANGE START="0x39FF0" END="0x3A021" />
-            <TYPEINFO_CMT>sub_39FF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>weapon_time_in_use</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A030">
+        <FUNCTION ENTRY_POINT="0x3A030" NAME="person_has_weapon">
             <ADDRESS_RANGE START="0x3A030" END="0x3A06F" />
-            <TYPEINFO_CMT>sub_3A030</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_has_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -15043,16 +15217,16 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A0A0">
+        <FUNCTION ENTRY_POINT="0x3A0A0" NAME="auto_weapon">
             <ADDRESS_RANGE START="0x3A0A0" END="0x3A0C9" />
-            <TYPEINFO_CMT>sub_3A0A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>auto_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A0D0">
+        <FUNCTION ENTRY_POINT="0x3A0D0" NAME="fatal_weapon">
             <ADDRESS_RANGE START="0x3A0D0" END="0x3A0F6" />
-            <TYPEINFO_CMT>sub_3A0D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>fatal_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -15064,25 +15238,25 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A130">
+        <FUNCTION ENTRY_POINT="0x3A130" NAME="drop_weapon">
             <ADDRESS_RANGE START="0x3A130" END="0x3A1CA" />
-            <TYPEINFO_CMT>sub_3A130</TYPEINFO_CMT>
+            <TYPEINFO_CMT>drop_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A1D0">
+        <FUNCTION ENTRY_POINT="0x3A1D0" NAME="drop_all_weapons">
             <ADDRESS_RANGE START="0x3A1D0" END="0x3A2FF" />
-            <TYPEINFO_CMT>sub_3A1D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>drop_all_weapons</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A300">
+        <FUNCTION ENTRY_POINT="0x3A300" NAME="kill_all_weapons">
             <ADDRESS_RANGE START="0x3A300" END="0x3A33F" />
-            <TYPEINFO_CMT>sub_3A300</TYPEINFO_CMT>
+            <TYPEINFO_CMT>kill_all_weapons</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -15119,9 +15293,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x20" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3A900">
+        <FUNCTION ENTRY_POINT="0x3A900" NAME="affect_weapon">
             <ADDRESS_RANGE START="0x3A900" END="0x3A91E" />
-            <TYPEINFO_CMT>sub_3A900</TYPEINFO_CMT>
+            <TYPEINFO_CMT>affect_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -15346,6 +15520,7 @@ Return: AH = scan code, AL = character </COMMENT>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C18F" NAME="AIL_register_driver">
             <ADDRESS_RANGE START="0x3C18F" END="0x3C21D" />
+            <REPEATABLE_CMT>replaced by AIL_install_DIG_driver()</REPEATABLE_CMT>
             <TYPEINFO_CMT>AIL_register_driver</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -17052,9 +17227,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x41E2D">
+        <FUNCTION ENTRY_POINT="0x41E2D" NAME="pvertical_line">
             <ADDRESS_RANGE START="0x41E2D" END="0x41EED" />
-            <TYPEINFO_CMT>sub_41E2D</TYPEINFO_CMT>
+            <TYPEINFO_CMT>pvertical_line</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
@@ -17082,9 +17257,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x423F8">
+        <FUNCTION ENTRY_POINT="0x423F8" NAME="rectangle">
             <ADDRESS_RANGE START="0x423F8" END="0x4276A" />
-            <TYPEINFO_CMT>sub_423F8</TYPEINFO_CMT>
+            <TYPEINFO_CMT>rectangle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -17094,9 +17269,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x18" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4276B">
+        <FUNCTION ENTRY_POINT="0x4276B" NAME="prectangle">
             <ADDRESS_RANGE START="0x4276B" END="0x42ADD" />
-            <TYPEINFO_CMT>sub_4276B</TYPEINFO_CMT>
+            <TYPEINFO_CMT>prectangle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -17106,9 +17281,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x18" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x42AEE">
+        <FUNCTION ENTRY_POINT="0x42AEE" NAME="pixel_plot">
             <ADDRESS_RANGE START="0x42AEE" END="0x42B97" />
-            <TYPEINFO_CMT>sub_42AEE</TYPEINFO_CMT>
+            <TYPEINFO_CMT>pixel_plot</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="scr_x" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="scr_y" DATATYPE="dword" SIZE="0x4" />
@@ -17364,9 +17539,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>nullsub_6</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4CEF2">
+        <FUNCTION ENTRY_POINT="0x4CEF2" NAME="LbSpriteDraw_unkn2">
             <ADDRESS_RANGE START="0x4CEF2" END="0x4CF22" />
-            <TYPEINFO_CMT>sub_4CEF2</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbSpriteDraw_unkn2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
@@ -17384,9 +17559,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4CF80">
+        <FUNCTION ENTRY_POINT="0x4CF80" NAME="LbSpriteDraw">
             <ADDRESS_RANGE START="0x4CF80" END="0x4CFB5" />
-            <TYPEINFO_CMT>sub_4CF80</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbSpriteDraw</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
@@ -17566,9 +17741,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="len" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4FA93">
+        <FUNCTION ENTRY_POINT="0x4FA93" NAME="LbMemoryCopy">
             <ADDRESS_RANGE START="0x4FA93" END="0x4FAD8" />
-            <TYPEINFO_CMT>sub_4FA93</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbMemoryCopy</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
@@ -17603,9 +17778,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>LbScreenWaitVbi</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4FCFA">
+        <FUNCTION ENTRY_POINT="0x4FCFA" NAME="read_key">
             <ADDRESS_RANGE START="0x4FCFA" END="0x4FD08" />
-            <TYPEINFO_CMT>sub_4FCFA</TYPEINFO_CMT>
+            <TYPEINFO_CMT>read_key</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x4FD09">

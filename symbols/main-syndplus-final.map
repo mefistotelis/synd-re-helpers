@@ -15,19 +15,56 @@
  0001:00010510       level_complete
  0001:000105E0       check_end_level
  0001:00010E20       random
+ 0001:00010E60       mission_briefing
+ 0001:00011A70       draw_brief_tact_map
  0001:00011EA0       click_map
+ 0001:00012150       sight_colide
+ 0001:000122D0       get_altitude_point1
+ 0001:00012340       get_altitude_point2
+ 0001:00012400       check_point1
+ 0001:000125F0       check_point2
+ 0001:000127A0       set_who_shot_me
+ 0001:00012880       sprite_colide
+ 0001:00013870       bullet_colide
+ 0001:00014620       bullet_try_colide
+ 0001:00015170       check_area_for_person_unique
+ 0001:000152E0       check_square_for_model
+ 0001:000153A0       bump_person
+ 0001:00015560       init_computer_players
+ 0001:00015660       InitAComputerPlayer
  0001:00015B10       process_computer_players
  0001:00015C60       CPDoTurn
+ 0001:00016260       CPShouldIShootMyTarget
+ 0001:00016350       CPTargetAlive
+ 0001:00016380       CPGotoOldStateAndRelax
+ 0001:000163F0       CPShootPerson
+ 0001:00016480       CPPersuadePerson
+ 0001:00016550       CPDoObjectiveStep
+ 0001:00016930       CPDestroyVehicle
+ 0001:00016AB0       CPCompletedObjectiveStep
+ 0001:00016E40       CPGetObjective
+ 0001:00016FB0       CPCanAgentDoMission
+ 0001:000170E0       CPSetupDoMissionObjective
+ 0001:00017200       CPDoIOwnWeapon
+ 0001:00017250       CPGetFirstObjectiveInList
+ 0001:000172A0       CPSetupNewObjective
+ 0001:00017300       CPFollowAndAttackTarget
  0001:00017510       getrdist
+ 0001:00017580       CPLivingHAgents
  0001:000175B0       jpt_17E75
+ 0001:000175C0       configure_company
  0001:000180BA       def_17E75
  0001:00018238       jpt_18270
  0001:00018537       def_18270
+ 0001:000186F0       draw_logo
  0001:00018810       process_day
  0001:00018BD0       AdjustStateHappiness
  0001:00018CF0       GetRevenueFromCity
  0001:00018D80       ComputerPlaysMap
- 0001:00018F30       draw_date_nc
+ 0001:00018EB0       HowManyStatesDoIOwn
+ 0001:00018EF0       GetNthOwnedState
+ 0001:00018F30       ShowGameTime
+ 0001:00018FF0       debrief
  0001:0001A250       DLL_read
  0001:0001A2B0       DLL_size
  0001:0001A400       DLL_load
@@ -59,21 +96,42 @@
  0001:0001D180       set_all_changes
  0001:0001D450       draw_mapwho
  0001:0001DF10       copy_back
+ 0001:0001E1C0       draw_agent_element
  0001:0001E300       full_redraw
  0001:0001E400       scroll_map
  0001:0001EA20       nullsub_2
+ 0001:0001EA30       init_fireball
  0001:0001EB80       move_effects
  0001:0001FB50       jpt_21874
+ 0001:0001FBC0       equip_team
  0001:000227D9       def_21874
+ 0001:00022850       draw_ammo_for_this_weapon
+ 0001:000228D0       which_item_selected
+ 0001:00022A10       ShowInfoOnEquipItem
+ 0001:00022E20       WhichIconSelected
+ 0001:00022EB0       ShowAvailableParts
+ 0001:00022FE0       ShowAvailableEquipment
+ 0001:00023120       PurchasePart
+ 0001:00023370       PurchaseWeapon
+ 0001:00023430       GetNextAvailableWeaponSlot
+ 0001:000234A0       GetNextAvailableWeaponSlot2
+ 0001:00023510       ThisPlayerInTeam
  0001:00023540       GetTeamMemberName
+ 0001:000235D0       init_map_data
+ 0001:00023650       adjust_vehicles
  0001:000237B0       reset_mission_info
  0001:00023880       set_default_player
  0001:00023F10       cheat
  0001:000246D0       transfer_people_into_player
  0001:00024C80       init_players_people
+ 0001:00024F60       init_a_players_weapon
+ 0001:00024FC0       clear_savegame
  0001:00024FE0       free_map_level
+ 0001:00025020       set_structure_ends
+ 0001:00025110       init_level_data
  0001:000252B0       load_map_level
  0001:000253F0       init_effect
+ 0001:00025460       init_weapon
  0001:00025560       single_play
  0001:00025580       multi_play
  0001:000256F0       initialise_player
@@ -88,12 +146,41 @@
  0001:00027A20       print_command_opts
  0001:00027A70       timer2_cb
  0001:00027BF0       LbMouseSetup
+ 0001:00027C30       setup_a_sprite
  0001:00027C60       LbSpriteSetup
  0001:00027DB0       correct_buttons
+ 0001:00027E00       map_selection
  0001:00029250       move_it
+ 0001:00029270       remove_model
+ 0001:00029290       animate_model
  0001:000292D0       move_worlds
+ 0001:00029460       get_angle
+ 0001:00029530       move_mapwho
+ 0001:00029660       move_off_mapwho
+ 0001:000296D0       move_on_mapwho
  0001:00029760       jpt_2998D
  0001:00029825       def_2998D
+ 0001:00029A10       ExchangeNetwork_0
+ 0001:00029B70       ExchangeNetwork
+ 0001:0002A340       StopNetwork
+ 0001:0002A4D0       SetupNetwork
+ 0001:0002A5C0       ResetNetwork
+ 0001:0002A640       __NETBios__
+ 0001:0002A730       __NETCheckBios__
+ 0001:0002A790       ResetNetSlot
+ 0001:0002A7C0       NetMyLowAlloc
+ 0001:0002A880       __NETAdd__
+ 0001:0002A9D0       __NETDelete__
+ 0001:0002AAE0       __NETListen__
+ 0001:0002AC20       __NETCall__
+ 0001:0002AD60       net_send
+ 0001:0002AE10       net_receive
+ 0001:0002AEE0       __NETCancel__
+ 0001:0002AF70       __NETHangUp__
+ 0001:0002B0A0       NetMyFree
+ 0001:0002B130       SendNetwork
+ 0001:0002B1B0       ReceiveNetwork
+ 0001:0002B260       ErrLogNetwork
  0001:0002B580       LbMouseReset
  0001:0002B940       move_objects
  0001:0002C2E0       set_mission_complete
@@ -102,6 +189,9 @@
  0001:0002D0E0       draw_panel
  0001:0002D610       make_packet
  0001:0002ED20       clear_weapons
+ 0001:0002EE30       draw_bars
+ 0001:00030E40       cp_i_can_see_and_shoot_person
+ 0001:000310C0       i_can_see_and_shoot_vehicle
  0001:00031DF0       person_danger
  0001:00031EC0       person_use_weapon
  0001:00031F60       fn_S_PERSON_STAND
@@ -144,16 +234,23 @@
  0001:00033FB0       fn_S_PERSON_USE_WEAPON
  0001:00034030       fn_S_PERSON_BEING_PERSUADED
  0001:00034110       move_people
+ 0001:00034590       weakest_player
+ 0001:00034820       closest_player
  0001:00034AAA       nullsub_8
  0001:00034AB0       jpt_35899
+ 0001:00034AD0       ResearchAndDevelop
  0001:00035D05       def_35899
  0001:00035E20       DoResearch
+ 0001:00036190       CompleteResearch
+ 0001:00036350       GetWeaponName
  0001:000374E0       nullsub_3
  0001:000375C0       jpt_3775C
  0001:000375D0       jpt_378BB
  0001:00037600       select
  0001:00037852       def_3775C
  0001:00037BE6       def_378BB
+ 0001:00037E90       LbScreenSwapLo
+ 0001:00037EF0       show_opt
  0001:00037F80       level_finished
  0001:000382E0       load_text
  0001:00038350       load_player
@@ -161,17 +258,38 @@
  0001:00038540       load_save_text
  0001:000385C0       init_sound
  0001:000387E0       SetBFMidiSampleStatus
+ 0001:00038A20       FreeSound
  0001:00038A40       StopAllSounds
  0001:00038A60       DisplayScreenTitle
+ 0001:00038AC0       DrawScreenGadget
+ 0001:00038B50       DrawAcceptGadget
+ 0001:00038BF0       DrawMenuGadget
+ 0001:00038C90       show_text_file
+ 0001:00038EA0       get_word_width
  0001:00038F00       GetLineWidth
  0001:00038F50       new_show_text
+ 0001:000390C0       get_line
+ 0001:000394E0       kill_driver_and_passengers
+ 0001:000395D0       affect_vehicle
+ 0001:00039660       vehicle_moving
+ 0001:00039730       vehicle_on_fire
  0001:00039890       move_vehicles
  0001:00039EC0       which_weapon
+ 0001:00039F10       weapon_to_person
+ 0001:00039FB0       weapons_in_weight
+ 0001:00039FF0       weapon_time_in_use
+ 0001:0003A030       person_has_weapon
  0001:0003A070       count_weapons
+ 0001:0003A0A0       auto_weapon
+ 0001:0003A0D0       fatal_weapon
  0001:0003A100       weapon_is_empty
+ 0001:0003A130       drop_weapon
+ 0001:0003A1D0       drop_all_weapons
+ 0001:0003A300       kill_all_weapons
  0001:0003A390       choose_best_weapon
  0001:0003A5C0       choose_best_weapon_or_same
  0001:0003A8B0       create_ammo_effect
+ 0001:0003A900       affect_weapon
  0001:0003A970       move_weapons
  0001:0003B4E0       load_global_timbre
  0001:0003B5B0       InitMIDI
@@ -429,17 +547,25 @@
  0001:00040F63       spawnvpe
  0001:000410AF       strchr
  0001:00041D6C       vertical_line
+ 0001:00041E2D       pvertical_line
  0001:00041EEE       horizontal_line
  0001:0004225E       jpt_42257
+ 0001:000423F8       rectangle
+ 0001:0004276B       prectangle
+ 0001:00042AEE       pixel_plot
  0001:00048842       draw_horizontal
  0001:0004C136       LbPaletteSet
  0001:0004C1A7       LbScreenSetup
  0001:0004CEF1       nullsub_6
+ 0001:0004CEF2       LbSpriteDraw_unkn2
+ 0001:0004CF80       LbSpriteDraw
  0001:0004F5D0       nullsub_7
  0001:0004F69A       nullsub_12
  0001:0004F8E4       nullsub_11
  0001:0004FA51       LbMemorySet
+ 0001:0004FA93       LbMemoryCopy
  0001:0004FCEC       LbScreenWaitVbi
+ 0001:0004FCFA       read_key
  0001:0004FDE5       a123456789abcde_1
  0002:00050004       aGameDat
  0002:00050018       aDataMap02dDat
@@ -1280,7 +1406,9 @@
  0002:00054D96       sndcard_dma
  0002:00054D98       sndcard_ioaddr
  0002:00054FAC       mmapblk_load_files
- 0002:00055044       aSynd
+ 0002:00055044       Network__Name
+ 0002:00055056       Network__MasterNcb__Command
+ 0002:00055057       Network__MasterNcb__RetCode
  0002:00055308       pointer_sprites
  0002:0005530C       pointer_sprites_end
  0002:00055310       pointer_data
@@ -1335,13 +1463,17 @@
  0002:0005C324       __Save8087
  0002:0005C328       __Rest8087
  0002:0005DEFC       timer2
+ 0002:0005DF30       Network__Status
+ 0002:0005DF38       net_recv_buffer_size
  0002:0005DF3C       mouse_backup
  0002:000605D4       packets
  0002:00060AA0       m_select_pal
  0002:00060B02       a11
+ 0002:00060B0C       Network__NumberOfSlots
+ 0002:00060B16       Network__Slot
  0002:00060B45       is_multiplayer_game
  0002:00060B49       midi_available
- 0002:00060B4A       sound_available
+ 0002:00060B4A       SoundInstalled
  0002:00061BC8       m_sprites_end
  0002:00061BCC       m_font_data
  0002:00061BD0       m_spr_data
