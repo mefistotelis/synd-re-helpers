@@ -173,3 +173,26 @@ struct DWORDREGS
   int cflag;
 };
 
+/* 10 */
+struct BFSample
+{
+  int field_0;
+  int field_4;
+  int field_8;
+  __int16 field_C;
+  __attribute__((packed)) __attribute__((aligned(1))) int data_shifted;
+  __attribute__((packed)) __attribute__((aligned(1))) void *data_start;
+  __int16 field_16;
+  int field_18;
+  __int16 field_1C;
+  char field_1E;
+  char field_1F;
+};
+
+/* 11 */
+struct BFSampleStatus
+{
+  char field_0;
+  char field_1;
+};
+

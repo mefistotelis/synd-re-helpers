@@ -11,6 +11,7 @@
  0001:00010003       ___begtext
  0001:00010010       check_for_danger
  0001:000101E0       syndicate
+ 0001:00010360       play_distance_sample
  0001:000104C0       level_failed
  0001:00010510       level_complete
  0001:000105E0       check_end_level
@@ -94,7 +95,9 @@
  0001:0001BEC0       draw_tact_map
  0001:0001CD10       which_frame_person
  0001:0001D180       set_all_changes
+ 0001:0001D1D0       set_block_changes
  0001:0001D450       draw_mapwho
+ 0001:0001DCB0       number_people
  0001:0001DF10       copy_back
  0001:0001E1C0       draw_agent_element
  0001:0001E300       full_redraw
@@ -154,6 +157,9 @@
  0001:00029270       remove_model
  0001:00029290       animate_model
  0001:000292D0       move_worlds
+ 0001:00029330       affect_by_wind
+ 0001:00029390       goto_angle
+ 0001:000293E0       goto_zangle
  0001:00029460       get_angle
  0001:00029530       move_mapwho
  0001:00029660       move_off_mapwho
@@ -182,16 +188,62 @@
  0001:0002B1B0       ReceiveNetwork
  0001:0002B260       ErrLogNetwork
  0001:0002B580       LbMouseReset
+ 0001:0002B5C0       traffic_go
+ 0001:0002B6F0       affect_object
+ 0001:0002B780       traffic_hover
  0001:0002B940       move_objects
+ 0001:0002C240       animate_panel
+ 0001:0002C280       center_panel_string
  0001:0002C2E0       set_mission_complete
+ 0001:0002C320       set_mission_failed
+ 0001:0002C340       jpt_2C402
+ 0001:0002C390       set_panel_string
+ 0001:0002C510       print_panel_string
+ 0001:0002C600       unused_panel_unkn1
  0001:0002C640       setup_panel
  0001:0002C880       process_players_turn
+ 0001:0002CB40       change_mouse_pointer
  0001:0002D0E0       draw_panel
+ 0001:0002D380       get_persons_action
  0001:0002D610       make_packet
+ 0001:0002E4A0       draw_apanel
+ 0001:0002E560       process_panel
+ 0001:0002E7A0       process_panel_people
+ 0001:0002EAD0       process_panel_weapons
  0001:0002ED20       clear_weapons
+ 0001:0002EDA0       clear_weapons_condition
  0001:0002EE30       draw_bars
+ 0001:0002F7E0       check_player_holding
+ 0001:0002F8F0       set_weapon
+ 0001:0002F980       jpt_2F9C8
+ 0001:0002F990       adjust_bar
+ 0001:0002FAE0       adjust_bar_levels
+ 0001:0002FC10       person_goto
+ 0001:0002FC70       person_colide
+ 0001:0002FCE0       jpt_2FDBB
+ 0001:0002FD20       i_can_walk_here
+ 0001:0002FE70       i_can_walk_here_quick
+ 0001:0002FF80       i_cant_walk_in_this_direction
+ 0001:0002FFF0       i_cant_walk_in_this_direction_quick
+ 0001:00030060       get_person_perception
+ 0001:000300C0       get_person_intelligence
+ 0001:00030120       get_person_adrenlin
+ 0001:00030180       get_person_speed
+ 0001:00030250       new_state_person
+ 0001:000302A0       can_i_persuad_you
+ 0001:00030600       affect_person
+ 0001:000306D0       quick_decide_on_hug_direction
+ 0001:000307B0       decide_on_hug_direction
+ 0001:00030CC0       do_a_hug
+ 0001:00030DB0       check_a_hug
  0001:00030E40       cp_i_can_see_and_shoot_person
+ 0001:00030EB0       i_can_see_and_shoot_person
  0001:000310C0       i_can_see_and_shoot_vehicle
+ 0001:000312F8       jpt_313DF
+ 0001:00031340       person_on_block
+ 0001:000315E0       who_shot_me
+ 0001:000316D0       agent_check_arc_for_enemy
+ 0001:00031830       person_intel
  0001:00031DF0       person_danger
  0001:00031EC0       person_use_weapon
  0001:00031F60       fn_S_PERSON_STAND
@@ -243,13 +295,30 @@
  0001:00035E20       DoResearch
  0001:00036190       CompleteResearch
  0001:00036350       GetWeaponName
+ 0001:00036440       check_west
+ 0001:000364F0       check_east
+ 0001:000365B0       check_north
+ 0001:00036670       check_south
+ 0001:00036730       check_for_on_coming_cars
+ 0001:00036870       there_is_a_road_here
+ 0001:00036900       center_block
+ 0001:00036940       there_is_a_car_or_person
+ 0001:000369D0       car_break
+ 0001:00036A20       copy_speed
+ 0001:00036A50       drive_down_road
+ 0001:00036C20       i_can_drive_in_this_direction
+ 0001:00036EC0       vehicle_which_way
+ 0001:00037110       person_goto_in_vehicle
  0001:000374E0       nullsub_3
+ 0001:000374F0       LbDrawText
  0001:000375C0       jpt_3775C
  0001:000375D0       jpt_378BB
  0001:00037600       select
  0001:00037852       def_3775C
  0001:00037BE6       def_378BB
- 0001:00037E90       LbScreenSwapLo
+ 0001:00037DF0       LbCopyScreenFromBackMCGA
+ 0001:00037E40       LbCopyScreenToBackMCGA
+ 0001:00037E90       LbScreenSwapMCGA
  0001:00037EF0       show_opt
  0001:00037F80       level_finished
  0001:000382E0       load_text
@@ -257,7 +326,13 @@
  0001:00038420       save_player
  0001:00038540       load_save_text
  0001:000385C0       init_sound
- 0001:000387E0       SetBFMidiSampleStatus
+ 0001:00038720       sound_bank_setup
+ 0001:00038790       ClearBFSampleStatus
+ 0001:000387E0       SetBFSampleStatus
+ 0001:00038830       BFPlaySample
+ 0001:00038890       BFSoundPause
+ 0001:000388C0       BFSoundResume
+ 0001:000388F0       BFSonundUnkn1
  0001:00038A20       FreeSound
  0001:00038A40       StopAllSounds
  0001:00038A60       DisplayScreenTitle
@@ -269,7 +344,9 @@
  0001:00038F00       GetLineWidth
  0001:00038F50       new_show_text
  0001:000390C0       get_line
+ 0001:000394A0       person_in_car
  0001:000394E0       kill_driver_and_passengers
+ 0001:00039530       escape_passengers_and_wander
  0001:000395D0       affect_vehicle
  0001:00039660       vehicle_moving
  0001:00039730       vehicle_on_fire
@@ -293,10 +370,13 @@
  0001:0003A970       move_weapons
  0001:0003B4E0       load_global_timbre
  0001:0003B5B0       InitMIDI
- 0001:0003B8A0       syndicate_start_music
+ 0001:0003B8A0       BFMidiStartMusic
  0001:0003B940       BFMidiStopMusic
+ 0001:0003B990       BFMidiPauseSong
+ 0001:0003B9D0       BFMidiResumeSong
  0001:0003BA10       BFMidiIsMusicPlaying
  0001:0003BA40       ShutdownMIDI
+ 0001:0003BA60       CheckArray
  0001:0003BB38       find_proc
  0001:0003BB64       call_driver
  0001:0003BB76       API_timer
@@ -374,6 +454,16 @@
  0001:0003C539       AIL_map_sequence_channel
  0001:0003C543       AIL_release_channel
  0001:0003C54D       AIL_true_sequence_channel
+ 0001:0003C558       AniPlay
+ 0001:0003C6FA       decode_FRAME_CHUNK
+ 0001:0003C79A       decode_FILE_HEADER
+ 0001:0003C7E1       decode_COPY
+ 0001:0003C801       decode_unknown
+ 0001:0003C821       decode_COLOUR256
+ 0001:0003C84A       DoPalette
+ 0001:0003C8EB       decode_SS2
+ 0001:0003C9C4       decode_BRUN
+ 0001:0003CA52       DelayTimer
  0001:0003CAA4       UnpackM1
  0001:0003CC32       blong
  0001:0003CC3B       input_value
@@ -556,14 +646,22 @@
  0001:00048842       draw_horizontal
  0001:0004C136       LbPaletteSet
  0001:0004C1A7       LbScreenSetup
+ 0001:0004C41F       copy_screen_cube
  0001:0004CEF1       nullsub_6
- 0001:0004CEF2       LbSpriteDraw_unkn2
+ 0001:0004CEF2       DrawASpriteLores16_A
+ 0001:0004CF23       DrawASpriteLores16_B
+ 0001:0004CF54       DrawASpriteLores16_C
  0001:0004CF80       LbSpriteDraw
+ 0001:0004D150       DrawASpriteLores16_D
+ 0001:0004D92B       DrawSpriteLores16
  0001:0004F5D0       nullsub_7
  0001:0004F69A       nullsub_12
+ 0001:0004F69B       rprint
  0001:0004F8E4       nullsub_11
+ 0001:0004F96C       LbCopyScreenBox
  0001:0004FA51       LbMemorySet
  0001:0004FA93       LbMemoryCopy
+ 0001:0004FAD9       arctan
  0001:0004FCEC       LbScreenWaitVbi
  0001:0004FCFA       read_key
  0001:0004FDE5       a123456789abcde_1
@@ -1412,19 +1510,27 @@
  0002:00055308       pointer_sprites
  0002:0005530C       pointer_sprites_end
  0002:00055310       pointer_data
+ 0002:00055324       p_spr
  0002:0005534C       smpdata
  0002:00055350       smptable
  0002:00055354       smptable_end
  0002:0005535C       map_buf
  0002:00055368       WScreen
+ 0002:0005536C       data
+ 0002:00055370       BScreen
+ 0002:00055374       UScreen
  0002:00055378       palette
+ 0002:0005537E       Inkey
+ 0002:0005537F       SoundActive
  0002:00055380       GraphicsWindowX
  0002:00055384       GraphicsWindowY
  0002:00055388       GraphicsWindowWidth
  0002:0005538C       GraphicsWindowHeight
+ 0002:00055398       AniArrayCount
  0002:0005A50D       a2
  0002:0005B970       aCSyndSave
  0002:0005BB10       sound_bank_files
+ 0002:0005BBEC       SongCurrentlyPlaying
  0002:0005BBF0       active_timers
  0002:0005BBF2       timer_busy
  0002:0005BBF4       timer_callback
@@ -1447,6 +1553,31 @@
  0002:0005BDC6       timer_handle
  0002:0005BDCA       local_DS
  0002:0005BDCC       CURRENT_REV
+ 0002:0005BDD0       AniFileHandle
+ 0002:0005BDD4       AniType
+ 0002:0005BDD6       NoFrames
+ 0002:0005BDD8       AniWidth
+ 0002:0005BDDA       AniHeight
+ 0002:0005BDDC       AniLength
+ 0002:0005BDE0       AniSubChunks
+ 0002:0005BDE4       CurrFrame
+ 0002:0005BDEC       old_time
+ 0002:0005BDEE       loop_count
+ 0002:0005BDF2       AniQuit
+ 0002:0005BDF4       AniPalChange
+ 0002:0005BDF8       AniSpeed
+ 0002:0005BDFC       AniName
+ 0002:0005BE2E       do_colour
+ 0002:0005BE30       unpackm1__raw_table
+ 0002:0005BEB0       unpackm1__pos_table
+ 0002:0005BF30       unpackm1__len_table
+ 0002:0005BFB0       unpackm1__unpack_len
+ 0002:0005BFB4       unpackm1__pack_len
+ 0002:0005BFBA       unpackm1__counts
+ 0002:0005BFBC       unpackm1__bit_buffl
+ 0002:0005BFBE       unpackm1__bit_buffh
+ 0002:0005BFC0       unpackm1__blocks
+ 0002:0005BFC1       unpackm1__bit_count
  0002:0005C080       __iob
  0002:0005C294       stored_stk
  0002:0005C296       aStackOverflow
@@ -1468,12 +1599,16 @@
  0002:0005DF3C       mouse_backup
  0002:000605D4       packets
  0002:00060AA0       m_select_pal
+ 0002:00060AB4       DestinationY
+ 0002:00060AB8       DestinationX
  0002:00060B02       a11
  0002:00060B0C       Network__NumberOfSlots
  0002:00060B16       Network__Slot
+ 0002:00060B3F       LeftButton
  0002:00060B45       is_multiplayer_game
- 0002:00060B49       midi_available
- 0002:00060B4A       SoundInstalled
+ 0002:00060B49       MusicAble
+ 0002:00060B4A       SoundAble
+ 0002:00060B4D       MusicActive
  0002:00061BC8       m_sprites_end
  0002:00061BCC       m_font_data
  0002:00061BD0       m_spr_data
@@ -1481,10 +1616,11 @@
  0002:00061BD8       m_font
  0002:00061BE0       m_logos
  0002:00061BE4       m_sprites
+ 0002:00061BEC       sample_status
  0002:00061DEC       DIGhdriver
  0002:00061DF0       DIGdll
  0002:00061DF4       DIGdrvr
- 0002:00061E0C       MUShseq
+ 0002:00061E0C       sSOSTrackMap
  0002:00061E2C       MUSdrvr
  0002:00061E34       GTL_hdr
  0002:00061E35       GTL_hdr__bank
@@ -1496,6 +1632,7 @@
  0002:00061E54       ____Argv
  0002:00061E58       ____Argc
  0004:00080105       DrawFlags
+ 0004:00080108       lbSeed
  0004:00091670       ptr
 
 Program entry point at 0001:0002D85C

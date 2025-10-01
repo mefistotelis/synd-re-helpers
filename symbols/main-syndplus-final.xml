@@ -2,7 +2,7 @@
 <?program_dtd version="1"?>
 
 <PROGRAM NAME="main-syndplus-final.exe" EXE_PATH="main-syndplus-final.exe" EXE_FORMAT="Linear Executable (LE)" INPUT_MD5="gD&#xee;&#xcf;&#x95;p&#xb9;&#x9e;D&#xce;&#xdf;K&#xac;">
-    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="main-syndplus-final.idb" TIMESTAMP="2025-09-30 23:31" />
+    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="main-syndplus-final.idb" TIMESTAMP="2025-10-01 14:38" />
     <PROCESSOR NAME="metapc" ENDIAN="little" ADDRESS_MODEL="32-bit" />
     <COMPILER NAME="Watcom C++" />
     <DATATYPES>
@@ -50,6 +50,23 @@
             <MEMBER OFFSET="0x10" NAME="r_esi" DATATYPE="dword" SIZE="0x4" />
             <MEMBER OFFSET="0x14" NAME="r_edi" DATATYPE="dword" SIZE="0x4" />
             <MEMBER OFFSET="0x18" NAME="cflag" DATATYPE="dword" SIZE="0x4" />
+        </STRUCTURE>
+        <STRUCTURE NAME="BFSample" SIZE="0x20">
+            <MEMBER OFFSET="0x0" NAME="field_0" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x4" NAME="field_4" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="data_shifted" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x12" NAME="data_start" DATATYPE="pointer" SIZE="0x4" />
+            <MEMBER OFFSET="0x16" NAME="field_16" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x1C" NAME="field_1C" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x1E" NAME="field_1E" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1F" NAME="field_1F" DATATYPE="byte" SIZE="0x1" />
+        </STRUCTURE>
+        <STRUCTURE NAME="BFSampleStatus" SIZE="0x2">
+            <MEMBER OFFSET="0x0" NAME="field_0" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1" NAME="field_1" DATATYPE="byte" SIZE="0x1" />
         </STRUCTURE>
         <STRUCTURE NAME="TbSprite" SIZE="0x6">
             <MEMBER OFFSET="0x0" NAME="Data" DATATYPE="pointer" SIZE="0x4" />
@@ -1401,25 +1418,9 @@
         <DEFINED_DATA ADDRESS="0x2B928" DATATYPE="pointer[4]" SIZE="0x10">
             <TYPEINFO_CMT>off_2B928</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2C340" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_2C340</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x2C340" DATATYPE="pointer[17]" SIZE="0x44">
+            <TYPEINFO_CMT>jpt_2C402</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2C344" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C348" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C34C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C350" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C354" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C358" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C35C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C360" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C364" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C368" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C36C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C370" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C374" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C378" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C37C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2C380" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x2CAD8" DATATYPE="pointer[6]" SIZE="0x18">
             <TYPEINFO_CMT>off_2CAD8</TYPEINFO_CMT>
         </DEFINED_DATA>
@@ -1533,30 +1534,12 @@
         <DEFINED_DATA ADDRESS="0x2F7C8" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x2F7CC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x2F7D0" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2F980" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_2F980</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x2F980" DATATYPE="pointer[4]" SIZE="0x10">
+            <TYPEINFO_CMT>jpt_2F9C8</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2F984" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2F988" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2F98C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCE0" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_2FCE0</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x2FCE0" DATATYPE="pointer[16]" SIZE="0x40">
+            <TYPEINFO_CMT>jpt_2FDBB</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2FCE4" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCE8" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCEC" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCF0" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCF4" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCF8" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FCFC" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD00" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD04" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD08" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD0C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD10" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD14" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD18" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2FD1C" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x2FE2C" DATATYPE="pointer" SIZE="0x4">
             <TYPEINFO_CMT>off_2FE2C</TYPEINFO_CMT>
         </DEFINED_DATA>
@@ -1622,25 +1605,9 @@
         <DEFINED_DATA ADDRESS="0x312EC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x312F0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x312F4" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x312F8" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_312F8</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x312F8" DATATYPE="pointer[17]" SIZE="0x44">
+            <TYPEINFO_CMT>jpt_313DF</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x312FC" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31300" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31304" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31308" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x3130C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31310" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31314" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31318" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x3131C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31320" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31324" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31328" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x3132C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31330" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31334" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x31338" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x31774" DATATYPE="pointer" SIZE="0x4">
             <TYPEINFO_CMT>off_31774</TYPEINFO_CMT>
         </DEFINED_DATA>
@@ -2037,9 +2004,7 @@
         <DEFINED_DATA ADDRESS="0x4D1EA" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x4D1EE" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x4D1F2" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x4D956" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_4D956</TYPEINFO_CMT>
-        </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x4D956" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x4D95A" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x4D95E" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x4D962" DATATYPE="pointer" SIZE="0x4" />
@@ -5733,7 +5698,7 @@
             <TYPEINFO_CMT>dword_55320</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55324" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_55324</TYPEINFO_CMT>
+            <TYPEINFO_CMT>p_spr</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5532C" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5532C</TYPEINFO_CMT>
@@ -5781,13 +5746,13 @@
             <TYPEINFO_CMT>WScreen</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5536C" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5536C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>data</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55370" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_55370</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BScreen</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55374" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_55374</TYPEINFO_CMT>
+            <TYPEINFO_CMT>UScreen</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55378" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>palette</TYPEINFO_CMT>
@@ -5796,10 +5761,10 @@
             <TYPEINFO_CMT>word_5537C</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5537E" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5537E</TYPEINFO_CMT>
+            <TYPEINFO_CMT>Inkey</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5537F" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5537F</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SoundActive</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55380" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>GraphicsWindowX</TYPEINFO_CMT>
@@ -5820,7 +5785,7 @@
             <TYPEINFO_CMT>word_55392</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55398" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_55398</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniArrayCount</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5539A" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_5539A</TYPEINFO_CMT>
@@ -6421,7 +6386,7 @@
             <TYPEINFO_CMT>byte_5BBE9</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BBEC" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5BBEC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SongCurrentlyPlaying</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BBF0" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>active_timers</TYPEINFO_CMT>
@@ -6490,76 +6455,80 @@
             <TYPEINFO_CMT>CURRENT_REV</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDD0" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5BDD0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniFileHandle</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDD4" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDD4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniType</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5BDD6" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5BDD6</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5BDD6" DATATYPE="word" SIZE="0x2">
+            <TYPEINFO_CMT>NoFrames</TYPEINFO_CMT>
+        </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x5BDD8" DATATYPE="word" SIZE="0x2">
+            <TYPEINFO_CMT>AniWidth</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDDA" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDDA</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniHeight</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDDC" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDDC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniLength</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDE0" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDE0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniSubChunks</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDE4" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDE4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>CurrFrame</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDEC" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDEC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>old_time</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDEE" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDEE</TYPEINFO_CMT>
+            <TYPEINFO_CMT>loop_count</TYPEINFO_CMT>
         </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x5BDF0" DATATYPE="word" SIZE="0x2" />
         <DEFINED_DATA ADDRESS="0x5BDF2" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BDF2</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniQuit</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDF4" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5BDF4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniPalChange</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDF8" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5BDF8</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniSpeed</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BDFC" DATATYPE="byte[50]" SIZE="0x32">
-            <TYPEINFO_CMT>byte_5BDFC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>AniName</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BE2E" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BE2E</TYPEINFO_CMT>
+            <TYPEINFO_CMT>do_colour</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BE30" DATATYPE="byte[128]" SIZE="0x80">
-            <TYPEINFO_CMT>byte_5BE30</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__raw_table</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BEB0" DATATYPE="byte[128]" SIZE="0x80">
-            <TYPEINFO_CMT>byte_5BEB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__pos_table</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BF30" DATATYPE="byte[128]" SIZE="0x80">
-            <TYPEINFO_CMT>byte_5BF30</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__len_table</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFB0" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5BFB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__unpack_len</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFB4" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5BFB4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__pack_len</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFBA" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BFBA</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__counts</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFBC" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BFBC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__bit_buffl</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFBE" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5BFBE</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__bit_buffh</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFC0" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5BFC0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__blocks</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFC1" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5BFC1</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unpackm1__bit_count</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5BFC4" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>dword_5BFC4</TYPEINFO_CMT>
@@ -7162,6 +7131,15 @@
         <DEFINED_DATA ADDRESS="0x5E8A7" DATATYPE="word[3670]" SIZE="0x1CAC">
             <TYPEINFO_CMT>word_5E8A7</TYPEINFO_CMT>
         </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x60554" DATATYPE="byte[16]" SIZE="0x10">
+            <TYPEINFO_CMT>byte_60554</TYPEINFO_CMT>
+        </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x60564" DATATYPE="byte[16]" SIZE="0x10">
+            <TYPEINFO_CMT>byte_60564</TYPEINFO_CMT>
+        </DEFINED_DATA>
+        <DEFINED_DATA ADDRESS="0x60574" DATATYPE="byte[16]" SIZE="0x10">
+            <TYPEINFO_CMT>byte_60574</TYPEINFO_CMT>
+        </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60584" DATATYPE="byte[80]" SIZE="0x50">
             <TYPEINFO_CMT>byte_60584</TYPEINFO_CMT>
         </DEFINED_DATA>
@@ -7205,10 +7183,10 @@
             <TYPEINFO_CMT>dword_60AB0</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60AB4" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_60AB4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DestinationY</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60AB8" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_60AB8</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DestinationX</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60ABC" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>dword_60ABC</TYPEINFO_CMT>
@@ -7361,7 +7339,7 @@
             <TYPEINFO_CMT>byte_60B3E</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B3F" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_60B3F</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LeftButton</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B40" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_60B40</TYPEINFO_CMT>
@@ -7391,10 +7369,10 @@
             <TYPEINFO_CMT>byte_60B48</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B49" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>midi_available</TYPEINFO_CMT>
+            <TYPEINFO_CMT>MusicAble</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4A" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>SoundInstalled</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SoundAble</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4B" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_60B4B</TYPEINFO_CMT>
@@ -7403,7 +7381,7 @@
             <TYPEINFO_CMT>byte_60B4C</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4D" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_60B4D</TYPEINFO_CMT>
+            <TYPEINFO_CMT>MusicActive</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4E" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_60B4E</TYPEINFO_CMT>
@@ -7477,11 +7455,8 @@
         <DEFINED_DATA ADDRESS="0x61BEA" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_61BEA</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x61BEC" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_61BEC</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x61BED" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_61BED</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x61BEC" DATATYPE="BFSampleStatus[256]" SIZE="0x200">
+            <TYPEINFO_CMT>sample_status</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x61DEC" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>DIGhdriver</TYPEINFO_CMT>
@@ -7495,8 +7470,8 @@
         <DEFINED_DATA ADDRESS="0x61DFC" DATATYPE="byte[6]" SIZE="0x6">
             <TYPEINFO_CMT>byte_61DFC</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x61E0C" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>MUShseq</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x61E0C" DATATYPE="dword[8]" SIZE="0x20">
+            <TYPEINFO_CMT>sSOSTrackMap</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x61E2C" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>MUSdrvr</TYPEINFO_CMT>
@@ -7544,7 +7519,7 @@
             <TYPEINFO_CMT>DrawFlags</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x80108" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_80108</TYPEINFO_CMT>
+            <TYPEINFO_CMT>lbSeed</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x8010A" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_8010A</TYPEINFO_CMT>
@@ -7712,7 +7687,17 @@
     </DATA>
     <COMMENTS>
         <COMMENT ADDRESS="0x10000" TYPE="end-of-line">Trap to Debugger </COMMENT>
+        <COMMENT ADDRESS="0x10029" TYPE="end-of-line">song_no </COMMENT>
+        <COMMENT ADDRESS="0x1005C" TYPE="end-of-line">song_no </COMMENT>
+        <COMMENT ADDRESS="0x10155" TYPE="end-of-line">song_no </COMMENT>
+        <COMMENT ADDRESS="0x101BA" TYPE="end-of-line">song_no </COMMENT>
         <COMMENT ADDRESS="0x10285" TYPE="end-of-line">palette </COMMENT>
+        <COMMENT ADDRESS="0x104AE" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x104B4" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x104D9" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x104E1" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x1052E" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x10535" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x10594" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x10C82" TYPE="end-of-line">switch 17 cases  </COMMENT>
         <COMMENT ADDRESS="0x10C91" TYPE="end-of-line">switch jump </COMMENT>
@@ -7765,6 +7750,10 @@
         <COMMENT ADDRESS="0x113E2" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x113E3" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x113E6" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x119F2" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x11A02" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x11A07" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x11A09" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x11E40" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x11F90" TYPE="end-of-line">switch 6 cases  </COMMENT>
         <COMMENT ADDRESS="0x11FAF" TYPE="end-of-line">switch jump </COMMENT>
@@ -7916,6 +7905,10 @@
         <COMMENT ADDRESS="0x18048" TYPE="repeatable">jumptable 00017E75 case 2 </COMMENT>
         <COMMENT ADDRESS="0x18084" TYPE="repeatable">jumptable 00017E75 case 3 </COMMENT>
         <COMMENT ADDRESS="0x180BA" TYPE="repeatable">jumptable 00017E75 default case </COMMENT>
+        <COMMENT ADDRESS="0x181F9" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x18209" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x1820E" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x18210" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x18238" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x18256" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x18263" TYPE="end-of-line">switch 4 cases </COMMENT>
@@ -8373,6 +8366,10 @@
         <COMMENT ADDRESS="0x19FE2" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x19FE4" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x19FEB" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x1A206" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x1A216" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x1A21B" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x1A21D" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x1A2FB" TYPE="end-of-line">length </COMMENT>
         <COMMENT ADDRESS="0x1A304" TYPE="end-of-line">dest </COMMENT>
         <COMMENT ADDRESS="0x1A30C" TYPE="end-of-line">flags </COMMENT>
@@ -8783,13 +8780,87 @@
         <COMMENT ADDRESS="0x1C9E0" TYPE="end-of-line">switch 17 cases  </COMMENT>
         <COMMENT ADDRESS="0x1C9EF" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x1C9F7" TYPE="repeatable">jumptable 0001C9EF case 16 </COMMENT>
+        <COMMENT ADDRESS="0x1CAC6" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1CAC8" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x1CB44" TYPE="repeatable">jumptable 0001C9EF cases 1-3,5,14,15 </COMMENT>
+        <COMMENT ADDRESS="0x1CC0B" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1CC0D" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x1CC3C" TYPE="repeatable">jumptable 0001C9EF default case </COMMENT>
         <COMMENT ADDRESS="0x1CC47" TYPE="repeatable">jumptable 0001C9EF cases 4,6-13 </COMMENT>
+        <COMMENT ADDRESS="0x1D12E" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1D12F" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1D13A" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1D142" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x1D457" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x1D45C" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x1D461" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x1D463" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1D743" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1D747" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x1D924" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1D925" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1D935" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1D93D" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1D9EF" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1D9F0" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1DA00" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1DA08" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1DE61" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1DE62" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1DE7B" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1DE81" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1DF12" TYPE="end-of-line">height </COMMENT>
+        <COMMENT ADDRESS="0x1DF13" TYPE="end-of-line">width </COMMENT>
+        <COMMENT ADDRESS="0x1DF34" TYPE="end-of-line">DestinationY </COMMENT>
+        <COMMENT ADDRESS="0x1DF3C" TYPE="end-of-line">DestinationX </COMMENT>
+        <COMMENT ADDRESS="0x1DF3D" TYPE="end-of-line">SourceY </COMMENT>
+        <COMMENT ADDRESS="0x1DF3F" TYPE="end-of-line">SourceX </COMMENT>
+        <COMMENT ADDRESS="0x1DF41" TYPE="end-of-line">Destination </COMMENT>
+        <COMMENT ADDRESS="0x1DF42" TYPE="end-of-line">Source </COMMENT>
+        <COMMENT ADDRESS="0x1DF6A" TYPE="end-of-line">DestinationY </COMMENT>
+        <COMMENT ADDRESS="0x1DF70" TYPE="end-of-line">DestinationX </COMMENT>
+        <COMMENT ADDRESS="0x1DF71" TYPE="end-of-line">SourceY </COMMENT>
+        <COMMENT ADDRESS="0x1DF72" TYPE="end-of-line">SourceX </COMMENT>
+        <COMMENT ADDRESS="0x1DF74" TYPE="end-of-line">Destination </COMMENT>
+        <COMMENT ADDRESS="0x1DF75" TYPE="end-of-line">Source </COMMENT>
+        <COMMENT ADDRESS="0x1DF83" TYPE="end-of-line">DestinationY </COMMENT>
+        <COMMENT ADDRESS="0x1DF84" TYPE="end-of-line">DestinationX </COMMENT>
+        <COMMENT ADDRESS="0x1DF8A" TYPE="end-of-line">SourceY </COMMENT>
+        <COMMENT ADDRESS="0x1DF8E" TYPE="end-of-line">SourceX </COMMENT>
+        <COMMENT ADDRESS="0x1DF8F" TYPE="end-of-line">Destination </COMMENT>
+        <COMMENT ADDRESS="0x1DF90" TYPE="end-of-line">Source </COMMENT>
+        <COMMENT ADDRESS="0x1DFB3" TYPE="end-of-line">DestinationY </COMMENT>
+        <COMMENT ADDRESS="0x1DFB6" TYPE="end-of-line">DestinationX </COMMENT>
+        <COMMENT ADDRESS="0x1DFBE" TYPE="end-of-line">SourceY </COMMENT>
+        <COMMENT ADDRESS="0x1DFBF" TYPE="end-of-line">SourceX </COMMENT>
+        <COMMENT ADDRESS="0x1DFC1" TYPE="end-of-line">Destination </COMMENT>
+        <COMMENT ADDRESS="0x1DFC3" TYPE="end-of-line">Source </COMMENT>
+        <COMMENT ADDRESS="0x1DFD2" TYPE="end-of-line">DestinationY </COMMENT>
+        <COMMENT ADDRESS="0x1DFDE" TYPE="end-of-line">DestinationX </COMMENT>
+        <COMMENT ADDRESS="0x1DFE1" TYPE="end-of-line">SourceY </COMMENT>
+        <COMMENT ADDRESS="0x1DFE9" TYPE="end-of-line">SourceX </COMMENT>
+        <COMMENT ADDRESS="0x1DFEA" TYPE="end-of-line">Destination </COMMENT>
+        <COMMENT ADDRESS="0x1DFEC" TYPE="end-of-line">Source </COMMENT>
+        <COMMENT ADDRESS="0x1E07A" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1E07F" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x1E0C1" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1E0C2" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1E0CA" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1E0D2" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1E16F" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1E170" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1E178" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1E180" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1E2A3" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1E2A4" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x1E2B4" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x1E2BC" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1ED12" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1ED18" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x1EE34" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1EE3A" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x1EF51" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x1EF53" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x1FB50" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x20469" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x20472" TYPE="end-of-line">a11 </COMMENT>
@@ -9006,6 +9077,10 @@
         <COMMENT ADDRESS="0x227B0" TYPE="repeatable">jumptable 00021874 case 22 </COMMENT>
         <COMMENT ADDRESS="0x227C8" TYPE="repeatable">jumptable 00021874 case 23 </COMMENT>
         <COMMENT ADDRESS="0x227D9" TYPE="repeatable">jumptable 00021874 default case, cases 9,10,19,20,24 </COMMENT>
+        <COMMENT ADDRESS="0x22819" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x22829" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x2282E" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x22830" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x22A69" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x22A9E" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x22AA7" TYPE="end-of-line">a11 </COMMENT>
@@ -9250,6 +9325,10 @@
         <COMMENT ADDRESS="0x254EC" TYPE="end-of-line">val </COMMENT>
         <COMMENT ADDRESS="0x254EE" TYPE="end-of-line">ptr </COMMENT>
         <COMMENT ADDRESS="0x2569D" TYPE="end-of-line">out </COMMENT>
+        <COMMENT ADDRESS="0x26868" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x2686A" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x26A99" TYPE="end-of-line">stat </COMMENT>
+        <COMMENT ADDRESS="0x26A9B" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x26EB0" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x270EA" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x270EC" TYPE="end-of-line">a10 </COMMENT>
@@ -9271,6 +9350,10 @@
         <COMMENT ADDRESS="0x2725F" TYPE="repeatable">jumptable 00027219 case 11 </COMMENT>
         <COMMENT ADDRESS="0x27280" TYPE="repeatable">jumptable 00027219 case 12 </COMMENT>
         <COMMENT ADDRESS="0x272A8" TYPE="repeatable">jumptable 00027219 default case </COMMENT>
+        <COMMENT ADDRESS="0x27320" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x27330" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x27335" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x27337" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x27360" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x273F9" TYPE="end-of-line">switch 23 cases  </COMMENT>
         <COMMENT ADDRESS="0x27408" TYPE="end-of-line">switch jump </COMMENT>
@@ -9296,6 +9379,7 @@
         <COMMENT ADDRESS="0x27936" TYPE="end-of-line">unsigned __int16 </COMMENT>
         <COMMENT ADDRESS="0x2793F" TYPE="end-of-line">unsigned __int16 </COMMENT>
         <COMMENT ADDRESS="0x279CC" TYPE="end-of-line">load_files </COMMENT>
+        <COMMENT ADDRESS="0x27B03" TYPE="end-of-line">callback_fn </COMMENT>
         <COMMENT ADDRESS="0x27E12" TYPE="end-of-line">load_files </COMMENT>
         <COMMENT ADDRESS="0x27E63" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x2821B" TYPE="end-of-line">load_files </COMMENT>
@@ -9465,6 +9549,10 @@
         <COMMENT ADDRESS="0x29926" TYPE="end-of-line">str </COMMENT>
         <COMMENT ADDRESS="0x2997C" TYPE="end-of-line">switch 12 cases </COMMENT>
         <COMMENT ADDRESS="0x2998D" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x299BA" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x299CA" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x299CF" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x299D1" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x29ABA" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x29CEC" TYPE="end-of-line">mode </COMMENT>
         <COMMENT ADDRESS="0x29FA2" TYPE="end-of-line">out </COMMENT>
@@ -9495,6 +9583,15 @@
         <COMMENT ADDRESS="0x2C340" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x2C3FD" TYPE="end-of-line">switch 0 cases  </COMMENT>
         <COMMENT ADDRESS="0x2C402" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x2C40A" TYPE="repeatable">jumptable 0002C402 case 5 </COMMENT>
+        <COMMENT ADDRESS="0x2C41E" TYPE="repeatable">jumptable 0002C402 case 14 </COMMENT>
+        <COMMENT ADDRESS="0x2C42F" TYPE="repeatable">jumptable 0002C402 case 15 </COMMENT>
+        <COMMENT ADDRESS="0x2C440" TYPE="repeatable">jumptable 0002C402 case 16 </COMMENT>
+        <COMMENT ADDRESS="0x2C451" TYPE="repeatable">jumptable 0002C402 case 1 </COMMENT>
+        <COMMENT ADDRESS="0x2C462" TYPE="repeatable">jumptable 0002C402 case 3 </COMMENT>
+        <COMMENT ADDRESS="0x2C473" TYPE="repeatable">jumptable 0002C402 cases 2,10 </COMMENT>
+        <COMMENT ADDRESS="0x2C484" TYPE="repeatable">jumptable 0002C402 case 11 </COMMENT>
+        <COMMENT ADDRESS="0x2C4C5" TYPE="repeatable">jumptable 0002C402 cases 0,4,6-9,12,13 </COMMENT>
         <COMMENT ADDRESS="0x2C643" TYPE="end-of-line">len </COMMENT>
         <COMMENT ADDRESS="0x2C647" TYPE="end-of-line">val </COMMENT>
         <COMMENT ADDRESS="0x2C64F" TYPE="end-of-line">ptr </COMMENT>
@@ -9552,6 +9649,24 @@
         <COMMENT ADDRESS="0x2EE3C" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x2EE41" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x2EE43" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x2F980" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x2F9C2" TYPE="end-of-line">switch 4 cases </COMMENT>
+        <COMMENT ADDRESS="0x2F9C8" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x2F9D0" TYPE="repeatable">jumptable 0002F9C8 case 0 </COMMENT>
+        <COMMENT ADDRESS="0x2F9DC" TYPE="repeatable">jumptable 0002F9C8 case 1 </COMMENT>
+        <COMMENT ADDRESS="0x2F9E9" TYPE="repeatable">jumptable 0002F9C8 case 2 </COMMENT>
+        <COMMENT ADDRESS="0x2F9F9" TYPE="repeatable">jumptable 0002F9C8 case 3 </COMMENT>
+        <COMMENT ADDRESS="0x2FCE0" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x2FDB6" TYPE="end-of-line">switch 16 cases </COMMENT>
+        <COMMENT ADDRESS="0x2FDBB" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x2FDC3" TYPE="repeatable">jumptable 0002FDBB cases 1-5,10,12-14 </COMMENT>
+        <COMMENT ADDRESS="0x2FDC8" TYPE="repeatable">jumptable 0002FDBB cases 0,6-9,11,15 </COMMENT>
+        <COMMENT ADDRESS="0x312F8" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x313DA" TYPE="end-of-line">switch 17 cases </COMMENT>
+        <COMMENT ADDRESS="0x313DF" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x313E7" TYPE="repeatable">jumptable 000313DF case 10 </COMMENT>
+        <COMMENT ADDRESS="0x3140E" TYPE="repeatable">jumptable 000313DF cases 6-9,11 </COMMENT>
+        <COMMENT ADDRESS="0x315D8" TYPE="repeatable">jumptable 000313DF cases 0-5,12-16 </COMMENT>
         <COMMENT ADDRESS="0x31F8C" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x31FF6" TYPE="end-of-line">switch 11 cases  </COMMENT>
         <COMMENT ADDRESS="0x32003" TYPE="end-of-line">switch jump </COMMENT>
@@ -9772,6 +9887,10 @@
         <COMMENT ADDRESS="0x3597A" TYPE="repeatable">jumptable 00035899 case 6 </COMMENT>
         <COMMENT ADDRESS="0x359E6" TYPE="repeatable">jumptable 00035899 case 7 </COMMENT>
         <COMMENT ADDRESS="0x35D05" TYPE="repeatable">jumptable 00035899 default case </COMMENT>
+        <COMMENT ADDRESS="0x35DEE" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x35DFE" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x35E03" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x35E04" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x36334" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x363BA" TYPE="end-of-line">switch 4 cases  </COMMENT>
         <COMMENT ADDRESS="0x363C3" TYPE="end-of-line">switch jump </COMMENT>
@@ -9795,9 +9914,20 @@
         <COMMENT ADDRESS="0x3774F" TYPE="end-of-line">switch 4 cases </COMMENT>
         <COMMENT ADDRESS="0x3775C" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x37764" TYPE="repeatable">jumptable 0003775C case 3 </COMMENT>
+        <COMMENT ADDRESS="0x37769" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x37773" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37780" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x377C5" TYPE="repeatable">jumptable 0003775C case 2 </COMMENT>
+        <COMMENT ADDRESS="0x377CF" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x377DF" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x377E4" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x377E6" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x377F8" TYPE="repeatable">jumptable 0003775C case 0 </COMMENT>
         <COMMENT ADDRESS="0x37800" TYPE="repeatable">jumptable 0003775C case 1 </COMMENT>
+        <COMMENT ADDRESS="0x3780A" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x3781A" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x3781F" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37821" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x37852" TYPE="repeatable">jumptable 0003775C default case </COMMENT>
         <COMMENT ADDRESS="0x37880" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x378B0" TYPE="end-of-line">switch 12 cases </COMMENT>
@@ -9816,8 +9946,20 @@
         <COMMENT ADDRESS="0x3796E" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x37973" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x3797A" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x37A1A" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x37A29" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37A2E" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37A2F" TYPE="end-of-line">ABORT </COMMENT>
+        <COMMENT ADDRESS="0x37AB8" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x37AC7" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37ACC" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37ACE" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x37B19" TYPE="repeatable">jumptable 000378BB case 1 </COMMENT>
         <COMMENT ADDRESS="0x37B29" TYPE="repeatable">jumptable 000378BB case 2 </COMMENT>
+        <COMMENT ADDRESS="0x37B3B" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x37B60" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37B65" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37B67" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x37B93" TYPE="repeatable">jumptable 000378BB case 3 </COMMENT>
         <COMMENT ADDRESS="0x37B9E" TYPE="repeatable">jumptable 000378BB case 5 </COMMENT>
         <COMMENT ADDRESS="0x37BB1" TYPE="repeatable">jumptable 000378BB case 7 </COMMENT>
@@ -9837,8 +9979,23 @@
         <COMMENT ADDRESS="0x37D90" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x37D93" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x37D9F" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x37F30" TYPE="end-of-line">char </COMMENT>
         <COMMENT ADDRESS="0x37F36" TYPE="end-of-line">palette </COMMENT>
+        <COMMENT ADDRESS="0x37F3C" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x37F47" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37F4C" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x37F4E" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x37FBF" TYPE="end-of-line">mode </COMMENT>
+        <COMMENT ADDRESS="0x380F1" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x38115" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x38129" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x38131" TYPE="end-of-line">ABORT </COMMENT>
+        <COMMENT ADDRESS="0x38249" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x3824A" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x3824B" TYPE="end-of-line">ABORT </COMMENT>
+        <COMMENT ADDRESS="0x382AE" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x382AF" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x382B0" TYPE="end-of-line">ABORT </COMMENT>
         <COMMENT ADDRESS="0x38303" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x3831D" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x3832B" TYPE="end-of-line">fname </COMMENT>
@@ -9905,11 +10062,37 @@
         <COMMENT ADDRESS="0x385E7" TYPE="end-of-line">dll </COMMENT>
         <COMMENT ADDRESS="0x385E9" TYPE="end-of-line">flags </COMMENT>
         <COMMENT ADDRESS="0x385EB" TYPE="end-of-line">source </COMMENT>
+        <COMMENT ADDRESS="0x3861E" TYPE="end-of-line">driver_base_addr </COMMENT>
         <COMMENT ADDRESS="0x38631" TYPE="end-of-line">signoff_msg </COMMENT>
-        <COMMENT ADDRESS="0x38642" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x38642" TYPE="end-of-line">driver </COMMENT>
         <COMMENT ADDRESS="0x38665" TYPE="end-of-line">signoff_msg </COMMENT>
+        <COMMENT ADDRESS="0x386BB" TYPE="end-of-line">DRQ </COMMENT>
+        <COMMENT ADDRESS="0x386C3" TYPE="end-of-line">DMA </COMMENT>
+        <COMMENT ADDRESS="0x386C9" TYPE="end-of-line">IRQ </COMMENT>
+        <COMMENT ADDRESS="0x386CF" TYPE="end-of-line">IO_addr </COMMENT>
+        <COMMENT ADDRESS="0x386D5" TYPE="end-of-line">driver </COMMENT>
         <COMMENT ADDRESS="0x386E2" TYPE="end-of-line">signoff_msg </COMMENT>
+        <COMMENT ADDRESS="0x386FD" TYPE="end-of-line">DRQ </COMMENT>
+        <COMMENT ADDRESS="0x386FE" TYPE="end-of-line">DMA </COMMENT>
+        <COMMENT ADDRESS="0x386FF" TYPE="end-of-line">IRQ </COMMENT>
+        <COMMENT ADDRESS="0x38700" TYPE="end-of-line">IO_addr </COMMENT>
+        <COMMENT ADDRESS="0x38707" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x38761" TYPE="end-of-line">block_marker </COMMENT>
+        <COMMENT ADDRESS="0x38762" TYPE="end-of-line">VOC_file </COMMENT>
+        <COMMENT ADDRESS="0x3876C" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x38864" TYPE="end-of-line">block_marker </COMMENT>
+        <COMMENT ADDRESS="0x38868" TYPE="end-of-line">VOC_file </COMMENT>
+        <COMMENT ADDRESS="0x3886F" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3887E" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x388A9" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x388D9" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3891D" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x389DD" TYPE="end-of-line">block_marker </COMMENT>
+        <COMMENT ADDRESS="0x389E1" TYPE="end-of-line">VOC_file </COMMENT>
+        <COMMENT ADDRESS="0x389E8" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x389F7" TYPE="end-of-line">driver </COMMENT>
         <COMMENT ADDRESS="0x38A2A" TYPE="end-of-line">signoff_msg </COMMENT>
+        <COMMENT ADDRESS="0x38A50" TYPE="end-of-line">driver </COMMENT>
         <COMMENT ADDRESS="0x38A61" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x38A63" TYPE="end-of-line">a10 </COMMENT>
         <COMMENT ADDRESS="0x38A65" TYPE="end-of-line">a9 </COMMENT>
@@ -9980,11 +10163,32 @@
         <COMMENT ADDRESS="0x3B5E6" TYPE="end-of-line">dll </COMMENT>
         <COMMENT ADDRESS="0x3B5E8" TYPE="end-of-line">flags </COMMENT>
         <COMMENT ADDRESS="0x3B5EA" TYPE="end-of-line">source </COMMENT>
-        <COMMENT ADDRESS="0x3B629" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3B60C" TYPE="end-of-line">driver_base_addr </COMMENT>
+        <COMMENT ADDRESS="0x3B629" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B67E" TYPE="end-of-line">DRQ </COMMENT>
+        <COMMENT ADDRESS="0x3B687" TYPE="end-of-line">DMA </COMMENT>
+        <COMMENT ADDRESS="0x3B692" TYPE="end-of-line">IRQ </COMMENT>
+        <COMMENT ADDRESS="0x3B69B" TYPE="end-of-line">IO_addr </COMMENT>
+        <COMMENT ADDRESS="0x3B6A2" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B6C0" TYPE="end-of-line">DRQ </COMMENT>
+        <COMMENT ADDRESS="0x3B6C1" TYPE="end-of-line">DMA </COMMENT>
+        <COMMENT ADDRESS="0x3B6C2" TYPE="end-of-line">IRQ </COMMENT>
+        <COMMENT ADDRESS="0x3B6C7" TYPE="end-of-line">IO_addr </COMMENT>
+        <COMMENT ADDRESS="0x3B6CE" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B6DD" TYPE="end-of-line">driver </COMMENT>
         <COMMENT ADDRESS="0x3B6E6" TYPE="end-of-line">dest </COMMENT>
         <COMMENT ADDRESS="0x3B6F3" TYPE="end-of-line">filename </COMMENT>
-        <COMMENT ADDRESS="0x3B74D" TYPE="end-of-line">a2 </COMMENT>
-        <COMMENT ADDRESS="0x3B754" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3B730" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B74C" TYPE="end-of-line">cache_size </COMMENT>
+        <COMMENT ADDRESS="0x3B74D" TYPE="end-of-line">cache_addr </COMMENT>
+        <COMMENT ADDRESS="0x3B754" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B78A" TYPE="end-of-line">controller_table </COMMENT>
+        <COMMENT ADDRESS="0x3B790" TYPE="end-of-line">state_table </COMMENT>
+        <COMMENT ADDRESS="0x3B799" TYPE="end-of-line">sequence_num </COMMENT>
+        <COMMENT ADDRESS="0x3B79E" TYPE="end-of-line">FORM_XMID </COMMENT>
+        <COMMENT ADDRESS="0x3B7A5" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B7D7" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B7DE" TYPE="end-of-line">driver </COMMENT>
         <COMMENT ADDRESS="0x3B818" TYPE="end-of-line">patch </COMMENT>
         <COMMENT ADDRESS="0x3B81C" TYPE="end-of-line">bank </COMMENT>
         <COMMENT ADDRESS="0x3B821" TYPE="end-of-line">GTL </COMMENT>
@@ -9992,8 +10196,23 @@
         <COMMENT ADDRESS="0x3B83B" TYPE="end-of-line">patch </COMMENT>
         <COMMENT ADDRESS="0x3B83C" TYPE="end-of-line">bank </COMMENT>
         <COMMENT ADDRESS="0x3B843" TYPE="end-of-line">driver </COMMENT>
-        <COMMENT ADDRESS="0x3BA1F" TYPE="end-of-line">seq </COMMENT>
+        <COMMENT ADDRESS="0x3B8D1" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B8D8" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B8F4" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B8FB" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B91D" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B924" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B967" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B96E" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B9B7" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B9BE" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3B9F7" TYPE="end-of-line">sequence </COMMENT>
+        <COMMENT ADDRESS="0x3B9FE" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3BA1F" TYPE="end-of-line">sequence </COMMENT>
         <COMMENT ADDRESS="0x3BA26" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3BA61" TYPE="end-of-line">song_volume </COMMENT>
+        <COMMENT ADDRESS="0x3BADB" TYPE="end-of-line">smp_id </COMMENT>
+        <COMMENT ADDRESS="0x3BB11" TYPE="end-of-line">song_no </COMMENT>
         <COMMENT ADDRESS="0x3BC27" TYPE="end-of-line">Interrupt controller, 8259A. </COMMENT>
         <COMMENT ADDRESS="0x3BCA4" TYPE="end-of-line">DOS - 2+ - GET INTERRUPT VECTOR
 AL = interrupt number
@@ -10007,14 +10226,26 @@ DS:DX = new vector to be used for specified interrupt </COMMENT>
         <COMMENT ADDRESS="0x3BD28" TYPE="end-of-line">Timer 8253-5 (AT: 8254.2). </COMMENT>
         <COMMENT ADDRESS="0x3BD34" TYPE="end-of-line">Timer 8253-5 (AT: 8254.2). </COMMENT>
         <COMMENT ADDRESS="0x3BD3A" TYPE="end-of-line">Timer 8253-5 (AT: 8254.2). </COMMENT>
-        <COMMENT ADDRESS="0x3C1E4" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3C290" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3BE9E" TYPE="end-of-line">timer </COMMENT>
+        <COMMENT ADDRESS="0x3BEA7" TYPE="end-of-line">signoff_msg </COMMENT>
+        <COMMENT ADDRESS="0x3BEAA" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3BFE3" TYPE="end-of-line">timer </COMMENT>
+        <COMMENT ADDRESS="0x3C1E4" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3C290" TYPE="end-of-line">driver </COMMENT>
+        <COMMENT ADDRESS="0x3C2BB" TYPE="end-of-line">callback_fn </COMMENT>
+        <COMMENT ADDRESS="0x3C363" TYPE="end-of-line">timer </COMMENT>
         <COMMENT ADDRESS="0x3C557" TYPE="repeatable">AIL32.ASM ends </COMMENT>
         <COMMENT ADDRESS="0x3C5B8" TYPE="end-of-line">DOS - GET CURRENT TIME
 Return: CH = hours, CL = minutes, DH = seconds
 DL = hundredths of seconds </COMMENT>
+        <COMMENT ADDRESS="0x3C600" TYPE="repeatable">FLI_FILE_HEADER </COMMENT>
+        <COMMENT ADDRESS="0x3C60D" TYPE="repeatable">FLI_FRAME_CHUNK </COMMENT>
+        <COMMENT ADDRESS="0x3C637" TYPE="end-of-line">arr </COMMENT>
         <COMMENT ADDRESS="0x3C65F" TYPE="repeatable">inlined SwapScreensMCGA() </COMMENT>
         <COMMENT ADDRESS="0x3C690" TYPE="end-of-line">- VIDEO - ALTERNATE FUNCTION SELECT (PS, VGA) - VIDEO REFRESH CONTROL: enable refresh </COMMENT>
+        <COMMENT ADDRESS="0x3C76B" TYPE="repeatable">FLI_SS2 </COMMENT>
+        <COMMENT ADDRESS="0x3C778" TYPE="repeatable">FLI_COLOUR256 </COMMENT>
+        <COMMENT ADDRESS="0x3C785" TYPE="repeatable">FLI_BRUN </COMMENT>
         <COMMENT ADDRESS="0x3C8D6" TYPE="end-of-line">- VIDEO - ALTERNATE FUNCTION SELECT (PS, VGA) - VIDEO REFRESH CONTROL: disable refresh </COMMENT>
         <COMMENT ADDRESS="0x3C8DC" TYPE="end-of-line">Video status bits:
 0: retrace.  1=display is in vert or horiz retrace.
@@ -10198,6 +10429,14 @@ Data bits 0-2 select map # for read mode 00. </COMMENT>
         <COMMENT ADDRESS="0x415F6" TYPE="end-of-line">EGA: graph 1 and 2 addr reg:
 read map select.
 Data bits 0-2 select map # for read mode 00. </COMMENT>
+        <COMMENT ADDRESS="0x416AE" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x416B0" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x416B9" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x416C3" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x4173A" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x4173C" TYPE="end-of-line">p_spr </COMMENT>
+        <COMMENT ADDRESS="0x41745" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x4174F" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x41A66" TYPE="end-of-line">EGA: graph 1 and 2 addr reg:
 read map select.
 Data bits 0-2 select map # for read mode 00. </COMMENT>
@@ -10333,6 +10572,29 @@ unknown register </COMMENT>
 unknown register </COMMENT>
         <COMMENT ADDRESS="0x4CEDC" TYPE="end-of-line">EGA: sequencer address reg
 unknown register </COMMENT>
+        <COMMENT ADDRESS="0x4CEFD" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x4CF01" TYPE="end-of-line">o_height </COMMENT>
+        <COMMENT ADDRESS="0x4CF08" TYPE="end-of-line">width_height </COMMENT>
+        <COMMENT ADDRESS="0x4CF0B" TYPE="end-of-line">data </COMMENT>
+        <COMMENT ADDRESS="0x4CF0D" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x4CF11" TYPE="end-of-line">out </COMMENT>
+        <COMMENT ADDRESS="0x4CF2E" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x4CF32" TYPE="end-of-line">o_height </COMMENT>
+        <COMMENT ADDRESS="0x4CF39" TYPE="end-of-line">width_height </COMMENT>
+        <COMMENT ADDRESS="0x4CF3C" TYPE="end-of-line">data </COMMENT>
+        <COMMENT ADDRESS="0x4CF3E" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x4CF42" TYPE="end-of-line">out </COMMENT>
+        <COMMENT ADDRESS="0x4CF5C" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x4CF60" TYPE="end-of-line">o_height </COMMENT>
+        <COMMENT ADDRESS="0x4CF67" TYPE="end-of-line">width_height </COMMENT>
+        <COMMENT ADDRESS="0x4CF6A" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x4CF6E" TYPE="end-of-line">out </COMMENT>
+        <COMMENT ADDRESS="0x4CF71" TYPE="end-of-line">data </COMMENT>
+        <COMMENT ADDRESS="0x4D164" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x4D168" TYPE="end-of-line">o_height </COMMENT>
+        <COMMENT ADDRESS="0x4D16F" TYPE="end-of-line">width_height </COMMENT>
+        <COMMENT ADDRESS="0x4D172" TYPE="end-of-line">out </COMMENT>
+        <COMMENT ADDRESS="0x4D174" TYPE="end-of-line">data </COMMENT>
         <COMMENT ADDRESS="0x4FCF2" TYPE="end-of-line">Video status bits:
 0: retrace.  1=display is in vert or horiz retrace.
 1: 1=light pen is triggered; 0=armed
@@ -10344,6 +10606,7 @@ AH = scan code, AL = character
 ZF set if no character in buffer </COMMENT>
         <COMMENT ADDRESS="0x4FD02" TYPE="end-of-line">KEYBOARD - READ CHAR FROM BUFFER, WAIT IF EMPTY
 Return: AH = scan code, AL = character </COMMENT>
+        <COMMENT ADDRESS="0x55370" TYPE="repeatable">back screen buffer </COMMENT>
         <COMMENT ADDRESS="0x5BBF0" TYPE="repeatable">AIL32.ASM data block begin </COMMENT>
         <COMMENT ADDRESS="0x10000" TYPE="pre">; File Name   : main-syndplus-final.exe 
 ; Format      : Linear Executable (LE) 
@@ -10391,6 +10654,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <COMMENT ADDRESS="0x3441A" TYPE="end-of-line">inlined fn_S_PERSON_ASHES() </COMMENT>
         <COMMENT ADDRESS="0x34429" TYPE="end-of-line">inlined fn_S_PERSON_CHECK_CROSS_ROAD() </COMMENT>
         <COMMENT ADDRESS="0x34438" TYPE="end-of-line">inlined empty fn_S_PERSON_CROSS_ROAD() </COMMENT>
+        <COMMENT ADDRESS="0x37E91" TYPE="end-of-line">MCGA_SCREEN </COMMENT>
         <COMMENT ADDRESS="0x3BA32" TYPE="end-of-line">1 == SEQ_PLAYING </COMMENT>
     </COMMENTS>
     <PROGRAM_ENTRY_POINTS>
@@ -10400,6 +10664,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x10003" NAME="___begtext" />
         <SYMBOL ADDRESS="0x10010" NAME="check_for_danger" />
         <SYMBOL ADDRESS="0x101E0" NAME="syndicate" />
+        <SYMBOL ADDRESS="0x10360" NAME="play_distance_sample" />
         <SYMBOL ADDRESS="0x104C0" NAME="level_failed" />
         <SYMBOL ADDRESS="0x10510" NAME="level_complete" />
         <SYMBOL ADDRESS="0x105E0" NAME="check_end_level" />
@@ -10483,7 +10748,9 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x1BEC0" NAME="draw_tact_map" />
         <SYMBOL ADDRESS="0x1CD10" NAME="which_frame_person" />
         <SYMBOL ADDRESS="0x1D180" NAME="set_all_changes" />
+        <SYMBOL ADDRESS="0x1D1D0" NAME="set_block_changes" />
         <SYMBOL ADDRESS="0x1D450" NAME="draw_mapwho" />
+        <SYMBOL ADDRESS="0x1DCB0" NAME="number_people" />
         <SYMBOL ADDRESS="0x1DF10" NAME="copy_back" />
         <SYMBOL ADDRESS="0x1E1C0" NAME="draw_agent_element" />
         <SYMBOL ADDRESS="0x1E300" NAME="full_redraw" />
@@ -10543,6 +10810,9 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x29270" NAME="remove_model" />
         <SYMBOL ADDRESS="0x29290" NAME="animate_model" />
         <SYMBOL ADDRESS="0x292D0" NAME="move_worlds" />
+        <SYMBOL ADDRESS="0x29330" NAME="affect_by_wind" />
+        <SYMBOL ADDRESS="0x29390" NAME="goto_angle" />
+        <SYMBOL ADDRESS="0x293E0" NAME="goto_zangle" />
         <SYMBOL ADDRESS="0x29460" NAME="get_angle" />
         <SYMBOL ADDRESS="0x29530" NAME="move_mapwho" />
         <SYMBOL ADDRESS="0x29660" NAME="move_off_mapwho" />
@@ -10571,16 +10841,62 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x2B1B0" NAME="ReceiveNetwork" />
         <SYMBOL ADDRESS="0x2B260" NAME="ErrLogNetwork" />
         <SYMBOL ADDRESS="0x2B580" NAME="LbMouseReset" />
+        <SYMBOL ADDRESS="0x2B5C0" NAME="traffic_go" />
+        <SYMBOL ADDRESS="0x2B6F0" NAME="affect_object" />
+        <SYMBOL ADDRESS="0x2B780" NAME="traffic_hover" />
         <SYMBOL ADDRESS="0x2B940" NAME="move_objects" />
+        <SYMBOL ADDRESS="0x2C240" NAME="animate_panel" />
+        <SYMBOL ADDRESS="0x2C280" NAME="center_panel_string" />
         <SYMBOL ADDRESS="0x2C2E0" NAME="set_mission_complete" />
+        <SYMBOL ADDRESS="0x2C320" NAME="set_mission_failed" />
+        <SYMBOL ADDRESS="0x2C340" NAME="jpt_2C402" />
+        <SYMBOL ADDRESS="0x2C390" NAME="set_panel_string" />
+        <SYMBOL ADDRESS="0x2C510" NAME="print_panel_string" />
+        <SYMBOL ADDRESS="0x2C600" NAME="unused_panel_unkn1" />
         <SYMBOL ADDRESS="0x2C640" NAME="setup_panel" />
         <SYMBOL ADDRESS="0x2C880" NAME="process_players_turn" />
+        <SYMBOL ADDRESS="0x2CB40" NAME="change_mouse_pointer" />
         <SYMBOL ADDRESS="0x2D0E0" NAME="draw_panel" />
+        <SYMBOL ADDRESS="0x2D380" NAME="get_persons_action" />
         <SYMBOL ADDRESS="0x2D610" NAME="make_packet" />
+        <SYMBOL ADDRESS="0x2E4A0" NAME="draw_apanel" />
+        <SYMBOL ADDRESS="0x2E560" NAME="process_panel" />
+        <SYMBOL ADDRESS="0x2E7A0" NAME="process_panel_people" />
+        <SYMBOL ADDRESS="0x2EAD0" NAME="process_panel_weapons" />
         <SYMBOL ADDRESS="0x2ED20" NAME="clear_weapons" />
+        <SYMBOL ADDRESS="0x2EDA0" NAME="clear_weapons_condition" />
         <SYMBOL ADDRESS="0x2EE30" NAME="draw_bars" />
+        <SYMBOL ADDRESS="0x2F7E0" NAME="check_player_holding" />
+        <SYMBOL ADDRESS="0x2F8F0" NAME="set_weapon" />
+        <SYMBOL ADDRESS="0x2F980" NAME="jpt_2F9C8" />
+        <SYMBOL ADDRESS="0x2F990" NAME="adjust_bar" />
+        <SYMBOL ADDRESS="0x2FAE0" NAME="adjust_bar_levels" />
+        <SYMBOL ADDRESS="0x2FC10" NAME="person_goto" />
+        <SYMBOL ADDRESS="0x2FC70" NAME="person_colide" />
+        <SYMBOL ADDRESS="0x2FCE0" NAME="jpt_2FDBB" />
+        <SYMBOL ADDRESS="0x2FD20" NAME="i_can_walk_here" />
+        <SYMBOL ADDRESS="0x2FE70" NAME="i_can_walk_here_quick" />
+        <SYMBOL ADDRESS="0x2FF80" NAME="i_cant_walk_in_this_direction" />
+        <SYMBOL ADDRESS="0x2FFF0" NAME="i_cant_walk_in_this_direction_quick" />
+        <SYMBOL ADDRESS="0x30060" NAME="get_person_perception" />
+        <SYMBOL ADDRESS="0x300C0" NAME="get_person_intelligence" />
+        <SYMBOL ADDRESS="0x30120" NAME="get_person_adrenlin" />
+        <SYMBOL ADDRESS="0x30180" NAME="get_person_speed" />
+        <SYMBOL ADDRESS="0x30250" NAME="new_state_person" />
+        <SYMBOL ADDRESS="0x302A0" NAME="can_i_persuad_you" />
+        <SYMBOL ADDRESS="0x30600" NAME="affect_person" />
+        <SYMBOL ADDRESS="0x306D0" NAME="quick_decide_on_hug_direction" />
+        <SYMBOL ADDRESS="0x307B0" NAME="decide_on_hug_direction" />
+        <SYMBOL ADDRESS="0x30CC0" NAME="do_a_hug" />
+        <SYMBOL ADDRESS="0x30DB0" NAME="check_a_hug" />
         <SYMBOL ADDRESS="0x30E40" NAME="cp_i_can_see_and_shoot_person" />
+        <SYMBOL ADDRESS="0x30EB0" NAME="i_can_see_and_shoot_person" />
         <SYMBOL ADDRESS="0x310C0" NAME="i_can_see_and_shoot_vehicle" />
+        <SYMBOL ADDRESS="0x312F8" NAME="jpt_313DF" />
+        <SYMBOL ADDRESS="0x31340" NAME="person_on_block" />
+        <SYMBOL ADDRESS="0x315E0" NAME="who_shot_me" />
+        <SYMBOL ADDRESS="0x316D0" NAME="agent_check_arc_for_enemy" />
+        <SYMBOL ADDRESS="0x31830" NAME="person_intel" />
         <SYMBOL ADDRESS="0x31DF0" NAME="person_danger" />
         <SYMBOL ADDRESS="0x31EC0" NAME="person_use_weapon" />
         <SYMBOL ADDRESS="0x31F60" NAME="fn_S_PERSON_STAND" />
@@ -10632,13 +10948,30 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x35E20" NAME="DoResearch" />
         <SYMBOL ADDRESS="0x36190" NAME="CompleteResearch" />
         <SYMBOL ADDRESS="0x36350" NAME="GetWeaponName" />
+        <SYMBOL ADDRESS="0x36440" NAME="check_west" />
+        <SYMBOL ADDRESS="0x364F0" NAME="check_east" />
+        <SYMBOL ADDRESS="0x365B0" NAME="check_north" />
+        <SYMBOL ADDRESS="0x36670" NAME="check_south" />
+        <SYMBOL ADDRESS="0x36730" NAME="check_for_on_coming_cars" />
+        <SYMBOL ADDRESS="0x36870" NAME="there_is_a_road_here" />
+        <SYMBOL ADDRESS="0x36900" NAME="center_block" />
+        <SYMBOL ADDRESS="0x36940" NAME="there_is_a_car_or_person" />
+        <SYMBOL ADDRESS="0x369D0" NAME="car_break" />
+        <SYMBOL ADDRESS="0x36A20" NAME="copy_speed" />
+        <SYMBOL ADDRESS="0x36A50" NAME="drive_down_road" />
+        <SYMBOL ADDRESS="0x36C20" NAME="i_can_drive_in_this_direction" />
+        <SYMBOL ADDRESS="0x36EC0" NAME="vehicle_which_way" />
+        <SYMBOL ADDRESS="0x37110" NAME="person_goto_in_vehicle" />
         <SYMBOL ADDRESS="0x374E0" NAME="nullsub_3" />
+        <SYMBOL ADDRESS="0x374F0" NAME="LbDrawText" />
         <SYMBOL ADDRESS="0x375C0" NAME="jpt_3775C" />
         <SYMBOL ADDRESS="0x375D0" NAME="jpt_378BB" />
         <SYMBOL ADDRESS="0x37600" NAME="select" />
         <SYMBOL ADDRESS="0x37852" NAME="def_3775C" />
         <SYMBOL ADDRESS="0x37BE6" NAME="def_378BB" />
-        <SYMBOL ADDRESS="0x37E90" NAME="LbScreenSwapLo" />
+        <SYMBOL ADDRESS="0x37DF0" NAME="LbCopyScreenFromBackMCGA" />
+        <SYMBOL ADDRESS="0x37E40" NAME="LbCopyScreenToBackMCGA" />
+        <SYMBOL ADDRESS="0x37E90" NAME="LbScreenSwapMCGA" />
         <SYMBOL ADDRESS="0x37EF0" NAME="show_opt" />
         <SYMBOL ADDRESS="0x37F80" NAME="level_finished" />
         <SYMBOL ADDRESS="0x382E0" NAME="load_text" />
@@ -10646,7 +10979,13 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x38420" NAME="save_player" />
         <SYMBOL ADDRESS="0x38540" NAME="load_save_text" />
         <SYMBOL ADDRESS="0x385C0" NAME="init_sound" />
-        <SYMBOL ADDRESS="0x387E0" NAME="SetBFMidiSampleStatus" />
+        <SYMBOL ADDRESS="0x38720" NAME="sound_bank_setup" />
+        <SYMBOL ADDRESS="0x38790" NAME="ClearBFSampleStatus" />
+        <SYMBOL ADDRESS="0x387E0" NAME="SetBFSampleStatus" />
+        <SYMBOL ADDRESS="0x38830" NAME="BFPlaySample" />
+        <SYMBOL ADDRESS="0x38890" NAME="BFSoundPause" />
+        <SYMBOL ADDRESS="0x388C0" NAME="BFSoundResume" />
+        <SYMBOL ADDRESS="0x388F0" NAME="BFSonundUnkn1" />
         <SYMBOL ADDRESS="0x38A20" NAME="FreeSound" />
         <SYMBOL ADDRESS="0x38A40" NAME="StopAllSounds" />
         <SYMBOL ADDRESS="0x38A60" NAME="DisplayScreenTitle" />
@@ -10658,7 +10997,9 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x38F00" NAME="GetLineWidth" />
         <SYMBOL ADDRESS="0x38F50" NAME="new_show_text" />
         <SYMBOL ADDRESS="0x390C0" NAME="get_line" />
+        <SYMBOL ADDRESS="0x394A0" NAME="person_in_car" />
         <SYMBOL ADDRESS="0x394E0" NAME="kill_driver_and_passengers" />
+        <SYMBOL ADDRESS="0x39530" NAME="escape_passengers_and_wander" />
         <SYMBOL ADDRESS="0x395D0" NAME="affect_vehicle" />
         <SYMBOL ADDRESS="0x39660" NAME="vehicle_moving" />
         <SYMBOL ADDRESS="0x39730" NAME="vehicle_on_fire" />
@@ -10682,10 +11023,13 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x3A970" NAME="move_weapons" />
         <SYMBOL ADDRESS="0x3B4E0" NAME="load_global_timbre" />
         <SYMBOL ADDRESS="0x3B5B0" NAME="InitMIDI" />
-        <SYMBOL ADDRESS="0x3B8A0" NAME="syndicate_start_music" />
+        <SYMBOL ADDRESS="0x3B8A0" NAME="BFMidiStartMusic" />
         <SYMBOL ADDRESS="0x3B940" NAME="BFMidiStopMusic" />
+        <SYMBOL ADDRESS="0x3B990" NAME="BFMidiPauseSong" />
+        <SYMBOL ADDRESS="0x3B9D0" NAME="BFMidiResumeSong" />
         <SYMBOL ADDRESS="0x3BA10" NAME="BFMidiIsMusicPlaying" />
         <SYMBOL ADDRESS="0x3BA40" NAME="ShutdownMIDI" />
+        <SYMBOL ADDRESS="0x3BA60" NAME="CheckArray" />
         <SYMBOL ADDRESS="0x3BB38" NAME="find_proc" />
         <SYMBOL ADDRESS="0x3BB64" NAME="call_driver" />
         <SYMBOL ADDRESS="0x3BB76" NAME="API_timer" />
@@ -10764,8 +11108,47 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x3C539" NAME="AIL_map_sequence_channel" />
         <SYMBOL ADDRESS="0x3C543" NAME="AIL_release_channel" />
         <SYMBOL ADDRESS="0x3C54D" NAME="AIL_true_sequence_channel" />
+        <SYMBOL ADDRESS="0x3C558" NAME="AniPlay" />
+        <SYMBOL ADDRESS="0x3C5CC" NAME="read_hunk" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C60D" NAME="not_FLI_FILE_HEADER" TYPE="local" />
         <SYMBOL ADDRESS="0x3C65F" NAME="__inline_SwapScreensMCGA" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C677" NAME="no_copy_screen" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C68A" NAME="carry_on" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C6AC" NAME="do_abort" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C6B5" NAME="not_abort" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C6C5" NAME="not_FLI_FRAME_CHUNK" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C6D7" NAME="eloop" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C6F2" NAME="finish" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C6FA" NAME="decode_FRAME_CHUNK" />
+        <SYMBOL ADDRESS="0x3C725" NAME="next_sub_chunk" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C733" NAME="more_chunks" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C778" NAME="not_FLI_SS2" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C785" NAME="not_FLI_COLOUR256" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C792" NAME="not_FLI_BRUN" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C799" NAME="frame_finished" TYPE="local" />
+        <SYMBOL ADDRESS="0x3C79A" NAME="decode_FILE_HEADER" />
+        <SYMBOL ADDRESS="0x3C7E1" NAME="decode_COPY" />
+        <SYMBOL ADDRESS="0x3C801" NAME="decode_unknown" />
+        <SYMBOL ADDRESS="0x3C821" NAME="decode_COLOUR256" />
+        <SYMBOL ADDRESS="0x3C84A" NAME="DoPalette" />
+        <SYMBOL ADDRESS="0x3C8EB" NAME="decode_SS2" />
+        <SYMBOL ADDRESS="0x3C9C4" NAME="decode_BRUN" />
+        <SYMBOL ADDRESS="0x3CA0D" NAME="height_loop" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA12" NAME="width_loop" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA23" NAME="posi" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA2B" NAME="done_bit" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA30" NAME="copy_loop" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA3C" NAME="positive" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA3F" NAME="copy_loop2" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA46" NAME="done_part_line" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA52" NAME="DelayTimer" />
+        <SYMBOL ADDRESS="0x3CA63" NAME="del_loop" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CA89" NAME="ok_pos" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CAA3" NAME="del_end" TYPE="local" />
         <SYMBOL ADDRESS="0x3CAA4" NAME="UnpackM1" />
+        <SYMBOL ADDRESS="0x3CB3F" NAME="unpack3" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CB86" NAME="unpack5" TYPE="local" />
+        <SYMBOL ADDRESS="0x3CC18" NAME="not_pack" TYPE="local" />
         <SYMBOL ADDRESS="0x3CC32" NAME="blong" />
         <SYMBOL ADDRESS="0x3CC3B" NAME="input_value" />
         <SYMBOL ADDRESS="0x3CC7E" NAME="input_bits" />
@@ -10947,14 +11330,55 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x48842" NAME="draw_horizontal" />
         <SYMBOL ADDRESS="0x4C136" NAME="LbPaletteSet" />
         <SYMBOL ADDRESS="0x4C1A7" NAME="LbScreenSetup" />
+        <SYMBOL ADDRESS="0x4C41F" NAME="copy_screen_cube" />
         <SYMBOL ADDRESS="0x4CEF1" NAME="nullsub_6" />
-        <SYMBOL ADDRESS="0x4CEF2" NAME="LbSpriteDraw_unkn2" />
+        <SYMBOL ADDRESS="0x4CEF2" NAME="DrawASpriteLores16_A" />
+        <SYMBOL ADDRESS="0x4CF23" NAME="DrawASpriteLores16_B" />
+        <SYMBOL ADDRESS="0x4CF54" NAME="DrawASpriteLores16_C" />
         <SYMBOL ADDRESS="0x4CF80" NAME="LbSpriteDraw" />
+        <SYMBOL ADDRESS="0x4D150" NAME="DrawASpriteLores16_D" />
+        <SYMBOL ADDRESS="0x4D92B" NAME="DrawSpriteLores16" />
+        <SYMBOL ADDRESS="0x4D956" NAME="spr_lr16_jt" TYPE="local" />
+        <SYMBOL ADDRESS="0x4D9D6" NAME="lnswidth1" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DAA8" NAME="lnswidth2" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DBD8" NAME="lnswidth3" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DBD9" NAME="lnswidth4" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DDBD" NAME="lnswidth5" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DDBE" NAME="lnswidth6" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DDBF" NAME="lnswidth7" TYPE="local" />
+        <SYMBOL ADDRESS="0x4DDC0" NAME="lnswidth8" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E10C" NAME="lnswidth9" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E205" NAME="lnswidth10" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E37B" NAME="lnswidth11" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E37C" NAME="lnswidth12" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E5EC" NAME="lnswidth13" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E5ED" NAME="lnswidth14" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E5EE" NAME="lnswidth15" TYPE="local" />
+        <SYMBOL ADDRESS="0x4E5EF" NAME="lnswidth16" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EA53" NAME="lrswidth1" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EB2F" NAME="lrswidth2" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EC69" NAME="lrswidth3" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EC6A" NAME="lrswidth4" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EE58" NAME="lrswidth5" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EE59" NAME="lrswidth6" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EE5A" NAME="lrswidth7" TYPE="local" />
+        <SYMBOL ADDRESS="0x4EE5B" NAME="lrswidth8" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F1B1" NAME="lrswidth9" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F224" NAME="lrswidth10" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F297" NAME="lrswidth11" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F298" NAME="lrswidth12" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F30B" NAME="lrswidth13" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F30C" NAME="lrswidth14" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F30D" NAME="lrswidth15" TYPE="local" />
+        <SYMBOL ADDRESS="0x4F30E" NAME="lrswidth16" TYPE="local" />
         <SYMBOL ADDRESS="0x4F5D0" NAME="nullsub_7" />
         <SYMBOL ADDRESS="0x4F69A" NAME="nullsub_12" />
+        <SYMBOL ADDRESS="0x4F69B" NAME="rprint" />
         <SYMBOL ADDRESS="0x4F8E4" NAME="nullsub_11" />
+        <SYMBOL ADDRESS="0x4F96C" NAME="LbCopyScreenBox" />
         <SYMBOL ADDRESS="0x4FA51" NAME="LbMemorySet" />
         <SYMBOL ADDRESS="0x4FA93" NAME="LbMemoryCopy" />
+        <SYMBOL ADDRESS="0x4FAD9" NAME="arctan" />
         <SYMBOL ADDRESS="0x4FCEC" NAME="LbScreenWaitVbi" />
         <SYMBOL ADDRESS="0x4FCFA" NAME="read_key" />
         <SYMBOL ADDRESS="0x4FDE5" NAME="a123456789abcde_1" />
@@ -11803,19 +12227,27 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x55308" NAME="pointer_sprites" />
         <SYMBOL ADDRESS="0x5530C" NAME="pointer_sprites_end" />
         <SYMBOL ADDRESS="0x55310" NAME="pointer_data" />
+        <SYMBOL ADDRESS="0x55324" NAME="p_spr" />
         <SYMBOL ADDRESS="0x5534C" NAME="smpdata" />
         <SYMBOL ADDRESS="0x55350" NAME="smptable" />
         <SYMBOL ADDRESS="0x55354" NAME="smptable_end" />
         <SYMBOL ADDRESS="0x5535C" NAME="map_buf" />
         <SYMBOL ADDRESS="0x55368" NAME="WScreen" />
+        <SYMBOL ADDRESS="0x5536C" NAME="data" />
+        <SYMBOL ADDRESS="0x55370" NAME="BScreen" />
+        <SYMBOL ADDRESS="0x55374" NAME="UScreen" />
         <SYMBOL ADDRESS="0x55378" NAME="palette" />
+        <SYMBOL ADDRESS="0x5537E" NAME="Inkey" />
+        <SYMBOL ADDRESS="0x5537F" NAME="SoundActive" />
         <SYMBOL ADDRESS="0x55380" NAME="GraphicsWindowX" />
         <SYMBOL ADDRESS="0x55384" NAME="GraphicsWindowY" />
         <SYMBOL ADDRESS="0x55388" NAME="GraphicsWindowWidth" />
         <SYMBOL ADDRESS="0x5538C" NAME="GraphicsWindowHeight" />
+        <SYMBOL ADDRESS="0x55398" NAME="AniArrayCount" />
         <SYMBOL ADDRESS="0x5A50D" NAME="a2" />
         <SYMBOL ADDRESS="0x5B970" NAME="aCSyndSave" />
         <SYMBOL ADDRESS="0x5BB10" NAME="sound_bank_files" />
+        <SYMBOL ADDRESS="0x5BBEC" NAME="SongCurrentlyPlaying" />
         <SYMBOL ADDRESS="0x5BBF0" NAME="active_timers" />
         <SYMBOL ADDRESS="0x5BBF2" NAME="timer_busy" />
         <SYMBOL ADDRESS="0x5BBF4" NAME="timer_callback" />
@@ -11838,6 +12270,31 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x5BDC6" NAME="timer_handle" />
         <SYMBOL ADDRESS="0x5BDCA" NAME="local_DS" />
         <SYMBOL ADDRESS="0x5BDCC" NAME="CURRENT_REV" />
+        <SYMBOL ADDRESS="0x5BDD0" NAME="AniFileHandle" />
+        <SYMBOL ADDRESS="0x5BDD4" NAME="AniType" />
+        <SYMBOL ADDRESS="0x5BDD6" NAME="NoFrames" />
+        <SYMBOL ADDRESS="0x5BDD8" NAME="AniWidth" />
+        <SYMBOL ADDRESS="0x5BDDA" NAME="AniHeight" />
+        <SYMBOL ADDRESS="0x5BDDC" NAME="AniLength" />
+        <SYMBOL ADDRESS="0x5BDE0" NAME="AniSubChunks" />
+        <SYMBOL ADDRESS="0x5BDE4" NAME="CurrFrame" />
+        <SYMBOL ADDRESS="0x5BDEC" NAME="old_time" />
+        <SYMBOL ADDRESS="0x5BDEE" NAME="loop_count" />
+        <SYMBOL ADDRESS="0x5BDF2" NAME="AniQuit" />
+        <SYMBOL ADDRESS="0x5BDF4" NAME="AniPalChange" />
+        <SYMBOL ADDRESS="0x5BDF8" NAME="AniSpeed" />
+        <SYMBOL ADDRESS="0x5BDFC" NAME="AniName" />
+        <SYMBOL ADDRESS="0x5BE2E" NAME="do_colour" />
+        <SYMBOL ADDRESS="0x5BE30" NAME="unpackm1__raw_table" />
+        <SYMBOL ADDRESS="0x5BEB0" NAME="unpackm1__pos_table" />
+        <SYMBOL ADDRESS="0x5BF30" NAME="unpackm1__len_table" />
+        <SYMBOL ADDRESS="0x5BFB0" NAME="unpackm1__unpack_len" />
+        <SYMBOL ADDRESS="0x5BFB4" NAME="unpackm1__pack_len" />
+        <SYMBOL ADDRESS="0x5BFBA" NAME="unpackm1__counts" />
+        <SYMBOL ADDRESS="0x5BFBC" NAME="unpackm1__bit_buffl" />
+        <SYMBOL ADDRESS="0x5BFBE" NAME="unpackm1__bit_buffh" />
+        <SYMBOL ADDRESS="0x5BFC0" NAME="unpackm1__blocks" />
+        <SYMBOL ADDRESS="0x5BFC1" NAME="unpackm1__bit_count" />
         <SYMBOL ADDRESS="0x5C080" NAME="__iob" />
         <SYMBOL ADDRESS="0x5C294" NAME="stored_stk" />
         <SYMBOL ADDRESS="0x5C296" NAME="aStackOverflow" />
@@ -11859,12 +12316,16 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x5DF3C" NAME="mouse_backup" />
         <SYMBOL ADDRESS="0x605D4" NAME="packets" />
         <SYMBOL ADDRESS="0x60AA0" NAME="m_select_pal" />
+        <SYMBOL ADDRESS="0x60AB4" NAME="DestinationY" />
+        <SYMBOL ADDRESS="0x60AB8" NAME="DestinationX" />
         <SYMBOL ADDRESS="0x60B02" NAME="a11" />
         <SYMBOL ADDRESS="0x60B0C" NAME="Network__NumberOfSlots" />
         <SYMBOL ADDRESS="0x60B16" NAME="Network__Slot" />
+        <SYMBOL ADDRESS="0x60B3F" NAME="LeftButton" />
         <SYMBOL ADDRESS="0x60B45" NAME="is_multiplayer_game" />
-        <SYMBOL ADDRESS="0x60B49" NAME="midi_available" />
-        <SYMBOL ADDRESS="0x60B4A" NAME="SoundInstalled" />
+        <SYMBOL ADDRESS="0x60B49" NAME="MusicAble" />
+        <SYMBOL ADDRESS="0x60B4A" NAME="SoundAble" />
+        <SYMBOL ADDRESS="0x60B4D" NAME="MusicActive" />
         <SYMBOL ADDRESS="0x61BC8" NAME="m_sprites_end" />
         <SYMBOL ADDRESS="0x61BCC" NAME="m_font_data" />
         <SYMBOL ADDRESS="0x61BD0" NAME="m_spr_data" />
@@ -11872,10 +12333,11 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x61BD8" NAME="m_font" />
         <SYMBOL ADDRESS="0x61BE0" NAME="m_logos" />
         <SYMBOL ADDRESS="0x61BE4" NAME="m_sprites" />
+        <SYMBOL ADDRESS="0x61BEC" NAME="sample_status" />
         <SYMBOL ADDRESS="0x61DEC" NAME="DIGhdriver" />
         <SYMBOL ADDRESS="0x61DF0" NAME="DIGdll" />
         <SYMBOL ADDRESS="0x61DF4" NAME="DIGdrvr" />
-        <SYMBOL ADDRESS="0x61E0C" NAME="MUShseq" />
+        <SYMBOL ADDRESS="0x61E0C" NAME="sSOSTrackMap" />
         <SYMBOL ADDRESS="0x61E2C" NAME="MUSdrvr" />
         <SYMBOL ADDRESS="0x61E34" NAME="GTL_hdr" />
         <SYMBOL ADDRESS="0x61E35" NAME="GTL_hdr__bank" />
@@ -11887,6 +12349,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x61E54" NAME="____Argv" />
         <SYMBOL ADDRESS="0x61E58" NAME="____Argc" />
         <SYMBOL ADDRESS="0x80105" NAME="DrawFlags" />
+        <SYMBOL ADDRESS="0x80108" NAME="lbSeed" />
         <SYMBOL ADDRESS="0x91670" NAME="ptr" />
     </SYMBOL_TABLE>
     <FUNCTIONS>
@@ -11902,9 +12365,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>syndicate</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x10360">
+        <FUNCTION ENTRY_POINT="0x10360" NAME="play_distance_sample">
             <ADDRESS_RANGE START="0x10360" END="0x104BF" />
-            <TYPEINFO_CMT>sub_10360</TYPEINFO_CMT>
+            <TYPEINFO_CMT>play_distance_sample</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12928,14 +13391,21 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
+        <FUNCTION ENTRY_POINT="0x1D060">
+            <ADDRESS_RANGE START="0x1D060" END="0x1D176" />
+            <TYPEINFO_CMT>sub_1D060</TYPEINFO_CMT>
+            <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
+        </FUNCTION>
         <FUNCTION ENTRY_POINT="0x1D180" NAME="set_all_changes">
             <ADDRESS_RANGE START="0x1D180" END="0x1D1C7" />
             <TYPEINFO_CMT>set_all_changes</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x1D1D0">
+        <FUNCTION ENTRY_POINT="0x1D1D0" NAME="set_block_changes">
             <ADDRESS_RANGE START="0x1D1D0" END="0x1D2BB" />
-            <TYPEINFO_CMT>sub_1D1D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>set_block_changes</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -12965,9 +13435,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x1DCB0">
+        <FUNCTION ENTRY_POINT="0x1DCB0" NAME="number_people">
             <ADDRESS_RANGE START="0x1DCB0" END="0x1DF00" />
-            <TYPEINFO_CMT>sub_1DCB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>number_people</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x34" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x34" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" DATATYPE="word" SIZE="0x2" />
@@ -13597,9 +14067,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>move_worlds</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29330">
+        <FUNCTION ENTRY_POINT="0x29330" NAME="affect_by_wind">
             <ADDRESS_RANGE START="0x29330" END="0x2935D" />
-            <TYPEINFO_CMT>sub_29330</TYPEINFO_CMT>
+            <TYPEINFO_CMT>affect_by_wind</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x29360">
@@ -13610,17 +14080,17 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x29390">
+        <FUNCTION ENTRY_POINT="0x29390" NAME="goto_angle">
             <ADDRESS_RANGE START="0x29390" END="0x293DA" />
-            <TYPEINFO_CMT>sub_29390</TYPEINFO_CMT>
+            <TYPEINFO_CMT>goto_angle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x293E0">
+        <FUNCTION ENTRY_POINT="0x293E0" NAME="goto_zangle">
             <ADDRESS_RANGE START="0x293E0" END="0x29450" />
-            <TYPEINFO_CMT>sub_293E0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>goto_zangle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13924,9 +14394,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="word" SIZE="0x1C" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B5C0">
+        <FUNCTION ENTRY_POINT="0x2B5C0" NAME="traffic_go">
             <ADDRESS_RANGE START="0x2B5C0" END="0x2B6E0" />
-            <TYPEINFO_CMT>sub_2B5C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>traffic_go</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -13935,16 +14405,16 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B6F0">
+        <FUNCTION ENTRY_POINT="0x2B6F0" NAME="affect_object">
             <ADDRESS_RANGE START="0x2B6F0" END="0x2B77D" />
-            <TYPEINFO_CMT>sub_2B6F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>affect_object</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2B780">
+        <FUNCTION ENTRY_POINT="0x2B780" NAME="traffic_hover">
             <ADDRESS_RANGE START="0x2B780" END="0x2B859" />
-            <TYPEINFO_CMT>sub_2B780</TYPEINFO_CMT>
+            <TYPEINFO_CMT>traffic_hover</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -13954,16 +14424,16 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>move_objects</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2C240">
+        <FUNCTION ENTRY_POINT="0x2C240" NAME="animate_panel">
             <ADDRESS_RANGE START="0x2C240" END="0x2C27B" />
-            <TYPEINFO_CMT>sub_2C240</TYPEINFO_CMT>
+            <TYPEINFO_CMT>animate_panel</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2C280">
+        <FUNCTION ENTRY_POINT="0x2C280" NAME="center_panel_string">
             <ADDRESS_RANGE START="0x2C280" END="0x2C2DF" />
-            <TYPEINFO_CMT>sub_2C280</TYPEINFO_CMT>
+            <TYPEINFO_CMT>center_panel_string</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -13974,27 +14444,27 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>set_mission_complete</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2C320">
+        <FUNCTION ENTRY_POINT="0x2C320" NAME="set_mission_failed">
             <ADDRESS_RANGE START="0x2C320" END="0x2C33C" />
-            <TYPEINFO_CMT>sub_2C320</TYPEINFO_CMT>
+            <TYPEINFO_CMT>set_mission_failed</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2C390">
+        <FUNCTION ENTRY_POINT="0x2C390" NAME="set_panel_string">
             <ADDRESS_RANGE START="0x2C390" END="0x2C503" />
-            <TYPEINFO_CMT>sub_2C390</TYPEINFO_CMT>
+            <TYPEINFO_CMT>set_panel_string</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2C510">
+        <FUNCTION ENTRY_POINT="0x2C510" NAME="print_panel_string">
             <ADDRESS_RANGE START="0x2C510" END="0x2C5FD" />
-            <TYPEINFO_CMT>sub_2C510</TYPEINFO_CMT>
+            <TYPEINFO_CMT>print_panel_string</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2C600">
+        <FUNCTION ENTRY_POINT="0x2C600" NAME="unused_panel_unkn1">
             <ADDRESS_RANGE START="0x2C600" END="0x2C631" />
-            <TYPEINFO_CMT>sub_2C600</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unused_panel_unkn1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14010,9 +14480,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>process_players_turn</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2CB40">
+        <FUNCTION ENTRY_POINT="0x2CB40" NAME="change_mouse_pointer">
             <ADDRESS_RANGE START="0x2CB40" END="0x2D0D2" />
-            <TYPEINFO_CMT>sub_2CB40</TYPEINFO_CMT>
+            <TYPEINFO_CMT>change_mouse_pointer</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x2D0E0" NAME="draw_panel">
@@ -14022,9 +14492,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2D380">
+        <FUNCTION ENTRY_POINT="0x2D380" NAME="get_persons_action">
             <ADDRESS_RANGE START="0x2D380" END="0x2D5F8" />
-            <TYPEINFO_CMT>sub_2D380</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_persons_action</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -14037,16 +14507,16 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pckt" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2E4A0">
+        <FUNCTION ENTRY_POINT="0x2E4A0" NAME="draw_apanel">
             <ADDRESS_RANGE START="0x2E4A0" END="0x2E53E" />
-            <TYPEINFO_CMT>sub_2E4A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_apanel</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2E560">
+        <FUNCTION ENTRY_POINT="0x2E560" NAME="process_panel">
             <ADDRESS_RANGE START="0x2E560" END="0x2E785" />
-            <TYPEINFO_CMT>sub_2E560</TYPEINFO_CMT>
+            <TYPEINFO_CMT>process_panel</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14054,9 +14524,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2E7A0">
+        <FUNCTION ENTRY_POINT="0x2E7A0" NAME="process_panel_people">
             <ADDRESS_RANGE START="0x2E7A0" END="0x2EAB7" />
-            <TYPEINFO_CMT>sub_2E7A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>process_panel_people</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14064,9 +14534,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2EAD0">
+        <FUNCTION ENTRY_POINT="0x2EAD0" NAME="process_panel_weapons">
             <ADDRESS_RANGE START="0x2EAD0" END="0x2ED1F" />
-            <TYPEINFO_CMT>sub_2EAD0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>process_panel_weapons</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14079,9 +14549,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>clear_weapons</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2EDA0">
+        <FUNCTION ENTRY_POINT="0x2EDA0" NAME="clear_weapons_condition">
             <ADDRESS_RANGE START="0x2EDA0" END="0x2EE25" />
-            <TYPEINFO_CMT>sub_2EDA0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>clear_weapons_condition</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x2EE30" NAME="draw_bars">
@@ -14092,14 +14562,14 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2F7E0">
+        <FUNCTION ENTRY_POINT="0x2F7E0" NAME="check_player_holding">
             <ADDRESS_RANGE START="0x2F7E0" END="0x2F8E5" />
-            <TYPEINFO_CMT>sub_2F7E0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_player_holding</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2F8F0">
+        <FUNCTION ENTRY_POINT="0x2F8F0" NAME="set_weapon">
             <ADDRESS_RANGE START="0x2F8F0" END="0x2F97F" />
-            <TYPEINFO_CMT>sub_2F8F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>set_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14107,9 +14577,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2F990">
+        <FUNCTION ENTRY_POINT="0x2F990" NAME="adjust_bar">
             <ADDRESS_RANGE START="0x2F990" END="0x2FADC" />
-            <TYPEINFO_CMT>sub_2F990</TYPEINFO_CMT>
+            <TYPEINFO_CMT>adjust_bar</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
@@ -14120,30 +14590,30 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x18" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FAE0">
+        <FUNCTION ENTRY_POINT="0x2FAE0" NAME="adjust_bar_levels">
             <ADDRESS_RANGE START="0x2FAE0" END="0x2FC0D" />
-            <TYPEINFO_CMT>sub_2FAE0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>adjust_bar_levels</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FC10">
+        <FUNCTION ENTRY_POINT="0x2FC10" NAME="person_goto">
             <ADDRESS_RANGE START="0x2FC10" END="0x2FC6F" />
-            <TYPEINFO_CMT>sub_2FC10</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_goto</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FC70">
+        <FUNCTION ENTRY_POINT="0x2FC70" NAME="person_colide">
             <ADDRESS_RANGE START="0x2FC70" END="0x2FCDC" />
-            <TYPEINFO_CMT>sub_2FC70</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_colide</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FD20">
+        <FUNCTION ENTRY_POINT="0x2FD20" NAME="i_can_walk_here">
             <ADDRESS_RANGE START="0x2FD20" END="0x2FE28" />
-            <TYPEINFO_CMT>sub_2FD20</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_can_walk_here</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -14151,9 +14621,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FE70">
+        <FUNCTION ENTRY_POINT="0x2FE70" NAME="i_can_walk_here_quick">
             <ADDRESS_RANGE START="0x2FE70" END="0x2FF72" />
-            <TYPEINFO_CMT>sub_2FE70</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_can_walk_here_quick</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
@@ -14161,64 +14631,64 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FF80">
+        <FUNCTION ENTRY_POINT="0x2FF80" NAME="i_cant_walk_in_this_direction">
             <ADDRESS_RANGE START="0x2FF80" END="0x2FFED" />
-            <TYPEINFO_CMT>sub_2FF80</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_cant_walk_in_this_direction</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x2FFF0">
+        <FUNCTION ENTRY_POINT="0x2FFF0" NAME="i_cant_walk_in_this_direction_quick">
             <ADDRESS_RANGE START="0x2FFF0" END="0x30051" />
-            <TYPEINFO_CMT>sub_2FFF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_cant_walk_in_this_direction_quick</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30060">
+        <FUNCTION ENTRY_POINT="0x30060" NAME="get_person_perception">
             <ADDRESS_RANGE START="0x30060" END="0x300B4" />
-            <TYPEINFO_CMT>sub_30060</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_person_perception</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x300C0">
+        <FUNCTION ENTRY_POINT="0x300C0" NAME="get_person_intelligence">
             <ADDRESS_RANGE START="0x300C0" END="0x30114" />
-            <TYPEINFO_CMT>sub_300C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_person_intelligence</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30120">
+        <FUNCTION ENTRY_POINT="0x30120" NAME="get_person_adrenlin">
             <ADDRESS_RANGE START="0x30120" END="0x30174" />
-            <TYPEINFO_CMT>sub_30120</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_person_adrenlin</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30180">
+        <FUNCTION ENTRY_POINT="0x30180" NAME="get_person_speed">
             <ADDRESS_RANGE START="0x30180" END="0x30244" />
-            <TYPEINFO_CMT>sub_30180</TYPEINFO_CMT>
+            <TYPEINFO_CMT>get_person_speed</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30250">
+        <FUNCTION ENTRY_POINT="0x30250" NAME="new_state_person">
             <ADDRESS_RANGE START="0x30250" END="0x30292" />
-            <TYPEINFO_CMT>sub_30250</TYPEINFO_CMT>
+            <TYPEINFO_CMT>new_state_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x302A0">
+        <FUNCTION ENTRY_POINT="0x302A0" NAME="can_i_persuad_you">
             <ADDRESS_RANGE START="0x302A0" END="0x305F4" />
-            <TYPEINFO_CMT>sub_302A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>can_i_persuad_you</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x1C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
@@ -14227,39 +14697,41 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30600">
+        <FUNCTION ENTRY_POINT="0x30600" NAME="affect_person">
             <ADDRESS_RANGE START="0x30600" END="0x306CA" />
-            <TYPEINFO_CMT>sub_30600</TYPEINFO_CMT>
+            <TYPEINFO_CMT>affect_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x306D0">
+        <FUNCTION ENTRY_POINT="0x306D0" NAME="quick_decide_on_hug_direction">
             <ADDRESS_RANGE START="0x306D0" END="0x307A7" />
-            <TYPEINFO_CMT>sub_306D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>quick_decide_on_hug_direction</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x307B0">
+        <FUNCTION ENTRY_POINT="0x307B0" NAME="decide_on_hug_direction">
             <ADDRESS_RANGE START="0x307B0" END="0x30CB3" />
-            <TYPEINFO_CMT>sub_307B0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decide_on_hug_direction</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xDC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0xDC" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="-0xDC" DATATYPE="byte" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xD8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xD4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xC2" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xBE" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0xAE" NAME="anonymous_0" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xAC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x88" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x82" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x80" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x80" DATATYPE="byte" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x7C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x78" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x66" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x62" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x52" NAME="anonymous_1" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x50" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x26" DATATYPE="byte" SIZE="0x1" />
@@ -14272,18 +14744,18 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30CC0">
+        <FUNCTION ENTRY_POINT="0x30CC0" NAME="do_a_hug">
             <ADDRESS_RANGE START="0x30CC0" END="0x30DAF" />
-            <TYPEINFO_CMT>sub_30CC0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>do_a_hug</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30DB0">
+        <FUNCTION ENTRY_POINT="0x30DB0" NAME="check_a_hug">
             <ADDRESS_RANGE START="0x30DB0" END="0x30E33" />
-            <TYPEINFO_CMT>sub_30DB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_a_hug</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
@@ -14299,9 +14771,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x30EB0">
+        <FUNCTION ENTRY_POINT="0x30EB0" NAME="i_can_see_and_shoot_person">
             <ADDRESS_RANGE START="0x30EB0" END="0x310B6" />
-            <TYPEINFO_CMT>sub_30EB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_can_see_and_shoot_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x28" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" DATATYPE="dword" SIZE="0x4" />
@@ -14326,37 +14798,37 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x31340">
+        <FUNCTION ENTRY_POINT="0x31340" NAME="person_on_block">
             <ADDRESS_RANGE START="0x31340" END="0x315DC" />
-            <TYPEINFO_CMT>sub_31340</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_on_block</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x315E0">
+        <FUNCTION ENTRY_POINT="0x315E0" NAME="who_shot_me">
             <ADDRESS_RANGE START="0x315E0" END="0x316C5" />
-            <TYPEINFO_CMT>sub_315E0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>who_shot_me</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x316D0">
+        <FUNCTION ENTRY_POINT="0x316D0" NAME="agent_check_arc_for_enemy">
             <ADDRESS_RANGE START="0x316D0" END="0x31772" />
-            <TYPEINFO_CMT>sub_316D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>agent_check_arc_for_enemy</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x31830">
+        <FUNCTION ENTRY_POINT="0x31830" NAME="person_intel">
             <ADDRESS_RANGE START="0x31830" END="0x31DE1" />
-            <TYPEINFO_CMT>sub_31830</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_intel</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x1C" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="word" SIZE="0x14" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x31DF0" NAME="person_danger">
@@ -14742,9 +15214,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36440">
+        <FUNCTION ENTRY_POINT="0x36440" NAME="check_west">
             <ADDRESS_RANGE START="0x36440" END="0x364EA" />
-            <TYPEINFO_CMT>sub_36440</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_west</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
@@ -14752,84 +15224,84 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x364F0">
+        <FUNCTION ENTRY_POINT="0x364F0" NAME="check_east">
             <ADDRESS_RANGE START="0x364F0" END="0x365A3" />
-            <TYPEINFO_CMT>sub_364F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_east</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x5" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="anonymous_0" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x365B0">
+        <FUNCTION ENTRY_POINT="0x365B0" NAME="check_north">
             <ADDRESS_RANGE START="0x365B0" END="0x36664" />
-            <TYPEINFO_CMT>sub_365B0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_north</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x9" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="anonymous_0" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36670">
+        <FUNCTION ENTRY_POINT="0x36670" NAME="check_south">
             <ADDRESS_RANGE START="0x36670" END="0x36716" />
-            <TYPEINFO_CMT>sub_36670</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_south</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36730">
+        <FUNCTION ENTRY_POINT="0x36730" NAME="check_for_on_coming_cars">
             <ADDRESS_RANGE START="0x36730" END="0x36865" />
-            <TYPEINFO_CMT>sub_36730</TYPEINFO_CMT>
+            <TYPEINFO_CMT>check_for_on_coming_cars</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36870">
+        <FUNCTION ENTRY_POINT="0x36870" NAME="there_is_a_road_here">
             <ADDRESS_RANGE START="0x36870" END="0x368F8" />
-            <TYPEINFO_CMT>sub_36870</TYPEINFO_CMT>
+            <TYPEINFO_CMT>there_is_a_road_here</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36900">
+        <FUNCTION ENTRY_POINT="0x36900" NAME="center_block">
             <ADDRESS_RANGE START="0x36900" END="0x36937" />
-            <TYPEINFO_CMT>sub_36900</TYPEINFO_CMT>
+            <TYPEINFO_CMT>center_block</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36940">
+        <FUNCTION ENTRY_POINT="0x36940" NAME="there_is_a_car_or_person">
             <ADDRESS_RANGE START="0x36940" END="0x369C0" />
-            <TYPEINFO_CMT>sub_36940</TYPEINFO_CMT>
+            <TYPEINFO_CMT>there_is_a_car_or_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x369D0">
+        <FUNCTION ENTRY_POINT="0x369D0" NAME="car_break">
             <ADDRESS_RANGE START="0x369D0" END="0x36A11" />
-            <TYPEINFO_CMT>sub_369D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>car_break</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36A20">
+        <FUNCTION ENTRY_POINT="0x36A20" NAME="copy_speed">
             <ADDRESS_RANGE START="0x36A20" END="0x36A45" />
-            <TYPEINFO_CMT>sub_36A20</TYPEINFO_CMT>
+            <TYPEINFO_CMT>copy_speed</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36A50">
+        <FUNCTION ENTRY_POINT="0x36A50" NAME="drive_down_road">
             <ADDRESS_RANGE START="0x36A50" END="0x36C14" />
-            <TYPEINFO_CMT>sub_36A50</TYPEINFO_CMT>
+            <TYPEINFO_CMT>drive_down_road</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
@@ -14838,9 +15310,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36C20">
+        <FUNCTION ENTRY_POINT="0x36C20" NAME="i_can_drive_in_this_direction">
             <ADDRESS_RANGE START="0x36C20" END="0x36EB9" />
-            <TYPEINFO_CMT>sub_36C20</TYPEINFO_CMT>
+            <TYPEINFO_CMT>i_can_drive_in_this_direction</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -14848,20 +15320,20 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x36EC0">
+        <FUNCTION ENTRY_POINT="0x36EC0" NAME="vehicle_which_way">
             <ADDRESS_RANGE START="0x36EC0" END="0x3710D" />
-            <TYPEINFO_CMT>sub_36EC0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>vehicle_which_way</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x8" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37110">
+        <FUNCTION ENTRY_POINT="0x37110" NAME="person_goto_in_vehicle">
             <ADDRESS_RANGE START="0x37110" END="0x374D3" />
-            <TYPEINFO_CMT>sub_37110</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_goto_in_vehicle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="word" SIZE="0x10" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -14871,12 +15343,13 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>nullsub_3</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x374F0">
+        <FUNCTION ENTRY_POINT="0x374F0" NAME="LbDrawText">
             <ADDRESS_RANGE START="0x374F0" END="0x375BF" />
-            <TYPEINFO_CMT>sub_374F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbDrawText</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="text" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a2" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="a3" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x37600" NAME="select">
@@ -14889,19 +15362,19 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37DF0">
+        <FUNCTION ENTRY_POINT="0x37DF0" NAME="LbCopyScreenFromBackMCGA">
             <ADDRESS_RANGE START="0x37DF0" END="0x37E37" />
-            <TYPEINFO_CMT>sub_37DF0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbCopyScreenFromBackMCGA</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37E40">
+        <FUNCTION ENTRY_POINT="0x37E40" NAME="LbCopyScreenToBackMCGA">
             <ADDRESS_RANGE START="0x37E40" END="0x37E87" />
-            <TYPEINFO_CMT>sub_37E40</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbCopyScreenToBackMCGA</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37E90" NAME="LbScreenSwapLo">
+        <FUNCTION ENTRY_POINT="0x37E90" NAME="LbScreenSwapMCGA">
             <ADDRESS_RANGE START="0x37E90" END="0x37EED" />
-            <TYPEINFO_CMT>LbScreenSwapLo</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbScreenSwapMCGA</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x37EF0" NAME="show_opt">
@@ -14963,44 +15436,44 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="sc_ioaddr" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38720">
+        <FUNCTION ENTRY_POINT="0x38720" NAME="sound_bank_setup">
             <ADDRESS_RANGE START="0x38720" END="0x38786" />
-            <TYPEINFO_CMT>sub_38720</TYPEINFO_CMT>
+            <TYPEINFO_CMT>sound_bank_setup</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38790">
+        <FUNCTION ENTRY_POINT="0x38790" NAME="ClearBFSampleStatus">
             <ADDRESS_RANGE START="0x38790" END="0x387DA" />
-            <TYPEINFO_CMT>sub_38790</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ClearBFSampleStatus</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x387E0" NAME="SetBFMidiSampleStatus">
+        <FUNCTION ENTRY_POINT="0x387E0" NAME="SetBFSampleStatus">
             <ADDRESS_RANGE START="0x387E0" END="0x3882F" />
-            <TYPEINFO_CMT>SetBFMidiSampleStatus</TYPEINFO_CMT>
+            <TYPEINFO_CMT>SetBFSampleStatus</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="smp_id" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="stat" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38830">
+        <FUNCTION ENTRY_POINT="0x38830" NAME="BFPlaySample">
             <ADDRESS_RANGE START="0x38830" END="0x38889" />
-            <TYPEINFO_CMT>sub_38830</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFPlaySample</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="smp_id" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x38890">
+        <FUNCTION ENTRY_POINT="0x38890" NAME="BFSoundPause">
             <ADDRESS_RANGE START="0x38890" END="0x388B3" />
-            <TYPEINFO_CMT>sub_38890</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFSoundPause</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x388C0">
+        <FUNCTION ENTRY_POINT="0x388C0" NAME="BFSoundResume">
             <ADDRESS_RANGE START="0x388C0" END="0x388E3" />
-            <TYPEINFO_CMT>sub_388C0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFSoundResume</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x388F0">
+        <FUNCTION ENTRY_POINT="0x388F0" NAME="BFSonundUnkn1">
             <ADDRESS_RANGE START="0x388F0" END="0x38A19" />
-            <TYPEINFO_CMT>sub_388F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFSonundUnkn1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x38A20" NAME="FreeSound">
@@ -15122,9 +15595,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x38" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x394A0">
+        <FUNCTION ENTRY_POINT="0x394A0" NAME="person_in_car">
             <ADDRESS_RANGE START="0x394A0" END="0x394D9" />
-            <TYPEINFO_CMT>sub_394A0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>person_in_car</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
@@ -15137,9 +15610,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39530">
+        <FUNCTION ENTRY_POINT="0x39530" NAME="escape_passengers_and_wander">
             <ADDRESS_RANGE START="0x39530" END="0x395C0" />
-            <TYPEINFO_CMT>sub_39530</TYPEINFO_CMT>
+            <TYPEINFO_CMT>escape_passengers_and_wander</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -15328,24 +15801,25 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x88" NAME="GTL_filename" DATATYPE="byte" SIZE="0x10" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x78" DATATYPE="dword" SIZE="0x30" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x48" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x28" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x28" NAME="IO_addr" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" NAME="buffer" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" NAME="state_size" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x18" NAME="sequence_num" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" NAME="GTL" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="pointer" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="filename" DATATYPE="pointer" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="IRQ" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3B8A0" NAME="syndicate_start_music">
+        <FUNCTION ENTRY_POINT="0x3B8A0" NAME="BFMidiStartMusic">
             <ADDRESS_RANGE START="0x3B8A0" END="0x3B939" />
-            <TYPEINFO_CMT>syndicate_start_music</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFMidiStartMusic</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="song_no" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="song_volume" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3B940" NAME="BFMidiStopMusic">
@@ -15353,14 +15827,14 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>BFMidiStopMusic</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3B990">
+        <FUNCTION ENTRY_POINT="0x3B990" NAME="BFMidiPauseSong">
             <ADDRESS_RANGE START="0x3B990" END="0x3B9C8" />
-            <TYPEINFO_CMT>sub_3B990</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFMidiPauseSong</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3B9D0">
+        <FUNCTION ENTRY_POINT="0x3B9D0" NAME="BFMidiResumeSong">
             <ADDRESS_RANGE START="0x3B9D0" END="0x3BA08" />
-            <TYPEINFO_CMT>sub_3B9D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>BFMidiResumeSong</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3BA10" NAME="BFMidiIsMusicPlaying">
@@ -15373,11 +15847,12 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>ShutdownMIDI</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3BA60">
+        <FUNCTION ENTRY_POINT="0x3BA60" NAME="CheckArray">
             <ADDRESS_RANGE START="0x3BA60" END="0x3BB37" />
-            <TYPEINFO_CMT>sub_3BA60</TYPEINFO_CMT>
+            <REPEATABLE_CMT>start of CHECK_AR.C</REPEATABLE_CMT>
+            <TYPEINFO_CMT>CheckArray</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="arr" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3BB38" NAME="find_proc">
@@ -15450,14 +15925,14 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x3BEDD" END="0x3BF8C" />
             <TYPEINFO_CMT>AIL_register_timer</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="callback_fn" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3BF8D" NAME="AIL_release_timer_handle">
             <ADDRESS_RANGE START="0x3BF8D" END="0x3BFD9" />
             <TYPEINFO_CMT>AIL_release_timer_handle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="timer" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3BFDA" NAME="AIL_release_all_timers">
@@ -15523,14 +15998,14 @@ Return: AH = scan code, AL = character </COMMENT>
             <REPEATABLE_CMT>replaced by AIL_install_DIG_driver()</REPEATABLE_CMT>
             <TYPEINFO_CMT>AIL_register_driver</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="driver_base_addr" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C21E" NAME="AIL_release_driver_handle">
             <ADDRESS_RANGE START="0x3C21E" END="0x3C24B" />
             <TYPEINFO_CMT>AIL_release_driver_handle</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C24C" NAME="AIL_describe_driver">
@@ -15544,118 +16019,183 @@ Return: AH = scan code, AL = character </COMMENT>
         <FUNCTION ENTRY_POINT="0x3C26B" NAME="AIL_detect_device">
             <ADDRESS_RANGE START="0x3C26B" END="0x3C274" />
             <TYPEINFO_CMT>AIL_detect_device</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="IO_addr" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="IRQ" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="DMA" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="DRQ" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C275" NAME="AIL_init_driver">
             <ADDRESS_RANGE START="0x3C275" END="0x3C339" />
             <TYPEINFO_CMT>AIL_init_driver</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="a1" DATATYPE="pointer" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x18" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="IO_addr" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="IRQ" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" NAME="DMA" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x18" NAME="DRQ" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C33A" NAME="AIL_shutdown_driver">
             <ADDRESS_RANGE START="0x3C33A" END="0x3C376" />
             <TYPEINFO_CMT>AIL_shutdown_driver</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="signoff_msg" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C377" NAME="AIL_index_VOC_block">
             <ADDRESS_RANGE START="0x3C377" END="0x3C380" />
             <TYPEINFO_CMT>AIL_index_VOC_block</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="VOC_file" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="block_marker" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="buff" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C381" NAME="AIL_register_sound_buffer">
             <ADDRESS_RANGE START="0x3C381" END="0x3C38A" />
             <TYPEINFO_CMT>AIL_register_sound_buffer</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="buffer_num" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="buff" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C38B" NAME="AIL_format_sound_buffer">
             <ADDRESS_RANGE START="0x3C38B" END="0x3C394" />
             <TYPEINFO_CMT>AIL_format_sound_buffer</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="buff" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C395" NAME="AIL_sound_buffer_status">
             <ADDRESS_RANGE START="0x3C395" END="0x3C39E" />
             <TYPEINFO_CMT>AIL_sound_buffer_status</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="buffer_num" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C39F" NAME="AIL_play_VOC_file">
             <ADDRESS_RANGE START="0x3C39F" END="0x3C3A8" />
             <TYPEINFO_CMT>AIL_play_VOC_file</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="VOC_file" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="block_marker" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3A9" NAME="AIL_format_VOC_file">
             <ADDRESS_RANGE START="0x3C3A9" END="0x3C3B2" />
             <TYPEINFO_CMT>AIL_format_VOC_file</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="VOC_file" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="block_marker" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3B3" NAME="AIL_VOC_playback_status">
             <ADDRESS_RANGE START="0x3C3B3" END="0x3C3BC" />
             <TYPEINFO_CMT>AIL_VOC_playback_status</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3BD" NAME="AIL_start_digital_playback">
             <ADDRESS_RANGE START="0x3C3BD" END="0x3C3C6" />
             <TYPEINFO_CMT>AIL_start_digital_playback</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3C7" NAME="AIL_stop_digital_playback">
             <ADDRESS_RANGE START="0x3C3C7" END="0x3C3D0" />
             <TYPEINFO_CMT>AIL_stop_digital_playback</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3D1" NAME="AIL_pause_digital_playback">
             <ADDRESS_RANGE START="0x3C3D1" END="0x3C3DA" />
             <TYPEINFO_CMT>AIL_pause_digital_playback</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3DB" NAME="AIL_resume_digital_playback">
             <ADDRESS_RANGE START="0x3C3DB" END="0x3C3E4" />
             <TYPEINFO_CMT>AIL_resume_digital_playback</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3E5" NAME="AIL_set_digital_playback_volume">
             <ADDRESS_RANGE START="0x3C3E5" END="0x3C3EE" />
             <TYPEINFO_CMT>AIL_set_digital_playback_volume</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="volume" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3EF" NAME="AIL_digital_playback_volume">
             <ADDRESS_RANGE START="0x3C3EF" END="0x3C3F8" />
             <TYPEINFO_CMT>AIL_digital_playback_volume</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C3F9" NAME="AIL_set_digital_playback_panpot">
             <ADDRESS_RANGE START="0x3C3F9" END="0x3C402" />
             <TYPEINFO_CMT>AIL_set_digital_playback_panpot</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="panpot" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C403" NAME="AIL_digital_playback_panpot">
             <ADDRESS_RANGE START="0x3C403" END="0x3C40C" />
             <TYPEINFO_CMT>AIL_digital_playback_panpot</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C40D" NAME="AIL_state_table_size">
             <ADDRESS_RANGE START="0x3C40D" END="0x3C416" />
             <TYPEINFO_CMT>AIL_state_table_size</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C417" NAME="AIL_register_sequence">
             <ADDRESS_RANGE START="0x3C417" END="0x3C420" />
             <TYPEINFO_CMT>AIL_register_sequence</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="FORM_XMID" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="sequence_num" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="state_table" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="controller_table" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C421" NAME="AIL_release_sequence_handle">
             <ADDRESS_RANGE START="0x3C421" END="0x3C42A" />
             <TYPEINFO_CMT>AIL_release_sequence_handle</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C42B" NAME="AIL_default_timbre_cache_size">
             <ADDRESS_RANGE START="0x3C42B" END="0x3C434" />
             <TYPEINFO_CMT>AIL_default_timbre_cache_size</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C435" NAME="AIL_define_timbre_cache">
             <ADDRESS_RANGE START="0x3C435" END="0x3C43E" />
@@ -15663,12 +16203,16 @@ Return: AH = scan code, AL = character </COMMENT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="a1" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a2" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="cache_size" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C43F" NAME="AIL_timbre_request">
             <ADDRESS_RANGE START="0x3C43F" END="0x3C448" />
             <TYPEINFO_CMT>AIL_timbre_request</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C449" NAME="AIL_install_timbre">
             <ADDRESS_RANGE START="0x3C449" END="0x3C452" />
@@ -15683,64 +16227,105 @@ Return: AH = scan code, AL = character </COMMENT>
         <FUNCTION ENTRY_POINT="0x3C453" NAME="AIL_protect_timbre">
             <ADDRESS_RANGE START="0x3C453" END="0x3C45C" />
             <TYPEINFO_CMT>AIL_protect_timbre</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="bank" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="patch" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C45D" NAME="AIL_unprotect_timbre">
             <ADDRESS_RANGE START="0x3C45D" END="0x3C466" />
             <TYPEINFO_CMT>AIL_unprotect_timbre</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="bank" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="patch" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C467" NAME="AIL_timbre_status">
             <ADDRESS_RANGE START="0x3C467" END="0x3C470" />
             <TYPEINFO_CMT>AIL_timbre_status</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="bank" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="patch" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C471" NAME="AIL_start_sequence">
             <ADDRESS_RANGE START="0x3C471" END="0x3C47A" />
             <TYPEINFO_CMT>AIL_start_sequence</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C47B" NAME="AIL_stop_sequence">
             <ADDRESS_RANGE START="0x3C47B" END="0x3C484" />
             <TYPEINFO_CMT>AIL_stop_sequence</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C485" NAME="AIL_resume_sequence">
             <ADDRESS_RANGE START="0x3C485" END="0x3C48E" />
             <TYPEINFO_CMT>AIL_resume_sequence</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C48F" NAME="AIL_sequence_status">
             <ADDRESS_RANGE START="0x3C48F" END="0x3C498" />
             <TYPEINFO_CMT>AIL_sequence_status</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="seq" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C499" NAME="AIL_relative_volume">
             <ADDRESS_RANGE START="0x3C499" END="0x3C4A2" />
             <TYPEINFO_CMT>AIL_relative_volume</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C4A3" NAME="AIL_relative_tempo">
             <ADDRESS_RANGE START="0x3C4A3" END="0x3C4AC" />
             <TYPEINFO_CMT>AIL_relative_tempo</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C4AD" NAME="AIL_set_relative_volume">
             <ADDRESS_RANGE START="0x3C4AD" END="0x3C4B6" />
             <TYPEINFO_CMT>AIL_set_relative_volume</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="percent" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="milliseconds" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C4B7" NAME="AIL_set_relative_tempo">
             <ADDRESS_RANGE START="0x3C4B7" END="0x3C4C0" />
             <TYPEINFO_CMT>AIL_set_relative_tempo</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="percent" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="milliseconds" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C4C1" NAME="AIL_beat_count">
             <ADDRESS_RANGE START="0x3C4C1" END="0x3C4CA" />
             <TYPEINFO_CMT>AIL_beat_count</TYPEINFO_CMT>
-            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="driver" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="sequence" DATATYPE="pointer" SIZE="0x4" />
+            </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C4CB" NAME="AIL_measure_count">
             <ADDRESS_RANGE START="0x3C4CB" END="0x3C4D4" />
@@ -15812,74 +16397,77 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>AIL_true_sequence_channel</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C558">
+        <FUNCTION ENTRY_POINT="0x3C558" NAME="AniPlay">
             <ADDRESS_RANGE START="0x3C558" END="0x3C6F9" />
-            <TYPEINFO_CMT>sub_3C558</TYPEINFO_CMT>
+            <REPEATABLE_CMT>start of ANIM.ASM</REPEATABLE_CMT>
+            <TYPEINFO_CMT>AniPlay</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="ABORT" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="arr" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C6FA">
+        <FUNCTION ENTRY_POINT="0x3C6FA" NAME="decode_FRAME_CHUNK">
             <ADDRESS_RANGE START="0x3C6FA" END="0x3C799" />
-            <TYPEINFO_CMT>sub_3C6FA</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decode_FRAME_CHUNK</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C79A">
+        <FUNCTION ENTRY_POINT="0x3C79A" NAME="decode_FILE_HEADER">
             <ADDRESS_RANGE START="0x3C79A" END="0x3C7E0" />
-            <TYPEINFO_CMT>sub_3C79A</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decode_FILE_HEADER</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C7E1">
+        <FUNCTION ENTRY_POINT="0x3C7E1" NAME="decode_COPY">
             <ADDRESS_RANGE START="0x3C7E1" END="0x3C800" />
-            <TYPEINFO_CMT>sub_3C7E1</TYPEINFO_CMT>
+            <REPEATABLE_CMT>same as decode_PREFIX_CHUNK</REPEATABLE_CMT>
+            <TYPEINFO_CMT>decode_COPY</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C801">
+        <FUNCTION ENTRY_POINT="0x3C801" NAME="decode_unknown">
             <ADDRESS_RANGE START="0x3C801" END="0x3C820" />
-            <TYPEINFO_CMT>sub_3C801</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decode_unknown</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C821">
+        <FUNCTION ENTRY_POINT="0x3C821" NAME="decode_COLOUR256">
             <ADDRESS_RANGE START="0x3C821" END="0x3C849" />
-            <TYPEINFO_CMT>sub_3C821</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decode_COLOUR256</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C84A">
+        <FUNCTION ENTRY_POINT="0x3C84A" NAME="DoPalette">
             <ADDRESS_RANGE START="0x3C84A" END="0x3C8EA" />
-            <TYPEINFO_CMT>sub_3C84A</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DoPalette</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C8EB">
+        <FUNCTION ENTRY_POINT="0x3C8EB" NAME="decode_SS2">
             <ADDRESS_RANGE START="0x3C8EB" END="0x3C9C3" />
-            <TYPEINFO_CMT>sub_3C8EB</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decode_SS2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x10" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0x10" NAME="Tlines" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xE" FRAME_PTR_OFFSET="-0xA" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="-0xC" FRAME_PTR_OFFSET="-0x8" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0xC" FRAME_PTR_OFFSET="-0x8" NAME="Tscrpos" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xA" FRAME_PTR_OFFSET="-0x6" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C9C4">
+        <FUNCTION ENTRY_POINT="0x3C9C4" NAME="decode_BRUN">
             <ADDRESS_RANGE START="0x3C9C4" END="0x3CA51" />
-            <TYPEINFO_CMT>sub_3C9C4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>decode_BRUN</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x8" FRAME_PTR_OFFSET="-0x4" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x6" FRAME_PTR_OFFSET="-0x2" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x8" FRAME_PTR_OFFSET="-0x4" NAME="Theight" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x6" FRAME_PTR_OFFSET="-0x2" NAME="Twidth" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3CA52">
+        <FUNCTION ENTRY_POINT="0x3CA52" NAME="DelayTimer">
             <ADDRESS_RANGE START="0x3CA52" END="0x3CAA3" />
-            <TYPEINFO_CMT>sub_3CA52</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DelayTimer</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3CAA4" NAME="UnpackM1">
             <ADDRESS_RANGE START="0x3CAA4" END="0x3CC31" />
+            <REPEATABLE_CMT>start of RNC_1FM.ASM</REPEATABLE_CMT>
             <TYPEINFO_CMT>UnpackM1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="buf" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="input" DATATYPE="pointer" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="a2" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
@@ -15906,6 +16494,7 @@ Return: AH = scan code, AL = character </COMMENT>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3CD9C" NAME="mem_putc_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x3CD9C" END="0x3CDB1" />
+            <REPEATABLE_CMT>start of sprntf_s.c - WATCOM</REPEATABLE_CMT>
             <TYPEINFO_CMT>mem_putc_</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x8" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
@@ -17489,9 +18078,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_4C32F</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4C41F">
+        <FUNCTION ENTRY_POINT="0x4C41F" NAME="copy_screen_cube">
             <ADDRESS_RANGE START="0x4C41F" END="0x4C796" />
-            <TYPEINFO_CMT>sub_4C41F</TYPEINFO_CMT>
+            <TYPEINFO_CMT>copy_screen_cube</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
@@ -17539,24 +18128,36 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>nullsub_6</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4CEF2" NAME="LbSpriteDraw_unkn2">
+        <FUNCTION ENTRY_POINT="0x4CEF2" NAME="DrawASpriteLores16_A">
             <ADDRESS_RANGE START="0x4CEF2" END="0x4CF22" />
-            <TYPEINFO_CMT>LbSpriteDraw_unkn2</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawASpriteLores16_A</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="a1" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="a2" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="data" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4CF23">
+        <FUNCTION ENTRY_POINT="0x4CF23" NAME="DrawASpriteLores16_B">
             <ADDRESS_RANGE START="0x4CF23" END="0x4CF53" />
-            <TYPEINFO_CMT>sub_4CF23</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawASpriteLores16_B</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="a1" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="o_height" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="p_spr" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="byte" SIZE="0x1" />
+            </STACK_FRAME>
+        </FUNCTION>
+        <FUNCTION ENTRY_POINT="0x4CF54" NAME="DrawASpriteLores16_C">
+            <ADDRESS_RANGE START="0x4CF54" END="0x4CF7F" />
+            <TYPEINFO_CMT>DrawASpriteLores16_C</TYPEINFO_CMT>
+            <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="a1" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="o_height" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="width" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" NAME="height" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x18" FRAME_PTR_OFFSET="0x1C" NAME="out" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x1C" FRAME_PTR_OFFSET="0x20" NAME="data" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x4CF80" NAME="LbSpriteDraw">
@@ -17582,13 +18183,14 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_4CFEC</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4D150">
+        <FUNCTION ENTRY_POINT="0x4D150" NAME="DrawASpriteLores16_D">
             <ADDRESS_RANGE START="0x4D150" END="0x4D188" />
-            <TYPEINFO_CMT>sub_4D150</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawASpriteLores16_D</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="a1" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="o_height" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="a4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" NAME="p_spr" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x4D189">
@@ -17605,9 +18207,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_4D1C1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4D92B">
+        <FUNCTION ENTRY_POINT="0x4D92B" NAME="DrawSpriteLores16">
             <ADDRESS_RANGE START="0x4D92B" END="0x4F383" />
-            <TYPEINFO_CMT>sub_4D92B</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawSpriteLores16</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x4F384">
@@ -17676,9 +18278,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>nullsub_12</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4F69B">
+        <FUNCTION ENTRY_POINT="0x4F69B" NAME="rprint">
             <ADDRESS_RANGE START="0x4F69B" END="0x4F73E" />
-            <TYPEINFO_CMT>sub_4F69B</TYPEINFO_CMT>
+            <TYPEINFO_CMT>rprint</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x1C" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" FRAME_PTR_OFFSET="-0xC" DATATYPE="dword" SIZE="0x4" />
@@ -17720,16 +18322,18 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>sub_4F921</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4F96C">
+        <FUNCTION ENTRY_POINT="0x4F96C" NAME="LbCopyScreenBox">
             <ADDRESS_RANGE START="0x4F96C" END="0x4FA50" />
-            <TYPEINFO_CMT>sub_4F96C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>LbCopyScreenBox</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x18" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x18" FRAME_PTR_OFFSET="0x1C" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="Source" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" NAME="Destination" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" NAME="SourceX" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x14" NAME="SourceY" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x18" NAME="DestinationX" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x18" FRAME_PTR_OFFSET="0x1C" NAME="DestinationY" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x1C" FRAME_PTR_OFFSET="0x20" NAME="width" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x20" FRAME_PTR_OFFSET="0x24" NAME="height" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x4FA51" NAME="LbMemorySet">
@@ -17750,9 +18354,9 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x4FAD9">
+        <FUNCTION ENTRY_POINT="0x4FAD9" NAME="arctan">
             <ADDRESS_RANGE START="0x4FAD9" END="0x4FC09" />
-            <TYPEINFO_CMT>sub_4FAD9</TYPEINFO_CMT>
+            <TYPEINFO_CMT>arctan</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
@@ -18893,23 +19497,6 @@ Return: AH = scan code, AL = character </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x2C2F0" OPERAND_INDEX="0" TO_ADDRESS="0x60564" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2C30C" OPERAND_INDEX="0" TO_ADDRESS="0x60574" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2C32F" OPERAND_INDEX="0" TO_ADDRESS="0x60564" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C340" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C344" OPERAND_INDEX="0" TO_ADDRESS="0x2C451" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C348" OPERAND_INDEX="0" TO_ADDRESS="0x2C473" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C34C" OPERAND_INDEX="0" TO_ADDRESS="0x2C462" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C350" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C354" OPERAND_INDEX="0" TO_ADDRESS="0x2C40A" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C358" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C35C" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C360" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C364" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C368" OPERAND_INDEX="0" TO_ADDRESS="0x2C473" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C36C" OPERAND_INDEX="0" TO_ADDRESS="0x2C484" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C370" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C374" OPERAND_INDEX="0" TO_ADDRESS="0x2C4C5" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C378" OPERAND_INDEX="0" TO_ADDRESS="0x2C41E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C37C" OPERAND_INDEX="0" TO_ADDRESS="0x2C42F" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2C380" OPERAND_INDEX="0" TO_ADDRESS="0x2C440" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2C399" OPERAND_INDEX="0" TO_ADDRESS="0x60554" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2C493" OPERAND_INDEX="0" TO_ADDRESS="0x60564" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2C4D0" OPERAND_INDEX="0" TO_ADDRESS="0x53828" PRIMARY="y" />
@@ -19070,26 +19657,6 @@ Return: AH = scan code, AL = character </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x2F857" OPERAND_INDEX="1" TO_ADDRESS="0x55256" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2F86A" OPERAND_INDEX="1" TO_ADDRESS="0x8810E" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2F905" OPERAND_INDEX="1" TO_ADDRESS="0x8810E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2F980" OPERAND_INDEX="0" TO_ADDRESS="0x2F9D0" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2F984" OPERAND_INDEX="0" TO_ADDRESS="0x2F9DC" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2F988" OPERAND_INDEX="0" TO_ADDRESS="0x2F9E9" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2F98C" OPERAND_INDEX="0" TO_ADDRESS="0x2F9F9" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCE0" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCE4" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCE8" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCEC" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCF0" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCF4" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCF8" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FCFC" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD00" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD04" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD08" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD0C" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD10" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD14" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD18" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC3" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x2FD1C" OPERAND_INDEX="0" TO_ADDRESS="0x2FDC8" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2FE2C" OPERAND_INDEX="0" TO_ADDRESS="0x2FF13" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2FE30" OPERAND_INDEX="0" TO_ADDRESS="0x2FF13" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x2FE34" OPERAND_INDEX="0" TO_ADDRESS="0x2FF13" PRIMARY="y" />
@@ -19164,23 +19731,6 @@ Return: AH = scan code, AL = character </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x312EC" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x312F0" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x312F4" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x312F8" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x312FC" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31300" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31304" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31308" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x3130C" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31310" OPERAND_INDEX="0" TO_ADDRESS="0x3140E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31314" OPERAND_INDEX="0" TO_ADDRESS="0x3140E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31318" OPERAND_INDEX="0" TO_ADDRESS="0x3140E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x3131C" OPERAND_INDEX="0" TO_ADDRESS="0x3140E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31320" OPERAND_INDEX="0" TO_ADDRESS="0x313E7" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31324" OPERAND_INDEX="0" TO_ADDRESS="0x3140E" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31328" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x3132C" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31330" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31334" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x31338" OPERAND_INDEX="0" TO_ADDRESS="0x315D8" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x31621" OPERAND_INDEX="1" TO_ADDRESS="0x8810E" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x31627" OPERAND_INDEX="1" TO_ADDRESS="0x88110" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x3163A" OPERAND_INDEX="1" TO_ADDRESS="0x88110" PRIMARY="y" />
@@ -19811,7 +20361,6 @@ Return: AH = scan code, AL = character </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x4F3A2" OPERAND_INDEX="1" TO_ADDRESS="0x5E384" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x4F3DD" OPERAND_INDEX="1" TO_ADDRESS="0x5E384" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x4F3F0" OPERAND_INDEX="1" TO_ADDRESS="0x5E384" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x4F90E" OPERAND_INDEX="1" TO_ADDRESS="0x80108" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x4F92D" OPERAND_INDEX="1" TO_ADDRESS="0x5E39C" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x50000" OPERAND_INDEX="0" TO_ADDRESS="0x10101" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x541A4" OPERAND_INDEX="0" TO_ADDRESS="0x5027C" PRIMARY="y" />
