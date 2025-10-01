@@ -53,29 +53,37 @@ files with _IDA Pro_ or _ghidra_ - the two most popular
 tools (sorry BinaryNinja fans!).
 
 1. Download _ghidra_. Yes, even if you want to use IDA
- Pro. That's the first step, don't question it.
+ Pro. The _ghidra_ distribution includes _XML exporter
+ plugin_, which can be used to export databases as XML
+ files so that they can be imported into both tools.
+ This allows to migrate between these disassemblers,
+ both ways.
 
-2. [IDA Only] The _ghidra_ distribution includes a plugin
- for use with _IDA Pro_. The _XML exporter plugin_ is
- used to export databases as XML files so that they
- can be imported into both tools. This allows to migrate
- between these disassemblers, both ways. To add the
- _XML exporter plugin_ to your IDA installation, locate
- the folders in the `<ghidra_dir>/Extensions/IDAPro`
- folder. Get IDA Pro version which the exporter supports,
- and copy the python files into `<IDA_dir>/plugins`.
+2. [IDA Only] Add the _XML exporter plugin_ to your
+ IDA installation. To do that, locate the `.py` files
+ in the `<ghidra_dir>/Extensions/IDAPro` folder.
+ Get IDA Pro version which the exporter supports,
+ it does not support all versions. Then copy the
+ python script files into `<IDA_dir>/plugins`.
 
-3. [ghidra Only] Install Java JDK which your version of
+3. [ghidra Only] Install _Java JDK_ which your version of
  _ghidra_ supports, and then install _ghidra_. I'm
  serious, check the JDK version carefully, or this will
  not be as quick as you expect.
 
-4. Open the proper binary executable file from `bin`
- folder into your tool of choice, you may skip analysis
+4. [ghidra Only] Install _ghidra LX/LE loader_ extension
+ using ***'File -> Install Extensions...'***. Download
+ it in a version which works with your _ghidra_, on
+ [the ghidra-lx-loader project releases page](https://github.com/yetmorecode/ghidra-lx-loader/releases).
+
+5. Open the proper binary executable file from `bin`
+ folder into your tool of choice. That's ***'File -> Open'***
+ within _IDA Pro_, ***'File -> Import File...'*** in _ghidra_.
+ Both tools should now detect LE format. You may skip analysis
  as the XML replaces everything. Then use _XML importer
  plugin_ to load the `.xml` file from `symbols` folder.
 
-5. Done. You're ready to go.
+6. Done. You're ready to go.
 
 
 Have a fascinating experience!
