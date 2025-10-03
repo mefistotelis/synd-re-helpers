@@ -40,6 +40,7 @@
  0001:00016380       CPGotoOldStateAndRelax
  0001:000163F0       CPShootPerson
  0001:00016480       CPPersuadePerson
+ 0001:00016508       jpt_166E8
  0001:00016550       CPDoObjectiveStep
  0001:00016930       CPDestroyVehicle
  0001:00016AB0       CPCompletedObjectiveStep
@@ -56,7 +57,10 @@
  0001:000175C0       configure_company
  0001:000180BA       def_17E75
  0001:00018238       jpt_18270
+ 0001:00018250       draw_config_menu
  0001:00018537       def_18270
+ 0001:00018650       swap_screen
+ 0001:00018670       draw_config_menu_box
  0001:000186F0       draw_logo
  0001:00018810       process_day
  0001:00018BD0       AdjustStateHappiness
@@ -85,7 +89,7 @@
  0001:0001B140       LbFileSeek_
  0001:0001B160       LbFileRead_
  0001:0001B180       LbFileWrite_
- 0001:0001B1A0       LbFileLength_
+ 0001:0001B1A0       LbFileReadRNC
  0001:0001B210       LbFileLengthRnc
  0001:0001B2E0       nullsub_1
  0001:0001B2F0       draw_rect
@@ -94,14 +98,18 @@
  0001:0001BBD0       ccircle
  0001:0001BEC0       draw_tact_map
  0001:0001CD10       which_frame_person
+ 0001:0001D060       show_selected_frame
  0001:0001D180       set_all_changes
  0001:0001D1D0       set_block_changes
  0001:0001D450       draw_mapwho
  0001:0001DCB0       number_people
  0001:0001DF10       copy_back
+ 0001:0001E050       draw_pelement
+ 0001:0001E110       draw_element
  0001:0001E1C0       draw_agent_element
  0001:0001E300       full_redraw
  0001:0001E400       scroll_map
+ 0001:0001E4E0       scroll
  0001:0001EA20       nullsub_2
  0001:0001EA30       init_fireball
  0001:0001EB80       move_effects
@@ -121,6 +129,7 @@
  0001:00023510       ThisPlayerInTeam
  0001:00023540       GetTeamMemberName
  0001:000235D0       init_map_data
+ 0001:00023610       unkn_unused_func_div92
  0001:00023650       adjust_vehicles
  0001:000237B0       reset_mission_info
  0001:00023880       set_default_player
@@ -135,6 +144,8 @@
  0001:000252B0       load_map_level
  0001:000253F0       init_effect
  0001:00025460       init_weapon
+ 0001:000254D0       new_weapon
+ 0001:00025510       NetworkPlayersCount
  0001:00025560       single_play
  0001:00025580       multi_play
  0001:000256F0       initialise_player
@@ -148,26 +159,45 @@
  0001:000274A0       main
  0001:00027A20       print_command_opts
  0001:00027A70       timer2_cb
+ 0001:00027A90       KInt_0
+ 0001:00027AF0       OpenIKeyboard_0
+ 0001:00027B90       CloseIKeyboard
  0001:00027BF0       LbMouseSetup
- 0001:00027C30       setup_a_sprite
- 0001:00027C60       LbSpriteSetup
+ 0001:00027C00       reset_input
+ 0001:00027C30       LbSpriteSetup
+ 0001:00027C60       ApSpriteSetup_ForceHeight
+ 0001:00027CB0       KInt
+ 0001:00027D60       OpenIKeyboard
  0001:00027DB0       correct_buttons
  0001:00027E00       map_selection
+ 0001:00028490       check_for_click_on_cityadjust_tax
+ 0001:00028580       display_cities
+ 0001:00028610       show_city_info
+ 0001:00028AF0       draw_connecting_cities
+ 0001:00028CB0       _draw_map_area
+ 0001:00028D60       can_i_play_this_city
+ 0001:00028E90       show_tax_and_revenue
+ 0001:00028FE0       adjust_tax
  0001:00029250       move_it
  0001:00029270       remove_model
  0001:00029290       animate_model
  0001:000292D0       move_worlds
  0001:00029330       affect_by_wind
+ 0001:00029360       getdist
  0001:00029390       goto_angle
  0001:000293E0       goto_zangle
  0001:00029460       get_angle
+ 0001:00029480       goto_point
  0001:00029530       move_mapwho
  0001:00029660       move_off_mapwho
  0001:000296D0       move_on_mapwho
  0001:00029760       jpt_2998D
+ 0001:00029790       multi_out
  0001:00029825       def_2998D
  0001:00029A10       ExchangeNetwork_0
  0001:00029B70       ExchangeNetwork
+ 0001:00029CE0       NetworkCmdlineSetup
+ 0001:0002A2B0       StartNetwork
  0001:0002A340       StopNetwork
  0001:0002A4D0       SetupNetwork
  0001:0002A5C0       ResetNetwork
@@ -183,10 +213,13 @@
  0001:0002AE10       net_receive
  0001:0002AEE0       __NETCancel__
  0001:0002AF70       __NETHangUp__
+ 0001:0002AFE0       __NETUnkn1__
  0001:0002B0A0       NetMyFree
  0001:0002B130       SendNetwork
  0001:0002B1B0       ReceiveNetwork
  0001:0002B260       ErrLogNetwork
+ 0001:0002B290       MouseHandler256_GETDS
+ 0001:0002B296       MouseHandler256
  0001:0002B580       LbMouseReset
  0001:0002B5C0       traffic_go
  0001:0002B6F0       affect_object
@@ -286,9 +319,17 @@
  0001:00033FB0       fn_S_PERSON_USE_WEAPON
  0001:00034030       fn_S_PERSON_BEING_PERSUADED
  0001:00034110       move_people
+ 0001:00034500       unused_func_34500
  0001:00034590       weakest_player
+ 0001:000346C0       jpt_34775
+ 0001:000346E0       unused_func_346E0
+ 0001:000347A3       def_34775
  0001:00034820       closest_player
- 0001:00034AAA       nullsub_8
+ 0001:000348E0       unused_func_348E0
+ 0001:000349D0       unused_func_349D0
+ 0001:00034A70       jpt_34AA2
+ 0001:00034A90       unused_func_34A90
+ 0001:00034AAA       def_34AA2
  0001:00034AB0       jpt_35899
  0001:00034AD0       ResearchAndDevelop
  0001:00035D05       def_35899
@@ -636,35 +677,62 @@
  0001:00040F50       __doserror_
  0001:00040F63       spawnvpe
  0001:000410AF       strchr
+ 0001:000410CE       UndoMouse
+ 0001:00041323       BackupMouse
+ 0001:0004165E       PlaceMouse_A
+ 0001:000416D9       RemoveMouse_A
+ 0001:000416EF       PlaceMouse_B
+ 0001:000417CC       RemoveMouse_B
+ 0001:000417E2       UndrawWMouse
+ 0001:000419A9       GetScreenBoxHires16
+ 0001:00041B6F       PutScreenBoxHires16
  0001:00041D6C       vertical_line
  0001:00041E2D       pvertical_line
  0001:00041EEE       horizontal_line
+ 0001:00042173       phorizontal_line_unsure
  0001:0004225E       jpt_42257
  0001:000423F8       rectangle
  0001:0004276B       prectangle
  0001:00042AEE       pixel_plot
+ 0001:00043806       __cover_sprite
+ 0001:00043992       jpt_4398C
+ 0001:00048794       jpt_4878E
  0001:00048842       draw_horizontal
+ 0001:000488BD       jpt_488B7
+ 0001:000489CC       jpt_489C6
+ 0001:0004A3A7       jpt_4A3A1
  0001:0004C136       LbPaletteSet
  0001:0004C1A7       LbScreenSetup
+ 0001:0004C1DA       screen_ega_bitmask_allow_all
+ 0001:0004C1F3       LbScreenSurfaceClear
  0001:0004C41F       copy_screen_cube
  0001:0004CEF1       nullsub_6
- 0001:0004CEF2       DrawASpriteLores16_A
+ 0001:0004CEF2       DrawASpriteHires16_A
  0001:0004CF23       DrawASpriteLores16_B
  0001:0004CF54       DrawASpriteLores16_C
- 0001:0004CF80       LbSpriteDraw
+ 0001:0004CF80       LbSpriteDrawMCGA
+ 0001:0004CFB6       LbSpriteDrawMCGA_0
+ 0001:0004CFEC       DrawSpriteVres256
  0001:0004D150       DrawASpriteLores16_D
+ 0001:0004D189       LbSpriteDrawHires16
  0001:0004D92B       DrawSpriteLores16
  0001:0004F5D0       nullsub_7
  0001:0004F69A       nullsub_12
  0001:0004F69B       rprint
  0001:0004F8E4       nullsub_11
+ 0001:0004F921       init_hires_blocks
  0001:0004F96C       LbCopyScreenBox
  0001:0004FA51       LbMemorySet
  0001:0004FA93       LbMemoryCopy
  0001:0004FAD9       arctan
  0001:0004FCEC       LbScreenWaitVbi
  0001:0004FCFA       read_key
- 0001:0004FDE5       a123456789abcde_1
+ 0001:0004FD09       int2decstr_v2
+ 0001:0004FD30       powers_of_10_2
+ 0001:0004FD58       int2decstr
+ 0001:0004FDA3       powers_of_10
+ 0001:0004FDCB       int2hexstr
+ 0001:0004FDE4       hex2char
  0002:00050004       aGameDat
  0002:00050018       aDataMap02dDat
  0002:0005002C       aD
@@ -701,7 +769,7 @@
  0002:00050218       a01dPlayer05dSe
  0002:00050248       aLoginHasFailed
  0002:0005025C       aLoginAborted
- 0002:0005026C       aDataGame01Dat
+ 0002:0005026C       level_fname
  0002:0005027C       aAlgeria
  0002:00050284       aAlgerie
  0002:0005028C       aLybia
@@ -1496,6 +1564,9 @@
  0002:00053DB0       _IsTable
  0002:00053EEC       disk_err
  0002:00053EF0       lb_tot_mem_alloced
+ 0002:00053F08       mission_load_files
+ 0002:000540C0       sound_load_files
+ 0002:00054144       unkn1_empty_load_files
  0002:000541A4       text_lang
  0002:00054720       a4
  0002:00054744       str
@@ -1503,31 +1574,52 @@
  0002:00054D94       sndcard_irq
  0002:00054D96       sndcard_dma
  0002:00054D98       sndcard_ioaddr
+ 0002:00054D9C       load_files_vres16
  0002:00054FAC       mmapblk_load_files
  0002:00055044       Network__Name
  0002:00055056       Network__MasterNcb__Command
  0002:00055057       Network__MasterNcb__RetCode
+ 0002:0005505C       MouseOldX
+ 0002:00055060       MouseOldY
+ 0002:00055064       MouseOldW
+ 0002:0005506C       MouseSwap
  0002:00055308       pointer_sprites
  0002:0005530C       pointer_sprites_end
  0002:00055310       pointer_data
- 0002:00055324       p_spr
+ 0002:00055314       h_sprites
+ 0002:00055318       h_sprites_end
+ 0002:00055324       mouse_sprite
+ 0002:00055330       h_sprites_data
+ 0002:00055338       frames
+ 0002:0005533C       frames_end
+ 0002:00055340       elements_ani
+ 0002:00055344       elements_ani_end
+ 0002:00055348       starts_ani
  0002:0005534C       smpdata
  0002:00055350       smptable
  0002:00055354       smptable_end
  0002:0005535C       map_buf
+ 0002:00055360       h_blocks
+ 0002:00055364       h_font
  0002:00055368       WScreen
- 0002:0005536C       data
+ 0002:0005536C       VScreen
  0002:00055370       BScreen
  0002:00055374       UScreen
- 0002:00055378       palette
+ 0002:00055378       out
  0002:0005537E       Inkey
  0002:0005537F       SoundActive
  0002:00055380       GraphicsWindowX
  0002:00055384       GraphicsWindowY
  0002:00055388       GraphicsWindowWidth
  0002:0005538C       GraphicsWindowHeight
+ 0002:00055390       lbDisplay__MMouseX
+ 0002:00055392       lbDisplay__MMouseY
  0002:00055398       AniArrayCount
- 0002:0005A50D       a2
+ 0002:0005539C       arr_unkn_5539C
+ 0002:00055594       strct_unkn_55594
+ 0002:00055780       cybmods
+ 0002:00057BF4       arr_unkn_57BF4
+ 0002:0005A50D       language
  0002:0005B970       aCSyndSave
  0002:0005BB10       sound_bank_files
  0002:0005BBEC       SongCurrentlyPlaying
@@ -1578,14 +1670,27 @@
  0002:0005BFBE       unpackm1__bit_buffh
  0002:0005BFC0       unpackm1__blocks
  0002:0005BFC1       unpackm1__bit_count
+ 0002:0005C008       _argc
+ 0002:0005C00C       _argv
  0002:0005C080       __iob
  0002:0005C294       stored_stk
  0002:0005C296       aStackOverflow
+ 0002:0005C2B0       _LpCmdLine
+ 0002:0005C2B4       _LpPgmName
+ 0002:0005C2B8       _psp
  0002:0005C2BC       __STACKLOW
+ 0002:0005C2C0       _STACKTOP
  0002:0005C2C4       __ASTACKSIZ
  0002:0005C2C8       __ASTACKPTR
  0002:0005C2CC       __cbyte
+ 0002:0005C2D0       _cbyte2
+ 0002:0005C2D4       _child
+ 0002:0005C2D8       __no87
  0002:0005C2DA       _Extender
+ 0002:0005C2DB       __X32VM
+ 0002:0005C2DC       _Envptr
+ 0002:0005C2E2       _osmajor
+ 0002:0005C2E3       _osminor
  0002:0005C2E8       ___EFG_printf
  0002:0005C2EC       ___EFG_scanf
  0002:0005C2F0       _amblksiz
@@ -1593,22 +1698,43 @@
  0002:0005C2F8       __env_mask
  0002:0005C324       __Save8087
  0002:0005C328       __Rest8087
+ 0002:0005C368       computer_players
  0002:0005DEFC       timer2
+ 0002:0005DF08       KbOldInt
+ 0002:0005DF0C       KbOldIntNum
+ 0002:0005DF0E       InOldInt
+ 0002:0005DF12       InOldIntNum
  0002:0005DF30       Network__Status
  0002:0005DF38       net_recv_buffer_size
- 0002:0005DF3C       mouse_backup
+ 0002:0005DF3C       MouseOldData_0
+ 0002:0005DF40       ScrSeg
+ 0002:0005DF44       mouse_event
+ 0002:0005E284       lbKeyOn
+ 0002:0005E304       lbKeyOn2
+ 0002:0005E49C       players
  0002:000605D4       packets
+ 0002:00060644       Network__UserNcb
  0002:00060AA0       m_select_pal
  0002:00060AB4       DestinationY
  0002:00060AB8       DestinationX
+ 0002:00060AC0       h_col
+ 0002:00060AD8       debug_k
  0002:00060B02       a11
  0002:00060B0C       Network__NumberOfSlots
  0002:00060B16       Network__Slot
- 0002:00060B3F       LeftButton
+ 0002:00060B22       lbDisplay__MouseX
+ 0002:00060B24       lbDisplay__MouseY
+ 0002:00060B2E       current_levno
+ 0002:00060B35       OldDrawFlags
+ 0002:00060B3E       lbDisplay__RightButton
+ 0002:00060B3F       lbDisplay__LeftButton
+ 0002:00060B40       lbDisplay__MRightButton
+ 0002:00060B41       lbDisplay__MLeftButton
  0002:00060B45       is_multiplayer_game
  0002:00060B49       MusicAble
  0002:00060B4A       SoundAble
  0002:00060B4D       MusicActive
+ 0002:00060B53       unused_option_p
  0002:00061BC8       m_sprites_end
  0002:00061BCC       m_font_data
  0002:00061BD0       m_spr_data
@@ -1631,8 +1757,28 @@
  0002:00061E4C       ___OpenStreams
  0002:00061E54       ____Argv
  0002:00061E58       ____Argc
+ 0003:00070000       MouseOldData
+ 0003:00070800       MScreen
  0004:00080105       DrawFlags
- 0004:00080108       lbSeed
- 0004:00091670       ptr
+ 0004:00080108       level__seed
+ 0004:0008010A       level__word_8010A
+ 0004:0008010C       level__word_8010C
+ 0004:0008010E       level__word_8010E
+ 0004:0008070E       level__word_8070E
+ 0004:00087B0E       level__word_87B0E
+ 0004:0008810E       level__unk_8810E
+ 0004:0008810F       level__unk_8810F
+ 0004:00088110       level__people
+ 0004:0008DD10       level__vehicles
+ 0004:0008E790       level__objects
+ 0004:00091670       level__weapons
+ 0004:00095E70       level__effects
+ 0004:00097C70       level__commands
+ 0004:0009BC70       level__word_9BC70
+ 0004:0009BE30       level__current_mapno
+ 0004:0009BE46       level__word_9BE46
+ 0004:0009BEB2       objectives
+ 0004:0009BEC1       level__byte_9BEC1
+ 0004:0009C630       level__unk_9C630
 
 Program entry point at 0001:0002D85C

@@ -17,7 +17,7 @@ struct TbLoadFiles
   char FName[28];
   void **Start;
   void **SEnd;
-  void **SLength;
+  int SLength;
   __int16 Flags;
   __int16 Spare;
 };
@@ -194,5 +194,276 @@ struct BFSampleStatus
 {
   char field_0;
   char field_1;
+};
+
+/* 12 */
+struct __attribute__((packed)) __attribute__((aligned(2))) NCBShort
+{
+  int field_0;
+  __int16 field_4;
+};
+
+/* 13 */
+enum DrawFlagsVals
+{
+  DrwF_ScreenMCGA = 0x1,
+  DrwF_ScreenVres16 = 0x2,
+  DrwF_Unkn04 = 0x4,
+};
+
+/* 15 */
+struct struc_1E9_sub1
+{
+  __int16 field_0;
+  __int16 field_2[22];
+  __int16 field_2E;
+};
+
+/* 14 */
+struct __attribute__((packed)) __attribute__((aligned(1))) struc_1E9
+{
+  char field_0;
+  char field_1;
+  char field_2;
+  int field_3;
+  struc_1E9_sub1 field_7[10];
+  __int16 field_1E7;
+};
+
+/* 16 */
+struct __attribute__((packed)) __attribute__((aligned(2))) struc_5539C
+{
+  __int16 field_0[1];
+  char field_2[1];
+  char field_3[1];
+  char field_4[1];
+  char field_5;
+  int field_6;
+};
+
+/* 18 */
+struct __attribute__((packed)) __attribute__((aligned(1))) PlayerInfo
+{
+  int Credits;
+  int field_4;
+  __int16 field_8;
+  __int16 field_A;
+  __int16 field_C;
+  char field_E;
+  char field_F;
+  char field_10;
+  char field_11[18];
+  char field_23[146];
+  char field_B5;
+  char field_B6;
+  __int16 field_B7;
+  char field_B9[50];
+  char field_EB[16];
+  __int16 field_FB;
+  char field_FD[32];
+  char field_11D;
+  __int16 field_11E;
+  __int16 field_120;
+  __int16 field_122;
+  char field_124;
+  __int16 field_125;
+  __int16 field_127;
+  __int16 field_129;
+  __int16 field_12B[368];
+  __int16 field_40B[5];
+  __int16 field_415;
+};
+
+/* 19 */
+struct __attribute__((packed)) __attribute__((aligned(1))) struc_57BF4
+{
+  char field_0[1];
+  int field_1;
+  __int16 field_5;
+  int field_7;
+  __int16 field_B;
+  int field_D;
+  __int16 field_11;
+  __int16 field_13[23];
+  __int16 field_41[217];
+  char field_1F3[1];
+  char field_1F4;
+};
+
+/* 20 */
+struct __attribute__((packed)) __attribute__((aligned(1))) struc_55780
+{
+  char field_0[1];
+  int Cost;
+  char field_5;
+  __int16 field_6;
+  __int16 field_8;
+  __int16 field_A[240];
+  char field_1EA;
+};
+
+/* 21 */
+struct Person
+{
+  char field_0[4];
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  char field_A;
+  char field_B;
+  char field_C[12];
+  char field_18;
+  char State;
+  char field_1A[2];
+  char field_1C[4];
+  __int16 field_20;
+  char field_22[2];
+  __int16 field_24;
+  __int16 ComCur;
+  __int16 field_28;
+  char field_2A[2];
+  __int16 field_2C;
+  __int16 field_2E;
+  __int16 field_30;
+  __int16 field_32;
+  char field_34[18];
+  char field_46;
+  char field_47[13];
+  char field_54;
+  char field_55[3];
+  char field_58;
+  char field_59;
+  __int16 field_5A;
+};
+
+/* 23 */
+struct Vehicle
+{
+  char field_0[40];
+  __int16 field_28;
+};
+
+/* 24 */
+struct Object
+{
+  char field_0[28];
+  __int16 field_1C;
+};
+
+/* 25 */
+struct Weapon
+{
+  char field_0[22];
+  __int16 field_16;
+};
+
+/* 26 */
+struct Effect
+{
+  char field_0[28];
+  __int16 field_1C;
+};
+
+/* 27 */
+struct Command
+{
+  __int16 Next;
+  __int16 OtherThing;
+  unsigned __int8 X;
+  unsigned __int8 Y;
+  unsigned __int8 Z;
+  unsigned __int8 Type;
+};
+
+/* 28 */
+enum PersonCommandType
+{
+  PCmd_NONE = 0x0,
+  PCmd_GOTO_POINT = 0x1,
+  PCmd_GOTO_STRUCTURE2 = 0x2,
+  PCmd_LEAVE_VEHICLE = 0x3,
+  PCmd_WAIT_FOR_MODEL = 0x4,
+  PCmd_WAIT_FOR_TIME = 0x5,
+  PCmd_GOTO_STRUCTURE6 = 0x6,
+  PCmd_FAIL_LEVEL = 0x7,
+  PCmd_WAIT_FOR_TRIGGER = 0x8,
+  PCmd_END_COMMANDS = 0x9,
+  PCmd_ALLOW_PASSENGERS = 0xA,
+  PCmd_COMPLETE_LEVEL = 0xB,
+  PCmd_TOTAL_COMMANDS = 0xC,
+};
+
+/* 29 */
+enum PersonState
+{
+  PerSt_NONE = 0x0,
+  PerSt_NEXT_COMMAND = 0x1,
+  PerSt_GOTO_POINT2 = 0x2,
+  PerSt_GOTO_POINT3 = 0x3,
+  PerSt_GOTO_STRUCTURE4 = 0x4,
+  PerSt_GOTO_STRUCTURE5 = 0x5,
+  PerSt_MOVE_INTO_VEHICLE = 0x6,
+  PerSt_MOVE_OUT_OF_VEHICLE = 0x7,
+  PerSt_PASSENGER = 0x8,
+  PerSt_PICKUP_WEAPON = 0x9,
+  PerSt_DROP_WEAPON = 0xA,
+  PerSt_SELECT_WEAPON = 0xB,
+  PerSt_WAIT_FOR_MODEL = 0xC,
+  PerSt_WAIT_FOR_TIME = 0xD,
+  PerSt_HUG_RIGHT = 0xE,
+  PerSt_HUG_LEFT = 0xF,
+  PerSt_WAITING_TO_MOVE = 0x10,
+  PerSt_HIT_BY_LASER = 0x11,
+  PerSt_HIT_BY_BULLET = 0x12,
+  PerSt_HIT_BY_VEHICLE = 0x13,
+  PerSt_HIT_BY_FIRE = 0x14,
+  PerSt_HIT_BY_EXPLOSION = 0x15,
+  PerSt_FLY_BACK = 0x16,
+  PerSt_ON_FIRE = 0x17,
+  PerSt_DYING = 0x18,
+  PerSt_DYING_ON_FIRE = 0x19,
+  PerSt_DEAD = 0x1A,
+  PerSt_DEAD_ON_FIRE = 0x1B,
+  PerSt_GUARD_AREA = 0x1C,
+  PerSt_WANDER = 0x1D,
+  PerSt_PERSUADED = 0x1E,
+  PerSt_RUNAWAY = 0x1F,
+  PerSt_FOLLOW_AND_ATTACK = 0x20,
+  PerSt_DROWN = 0x21,
+  PerSt_GIVE_WARNING = 0x22,
+  PerSt_ASHES = 0x23,
+  PerSt_CHECK_CROSS_ROAD = 0x24,
+  PerSt_CROSS_ROAD = 0x25,
+  PerSt_WAIT_TO_CROSS_ROAD = 0x26,
+  PerSt_WALK_OFF_ROAD = 0x27,
+  PerSt_WAIT_FOR_TRIGGER = 0x28,
+  PerSt_WAIT_FOR_TRAIN = 0x29,
+  PerSt_ALLOW_PASSENGERS = 0x2A,
+  PerSt_USE_WEAPON = 0x2B,
+  PerSt_BEING_PERSUADED = 0x2C,
+  PerSt_TOTAL_STATES = 0x2D,
+};
+
+/* 30 */
+struct ComputerPlayer
+{
+  unsigned __int8 ObjectiveNo;
+  char field_1;
+  char field_2;
+  char field_3;
+  char field_4[8];
+  void *ptrfield_C;
+  char field_10[2];
+  __int16 field_12;
+};
+
+/* 31 */
+struct __attribute__((packed)) __attribute__((aligned(1))) Objective
+{
+  __int16 Next;
+  char field_2[5];
+  char field_7;
+  char field_8[6];
+  char field_E;
 };
 
