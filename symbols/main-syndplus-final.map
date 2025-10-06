@@ -27,14 +27,21 @@
  0001:000127A0       set_who_shot_me
  0001:00012880       sprite_colide
  0001:00013870       bullet_colide
+ 0001:00014550       jpt_146F4
+ 0001:00014568       jpt_14A5A
  0001:00014620       bullet_try_colide
+ 0001:000150EC       def_146F4
  0001:00015170       check_area_for_person_unique
  0001:000152E0       check_square_for_model
  0001:000153A0       bump_person
  0001:00015560       init_computer_players
  0001:00015660       InitAComputerPlayer
  0001:00015B10       process_computer_players
+ 0001:00015C0C       jpt_15D74
+ 0001:00015C40       jpt_15E6C
  0001:00015C60       CPDoTurn
+ 0001:00015E92       def_15E6C
+ 0001:00016208       def_15D74
  0001:00016260       CPShouldIShootMyTarget
  0001:00016350       CPTargetAlive
  0001:00016380       CPGotoOldStateAndRelax
@@ -150,8 +157,11 @@
  0001:00025580       multi_play
  0001:000256F0       initialise_player
  0001:00025790       set_network_player
+ 0001:00025830       jpt_25910
  0001:000258F0       give_person_new_command
+ 0001:00025920       jpt_25A67
  0001:00025A10       process_action
+ 0001:00026EA4       def_25A67
  0001:00026EB0       jpt_27219
  0001:00026EF0       LoadSaveGame
  0001:000272A8       def_27219
@@ -194,8 +204,8 @@
  0001:00029760       jpt_2998D
  0001:00029790       multi_out
  0001:00029825       def_2998D
- 0001:00029A10       ExchangeNetwork_0
- 0001:00029B70       ExchangeNetwork
+ 0001:00029A10       ExchangeNetwork_Packet
+ 0001:00029B70       ExchangeNetwork_PlayerInfo
  0001:00029CE0       NetworkCmdlineSetup
  0001:0002A2B0       StartNetwork
  0001:0002A340       StopNetwork
@@ -255,6 +265,7 @@
  0001:0002FC70       person_colide
  0001:0002FCE0       jpt_2FDBB
  0001:0002FD20       i_can_walk_here
+ 0001:0002FE2C       jpt_2FF0B
  0001:0002FE70       i_can_walk_here_quick
  0001:0002FF80       i_cant_walk_in_this_direction
  0001:0002FFF0       i_cant_walk_in_this_direction_quick
@@ -1562,27 +1573,34 @@
  0002:00053D84       aFloatingPointS
  0002:00053DA8       aPath
  0002:00053DB0       _IsTable
+ 0002:00053EB4       computer_players_count
  0002:00053EEC       disk_err
  0002:00053EF0       lb_tot_mem_alloced
  0002:00053F08       mission_load_files
  0002:000540C0       sound_load_files
  0002:00054144       unkn1_empty_load_files
+ 0002:00054170       level_palettes
  0002:000541A4       text_lang
  0002:00054720       a4
  0002:00054744       str
  0002:0005478C       a5
+ 0002:00054834       text
+ 0002:00054A38       strings_cybmod_names
+ 0002:00054B10       strings_weapon_names
  0002:00054D94       sndcard_irq
  0002:00054D96       sndcard_dma
  0002:00054D98       sndcard_ioaddr
  0002:00054D9C       load_files_vres16
  0002:00054FAC       mmapblk_load_files
  0002:00055044       Network__Name
- 0002:00055056       Network__MasterNcb__Command
- 0002:00055057       Network__MasterNcb__RetCode
+ 0002:00055056       Network__MasterNcb
  0002:0005505C       MouseOldX
  0002:00055060       MouseOldY
  0002:00055064       MouseOldW
  0002:0005506C       MouseSwap
+ 0002:00055094       p_a1
+ 0002:000551B4       unkarr_551B4
+ 0002:00055256       unkarr_55256
  0002:00055308       pointer_sprites
  0002:0005530C       pointer_sprites_end
  0002:00055310       pointer_data
@@ -1620,7 +1638,10 @@
  0002:00055780       cybmods
  0002:00057BF4       arr_unkn_57BF4
  0002:0005A50D       language
+ 0002:0005B4C0       screen_bk_fnames
+ 0002:0005B958       sound_array
  0002:0005B970       aCSyndSave
+ 0002:0005B984       unk984_load_files
  0002:0005BB10       sound_bank_files
  0002:0005BBEC       SongCurrentlyPlaying
  0002:0005BBF0       active_timers
@@ -1704,21 +1725,28 @@
  0002:0005DF0C       KbOldIntNum
  0002:0005DF0E       InOldInt
  0002:0005DF12       InOldIntNum
+ 0002:0005DF1C       Network_ReceiveBuffer
+ 0002:0005DF28       Network_SendBuffer
  0002:0005DF30       Network__Status
- 0002:0005DF38       net_recv_buffer_size
+ 0002:0005DF38       Network__RecvBufferSize
  0002:0005DF3C       MouseOldData_0
  0002:0005DF40       ScrSeg
  0002:0005DF44       mouse_event
+ 0002:0005E11C       index
+ 0002:0005E120       a2
  0002:0005E284       lbKeyOn
  0002:0005E304       lbKeyOn2
  0002:0005E49C       players
  0002:000605D4       packets
- 0002:00060644       Network__UserNcb
+ 0002:00060644       NetUserNcb
  0002:00060AA0       m_select_pal
  0002:00060AB4       DestinationY
  0002:00060AB8       DestinationX
  0002:00060AC0       h_col
  0002:00060AD8       debug_k
+ 0002:00060ADC       last_vehicle
+ 0002:00060AE0       last_person
+ 0002:00060AEC       last_object
  0002:00060B02       a11
  0002:00060B0C       Network__NumberOfSlots
  0002:00060B16       Network__Slot
@@ -1735,6 +1763,7 @@
  0002:00060B4A       SoundAble
  0002:00060B4D       MusicActive
  0002:00060B53       unused_option_p
+ 0002:00060C28       brief_text
  0002:00061BC8       m_sprites_end
  0002:00061BCC       m_font_data
  0002:00061BD0       m_spr_data
@@ -1760,25 +1789,25 @@
  0003:00070000       MouseOldData
  0003:00070800       MScreen
  0004:00080105       DrawFlags
- 0004:00080108       level__seed
+ 0004:00080108       level__Seed
  0004:0008010A       level__word_8010A
- 0004:0008010C       level__word_8010C
- 0004:0008010E       level__word_8010E
- 0004:0008070E       level__word_8070E
- 0004:00087B0E       level__word_87B0E
- 0004:0008810E       level__unk_8810E
- 0004:0008810F       level__unk_8810F
- 0004:00088110       level__people
+ 0004:0008010C       level__Timer
+ 0004:0008010E       level__MapWho
+ 0004:0008810E       level__things_base
+ 0004:00088110       level__People
  0004:0008DD10       level__vehicles
  0004:0008E790       level__objects
- 0004:00091670       level__weapons
- 0004:00095E70       level__effects
- 0004:00097C70       level__commands
+ 0004:00091670       level__Weapons
+ 0004:00095E70       level__Effects
+ 0004:00097C70       level__Commands
  0004:0009BC70       level__word_9BC70
- 0004:0009BE30       level__current_mapno
- 0004:0009BE46       level__word_9BE46
- 0004:0009BEB2       objectives
- 0004:0009BEC1       level__byte_9BEC1
- 0004:0009C630       level__unk_9C630
+ 0004:0009BE30       level__MapNumber
+ 0004:0009BE32       level__LoBoundaryx
+ 0004:0009BE34       level__LoBoundaryy
+ 0004:0009BE36       level__HiBoundaryx
+ 0004:0009BE38       level__HiBoundaryy
+ 0004:0009BE3A       level__dword_9BE3A
+ 0004:0009BEAA       level__computer_players_count
+ 0004:0009BEB2       level__CPObjectives
 
 Program entry point at 0001:0002D85C

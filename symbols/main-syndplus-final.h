@@ -66,12 +66,12 @@ struct __attribute__((packed)) __attribute__((aligned(2))) TbSprite
 /* 6 */
 struct Packet
 {
-  __int16 field_0;
-  __int16 field_2;
-  __int16 field_4;
-  __int16 field_6;
+  __int16 Data0;
+  __int16 Data1;
+  __int16 Data2;
+  __int16 Seed;
   __int16 field_8;
-  __int16 field_A;
+  __int16 Gameturn;
   char field_C;
   char Action;
 };
@@ -197,10 +197,10 @@ struct BFSampleStatus
 };
 
 /* 12 */
-struct __attribute__((packed)) __attribute__((aligned(2))) NCBShort
+struct __attribute__((packed)) __attribute__((aligned(2))) NCBAlloc
 {
-  int field_0;
-  __int16 field_4;
+  struct NCB *NCB;
+  __int16 Selector;
 };
 
 /* 13 */
@@ -236,9 +236,25 @@ struct __attribute__((packed)) __attribute__((aligned(2))) struc_5539C
   __int16 field_0[1];
   char field_2[1];
   char field_3[1];
-  char field_4[1];
+  char field_4;
   char field_5;
   int field_6;
+};
+
+/* 35 */
+struct PlayerSubStr1
+{
+  char field_0;
+  __attribute__((packed)) __attribute__((aligned(1))) __int16 field_1;
+  __attribute__((packed)) __attribute__((aligned(1))) __int16 field_3;
+  __attribute__((packed)) __attribute__((aligned(1))) __int16 field_5;
+  char field_7;
+  __int16 field_8;
+  __int16 field_A;
+  __int16 field_C;
+  char field_E[22];
+  __int16 field_24;
+  __int16 field_26;
 };
 
 /* 18 */
@@ -249,27 +265,20 @@ struct __attribute__((packed)) __attribute__((aligned(1))) PlayerInfo
   __int16 field_8;
   __int16 field_A;
   __int16 field_C;
-  char field_E;
+  char FlagsE;
   char field_F;
   char field_10;
   char field_11[18];
   char field_23[146];
-  char field_B5;
+  unsigned __int8 field_B5;
   char field_B6;
   __int16 field_B7;
   char field_B9[50];
   char field_EB[16];
   __int16 field_FB;
   char field_FD[32];
-  char field_11D;
-  __int16 field_11E;
-  __int16 field_120;
-  __int16 field_122;
-  char field_124;
-  __int16 field_125;
-  __int16 field_127;
-  __int16 field_129;
-  __int16 field_12B[368];
+  PlayerSubStr1 substrct_11D[18];
+  char field_3ED[30];
   __int16 field_40B[5];
   __int16 field_415;
 };
@@ -293,7 +302,7 @@ struct __attribute__((packed)) __attribute__((aligned(1))) struc_57BF4
 /* 20 */
 struct __attribute__((packed)) __attribute__((aligned(1))) struc_55780
 {
-  char field_0[1];
+  unsigned __int8 field_0;
   int Cost;
   char field_5;
   __int16 field_6;
@@ -305,32 +314,61 @@ struct __attribute__((packed)) __attribute__((aligned(1))) struc_55780
 /* 21 */
 struct Person
 {
-  char field_0[4];
+  __int16 PrevMapWho;
+  __int16 NextMapWho;
   __int16 X;
   __int16 Y;
   __int16 Z;
-  char field_A;
-  char field_B;
-  char field_C[12];
+  unsigned __int16 Flags;
+  __int16 field_C;
+  __int16 field_E;
+  __int16 Frame;
+  __int16 StartFrame;
+  __int16 field_14;
+  unsigned __int16 field_16;
   char field_18;
-  char State;
-  char field_1A[2];
-  char field_1C[4];
-  __int16 field_20;
-  char field_22[2];
+  unsigned __int8 State;
+  unsigned __int8 field_1A;
+  char field_1B;
+  char field_1C;
+  char field_1D;
+  __int16 field_1E;
+  unsigned __int16 UnkPersonOffs;
+  __int16 PassengerNext;
   __int16 field_24;
   __int16 ComCur;
-  __int16 field_28;
-  char field_2A[2];
-  __int16 field_2C;
-  __int16 field_2E;
-  __int16 field_30;
-  __int16 field_32;
-  char field_34[18];
+  __int16 StartCommand;
+  unsigned __int16 Target;
+  __int16 Data;
+  __int16 GotoX;
+  __int16 GotoY;
+  __int16 GotoZ;
+  __int16 LastXpos;
+  __int16 LastYpos;
+  __int16 HugGotoZ;
+  __int16 ChildWeapon;
+  __int16 Equipment;
+  __int16 field_3E;
+  __int16 field_40;
+  __int16 field_42;
+  __int16 CurrentWeapon;
   char field_46;
-  char field_47[13];
-  char field_54;
-  char field_55[3];
+  char field_47;
+  char field_48;
+  char field_49;
+  char field_4A;
+  char field_4B;
+  char field_4C;
+  char field_4D;
+  char field_4E;
+  char field_4F;
+  char field_50;
+  char field_51;
+  char field_52;
+  char field_53;
+  unsigned __int8 field_54;
+  unsigned __int8 field_55;
+  __int16 field_56;
   char field_58;
   char field_59;
   __int16 field_5A;
@@ -339,28 +377,95 @@ struct Person
 /* 23 */
 struct Vehicle
 {
-  char field_0[40];
+  __int16 PrevMapWho;
+  __int16 NextMapWho;
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  unsigned __int16 Flags;
+  __int16 field_C;
+  __int16 field_E;
+  __int16 Frame;
+  __int16 StartFrame;
+  __int16 field_14;
+  __int16 field_16;
+  char field_18;
+  char field_19;
+  char field_1A;
+  char field_1B;
+  unsigned __int16 PassengerHead;
+  __int16 field_1E;
+  __int16 field_20;
+  __int16 field_22;
+  __int16 field_24;
+  __int16 field_26;
   __int16 field_28;
 };
 
 /* 24 */
 struct Object
 {
-  char field_0[28];
+  __int16 PrevMapWho;
+  __int16 NextMapWho;
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  unsigned __int16 Flags;
+  __int16 field_C;
+  __int16 field_E;
+  __int16 Frame;
+  __int16 StartFrame;
+  __int16 field_14;
+  __int16 field_16;
+  char field_18;
+  char field_19;
+  char field_1A;
+  char field_1B;
   __int16 field_1C;
 };
 
 /* 25 */
 struct Weapon
 {
-  char field_0[22];
+  __int16 PrevMapWho;
+  __int16 NextMapWho;
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  unsigned __int16 Flags;
+  __int16 field_C;
+  __attribute__((packed)) __attribute__((aligned(1))) int field_E;
+  __int16 field_12;
+  __int16 field_14;
   __int16 field_16;
+  char field_18;
+  unsigned __int8 field_19;
+  char field_1A;
+  char field_1B;
+  __int16 PersonsNext;
+  __int16 field_1E;
+  __int16 field_20;
+  __int16 field_22;
 };
 
 /* 26 */
 struct Effect
 {
-  char field_0[28];
+  __int16 PrevMapWho;
+  __int16 NextMapWho;
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  unsigned __int16 Flags;
+  __int16 field_C;
+  __int16 field_E;
+  __int16 field_10;
+  __int16 field_12;
+  __int16 field_14;
+  __int16 field_16;
+  char field_18;
+  char field_19;
+  __int16 field_1A;
   __int16 field_1C;
 };
 
@@ -451,19 +556,254 @@ struct ComputerPlayer
   char field_1;
   char field_2;
   char field_3;
-  char field_4[8];
+  char field_4;
+  char field_5;
+  unsigned __int8 field_6;
+  unsigned __int8 field_7;
+  char field_8;
+  char field_9;
+  __int16 field_A;
   void *ptrfield_C;
-  char field_10[2];
-  __int16 field_12;
+  struct Person *field_10;
 };
 
 /* 31 */
-struct __attribute__((packed)) __attribute__((aligned(1))) Objective
+struct __attribute__((packed)) __attribute__((aligned(1))) CPObjective
 {
-  __int16 Next;
-  char field_2[5];
-  char field_7;
-  char field_8[6];
+  __int16 Child;
+  unsigned __int16 Parent;
+  __int16 field_4;
+  char field_6;
+  char ActionType;
+  char Action;
+  unsigned __int16 X;
+  __int16 Y;
+  __int16 Z;
+};
+
+/* 32 */
+struct __attribute__((packed)) __attribute__((aligned(2))) Objective
+{
+  int field_0;
+  __int16 field_4;
+  unsigned __int16 field_6;
+  __int16 field_8;
+  __int16 field_A;
+  __int16 field_C;
+};
+
+/* 33 */
+struct __attribute__((packed)) __attribute__((aligned(1))) Thing
+{
+  unsigned __int16 PrevMapWho;
+  __int16 NextMapWho;
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  unsigned __int16 Flags;
+  char field_C[2];
   char field_E;
+  char field_F;
+  __int16 Frame;
+  __int16 StartFrame;
+  char field_14[3];
+  char field_17;
+  char field_18;
+};
+
+/* 34 */
+enum KeyCodes
+{
+  KC_UNASSIGNED = 0x0,
+  KC_ESCAPE = 0x1,
+  KC_1 = 0x2,
+  KC_2 = 0x3,
+  KC_3 = 0x4,
+  KC_4 = 0x5,
+  KC_5 = 0x6,
+  KC_6 = 0x7,
+  KC_7 = 0x8,
+  KC_8 = 0x9,
+  KC_9 = 0xA,
+  KC_0 = 0xB,
+  KC_MINUS = 0xC,
+  KC_EQUALS = 0xD,
+  KC_BACK = 0xE,
+  KC_TAB = 0xF,
+  KC_Q = 0x10,
+  KC_W = 0x11,
+  KC_E = 0x12,
+  KC_R = 0x13,
+  KC_T = 0x14,
+  KC_Y = 0x15,
+  KC_U = 0x16,
+  KC_I = 0x17,
+  KC_O = 0x18,
+  KC_P = 0x19,
+  KC_LBRACKET = 0x1A,
+  KC_RBRACKET = 0x1B,
+  KC_RETURN = 0x1C,
+  KC_LCONTROL = 0x1D,
+  KC_A = 0x1E,
+  KC_S = 0x1F,
+  KC_D = 0x20,
+  KC_F = 0x21,
+  KC_G = 0x22,
+  KC_H = 0x23,
+  KC_J = 0x24,
+  KC_K = 0x25,
+  KC_L = 0x26,
+  KC_SEMICOLON = 0x27,
+  KC_APOSTROPHE = 0x28,
+  KC_GRAVE = 0x29,
+  KC_LSHIFT = 0x2A,
+  KC_BACKSLASH = 0x2B,
+  KC_Z = 0x2C,
+  KC_X = 0x2D,
+  KC_C = 0x2E,
+  KC_V = 0x2F,
+  KC_B = 0x30,
+  KC_N = 0x31,
+  KC_M = 0x32,
+  KC_COMMA = 0x33,
+  KC_PERIOD = 0x34,
+  KC_SLASH = 0x35,
+  KC_RSHIFT = 0x36,
+  KC_MULTIPLY = 0x37,
+  KC_LALT = 0x38,
+  KC_SPACE = 0x39,
+  KC_CAPITAL = 0x3A,
+  KC_F1 = 0x3B,
+  KC_F2 = 0x3C,
+  KC_F3 = 0x3D,
+  KC_F4 = 0x3E,
+  KC_F5 = 0x3F,
+  KC_F6 = 0x40,
+  KC_F7 = 0x41,
+  KC_F8 = 0x42,
+  KC_F9 = 0x43,
+  KC_F10 = 0x44,
+  KC_NUMLOCK = 0x45,
+  KC_SCROLL = 0x46,
+  KC_NUMPAD7 = 0x47,
+  KC_NUMPAD8 = 0x48,
+  KC_NUMPAD9 = 0x49,
+  KC_SUBTRACT = 0x4A,
+  KC_NUMPAD4 = 0x4B,
+  KC_NUMPAD5 = 0x4C,
+  KC_NUMPAD6 = 0x4D,
+  KC_ADD = 0x4E,
+  KC_NUMPAD1 = 0x4F,
+  KC_NUMPAD2 = 0x50,
+  KC_NUMPAD3 = 0x51,
+  KC_NUMPAD0 = 0x52,
+  KC_DECIMAL = 0x53,
+  KC_OEM_102 = 0x56,
+  KC_F11 = 0x57,
+  KC_F12 = 0x58,
+  KC_F13 = 0x64,
+  KC_F14 = 0x65,
+  KC_F15 = 0x66,
+  KC_KANA = 0x70,
+  KC_ABNT_C1 = 0x73,
+  KC_CONVERT = 0x79,
+  KC_NOCONVERT = 0x7B,
+  KC_YEN = 0x7D,
+  KC_ABNT_C2 = 0x7E,
+  KC_NUMPADEQUALS = 0x8D,
+  KC_PREVTRACK = 0x90,
+  KC_AT = 0x91,
+  KC_COLON = 0x92,
+  KC_UNDERLINE = 0x93,
+  KC_KANJI = 0x94,
+  KC_STOP = 0x95,
+  KC_AX = 0x96,
+  KC_UNLABELED = 0x97,
+  KC_NEXTTRACK = 0x99,
+  KC_NUMPADENTER = 0x9C,
+  KC_RCONTROL = 0x9D,
+  KC_MUTE = 0xA0,
+  KC_CALCULATOR = 0xA1,
+  KC_PLAYPAUSE = 0xA2,
+  KC_MEDIASTOP = 0xA4,
+  KC_VOLUMEDOWN = 0xAE,
+  KC_VOLUMEUP = 0xB0,
+  KC_WEBHOME = 0xB2,
+  KC_NUMPADCOMMA = 0xB3,
+  KC_DIVIDE = 0xB5,
+  KC_SYSRQ = 0xB7,
+  KC_RALT = 0xB8,
+  KC_PAUSE = 0xC5,
+  KC_HOME = 0xC7,
+  KC_UP = 0xC8,
+  KC_PGUP = 0xC9,
+  KC_LEFT = 0xCB,
+  KC_RIGHT = 0xCD,
+  KC_END = 0xCF,
+  KC_DOWN = 0xD0,
+  KC_PGDOWN = 0xD1,
+  KC_INSERT = 0xD2,
+  KC_DELETE = 0xD3,
+  KC_LWIN = 0xDB,
+  KC_RWIN = 0xDC,
+  KC_APPS = 0xDD,
+  KC_POWER = 0xDE,
+  KC_SLEEP = 0xDF,
+  KC_WAKE = 0xE3,
+};
+
+/* 36 */
+struct UnkArr55256
+{
+  __int16 field_0;
+  __int16 field_2;
+  __int16 field_4;
+  __int16 field_6;
+  __int16 field_8;
+  char field_A;
+  char field_B;
+  unsigned __int16 field_C;
+  __int16 field_E;
+  __int16 field_10;
+};
+
+/* 37 */
+struct Frame
+{
+  __int16 FirstElement;
+  char SWidth;
+  char SHeight;
+  char FX;
+  char Flags;
+  __int16 Next;
+};
+
+/* 38 */
+struct SndArray
+{
+  __int16 field_0;
+  __int16 field_2;
+};
+
+/* 39 */
+struct __attribute__((packed)) __attribute__((aligned(2))) RMREGS
+{
+  char field_0[16];
+  struct NCB *field_10;
+  char field_14[8];
+  int field_1C;
+  __int16 field_20;
+  __int16 field_22;
+  __int16 field_24;
+  char field_26[11];
+  char field_31;
+};
+
+/* 40 */
+struct NetBuffer
+{
+  __int16 Seg;
+  __attribute__((packed)) __attribute__((aligned(1))) unsigned __int8 *Ptr;
+  __int16 Selectr;
 };
 
