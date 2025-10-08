@@ -103,6 +103,7 @@
  0001:0001B370       LbScreenSetGraphicsWindow
  0001:0001B5D0       scircle
  0001:0001BBD0       ccircle
+ 0001:0001BE1C       jpt_1C0B0
  0001:0001BEC0       draw_tact_map
  0001:0001CD10       which_frame_person
  0001:0001D060       show_selected_frame
@@ -1574,6 +1575,8 @@
  0002:00053DA8       aPath
  0002:00053DB0       _IsTable
  0002:00053EB4       computer_players_count
+ 0002:00053EB5       comp_plyr_team_size
+ 0002:00053EB7       comp_plyr_level_init
  0002:00053EEC       disk_err
  0002:00053EF0       lb_tot_mem_alloced
  0002:00053F08       mission_load_files
@@ -1581,7 +1584,29 @@
  0002:00054144       unkn1_empty_load_files
  0002:00054170       level_palettes
  0002:000541A4       text_lang
+ 0002:000545D0       text_city_breief
+ 0002:000545E8       text_team
+ 0002:000545F4       text_mods
+ 0002:00054600       text_equip
+ 0002:0005460C       text_button_sell
+ 0002:00054624       text_button_reload
+ 0002:00054648       text_info
+ 0002:00054654       text_enhance
+ 0002:00054660       text_load
+ 0002:0005466C       text_save
+ 0002:00054678       text_map
+ 0002:00054684       text_replay
+ 0002:0005469C       text_city_pop
+ 0002:000546A8       text_city_stat
+ 0002:000546B4       text_city_tax
+ 0002:000546D8       text_city_mood_vhappy
+ 0002:000546E4       text_city_mood_happy
+ 0002:000546F0       text_city_mood_content
+ 0002:000546FC       text_city_mood_unhappy
+ 0002:00054708       text_city_mood_discontent
+ 0002:00054714       text_city_mood_rebellious
  0002:00054720       a4
+ 0002:0005472C       text_spec_agent
  0002:00054744       str
  0002:0005478C       a5
  0002:00054834       text
@@ -1601,6 +1626,7 @@
  0002:00055094       p_a1
  0002:000551B4       unkarr_551B4
  0002:00055256       unkarr_55256
+ 0002:00055304       game_speed
  0002:00055308       pointer_sprites
  0002:0005530C       pointer_sprites_end
  0002:00055310       pointer_data
@@ -1633,12 +1659,20 @@
  0002:00055390       lbDisplay__MMouseX
  0002:00055392       lbDisplay__MMouseY
  0002:00055398       AniArrayCount
- 0002:0005539C       arr_unkn_5539C
+ 0002:0005539A       cheat_worldmap
+ 0002:0005539C       CountryStates
  0002:00055594       strct_unkn_55594
  0002:00055780       cybmods
  0002:00057BF4       arr_unkn_57BF4
  0002:0005A50D       language
+ 0002:0005A6FE       weapons_time_in_use
+ 0002:0005A73A       weapon_max_ammo
+ 0002:0005A7B4       weapon_weights
+ 0002:0005B060       map_countries
+ 0002:0005B46A       player_colour_for_map
  0002:0005B4C0       screen_bk_fnames
+ 0002:0005B80A       arg8
+ 0002:0005B844       text_cyborg_names
  0002:0005B958       sound_array
  0002:0005B970       aCSyndSave
  0002:0005B984       unk984_load_files
@@ -1725,6 +1759,7 @@
  0002:0005DF0C       KbOldIntNum
  0002:0005DF0E       InOldInt
  0002:0005DF12       InOldIntNum
+ 0002:0005DF18       world_map
  0002:0005DF1C       Network_ReceiveBuffer
  0002:0005DF28       Network_SendBuffer
  0002:0005DF30       Network__Status
@@ -1734,6 +1769,7 @@
  0002:0005DF44       mouse_event
  0002:0005E11C       index
  0002:0005E120       a2
+ 0002:0005E13C       next_mission_countries
  0002:0005E284       lbKeyOn
  0002:0005E304       lbKeyOn2
  0002:0005E49C       players
@@ -1758,10 +1794,14 @@
  0002:00060B3F       lbDisplay__LeftButton
  0002:00060B40       lbDisplay__MRightButton
  0002:00060B41       lbDisplay__MLeftButton
+ 0002:00060B43       cheat_credits
  0002:00060B45       is_multiplayer_game
+ 0002:00060B48       cheats_mission
  0002:00060B49       MusicAble
  0002:00060B4A       SoundAble
+ 0002:00060B4B       ScannerPulse
  0002:00060B4D       MusicActive
+ 0002:00060B52       cheats_speedup
  0002:00060B53       unused_option_p
  0002:00060C28       brief_text
  0002:00061BC8       m_sprites_end
@@ -1790,24 +1830,31 @@
  0003:00070800       MScreen
  0004:00080105       DrawFlags
  0004:00080108       level__Seed
- 0004:0008010A       level__word_8010A
+ 0004:0008010A       level__PersonCount_UNSURE
  0004:0008010C       level__Timer
  0004:0008010E       level__MapWho
  0004:0008810E       level__things_base
  0004:00088110       level__People
- 0004:0008DD10       level__vehicles
- 0004:0008E790       level__objects
+ 0004:0008DD10       level__Vehicles
+ 0004:0008E790       level__Objects
  0004:00091670       level__Weapons
  0004:00095E70       level__Effects
  0004:00097C70       level__Commands
- 0004:0009BC70       level__word_9BC70
+ 0004:0009BC70       level__Worlds
  0004:0009BE30       level__MapNumber
  0004:0009BE32       level__LoBoundaryx
  0004:0009BE34       level__LoBoundaryy
  0004:0009BE36       level__HiBoundaryx
  0004:0009BE38       level__HiBoundaryy
- 0004:0009BE3A       level__dword_9BE3A
- 0004:0009BEAA       level__computer_players_count
+ 0004:0009BE3A       level__Objectives
+ 0004:0009BEAA       level__ComputerPlayersCount
+ 0004:0009BEAB       level__CPTeamSize
+ 0004:0009BEAC       level__byte_9BEAC
+ 0004:0009BEAD       level__CPLvlInit
+ 0004:0009BEAE       level__CPIsBombingTeam
+ 0004:0009BEAF       level__CPIsPersuadingTeam
+ 0004:0009BEB0       level__byte_9BEB0
+ 0004:0009BEB1       level__CPWieldedWeaponType
  0004:0009BEB2       level__CPObjectives
 
 Program entry point at 0001:0002D85C

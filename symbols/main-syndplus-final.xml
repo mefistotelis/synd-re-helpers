@@ -2,7 +2,7 @@
 <?program_dtd version="1"?>
 
 <PROGRAM NAME="main-syndplus-final.exe" EXE_PATH="main-syndplus-final.exe" EXE_FORMAT="Linear Executable (LE)" INPUT_MD5="gD&#xee;&#xcf;&#x95;p&#xb9;&#x9e;D&#xce;&#xdf;K&#xac;">
-    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="main-syndplus-final.idb" TIMESTAMP="2025-10-06 20:18" />
+    <INFO_SOURCE TOOL="IDA-Pro 8.3 XML plugin v5.0.2 (Python) SDK 830" USER="tomasz" FILE="main-syndplus-final.idb" TIMESTAMP="2025-10-08 21:52" />
     <PROCESSOR NAME="metapc" ENDIAN="little" ADDRESS_MODEL="32-bit" />
     <COMPILER NAME="Watcom C++" />
     <DATATYPES>
@@ -128,26 +128,27 @@
             <MEMBER OFFSET="0x2" NAME="field_2" DATATYPE="word" SIZE="0x2C" />
             <MEMBER OFFSET="0x2E" NAME="field_2E" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
-        <STRUCTURE NAME="struc_5539C" SIZE="0xA">
-            <MEMBER OFFSET="0x0" NAME="field_0" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x2" NAME="field_2" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x3" NAME="field_3" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4" NAME="field_4" DATATYPE="byte" SIZE="0x1" />
+        <STRUCTURE NAME="CountryState" SIZE="0xA">
+            <MEMBER OFFSET="0x0" NAME="Happiness" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x2" NAME="OwningPlayer" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x3" NAME="Revenue" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4" NAME="TaxPercent" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x5" NAME="field_5" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x6" NAME="field_6" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x6" NAME="Population" DATATYPE="dword" SIZE="0x4" />
         </STRUCTURE>
-        <STRUCTURE NAME="PlayerSubStr1" SIZE="0x28">
-            <MEMBER OFFSET="0x0" NAME="field_0" DATATYPE="byte" SIZE="0x1" />
+        <STRUCTURE NAME="PlayerCyborg" SIZE="0x28">
+            <MEMBER OFFSET="0x0" NAME="NameId" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1" NAME="field_1" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x3" NAME="field_3" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x3" NAME="CybMods" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x5" NAME="field_5" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x7" NAME="field_7" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="field_A" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="byte" SIZE="0x16" />
+            <MEMBER OFFSET="0x8" NAME="Weapons" DATATYPE="EquipWeapon" SIZE="0x1C" />
             <MEMBER OFFSET="0x24" NAME="field_24" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x26" NAME="field_26" DATATYPE="word" SIZE="0x2" />
+        </STRUCTURE>
+        <STRUCTURE NAME="EquipWeapon" SIZE="0x4">
+            <MEMBER OFFSET="0x0" NAME="ammo" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x2" NAME="wtype" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
         <STRUCTURE NAME="PlayerInfo" SIZE="0x417">
             <MEMBER OFFSET="0x0" NAME="Credits" DATATYPE="dword" SIZE="0x4" />
@@ -156,7 +157,7 @@
             <MEMBER OFFSET="0xA" NAME="field_A" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0xE" NAME="FlagsE" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0xF" NAME="field_F" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0xF" NAME="OwnColourScheme" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x10" NAME="field_10" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x11" NAME="field_11" DATATYPE="byte" SIZE="0x12" />
             <MEMBER OFFSET="0x23" NAME="field_23" DATATYPE="byte" SIZE="0x92" />
@@ -164,10 +165,8 @@
             <MEMBER OFFSET="0xB6" NAME="field_B6" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0xB7" NAME="field_B7" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0xB9" NAME="field_B9" DATATYPE="byte" SIZE="0x32" />
-            <MEMBER OFFSET="0xEB" NAME="field_EB" DATATYPE="byte" SIZE="0x10" />
-            <MEMBER OFFSET="0xFB" NAME="field_FB" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xFD" NAME="field_FD" DATATYPE="byte" SIZE="0x20" />
-            <MEMBER OFFSET="0x11D" NAME="substrct_11D" DATATYPE="PlayerSubStr1" SIZE="0x2D0" />
+            <MEMBER OFFSET="0xEB" NAME="field_EB" DATATYPE="byte" SIZE="0x32" />
+            <MEMBER OFFSET="0x11D" NAME="Cyborgs" DATATYPE="PlayerCyborg" SIZE="0x2D0" />
             <MEMBER OFFSET="0x3ED" NAME="field_3ED" DATATYPE="byte" SIZE="0x1E" />
             <MEMBER OFFSET="0x40B" NAME="field_40B" DATATYPE="word" SIZE="0xA" />
             <MEMBER OFFSET="0x415" NAME="field_415" DATATYPE="word" SIZE="0x2" />
@@ -206,38 +205,40 @@
             <MEMBER OFFSET="0x0" NAME="field_0" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="field_2" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
-        <STRUCTURE NAME="Thing" SIZE="0x19">
+        <STRUCTURE NAME="Thing" SIZE="0x1C">
             <MEMBER OFFSET="0x0" NAME="PrevMapWho" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="NextMapWho" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x4" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x6" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="Z" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="Flags" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="byte" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0xF" NAME="field_F" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="StatusFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="AffectFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="BaseFrame" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x10" NAME="Frame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x12" NAME="StartFrame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x14" NAME="field_14" DATATYPE="byte" SIZE="0x3" />
-            <MEMBER OFFSET="0x17" NAME="field_17" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x12" NAME="OldFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x14" NAME="Life" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x16" NAME="WhoShotMe" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="Model" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x19" NAME="State" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1A" NAME="Angle" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1B" NAME="ZAngle" DATATYPE="byte" SIZE="0x1" />
         </STRUCTURE>
         <STRUCTURE NAME="Person" SIZE="0x5C">
             <MEMBER OFFSET="0x0" NAME="PrevMapWho" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="NextMapWho" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x4" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x6" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="Z" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="Flags" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x4" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="StatusFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="AffectFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="BaseFrame" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x10" NAME="Frame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x12" NAME="StartFrame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x14" NAME="field_14" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x16" NAME="field_16" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x12" NAME="OldFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x14" NAME="Life" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x16" NAME="WhoShotMe" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="Model" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x19" NAME="State" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1A" NAME="field_1A" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1A" NAME="Angle" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1B" NAME="field_1B" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1C" NAME="field_1C" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1D" NAME="field_1D" DATATYPE="byte" SIZE="0x1" />
@@ -261,22 +262,22 @@
             <MEMBER OFFSET="0x40" NAME="field_40" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x42" NAME="field_42" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x44" NAME="CurrentWeapon" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x46" NAME="field_46" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x47" NAME="field_47" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x48" NAME="field_48" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x49" NAME="field_49" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4A" NAME="field_4A" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4B" NAME="field_4B" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4C" NAME="field_4C" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4D" NAME="field_4D" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4E" NAME="field_4E" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4F" NAME="field_4F" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x50" NAME="field_50" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x51" NAME="field_51" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x52" NAME="field_52" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x53" NAME="field_53" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x54" NAME="field_54" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x55" NAME="field_55" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x46" NAME="WeaponInUse" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x47" NAME="Level1Base" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x48" NAME="Level1Balance" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x49" NAME="Level1True" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4A" NAME="Level1Fixed" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4B" NAME="Level2Base" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4C" NAME="Level2Balance" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4D" NAME="Level2True" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4E" NAME="Level2Fixed" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4F" NAME="Level3Base" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x50" NAME="Level3Balance" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x51" NAME="Level3True" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x52" NAME="Level3Fixed" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x53" NAME="LevelRecovery" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x54" NAME="Speed" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x55" NAME="MaxSpeed" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x56" NAME="field_56" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x58" NAME="field_58" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x59" NAME="field_59" DATATYPE="byte" SIZE="0x1" />
@@ -294,6 +295,13 @@
             <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x10" NAME="field_10" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
+        <STRUCTURE NAME="Element" SIZE="0xA">
+            <MEMBER OFFSET="0x0" NAME="ToSprite" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x2" NAME="X" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x4" NAME="Y" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="field_6" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="word" SIZE="0x2" />
+        </STRUCTURE>
         <STRUCTURE NAME="Command" SIZE="0x8">
             <MEMBER OFFSET="0x0" NAME="Next" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="OtherThing" DATATYPE="word" SIZE="0x2" />
@@ -305,61 +313,63 @@
         <STRUCTURE NAME="Vehicle" SIZE="0x2A">
             <MEMBER OFFSET="0x0" NAME="PrevMapWho" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="NextMapWho" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x4" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x6" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="Z" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="Flags" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x4" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="StatusFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="AffectFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="BaseFrame" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x10" NAME="Frame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x12" NAME="StartFrame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x14" NAME="field_14" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x16" NAME="field_16" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x19" NAME="field_19" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1A" NAME="field_1A" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1B" NAME="field_1B" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1C" NAME="PassengerHead" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x1E" NAME="field_1E" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x20" NAME="field_20" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x22" NAME="field_22" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x24" NAME="field_24" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x26" NAME="field_26" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x28" NAME="field_28" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x12" NAME="OldFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x14" NAME="Life" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x16" NAME="WhoShotMe" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="Model" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x19" NAME="State" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1A" NAME="Angle" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1B" NAME="ZAngle" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1C" NAME="ChildHeld" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x1E" NAME="ParentHeld" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x20" NAME="LinkTo" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x22" NAME="LinkX" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x24" NAME="LinkY" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x26" NAME="LinkZ" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x28" NAME="MaxSpeed" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x29" NAME="TravelAngle" DATATYPE="byte" SIZE="0x1" />
         </STRUCTURE>
         <STRUCTURE NAME="Object" SIZE="0x1E">
             <MEMBER OFFSET="0x0" NAME="PrevMapWho" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="NextMapWho" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x4" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x6" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="Z" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="Flags" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x4" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="StatusFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="AffectFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="BaseFrame" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x10" NAME="Frame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x12" NAME="StartFrame" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x14" NAME="field_14" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x16" NAME="field_16" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x19" NAME="field_19" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1A" NAME="field_1A" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x12" NAME="OldFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x14" NAME="Life" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x16" NAME="WhoShotMe" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="Model" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x19" NAME="State" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1A" NAME="Angle" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1B" NAME="field_1B" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1C" NAME="field_1C" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
         <STRUCTURE NAME="Weapon" SIZE="0x24">
             <MEMBER OFFSET="0x0" NAME="PrevMapWho" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="NextMapWho" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x4" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x6" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="Z" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="Flags" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="dword" SIZE="0x4" />
-            <MEMBER OFFSET="0x12" NAME="field_12" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x14" NAME="field_14" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x16" NAME="field_16" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x19" NAME="field_19" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="StatusFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="AffectFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="BaseFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x10" NAME="Frame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x12" NAME="OldFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x14" NAME="Life" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x16" NAME="WhoShotMe" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="Model" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x19" NAME="State" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1A" NAME="field_1A" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1B" NAME="field_1B" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1C" NAME="PersonsNext" DATATYPE="word" SIZE="0x2" />
@@ -370,35 +380,36 @@
         <STRUCTURE NAME="Effect" SIZE="0x1E">
             <MEMBER OFFSET="0x0" NAME="PrevMapWho" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x2" NAME="NextMapWho" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x4" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x6" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="Z" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xA" NAME="Flags" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x10" NAME="field_10" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x12" NAME="field_12" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x14" NAME="field_14" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x16" NAME="field_16" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x18" NAME="field_18" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x19" NAME="field_19" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1A" NAME="field_1A" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x4" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="StatusFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="AffectFlg" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="BaseFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x10" NAME="Frame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x12" NAME="OldFrame" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x14" NAME="Life" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x16" NAME="WhoShotMe" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x18" NAME="Model" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x19" NAME="State" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1A" NAME="field_1A" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x1B" NAME="field_1B" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x1C" NAME="field_1C" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
         <STRUCTURE NAME="ComputerPlayer" SIZE="0x14">
             <MEMBER OFFSET="0x0" NAME="ObjectiveNo" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x1" NAME="field_1" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x2" NAME="field_2" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x3" NAME="field_3" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x4" NAME="field_4" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x5" NAME="field_5" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x6" NAME="field_6" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x7" NAME="field_7" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x9" NAME="field_9" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0xA" NAME="field_A" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xC" NAME="ptrfield_C" DATATYPE="pointer" SIZE="0x4" />
-            <MEMBER OFFSET="0x10" NAME="field_10" DATATYPE="pointer" SIZE="0x4" />
+            <MEMBER OFFSET="0x1" NAME="cps_field_1" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x2" NAME="cps_field_2" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x3" NAME="cps_field_3" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x4" NAME="cps_field_4" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x5" NAME="cps_field_5" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x6" NAME="cps_field_6" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x7" NAME="cps_field_7" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x8" NAME="cps_field_8" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x9" NAME="cps_field_9" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0xA" NAME="cps_field_A" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="cps_ptrfield_C" DATATYPE="pointer" SIZE="0x4" />
+            <MEMBER OFFSET="0x10" NAME="cps_field_10" DATATYPE="pointer" SIZE="0x4" />
         </STRUCTURE>
         <STRUCTURE NAME="CPObjective" SIZE="0xF">
             <MEMBER OFFSET="0x0" NAME="Child" DATATYPE="word" SIZE="0x2" />
@@ -407,17 +418,44 @@
             <MEMBER OFFSET="0x6" NAME="field_6" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x7" NAME="ActionType" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0x8" NAME="Action" DATATYPE="byte" SIZE="0x1" />
-            <MEMBER OFFSET="0x9" NAME="X" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xB" NAME="Y" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0xD" NAME="Z" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x9" NAME="TargetOffs" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xB" NAME="field_B" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xD" NAME="field_D" DATATYPE="word" SIZE="0x2" />
         </STRUCTURE>
         <STRUCTURE NAME="Objective" SIZE="0xE">
-            <MEMBER OFFSET="0x0" NAME="field_0" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x0" NAME="Status" DATATYPE="dword" SIZE="0x4" />
+            <MEMBER OFFSET="0x4" NAME="ObjctvType" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Data" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="Xpos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xA" NAME="Ypos" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xC" NAME="Zpos" DATATYPE="word" SIZE="0x2" />
+        </STRUCTURE>
+        <STRUCTURE NAME="MapCountryState" SIZE="0x13">
+            <MEMBER OFFSET="0x0" NAME="ScrX" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x2" NAME="ScrY" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x4" NAME="field_4" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x6" NAME="field_6" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x9" NAME="field_9" DATATYPE="byte" SIZE="0x1" />
             <MEMBER OFFSET="0xA" NAME="field_A" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0xC" NAME="field_C" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0xE" NAME="field_E" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x10" NAME="field_10" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x11" NAME="field_11" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x12" NAME="field_12" DATATYPE="byte" SIZE="0x1" />
+        </STRUCTURE>
+        <STRUCTURE NAME="World" SIZE="0xE">
+            <MEMBER OFFSET="0x0" NAME="WindXSpeed" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x2" NAME="WindYSpeed" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x4" NAME="Population" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x6" NAME="Temperature" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x7" NAME="WindSpeed" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x8" NAME="WindAngle" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0x9" NAME="Industry" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0xA" NAME="Crime" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0xB" NAME="Gravity" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0xC" NAME="Density" DATATYPE="byte" SIZE="0x1" />
+            <MEMBER OFFSET="0xD" NAME="field_D" DATATYPE="byte" SIZE="0x1" />
         </STRUCTURE>
         <ENUM NAME="PacketActions">
             <ENUM_ENTRY NAME="PAct_NONE" VALUE="0x0" />
@@ -485,10 +523,53 @@
             <ENUM_ENTRY NAME="DrwF_ScreenVres16" VALUE="0x2" />
             <ENUM_ENTRY NAME="DrwF_Unkn04" VALUE="0x4" />
         </ENUM>
+        <ENUM NAME="ThingStatusFlags">
+            <ENUM_ENTRY NAME="TngStF_NONE" VALUE="0x0" />
+            <ENUM_ENTRY NAME="TngStF_1" VALUE="0x1" />
+            <ENUM_ENTRY NAME="TngStF_2" VALUE="0x2" />
+            <ENUM_ENTRY NAME="TngStF_MAPWHO" VALUE="0x4">
+                <REPEATABLE_CMT>thing is in MapWho linked list</REPEATABLE_CMT>
+            </ENUM_ENTRY>
+            <ENUM_ENTRY NAME="TngStF_8" VALUE="0x8" />
+            <ENUM_ENTRY NAME="TngStF_10" VALUE="0x10" />
+        </ENUM>
+        <ENUM NAME="WeaponType">
+            <ENUM_ENTRY NAME="WEP_NULL" VALUE="0x0" />
+            <ENUM_ENTRY NAME="WEP_PERSUADRTRN" VALUE="0x1" />
+            <ENUM_ENTRY NAME="WEP_PISTOL" VALUE="0x2" />
+            <ENUM_ENTRY NAME="WEP_GAUSSGUN" VALUE="0x3" />
+            <ENUM_ENTRY NAME="WEP_SHOTGUN" VALUE="0x4" />
+            <ENUM_ENTRY NAME="WEP_UZI" VALUE="0x5" />
+            <ENUM_ENTRY NAME="WEP_MINIGUN" VALUE="0x6" />
+            <ENUM_ENTRY NAME="WEP_LASER" VALUE="0x7" />
+            <ENUM_ENTRY NAME="WEP_FLAMER" VALUE="0x8" />
+            <ENUM_ENTRY NAME="WEP_LONGRANGE" VALUE="0x9" />
+            <ENUM_ENTRY NAME="WEP_SCANNER" VALUE="0xA" />
+            <ENUM_ENTRY NAME="WEP_MEDIKIT" VALUE="0xB" />
+            <ENUM_ENTRY NAME="WEP_TIMEBOMB" VALUE="0xC" />
+            <ENUM_ENTRY NAME="WEP_ACCESSCARD" VALUE="0xD" />
+            <ENUM_ENTRY NAME="WEP_ACCESSCRD1" VALUE="0xE" />
+            <ENUM_ENTRY NAME="WEP_ACCESSCRD2" VALUE="0xF" />
+            <ENUM_ENTRY NAME="WEP_AUTOMAPPER" VALUE="0x10" />
+            <ENUM_ENTRY NAME="WEP_ENERGYSHLD" VALUE="0x11" />
+            <ENUM_ENTRY NAME="WEP_SHIELD1" VALUE="0x12" />
+            <ENUM_ENTRY NAME="WEP_SHIELD2" VALUE="0x13" />
+        </ENUM>
+        <ENUM NAME="ThingModel">
+            <ENUM_ENTRY NAME="TngM_NONE" VALUE="0x0" />
+            <ENUM_ENTRY NAME="TngM_PERSON" VALUE="0x1" />
+            <ENUM_ENTRY NAME="TngM_VEHICLE" VALUE="0x2" />
+            <ENUM_ENTRY NAME="TngM_SHOT" VALUE="0x3" />
+            <ENUM_ENTRY NAME="TngM_WEAPON" VALUE="0x4" />
+            <ENUM_ENTRY NAME="TngM_5" VALUE="0x5" />
+            <ENUM_ENTRY NAME="TngM_6" VALUE="0x6" />
+            <ENUM_ENTRY NAME="TngM_7" VALUE="0x7" />
+            <ENUM_ENTRY NAME="TngM_8" VALUE="0x8" />
+        </ENUM>
         <ENUM NAME="PersonCommandType">
             <ENUM_ENTRY NAME="PCmd_NONE" VALUE="0x0" />
             <ENUM_ENTRY NAME="PCmd_GOTO_POINT" VALUE="0x1" />
-            <ENUM_ENTRY NAME="PCmd_GOTO_STRUCTURE2" VALUE="0x2" />
+            <ENUM_ENTRY NAME="PCmd_USE_VEHICLE" VALUE="0x2" />
             <ENUM_ENTRY NAME="PCmd_LEAVE_VEHICLE" VALUE="0x3" />
             <ENUM_ENTRY NAME="PCmd_WAIT_FOR_MODEL" VALUE="0x4" />
             <ENUM_ENTRY NAME="PCmd_WAIT_FOR_TIME" VALUE="0x5" />
@@ -496,7 +577,7 @@
             <ENUM_ENTRY NAME="PCmd_FAIL_LEVEL" VALUE="0x7" />
             <ENUM_ENTRY NAME="PCmd_WAIT_FOR_TRIGGER" VALUE="0x8" />
             <ENUM_ENTRY NAME="PCmd_END_COMMANDS" VALUE="0x9" />
-            <ENUM_ENTRY NAME="PCmd_ALLOW_PASSENGERS" VALUE="0xA" />
+            <ENUM_ENTRY NAME="PCmd_WAIT_PASSENGERS" VALUE="0xA" />
             <ENUM_ENTRY NAME="PCmd_COMPLETE_LEVEL" VALUE="0xB" />
             <ENUM_ENTRY NAME="PCmd_TOTAL_COMMANDS" VALUE="0xC" />
         </ENUM>
@@ -547,6 +628,100 @@
             <ENUM_ENTRY NAME="PerSt_USE_WEAPON" VALUE="0x2B" />
             <ENUM_ENTRY NAME="PerSt_BEING_PERSUADED" VALUE="0x2C" />
             <ENUM_ENTRY NAME="PerSt_TOTAL_STATES" VALUE="0x2D" />
+        </ENUM>
+        <ENUM NAME="ObjectiveTypes">
+            <ENUM_ENTRY NAME="ObctvT_COMPLETE_NOW" VALUE="0x0" />
+            <ENUM_ENTRY NAME="ObctvT_1" VALUE="0x1" />
+            <ENUM_ENTRY NAME="ObctvT_2" VALUE="0x2" />
+            <ENUM_ENTRY NAME="ObctvT_3" VALUE="0x3" />
+            <ENUM_ENTRY NAME="ObctvT_4" VALUE="0x4" />
+            <ENUM_ENTRY NAME="ObctvT_5" VALUE="0x5" />
+            <ENUM_ENTRY NAME="ObctvT_6" VALUE="0x6" />
+            <ENUM_ENTRY NAME="ObctvT_7" VALUE="0x7" />
+            <ENUM_ENTRY NAME="ObctvT_8" VALUE="0x8" />
+            <ENUM_ENTRY NAME="ObctvT_9" VALUE="0x9" />
+            <ENUM_ENTRY NAME="ObctvT_a" VALUE="0xA" />
+            <ENUM_ENTRY NAME="ObctvT_TOTAL_COUNT" VALUE="0xB" />
+        </ENUM>
+        <ENUM NAME="CompPlayerActionType">
+            <ENUM_ENTRY NAME="CPActT_0" VALUE="0x0" />
+            <ENUM_ENTRY NAME="CPActT_1" VALUE="0x1" />
+            <ENUM_ENTRY NAME="CPActT_2" VALUE="0x2" />
+            <ENUM_ENTRY NAME="CPActT_3" VALUE="0x3" />
+            <ENUM_ENTRY NAME="CPActT_4" VALUE="0x4" />
+            <ENUM_ENTRY NAME="CPActT_5" VALUE="0x5" />
+            <ENUM_ENTRY NAME="CPActT_6" VALUE="0x6" />
+            <ENUM_ENTRY NAME="CPActT_7" VALUE="0x7" />
+            <ENUM_ENTRY NAME="CPActT_8" VALUE="0x8" />
+            <ENUM_ENTRY NAME="CPActT_9" VALUE="0x9" />
+            <ENUM_ENTRY NAME="CPActT_a" VALUE="0xA" />
+            <ENUM_ENTRY NAME="CPActT_b" VALUE="0xB" />
+            <ENUM_ENTRY NAME="CPActT_c" VALUE="0xC" />
+            <ENUM_ENTRY NAME="CPActT_d" VALUE="0xD" />
+            <ENUM_ENTRY NAME="CPActT_e" VALUE="0xE" />
+            <ENUM_ENTRY NAME="CPActT_f" VALUE="0xF" />
+            <ENUM_ENTRY NAME="CPActT_10" VALUE="0x10" />
+            <ENUM_ENTRY NAME="CPActT_11" VALUE="0x11" />
+            <ENUM_ENTRY NAME="CPActT_12" VALUE="0x12" />
+            <ENUM_ENTRY NAME="CPActT_13" VALUE="0x13" />
+            <ENUM_ENTRY NAME="CPActT_14" VALUE="0x14" />
+        </ENUM>
+        <ENUM NAME="CPObjectiveFlags">
+            <ENUM_ENTRY NAME="CPObctvF_NONE" VALUE="0x0" />
+            <ENUM_ENTRY NAME="CPObctvF_1" VALUE="0x1" />
+            <ENUM_ENTRY NAME="CPObctvF_2" VALUE="0x2" />
+            <ENUM_ENTRY NAME="CPObctvF_4" VALUE="0x4" />
+            <ENUM_ENTRY NAME="CPObctvF_REQ_EXPLOSIVES" VALUE="0x8" />
+            <ENUM_ENTRY NAME="CPObctvF_10" VALUE="0x10" />
+            <ENUM_ENTRY NAME="CPObctvF_20" VALUE="0x20" />
+            <ENUM_ENTRY NAME="CPObctvF_40" VALUE="0x40" />
+        </ENUM>
+        <ENUM NAME="VehicleState">
+            <ENUM_ENTRY NAME="VeSt_NONE" VALUE="0x0" />
+            <ENUM_ENTRY NAME="VeSt_TYP1" VALUE="0x1" />
+            <ENUM_ENTRY NAME="VeSt_TYP1_MOVING" VALUE="0x2" />
+            <ENUM_ENTRY NAME="VeSt_TYP1_ON_FIRE" VALUE="0x3" />
+            <ENUM_ENTRY NAME="VeSt_TYP1_DESTROYED" VALUE="0x4" />
+            <ENUM_ENTRY NAME="VeSt_TRAIN" VALUE="0x5" />
+            <ENUM_ENTRY NAME="VeSt_TRAIN_MOVING" VALUE="0x6" />
+            <ENUM_ENTRY NAME="VeSt_TRAIN_ON_FIRE" VALUE="0x7" />
+            <ENUM_ENTRY NAME="VeSt_TRAIN_DESTROYED" VALUE="0x8" />
+            <ENUM_ENTRY NAME="VeSt_CARRIAGE" VALUE="0x9" />
+            <ENUM_ENTRY NAME="VeSt_CARRIAGE_MOVING" VALUE="0xA" />
+            <ENUM_ENTRY NAME="VeSt_CARRIAGE_ON_FIRE" VALUE="0xB" />
+            <ENUM_ENTRY NAME="VeSt_CARRIAGE_DESTROYED" VALUE="0xC" />
+            <ENUM_ENTRY NAME="VeSt_TYP4" VALUE="0xD" />
+            <ENUM_ENTRY NAME="VeSt_TYP4_MOVING" VALUE="0xE" />
+            <ENUM_ENTRY NAME="VeSt_TYP4_ON_FIRE" VALUE="0xF" />
+            <ENUM_ENTRY NAME="VeSt_TYP4_DESTROYED" VALUE="0x10" />
+            <ENUM_ENTRY NAME="VeSt_TYP5" VALUE="0x11" />
+            <ENUM_ENTRY NAME="VeSt_TYP5_MOVING" VALUE="0x12" />
+            <ENUM_ENTRY NAME="VeSt_TYP5_ON_FIRE" VALUE="0x13" />
+            <ENUM_ENTRY NAME="VeSt_TYP5_DESTROYED" VALUE="0x14" />
+            <ENUM_ENTRY NAME="VeSt_15" VALUE="0x15" />
+            <ENUM_ENTRY NAME="VeSt_16" VALUE="0x16" />
+            <ENUM_ENTRY NAME="VeSt_17" VALUE="0x17" />
+            <ENUM_ENTRY NAME="VeSt_18" VALUE="0x18" />
+            <ENUM_ENTRY NAME="VeSt_19" VALUE="0x19" />
+            <ENUM_ENTRY NAME="VeSt_1a" VALUE="0x1A" />
+            <ENUM_ENTRY NAME="VeSt_1b" VALUE="0x1B" />
+            <ENUM_ENTRY NAME="VeSt_TYP8" VALUE="0x1C" />
+            <ENUM_ENTRY NAME="VeSt_TYP8_MOVING" VALUE="0x1D" />
+            <ENUM_ENTRY NAME="VeSt_TYP8_ON_FIRE" VALUE="0x1E" />
+            <ENUM_ENTRY NAME="VeSt_TYP8_DESTROYED" VALUE="0x1F" />
+            <ENUM_ENTRY NAME="VeSt_20" VALUE="0x20" />
+            <ENUM_ENTRY NAME="VeSt_21" VALUE="0x21" />
+            <ENUM_ENTRY NAME="VeSt_22" VALUE="0x22" />
+            <ENUM_ENTRY NAME="VeSt_23" VALUE="0x23" />
+            <ENUM_ENTRY NAME="VeSt_TYPa" VALUE="0x24" />
+            <ENUM_ENTRY NAME="VeSt_TYPa_MOVING" VALUE="0x25" />
+            <ENUM_ENTRY NAME="VeSt_TYPa_ON_FIRE" VALUE="0x26" />
+            <ENUM_ENTRY NAME="VeSt_TYPa_DESTROYED" VALUE="0x27" />
+            <ENUM_ENTRY NAME="VeSt_TYPb" VALUE="0x28" />
+            <ENUM_ENTRY NAME="VeSt_TYPb_MOVING" VALUE="0x29" />
+            <ENUM_ENTRY NAME="VeSt_TYPb_ON_FIRE" VALUE="0x2A" />
+            <ENUM_ENTRY NAME="VeSt_TYPb_DESTROYED" VALUE="0x2B" />
+            <ENUM_ENTRY NAME="VeSt_STATES_COUNT" VALUE="0x2C" />
         </ENUM>
         <ENUM NAME="KeyCodes">
             <ENUM_ENTRY NAME="KC_UNASSIGNED" VALUE="0x0" />
@@ -1494,34 +1669,8 @@
         <DEFINED_DATA ADDRESS="0x1B5AC" DATATYPE="pointer[7]" SIZE="0x1C">
             <TYPEINFO_CMT>off_1B5AC</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x1BE1C" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_1BE1C</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x1BE20" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE24" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE28" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE2C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE30" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE34" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE38" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE3C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE40" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE44" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE48" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE4C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE50" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE54" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE58" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE5C" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_1BE5C</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x1BE60" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE64" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE68" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE6C" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE70" DATATYPE="pointer" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x1BE74" DATATYPE="pointer[17]" SIZE="0x44">
-            <TYPEINFO_CMT>off_1BE74</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x1BE1C" DATATYPE="pointer[39]" SIZE="0x9C">
+            <TYPEINFO_CMT>jpt_1C0B0</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x1CC54" DATATYPE="pointer" SIZE="0x4">
             <TYPEINFO_CMT>off_1CC54</TYPEINFO_CMT>
@@ -4869,13 +5018,13 @@
             <TYPEINFO_CMT>computer_players_count</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x53EB5" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_53EB5</TYPEINFO_CMT>
+            <TYPEINFO_CMT>comp_plyr_team_size</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x53EB6" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_53EB6</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x53EB7" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_53EB7</TYPEINFO_CMT>
+            <TYPEINFO_CMT>comp_plyr_level_init</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x53EB8" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>dword_53EB8</TYPEINFO_CMT>
@@ -5267,7 +5416,7 @@
         <DEFINED_DATA ADDRESS="0x545C8" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545CC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545D0" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_545D0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_breief</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x545D4" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545D8" DATATYPE="pointer" SIZE="0x4" />
@@ -5277,22 +5426,22 @@
         <DEFINED_DATA ADDRESS="0x545E0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545E4" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545E8" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_545E8</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_team</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x545EC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545F0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545F4" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_545F4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_mods</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x545F8" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x545FC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54600" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54600</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_equip</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54604" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54608" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5460C" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_5460C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_button_sell</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54610" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54614" DATATYPE="pointer" SIZE="0x4" />
@@ -5302,7 +5451,7 @@
         <DEFINED_DATA ADDRESS="0x5461C" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54620" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54624" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54624</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_button_reload</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54628" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5462C" DATATYPE="pointer" SIZE="0x4" />
@@ -5317,32 +5466,32 @@
         <DEFINED_DATA ADDRESS="0x54640" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54644" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54648" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54648</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_info</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5464C" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54650" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54654" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54654</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_enhance</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54658" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5465C" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54660" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54660</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_load</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54664" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54668" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5466C" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_5466C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_save</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54670" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54674" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54678" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54678</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_map</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5467C" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54680" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54684" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54684</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_replay</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54688" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5468C" DATATYPE="pointer" SIZE="0x4" />
@@ -5350,17 +5499,17 @@
         <DEFINED_DATA ADDRESS="0x54694" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54698" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5469C" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_5469C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_pop</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x546A0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546A4" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546A8" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_546A8</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_stat</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x546AC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546B0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546B4" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_546B4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_tax</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x546B8" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546BC" DATATYPE="pointer" SIZE="0x4" />
@@ -5375,32 +5524,32 @@
         <DEFINED_DATA ADDRESS="0x546D0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546D4" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546D8" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_546D8</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_mood_vhappy</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x546DC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546E0" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546E4" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_546E4</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_mood_happy</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x546E8" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546EC" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546F0" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_546F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_mood_content</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x546F4" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546F8" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x546FC" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_546FC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_mood_unhappy</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54700" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54704" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54708" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54708</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_mood_discontent</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5470C" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54710" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54714" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_54714</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_city_mood_rebellious</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54718" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5471C" DATATYPE="pointer" SIZE="0x4" />
@@ -5410,7 +5559,7 @@
         <DEFINED_DATA ADDRESS="0x54724" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54728" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5472C" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_5472C</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_spec_agent</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x54730" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x54734" DATATYPE="pointer" SIZE="0x4" />
@@ -5930,7 +6079,7 @@
             <TYPEINFO_CMT>byte_55302</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55304" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_55304</TYPEINFO_CMT>
+            <TYPEINFO_CMT>game_speed</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55308" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>pointer_sprites</TYPEINFO_CMT>
@@ -6044,10 +6193,10 @@
             <TYPEINFO_CMT>AniArrayCount</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5539A" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5539A</TYPEINFO_CMT>
+            <TYPEINFO_CMT>cheat_worldmap</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5539C" DATATYPE="struc_5539C[50]" SIZE="0x1F4">
-            <TYPEINFO_CMT>arr_unkn_5539C</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5539C" DATATYPE="CountryState[50]" SIZE="0x1F4">
+            <TYPEINFO_CMT>CountryStates</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x55590" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_55590</TYPEINFO_CMT>
@@ -6103,14 +6252,14 @@
         <DEFINED_DATA ADDRESS="0x5A6EA" DATATYPE="byte[20]" SIZE="0x14">
             <TYPEINFO_CMT>byte_5A6EA</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5A6FE" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5A6FE</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5A6FE" DATATYPE="byte[20]" SIZE="0x14">
+            <TYPEINFO_CMT>weapons_time_in_use</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5A712" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5A712</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5A73A" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5A73A</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5A73A" DATATYPE="word[2]" SIZE="0x4">
+            <TYPEINFO_CMT>weapon_max_ammo</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5A73E" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5A73E</TYPEINFO_CMT>
@@ -6118,8 +6267,8 @@
         <DEFINED_DATA ADDRESS="0x5A74E" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5A74E</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5A7B4" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5A7B4</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5A7B4" DATATYPE="word[20]" SIZE="0x28">
+            <TYPEINFO_CMT>weapon_weights</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5A7DC" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_5A7DC</TYPEINFO_CMT>
@@ -6151,29 +6300,8 @@
         <DEFINED_DATA ADDRESS="0x5AF60" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_5AF60</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B060" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5B060</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B062" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5B062</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B064" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5B064</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B066" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5B066</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B068" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5B068</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B069" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5B069</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B071" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5B071</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B072" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5B072</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5B060" DATATYPE="MapCountryState[50]" SIZE="0x3B6">
+            <TYPEINFO_CMT>map_countries</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5B416" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5B416</TYPEINFO_CMT>
@@ -6181,8 +6309,8 @@
         <DEFINED_DATA ADDRESS="0x5B418" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5B418</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5B46A" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5B46A</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5B46A" DATATYPE="byte[10]" SIZE="0xA">
+            <TYPEINFO_CMT>player_colour_for_map</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5B474" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5B474</TYPEINFO_CMT>
@@ -6457,7 +6585,7 @@
             <TYPEINFO_CMT>word_5B808</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5B80A" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5B80A</TYPEINFO_CMT>
+            <TYPEINFO_CMT>arg8</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5B80C" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5B80C</TYPEINFO_CMT>
@@ -6469,7 +6597,7 @@
             <TYPEINFO_CMT>byte_5B830</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5B844" DATATYPE="pointer" SIZE="0x4">
-            <TYPEINFO_CMT>off_5B844</TYPEINFO_CMT>
+            <TYPEINFO_CMT>text_cyborg_names</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5B848" DATATYPE="pointer" SIZE="0x4" />
         <DEFINED_DATA ADDRESS="0x5B84C" DATATYPE="pointer" SIZE="0x4" />
@@ -6976,7 +7104,7 @@
             <TYPEINFO_CMT>dword_5DF14</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5DF18" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_5DF18</TYPEINFO_CMT>
+            <TYPEINFO_CMT>world_map</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5DF1C" DATATYPE="NetBuffer" SIZE="0x8">
             <TYPEINFO_CMT>Network_ReceiveBuffer</TYPEINFO_CMT>
@@ -7111,8 +7239,8 @@
         <DEFINED_DATA ADDRESS="0x5E12E" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5E12E</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x5E13C" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_5E13C</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x5E13C" DATATYPE="byte[8]" SIZE="0x8">
+            <TYPEINFO_CMT>next_mission_countries</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5E144" DATATYPE="dword[80]" SIZE="0x140">
             <TYPEINFO_CMT>dword_5E144</TYPEINFO_CMT>
@@ -7364,7 +7492,7 @@
             <TYPEINFO_CMT>byte_60B42</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B43" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_60B43</TYPEINFO_CMT>
+            <TYPEINFO_CMT>cheat_credits</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B44" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_60B44</TYPEINFO_CMT>
@@ -7379,7 +7507,7 @@
             <TYPEINFO_CMT>byte_60B47</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B48" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_60B48</TYPEINFO_CMT>
+            <TYPEINFO_CMT>cheats_mission</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B49" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>MusicAble</TYPEINFO_CMT>
@@ -7388,7 +7516,7 @@
             <TYPEINFO_CMT>SoundAble</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4B" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_60B4B</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ScannerPulse</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B4C" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>byte_60B4C</TYPEINFO_CMT>
@@ -7409,7 +7537,7 @@
             <TYPEINFO_CMT>byte_60B51</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B52" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_60B52</TYPEINFO_CMT>
+            <TYPEINFO_CMT>cheats_speedup</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x60B53" DATATYPE="byte" SIZE="0x1">
             <TYPEINFO_CMT>unused_option_p</TYPEINFO_CMT>
@@ -7542,7 +7670,7 @@
             <TYPEINFO_CMT>level__Seed</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x8010A" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>level__word_8010A</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__PersonCount_UNSURE</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x8010C" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>level__Timer</TYPEINFO_CMT>
@@ -7557,10 +7685,10 @@
             <TYPEINFO_CMT>level__People</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x8DD10" DATATYPE="Vehicle[64]" SIZE="0xA80">
-            <TYPEINFO_CMT>level__vehicles</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__Vehicles</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x8E790" DATATYPE="Object[400]" SIZE="0x2EE0">
-            <TYPEINFO_CMT>level__objects</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__Objects</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x91670" DATATYPE="Weapon[512]" SIZE="0x4800">
             <TYPEINFO_CMT>level__Weapons</TYPEINFO_CMT>
@@ -7568,38 +7696,12 @@
         <DEFINED_DATA ADDRESS="0x95E70" DATATYPE="Effect[256]" SIZE="0x1E00">
             <TYPEINFO_CMT>level__Effects</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x97C70" DATATYPE="Command[32]" SIZE="0x100">
+        <DEFINED_DATA ADDRESS="0x97C70" DATATYPE="Command[2048]" SIZE="0x4000">
             <TYPEINFO_CMT>level__Commands</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x97D70" DATATYPE="byte[16128]" SIZE="0x3F00" />
-        <DEFINED_DATA ADDRESS="0x9BC70" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>level__word_9BC70</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0x9BC70" DATATYPE="World[32]" SIZE="0x1C0">
+            <TYPEINFO_CMT>level__Worlds</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC72" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_9BC72</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC74" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_9BC74</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC76" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BC76</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC77" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BC77</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC78" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BC78</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC79" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BC79</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC7A" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BC7A</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC7B" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BC7B</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x9BC7C" DATATYPE="byte[436]" SIZE="0x1B4" />
         <DEFINED_DATA ADDRESS="0x9BE30" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>level__MapNumber</TYPEINFO_CMT>
         </DEFINED_DATA>
@@ -7616,31 +7718,31 @@
             <TYPEINFO_CMT>level__HiBoundaryy</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BE3A" DATATYPE="Objective[8]" SIZE="0x70">
-            <TYPEINFO_CMT>level__dword_9BE3A</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__Objectives</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEAA" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>level__computer_players_count</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__ComputerPlayersCount</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEAB" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEAB</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__CPTeamSize</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEAC" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEAC</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__byte_9BEAC</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEAD" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEAD</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__CPLvlInit</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEAE" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEAE</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__CPIsBombingTeam</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEAF" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEAF</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__CPIsPersuadingTeam</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEB0" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEB0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__byte_9BEB0</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEB1" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_9BEB1</TYPEINFO_CMT>
+            <TYPEINFO_CMT>level__CPWieldedWeaponType</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x9BEB2" DATATYPE="CPObjective[128]" SIZE="0x780">
             <TYPEINFO_CMT>level__CPObjectives</TYPEINFO_CMT>
@@ -7674,6 +7776,27 @@
         <COMMENT ADDRESS="0x10EF9" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x10EFD" TYPE="end-of-line">fname </COMMENT>
         <COMMENT ADDRESS="0x10F1E" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x110AE" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x110B6" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x110F0" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x110F1" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x110F5" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x110FF" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1110B" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x11114" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1111C" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x11156" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x11157" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1115B" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x11162" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1116E" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x11177" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1117F" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x111B9" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x111BA" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x111BE" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x111C8" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x111D4" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x11298" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x112C0" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x112CA" TYPE="end-of-line">a11 </COMMENT>
@@ -7735,30 +7858,30 @@
         <COMMENT ADDRESS="0x11FC8" TYPE="repeatable">jumptable 00011FAF case 4 </COMMENT>
         <COMMENT ADDRESS="0x11FCD" TYPE="repeatable">jumptable 00011FAF case 5 </COMMENT>
         <COMMENT ADDRESS="0x11FCF" TYPE="repeatable">jumptable 00011FAF default case </COMMENT>
-        <COMMENT ADDRESS="0x12B6E" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x12B6E" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x12B6F" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x12D9D" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x12D9D" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x12D9E" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x12EB1" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x12EB1" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x12EB2" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x12F8B" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x12F8B" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x12F8C" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x13154" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x13154" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x13155" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x1323A" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1323A" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x1323B" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x1330B" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1330B" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x1330C" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x133E1" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x133E1" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x133E2" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x13575" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x13575" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x13576" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x13658" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x13658" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x13659" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x13725" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x13725" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x13726" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x137AC" TYPE="end-of-line">jump table for switch statement </COMMENT>
-        <COMMENT ADDRESS="0x13B62" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x13B62" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x13B67" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x13B80" TYPE="end-of-line">switch 4 cases  </COMMENT>
         <COMMENT ADDRESS="0x13B89" TYPE="end-of-line">switch jump </COMMENT>
@@ -7766,9 +7889,9 @@
         <COMMENT ADDRESS="0x13BC8" TYPE="repeatable">jumptable 00013B89 case 2 </COMMENT>
         <COMMENT ADDRESS="0x13BDB" TYPE="repeatable">jumptable 00013B89 case 0 </COMMENT>
         <COMMENT ADDRESS="0x13BFF" TYPE="repeatable">jumptable 00013B89 case 3 </COMMENT>
-        <COMMENT ADDRESS="0x13DFD" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x13DFD" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x13E00" TYPE="end-of-line">p_tng </COMMENT>
-        <COMMENT ADDRESS="0x144D4" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x144D4" TYPE="end-of-line">p_shotng </COMMENT>
         <COMMENT ADDRESS="0x144D5" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x144E0" TYPE="repeatable">jumptable 00013B89 default case </COMMENT>
         <COMMENT ADDRESS="0x14550" TYPE="end-of-line">jump table for switch statement </COMMENT>
@@ -8022,10 +8145,12 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x16DC7" TYPE="repeatable">jumptable 00016BA6 case 7 </COMMENT>
         <COMMENT ADDRESS="0x16E05" TYPE="end-of-line">pckt </COMMENT>
         <COMMENT ADDRESS="0x16E1C" TYPE="repeatable">jumptable 00016BA6 case 8 </COMMENT>
-        <COMMENT ADDRESS="0x16EBC" TYPE="end-of-line">int </COMMENT>
+        <COMMENT ADDRESS="0x16EBC" TYPE="end-of-line">p_objctv </COMMENT>
         <COMMENT ADDRESS="0x16EBD" TYPE="end-of-line">p_complr </COMMENT>
         <COMMENT ADDRESS="0x16F7A" TYPE="end-of-line">p_objctv </COMMENT>
         <COMMENT ADDRESS="0x16F7E" TYPE="end-of-line">p_complr </COMMENT>
+        <COMMENT ADDRESS="0x16FEA" TYPE="end-of-line">wtype </COMMENT>
+        <COMMENT ADDRESS="0x16FEF" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x17008" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x1704C" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x17090" TYPE="end-of-line">jump table for switch statement </COMMENT>
@@ -8280,8 +8405,27 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x1850C" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x18513" TYPE="end-of-line">str </COMMENT>
         <COMMENT ADDRESS="0x18537" TYPE="repeatable">jumptable 00018270 default case </COMMENT>
+        <COMMENT ADDRESS="0x1857B" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x18584" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x185BE" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x185BF" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x185C6" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x185CD" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x185D9" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x185E2" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x185EB" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x18625" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x18626" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1862D" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x18634" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x18640" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x189D6" TYPE="end-of-line">cntstano </COMMENT>
+        <COMMENT ADDRESS="0x189FD" TYPE="end-of-line">cntstano </COMMENT>
         <COMMENT ADDRESS="0x18A0E" TYPE="end-of-line">range </COMMENT>
+        <COMMENT ADDRESS="0x18DAB" TYPE="end-of-line">plyrno </COMMENT>
         <COMMENT ADDRESS="0x18DD3" TYPE="end-of-line">range </COMMENT>
+        <COMMENT ADDRESS="0x18DE6" TYPE="end-of-line">plyrno </COMMENT>
+        <COMMENT ADDRESS="0x18DEB" TYPE="end-of-line">n </COMMENT>
         <COMMENT ADDRESS="0x18E51" TYPE="end-of-line">range </COMMENT>
         <COMMENT ADDRESS="0x18FB6" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x18FBF" TYPE="end-of-line">a11 </COMMENT>
@@ -8638,6 +8782,19 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x19FE2" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x19FE4" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x19FEB" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x1A04D" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1A05C" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x1A0A8" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x1A0B7" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1A0C0" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x1A0C6" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1A0D5" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x1A0E7" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x1A0E9" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x1A0ED" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x1A109" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x1A10B" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x1A10D" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x1A206" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x1A216" TYPE="end-of-line">sndarr </COMMENT>
         <COMMENT ADDRESS="0x1A21B" TYPE="end-of-line">a2 </COMMENT>
@@ -9047,21 +9204,37 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x1BBAE" TYPE="end-of-line">scr_x </COMMENT>
         <COMMENT ADDRESS="0x1BBB3" TYPE="end-of-line">a0 </COMMENT>
         <COMMENT ADDRESS="0x1BBBC" TYPE="repeatable">jumptable 0001B619 default case </COMMENT>
+        <COMMENT ADDRESS="0x1BE1C" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x1BE74" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x1C0AB" TYPE="end-of-line">switch 39 cases </COMMENT>
+        <COMMENT ADDRESS="0x1C0B0" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x1C0B8" TYPE="repeatable">jumptable 0001C0B0 cases 5,14 </COMMENT>
+        <COMMENT ADDRESS="0x1C110" TYPE="repeatable">jumptable 0001C0B0 cases 6-9,11,15 </COMMENT>
+        <COMMENT ADDRESS="0x1C168" TYPE="repeatable">jumptable 0001C0B0 case 10 </COMMENT>
+        <COMMENT ADDRESS="0x1C1A7" TYPE="repeatable">jumptable 0001C0B0 cases 1-4,13 </COMMENT>
+        <COMMENT ADDRESS="0x1C202" TYPE="repeatable">jumptable 0001C0B0 cases 0,12 </COMMENT>
+        <COMMENT ADDRESS="0x1C3E1" TYPE="repeatable">jumptable 0001C0B0 case 18 </COMMENT>
+        <COMMENT ADDRESS="0x1C419" TYPE="repeatable">jumptable 0001C0B0 case 17 </COMMENT>
+        <COMMENT ADDRESS="0x1C795" TYPE="repeatable">jumptable 0001C0B0 case 20 </COMMENT>
+        <COMMENT ADDRESS="0x1C7C0" TYPE="repeatable">jumptable 0001C0B0 cases 16,19,21 </COMMENT>
         <COMMENT ADDRESS="0x1C850" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x1C85A" TYPE="end-of-line">scr_y </COMMENT>
         <COMMENT ADDRESS="0x1C85B" TYPE="end-of-line">scr_x </COMMENT>
         <COMMENT ADDRESS="0x1C860" TYPE="end-of-line">a0 </COMMENT>
         <COMMENT ADDRESS="0x1C9E0" TYPE="end-of-line">switch 17 cases  </COMMENT>
         <COMMENT ADDRESS="0x1C9EF" TYPE="end-of-line">switch jump </COMMENT>
-        <COMMENT ADDRESS="0x1C9F7" TYPE="repeatable">jumptable 0001C9EF case 16 </COMMENT>
+        <COMMENT ADDRESS="0x1C9F7" TYPE="repeatable">jumptable 0001C9EF case 16
+jumptable 0001C0B0 case 38 </COMMENT>
         <COMMENT ADDRESS="0x1CAC6" TYPE="end-of-line">stat </COMMENT>
         <COMMENT ADDRESS="0x1CAC8" TYPE="end-of-line">smp_id </COMMENT>
-        <COMMENT ADDRESS="0x1CB44" TYPE="repeatable">jumptable 0001C9EF cases 1-3,5,14,15 </COMMENT>
+        <COMMENT ADDRESS="0x1CB44" TYPE="repeatable">jumptable 0001C9EF cases 1-3,5,14,15
+jumptable 0001C0B0 cases 23-25,27,36,37 </COMMENT>
         <COMMENT ADDRESS="0x1CC0B" TYPE="end-of-line">stat </COMMENT>
         <COMMENT ADDRESS="0x1CC0D" TYPE="end-of-line">smp_id </COMMENT>
-        <COMMENT ADDRESS="0x1CC3C" TYPE="repeatable">jumptable 0001C9EF default case </COMMENT>
-        <COMMENT ADDRESS="0x1CC47" TYPE="repeatable">jumptable 0001C9EF cases 4,6-13 </COMMENT>
+        <COMMENT ADDRESS="0x1CC3C" TYPE="repeatable">jumptable 0001C9EF default case
+jumptable 0001C0B0 case 22 </COMMENT>
+        <COMMENT ADDRESS="0x1CC47" TYPE="repeatable">jumptable 0001C9EF cases 4,6-13
+jumptable 0001C0B0 cases 26,28-35 </COMMENT>
         <COMMENT ADDRESS="0x1D12E" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x1D12F" TYPE="end-of-line">p_spr </COMMENT>
         <COMMENT ADDRESS="0x1D13A" TYPE="end-of-line">a2 </COMMENT>
@@ -9317,6 +9490,62 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x1FAE3" TYPE="end-of-line">map_x </COMMENT>
         <COMMENT ADDRESS="0x1FB07" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x1FB50" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x1FDF9" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1FE08" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x1FE0D" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x1FE17" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1FE20" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x1FE29" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1FE38" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x1FE4E" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1FE5D" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x1FEA9" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x1FEB8" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1FEC1" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x1FEC7" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1FED6" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x1FF0F" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1FF13" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x1FF20" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x1FF2F" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1FF38" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x1FF3E" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1FF4D" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x1FF56" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1FF5A" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x1FF66" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x1FF75" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1FF7E" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x1FF84" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1FF93" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x1FF9C" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x1FFA0" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x1FFAC" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x1FFBB" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x1FFC4" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x1FFCA" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x1FFD9" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x20037" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x2003C" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x20041" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x2004B" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x20051" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x20057" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x20066" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x200C1" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x200CD" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x200D2" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x200DC" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x200E2" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x200E8" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x200F7" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x2014F" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x2015E" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x20163" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x2016D" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x20173" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x20179" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x20188" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x20299" TYPE="end-of-line">p_spr </COMMENT>
         <COMMENT ADDRESS="0x202A3" TYPE="end-of-line">scr_y </COMMENT>
         <COMMENT ADDRESS="0x202AD" TYPE="end-of-line">scr_x </COMMENT>
@@ -9504,6 +9733,20 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x21175" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x2117A" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x21186" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x2121E" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x21227" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x21262" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x21263" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x21267" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x21271" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x2127D" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x2136C" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x21375" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x213B0" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x213B1" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x213B5" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x213BF" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x213CB" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x213FF" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x21402" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x2144F" TYPE="end-of-line">a11 </COMMENT>
@@ -9531,6 +9774,20 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x2151C" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x21521" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x21524" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x21595" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x2159D" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x215D7" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x215D8" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x215DC" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x215E6" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x215F2" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x21686" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x2168F" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x216CA" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x216CB" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x216CF" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x216D9" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x216E5" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x2171D" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x2172D" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x2174B" TYPE="end-of-line">a3 </COMMENT>
@@ -9552,8 +9809,14 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x217EF" TYPE="end-of-line">p_spr </COMMENT>
         <COMMENT ADDRESS="0x217F8" TYPE="end-of-line">scr_y </COMMENT>
         <COMMENT ADDRESS="0x21801" TYPE="end-of-line">scr_x </COMMENT>
+        <COMMENT ADDRESS="0x21850" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x21852" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x21854" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x21867" TYPE="end-of-line">switch 25 cases </COMMENT>
         <COMMENT ADDRESS="0x21874" TYPE="end-of-line">switch jump </COMMENT>
+        <COMMENT ADDRESS="0x21AFB" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x21AFD" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x21AFF" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x21E86" TYPE="repeatable">jumptable 00021874 cases 0-3 </COMMENT>
         <COMMENT ADDRESS="0x21EF3" TYPE="repeatable">jumptable 00021874 case 4 </COMMENT>
         <COMMENT ADDRESS="0x21F03" TYPE="repeatable">jumptable 00021874 case 5 </COMMENT>
@@ -9561,6 +9824,10 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x21F82" TYPE="repeatable">jumptable 00021874 case 7 </COMMENT>
         <COMMENT ADDRESS="0x2200D" TYPE="repeatable">jumptable 00021874 case 8 </COMMENT>
         <COMMENT ADDRESS="0x2201C" TYPE="repeatable">jumptable 00021874 case 21 </COMMENT>
+        <COMMENT ADDRESS="0x222F1" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x222F7" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x22352" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x22358" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x2273C" TYPE="repeatable">jumptable 00021874 cases 11-18 </COMMENT>
         <COMMENT ADDRESS="0x227B0" TYPE="repeatable">jumptable 00021874 case 22 </COMMENT>
         <COMMENT ADDRESS="0x227C8" TYPE="repeatable">jumptable 00021874 case 23 </COMMENT>
@@ -9796,6 +10063,9 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x24E0B" TYPE="repeatable">jumptable 00024DEF case 2 </COMMENT>
         <COMMENT ADDRESS="0x24E15" TYPE="repeatable">jumptable 00024DEF case 3 </COMMENT>
         <COMMENT ADDRESS="0x24E1D" TYPE="repeatable">jumptable 00024DEF default case </COMMENT>
+        <COMMENT ADDRESS="0x24E7E" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x24E84" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x24E85" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x24F19" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x24F2B" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x24F34" TYPE="end-of-line">len </COMMENT>
@@ -9804,6 +10074,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x24F6A" TYPE="end-of-line">map_z </COMMENT>
         <COMMENT ADDRESS="0x24F6F" TYPE="end-of-line">map_y </COMMENT>
         <COMMENT ADDRESS="0x24F74" TYPE="end-of-line">map_x </COMMENT>
+        <COMMENT ADDRESS="0x24F97" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x24F9F" TYPE="end-of-line">p_wep </COMMENT>
         <COMMENT ADDRESS="0x24FCA" TYPE="end-of-line">len </COMMENT>
         <COMMENT ADDRESS="0x24FCB" TYPE="end-of-line">val </COMMENT>
         <COMMENT ADDRESS="0x24FCD" TYPE="end-of-line">ptr </COMMENT>
@@ -9972,7 +10244,11 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x26C2B" TYPE="end-of-line">range </COMMENT>
         <COMMENT ADDRESS="0x26C4C" TYPE="end-of-line">map_x </COMMENT>
         <COMMENT ADDRESS="0x26C98" TYPE="repeatable">jumptable 00025A67 case 17 </COMMENT>
+        <COMMENT ADDRESS="0x26CAC" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x26CB4" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x26CD9" TYPE="repeatable">jumptable 00025A67 case 49 </COMMENT>
+        <COMMENT ADDRESS="0x26CFB" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x26CFD" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x26D37" TYPE="repeatable">jumptable 00025A67 case 22 </COMMENT>
         <COMMENT ADDRESS="0x26D80" TYPE="repeatable">jumptable 00025A67 case 54 </COMMENT>
         <COMMENT ADDRESS="0x26DFC" TYPE="repeatable">jumptable 00025A67 cases 18,50 </COMMENT>
@@ -9982,6 +10258,20 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x26E9B" TYPE="end-of-line">unsigned __int16 </COMMENT>
         <COMMENT ADDRESS="0x26EA4" TYPE="repeatable">jumptable 00025A67 default case, cases 0,21,26-32,53 </COMMENT>
         <COMMENT ADDRESS="0x26EB0" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x26FF5" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x26FF7" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x27005" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x27014" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x2701D" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x27023" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x27032" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x27083" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x27085" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x27093" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x270A2" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x270AB" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x270B1" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x270C0" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x270EA" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x270EC" TYPE="end-of-line">a10 </COMMENT>
         <COMMENT ADDRESS="0x270EE" TYPE="end-of-line">a9 </COMMENT>
@@ -9995,6 +10285,12 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x27132" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x27133" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x2713A" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x271CF" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x271D1" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x271D5" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x271F3" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x271F5" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x271F7" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x2720C" TYPE="end-of-line">switch 13 cases </COMMENT>
         <COMMENT ADDRESS="0x27219" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x27221" TYPE="repeatable">jumptable 00027219 cases 0-9 </COMMENT>
@@ -10060,10 +10356,17 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x27D92" TYPE="end-of-line">intnum </COMMENT>
         <COMMENT ADDRESS="0x27E12" TYPE="end-of-line">load_files </COMMENT>
         <COMMENT ADDRESS="0x27E63" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x27EDE" TYPE="end-of-line">screen </COMMENT>
+        <COMMENT ADDRESS="0x27EE0" TYPE="end-of-line">colour </COMMENT>
+        <COMMENT ADDRESS="0x27EEA" TYPE="end-of-line">cntstano </COMMENT>
+        <COMMENT ADDRESS="0x27F69" TYPE="end-of-line">cntstano </COMMENT>
         <COMMENT ADDRESS="0x2821B" TYPE="end-of-line">load_files </COMMENT>
         <COMMENT ADDRESS="0x28266" TYPE="end-of-line">load_files </COMMENT>
         <COMMENT ADDRESS="0x28317" TYPE="end-of-line">load_files </COMMENT>
         <COMMENT ADDRESS="0x28371" TYPE="end-of-line">load_files </COMMENT>
+        <COMMENT ADDRESS="0x285D8" TYPE="end-of-line">screen </COMMENT>
+        <COMMENT ADDRESS="0x285DA" TYPE="end-of-line">colour </COMMENT>
+        <COMMENT ADDRESS="0x285E0" TYPE="end-of-line">cntstano </COMMENT>
         <COMMENT ADDRESS="0x28619" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x2861B" TYPE="end-of-line">a10 </COMMENT>
         <COMMENT ADDRESS="0x2861D" TYPE="end-of-line">a9 </COMMENT>
@@ -10155,6 +10458,13 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x288C9" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x288CE" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x288D5" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x288EB" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x288F4" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x2892E" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x2892F" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x28936" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x28940" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x28949" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x289B0" TYPE="end-of-line">fmt </COMMENT>
         <COMMENT ADDRESS="0x289B4" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x289D6" TYPE="end-of-line">fmt </COMMENT>
@@ -10180,6 +10490,12 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x28ACA" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x28ACF" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x28AD2" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x28BFE" TYPE="end-of-line">screen </COMMENT>
+        <COMMENT ADDRESS="0x28C00" TYPE="end-of-line">colour </COMMENT>
+        <COMMENT ADDRESS="0x28C0B" TYPE="end-of-line">cntstano </COMMENT>
+        <COMMENT ADDRESS="0x28C8D" TYPE="end-of-line">screen </COMMENT>
+        <COMMENT ADDRESS="0x28C8F" TYPE="end-of-line">colour </COMMENT>
+        <COMMENT ADDRESS="0x28C95" TYPE="end-of-line">cntstano </COMMENT>
         <COMMENT ADDRESS="0x28EDF" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x28EE8" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x28EEA" TYPE="end-of-line">a10 </COMMENT>
@@ -10239,6 +10555,12 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x2990F" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x29915" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x29926" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x29943" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x29945" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x29949" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x29967" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x29969" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x2996B" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x2997C" TYPE="end-of-line">switch 12 cases </COMMENT>
         <COMMENT ADDRESS="0x2998D" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x299BA" TYPE="end-of-line">smp_id </COMMENT>
@@ -10529,6 +10851,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x2D15F" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x2D164" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x2D169" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x2D1AF" TYPE="end-of-line">wtype </COMMENT>
+        <COMMENT ADDRESS="0x2D1B1" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x2D284" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x2D289" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x2D28E" TYPE="end-of-line">a2 </COMMENT>
@@ -10626,6 +10950,7 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x30002" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x30039" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3003B" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x301C1" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x3020E" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3020F" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x3022C" TYPE="end-of-line">a2 </COMMENT>
@@ -10679,6 +11004,10 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x31751" TYPE="end-of-line">p_pers_1 </COMMENT>
         <COMMENT ADDRESS="0x31912" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31914" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x31A18" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x31A19" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x31A32" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x31A33" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31A6C" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31A6D" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31A7C" TYPE="end-of-line">a3 </COMMENT>
@@ -10687,6 +11016,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x31AF2" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31B7A" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31B7F" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x31B8D" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x31B8F" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31BA5" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31BAA" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31BBC" TYPE="end-of-line">a2 </COMMENT>
@@ -10699,11 +11030,14 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x31CC5" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31D3B" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31D40" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x31D4E" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x31D50" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31D66" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31D6B" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31D7D" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x31D81" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31E29" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x31F43" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31F4F" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x31F6F" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x31F7B" TYPE="end-of-line">p_pers </COMMENT>
@@ -10777,6 +11111,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x32916" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x329A0" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x329B8" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x329C9" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x329CB" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x32A0A" TYPE="end-of-line">char </COMMENT>
         <COMMENT ADDRESS="0x32A0C" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x32A59" TYPE="end-of-line">a4 </COMMENT>
@@ -10788,6 +11124,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x32A8B" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x32B10" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x32B28" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x32B39" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x32B3B" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x32B7A" TYPE="end-of-line">char </COMMENT>
         <COMMENT ADDRESS="0x32B7C" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x32BC9" TYPE="end-of-line">a4 </COMMENT>
@@ -10829,6 +11167,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x33112" TYPE="end-of-line">p_tng </COMMENT>
         <COMMENT ADDRESS="0x33127" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x33129" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x3315B" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x3315D" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x3316F" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x331A4" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x331A5" TYPE="end-of-line">p_pers </COMMENT>
@@ -10852,6 +11192,15 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x33495" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3349A" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x334C2" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x334D3" TYPE="end-of-line">distance </COMMENT>
+        <COMMENT ADDRESS="0x334D5" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x33501" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x3350D" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x3350E" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x3351A" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x3353A" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x33555" TYPE="end-of-line">__int16 </COMMENT>
+        <COMMENT ADDRESS="0x33556" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x335F5" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x3363A" TYPE="end-of-line">__int16 </COMMENT>
         <COMMENT ADDRESS="0x3363C" TYPE="end-of-line">p_pers </COMMENT>
@@ -10867,6 +11216,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x33722" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x33731" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x33798" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x3381A" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x3381C" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x338D7" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x338F8" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x338F9" TYPE="end-of-line">p_pers </COMMENT>
@@ -10999,6 +11350,46 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x34AA2" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x34AAA" TYPE="repeatable">jumptable 00034AA2 default case, cases 1-8 </COMMENT>
         <COMMENT ADDRESS="0x34AB0" TYPE="end-of-line">jump table for switch statement </COMMENT>
+        <COMMENT ADDRESS="0x34B3C" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x34B4B" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x34B54" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x34B5A" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x34B69" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x34B72" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x34B81" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x34BCD" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x34BDC" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x34BE5" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x34BEB" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x34BFA" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x34C22" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x34C26" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x34C32" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x34C41" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x34C4A" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x34C50" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x34C5F" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x34C68" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x34C6C" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x34C78" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x34C87" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x34C90" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x34C96" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x34CA5" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x34D03" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x34D08" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x34D0D" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x34D17" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x34D1D" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x34D23" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x34D32" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x34D90" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x34D95" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x34D9A" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x34DA4" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x34DAA" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x34DB0" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x34DBF" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x34E48" TYPE="end-of-line">out </COMMENT>
         <COMMENT ADDRESS="0x34E7F" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x34E81" TYPE="end-of-line">a10 </COMMENT>
@@ -11041,6 +11432,20 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x34FF9" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x34FFE" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x35006" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x3517C" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x35185" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x351C0" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x351C1" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x351C5" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x351CF" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x351DB" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x3522B" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x35234" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x3526F" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x35270" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x35274" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x3527E" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x3528A" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x352A4" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x352A6" TYPE="end-of-line">a10 </COMMENT>
         <COMMENT ADDRESS="0x352A8" TYPE="end-of-line">a9 </COMMENT>
@@ -11125,6 +11530,20 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x354BB" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x354BD" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x354C0" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x3555F" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x35568" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x355A2" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x355A3" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x355AA" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x355B4" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x355BD" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x355C6" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x355CF" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x35609" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x3560A" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x35611" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x3561B" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x35624" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x3563A" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x3567E" TYPE="end-of-line">a11 </COMMENT>
         <COMMENT ADDRESS="0x3567F" TYPE="end-of-line">a10 </COMMENT>
@@ -11163,6 +11582,12 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x35833" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x35838" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x35841" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x35853" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x35855" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x35859" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x35875" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x35877" TYPE="end-of-line">char </COMMENT>
+        <COMMENT ADDRESS="0x35879" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x3588C" TYPE="end-of-line">switch 8 cases </COMMENT>
         <COMMENT ADDRESS="0x35899" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x358A1" TYPE="repeatable">jumptable 00035899 case 0 </COMMENT>
@@ -11174,6 +11599,8 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x3597A" TYPE="repeatable">jumptable 00035899 case 6 </COMMENT>
         <COMMENT ADDRESS="0x359E6" TYPE="repeatable">jumptable 00035899 case 7 </COMMENT>
         <COMMENT ADDRESS="0x35D05" TYPE="repeatable">jumptable 00035899 default case </COMMENT>
+        <COMMENT ADDRESS="0x35D6D" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x35D7C" TYPE="end-of-line">arg14 </COMMENT>
         <COMMENT ADDRESS="0x35DEE" TYPE="end-of-line">smp_id </COMMENT>
         <COMMENT ADDRESS="0x35DFE" TYPE="end-of-line">sndarr </COMMENT>
         <COMMENT ADDRESS="0x35E03" TYPE="end-of-line">a2 </COMMENT>
@@ -11195,7 +11622,13 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x367ED" TYPE="repeatable">jumptable 000367B8 case 3 </COMMENT>
         <COMMENT ADDRESS="0x367FC" TYPE="repeatable">jumptable 000367B8 case 5 </COMMENT>
         <COMMENT ADDRESS="0x36860" TYPE="repeatable">jumptable 000367B8 default case </COMMENT>
+        <COMMENT ADDRESS="0x36AFA" TYPE="end-of-line">unsigned __int16 </COMMENT>
+        <COMMENT ADDRESS="0x36AFC" TYPE="end-of-line">p_tng1 </COMMENT>
+        <COMMENT ADDRESS="0x36AFD" TYPE="end-of-line">int </COMMENT>
         <COMMENT ADDRESS="0x37269" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x372C1" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x372CD" TYPE="end-of-line">p_pers </COMMENT>
+        <COMMENT ADDRESS="0x372D8" TYPE="end-of-line">p_veh </COMMENT>
         <COMMENT ADDRESS="0x3747F" TYPE="end-of-line">p_pers </COMMENT>
         <COMMENT ADDRESS="0x374B3" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x374BB" TYPE="end-of-line">__int16 </COMMENT>
@@ -11452,6 +11885,20 @@ jumptable 000166E8 cases 0,3,4,6-13,15 </COMMENT>
         <COMMENT ADDRESS="0x38B2B" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x38B30" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x38B35" TYPE="end-of-line">str </COMMENT>
+        <COMMENT ADDRESS="0x38B51" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x38B60" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x38BAC" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x38BBB" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x38BC4" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x38BCA" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x38BD9" TYPE="end-of-line">a6 </COMMENT>
+        <COMMENT ADDRESS="0x38BF1" TYPE="end-of-line">a7 </COMMENT>
+        <COMMENT ADDRESS="0x38C00" TYPE="end-of-line">arg14 </COMMENT>
+        <COMMENT ADDRESS="0x38C4C" TYPE="end-of-line">a10 </COMMENT>
+        <COMMENT ADDRESS="0x38C5B" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x38C64" TYPE="end-of-line">arg8 </COMMENT>
+        <COMMENT ADDRESS="0x38C6A" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x38C79" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x38D9C" TYPE="end-of-line">p_spr </COMMENT>
         <COMMENT ADDRESS="0x38DBD" TYPE="end-of-line">scr_y </COMMENT>
         <COMMENT ADDRESS="0x38DC5" TYPE="end-of-line">scr_x </COMMENT>
@@ -12298,6 +12745,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x1B370" NAME="LbScreenSetGraphicsWindow" />
         <SYMBOL ADDRESS="0x1B5D0" NAME="scircle" />
         <SYMBOL ADDRESS="0x1BBD0" NAME="ccircle" />
+        <SYMBOL ADDRESS="0x1BE1C" NAME="jpt_1C0B0" />
         <SYMBOL ADDRESS="0x1BEC0" NAME="draw_tact_map" />
         <SYMBOL ADDRESS="0x1CD10" NAME="which_frame_person" />
         <SYMBOL ADDRESS="0x1D060" NAME="show_selected_frame" />
@@ -13842,6 +14290,8 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x53DA8" NAME="aPath" />
         <SYMBOL ADDRESS="0x53DB0" NAME="_IsTable" />
         <SYMBOL ADDRESS="0x53EB4" NAME="computer_players_count" />
+        <SYMBOL ADDRESS="0x53EB5" NAME="comp_plyr_team_size" />
+        <SYMBOL ADDRESS="0x53EB7" NAME="comp_plyr_level_init" />
         <SYMBOL ADDRESS="0x53EEC" NAME="disk_err" />
         <SYMBOL ADDRESS="0x53EF0" NAME="lb_tot_mem_alloced" />
         <SYMBOL ADDRESS="0x53F08" NAME="mission_load_files" />
@@ -13849,7 +14299,29 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x54144" NAME="unkn1_empty_load_files" />
         <SYMBOL ADDRESS="0x54170" NAME="level_palettes" />
         <SYMBOL ADDRESS="0x541A4" NAME="text_lang" />
+        <SYMBOL ADDRESS="0x545D0" NAME="text_city_breief" />
+        <SYMBOL ADDRESS="0x545E8" NAME="text_team" />
+        <SYMBOL ADDRESS="0x545F4" NAME="text_mods" />
+        <SYMBOL ADDRESS="0x54600" NAME="text_equip" />
+        <SYMBOL ADDRESS="0x5460C" NAME="text_button_sell" />
+        <SYMBOL ADDRESS="0x54624" NAME="text_button_reload" />
+        <SYMBOL ADDRESS="0x54648" NAME="text_info" />
+        <SYMBOL ADDRESS="0x54654" NAME="text_enhance" />
+        <SYMBOL ADDRESS="0x54660" NAME="text_load" />
+        <SYMBOL ADDRESS="0x5466C" NAME="text_save" />
+        <SYMBOL ADDRESS="0x54678" NAME="text_map" />
+        <SYMBOL ADDRESS="0x54684" NAME="text_replay" />
+        <SYMBOL ADDRESS="0x5469C" NAME="text_city_pop" />
+        <SYMBOL ADDRESS="0x546A8" NAME="text_city_stat" />
+        <SYMBOL ADDRESS="0x546B4" NAME="text_city_tax" />
+        <SYMBOL ADDRESS="0x546D8" NAME="text_city_mood_vhappy" />
+        <SYMBOL ADDRESS="0x546E4" NAME="text_city_mood_happy" />
+        <SYMBOL ADDRESS="0x546F0" NAME="text_city_mood_content" />
+        <SYMBOL ADDRESS="0x546FC" NAME="text_city_mood_unhappy" />
+        <SYMBOL ADDRESS="0x54708" NAME="text_city_mood_discontent" />
+        <SYMBOL ADDRESS="0x54714" NAME="text_city_mood_rebellious" />
         <SYMBOL ADDRESS="0x54720" NAME="a4" />
+        <SYMBOL ADDRESS="0x5472C" NAME="text_spec_agent" />
         <SYMBOL ADDRESS="0x54744" NAME="str" />
         <SYMBOL ADDRESS="0x5478C" NAME="a5" />
         <SYMBOL ADDRESS="0x54834" NAME="text" />
@@ -13869,6 +14341,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x55094" NAME="p_a1" />
         <SYMBOL ADDRESS="0x551B4" NAME="unkarr_551B4" />
         <SYMBOL ADDRESS="0x55256" NAME="unkarr_55256" />
+        <SYMBOL ADDRESS="0x55304" NAME="game_speed" />
         <SYMBOL ADDRESS="0x55308" NAME="pointer_sprites" />
         <SYMBOL ADDRESS="0x5530C" NAME="pointer_sprites_end" />
         <SYMBOL ADDRESS="0x55310" NAME="pointer_data" />
@@ -13901,12 +14374,20 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x55390" NAME="lbDisplay__MMouseX" />
         <SYMBOL ADDRESS="0x55392" NAME="lbDisplay__MMouseY" />
         <SYMBOL ADDRESS="0x55398" NAME="AniArrayCount" />
-        <SYMBOL ADDRESS="0x5539C" NAME="arr_unkn_5539C" />
+        <SYMBOL ADDRESS="0x5539A" NAME="cheat_worldmap" />
+        <SYMBOL ADDRESS="0x5539C" NAME="CountryStates" />
         <SYMBOL ADDRESS="0x55594" NAME="strct_unkn_55594" />
         <SYMBOL ADDRESS="0x55780" NAME="cybmods" />
         <SYMBOL ADDRESS="0x57BF4" NAME="arr_unkn_57BF4" />
         <SYMBOL ADDRESS="0x5A50D" NAME="language" />
+        <SYMBOL ADDRESS="0x5A6FE" NAME="weapons_time_in_use" />
+        <SYMBOL ADDRESS="0x5A73A" NAME="weapon_max_ammo" />
+        <SYMBOL ADDRESS="0x5A7B4" NAME="weapon_weights" />
+        <SYMBOL ADDRESS="0x5B060" NAME="map_countries" />
+        <SYMBOL ADDRESS="0x5B46A" NAME="player_colour_for_map" />
         <SYMBOL ADDRESS="0x5B4C0" NAME="screen_bk_fnames" />
+        <SYMBOL ADDRESS="0x5B80A" NAME="arg8" />
+        <SYMBOL ADDRESS="0x5B844" NAME="text_cyborg_names" />
         <SYMBOL ADDRESS="0x5B958" NAME="sound_array" />
         <SYMBOL ADDRESS="0x5B970" NAME="aCSyndSave" />
         <SYMBOL ADDRESS="0x5B984" NAME="unk984_load_files" />
@@ -13993,6 +14474,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x5DF0C" NAME="KbOldIntNum" />
         <SYMBOL ADDRESS="0x5DF0E" NAME="InOldInt" />
         <SYMBOL ADDRESS="0x5DF12" NAME="InOldIntNum" />
+        <SYMBOL ADDRESS="0x5DF18" NAME="world_map" />
         <SYMBOL ADDRESS="0x5DF1C" NAME="Network_ReceiveBuffer" />
         <SYMBOL ADDRESS="0x5DF28" NAME="Network_SendBuffer" />
         <SYMBOL ADDRESS="0x5DF30" NAME="Network__Status" />
@@ -14002,6 +14484,7 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x5DF44" NAME="mouse_event" />
         <SYMBOL ADDRESS="0x5E11C" NAME="index" />
         <SYMBOL ADDRESS="0x5E120" NAME="a2" />
+        <SYMBOL ADDRESS="0x5E13C" NAME="next_mission_countries" />
         <SYMBOL ADDRESS="0x5E284" NAME="lbKeyOn" />
         <SYMBOL ADDRESS="0x5E304" NAME="lbKeyOn2" />
         <SYMBOL ADDRESS="0x5E49C" NAME="players" />
@@ -14026,10 +14509,14 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x60B3F" NAME="lbDisplay__LeftButton" />
         <SYMBOL ADDRESS="0x60B40" NAME="lbDisplay__MRightButton" />
         <SYMBOL ADDRESS="0x60B41" NAME="lbDisplay__MLeftButton" />
+        <SYMBOL ADDRESS="0x60B43" NAME="cheat_credits" />
         <SYMBOL ADDRESS="0x60B45" NAME="is_multiplayer_game" />
+        <SYMBOL ADDRESS="0x60B48" NAME="cheats_mission" />
         <SYMBOL ADDRESS="0x60B49" NAME="MusicAble" />
         <SYMBOL ADDRESS="0x60B4A" NAME="SoundAble" />
+        <SYMBOL ADDRESS="0x60B4B" NAME="ScannerPulse" />
         <SYMBOL ADDRESS="0x60B4D" NAME="MusicActive" />
+        <SYMBOL ADDRESS="0x60B52" NAME="cheats_speedup" />
         <SYMBOL ADDRESS="0x60B53" NAME="unused_option_p" />
         <SYMBOL ADDRESS="0x60C28" NAME="brief_text" />
         <SYMBOL ADDRESS="0x61BC8" NAME="m_sprites_end" />
@@ -14058,24 +14545,31 @@ Return: AH = scan code, AL = character </COMMENT>
         <SYMBOL ADDRESS="0x70800" NAME="MScreen" />
         <SYMBOL ADDRESS="0x80105" NAME="DrawFlags" />
         <SYMBOL ADDRESS="0x80108" NAME="level__Seed" />
-        <SYMBOL ADDRESS="0x8010A" NAME="level__word_8010A" />
+        <SYMBOL ADDRESS="0x8010A" NAME="level__PersonCount_UNSURE" />
         <SYMBOL ADDRESS="0x8010C" NAME="level__Timer" />
         <SYMBOL ADDRESS="0x8010E" NAME="level__MapWho" />
         <SYMBOL ADDRESS="0x8810E" NAME="level__things_base" />
         <SYMBOL ADDRESS="0x88110" NAME="level__People" />
-        <SYMBOL ADDRESS="0x8DD10" NAME="level__vehicles" />
-        <SYMBOL ADDRESS="0x8E790" NAME="level__objects" />
+        <SYMBOL ADDRESS="0x8DD10" NAME="level__Vehicles" />
+        <SYMBOL ADDRESS="0x8E790" NAME="level__Objects" />
         <SYMBOL ADDRESS="0x91670" NAME="level__Weapons" />
         <SYMBOL ADDRESS="0x95E70" NAME="level__Effects" />
         <SYMBOL ADDRESS="0x97C70" NAME="level__Commands" />
-        <SYMBOL ADDRESS="0x9BC70" NAME="level__word_9BC70" />
+        <SYMBOL ADDRESS="0x9BC70" NAME="level__Worlds" />
         <SYMBOL ADDRESS="0x9BE30" NAME="level__MapNumber" />
         <SYMBOL ADDRESS="0x9BE32" NAME="level__LoBoundaryx" />
         <SYMBOL ADDRESS="0x9BE34" NAME="level__LoBoundaryy" />
         <SYMBOL ADDRESS="0x9BE36" NAME="level__HiBoundaryx" />
         <SYMBOL ADDRESS="0x9BE38" NAME="level__HiBoundaryy" />
-        <SYMBOL ADDRESS="0x9BE3A" NAME="level__dword_9BE3A" />
-        <SYMBOL ADDRESS="0x9BEAA" NAME="level__computer_players_count" />
+        <SYMBOL ADDRESS="0x9BE3A" NAME="level__Objectives" />
+        <SYMBOL ADDRESS="0x9BEAA" NAME="level__ComputerPlayersCount" />
+        <SYMBOL ADDRESS="0x9BEAB" NAME="level__CPTeamSize" />
+        <SYMBOL ADDRESS="0x9BEAC" NAME="level__byte_9BEAC" />
+        <SYMBOL ADDRESS="0x9BEAD" NAME="level__CPLvlInit" />
+        <SYMBOL ADDRESS="0x9BEAE" NAME="level__CPIsBombingTeam" />
+        <SYMBOL ADDRESS="0x9BEAF" NAME="level__CPIsPersuadingTeam" />
+        <SYMBOL ADDRESS="0x9BEB0" NAME="level__byte_9BEB0" />
+        <SYMBOL ADDRESS="0x9BEB1" NAME="level__CPWieldedWeaponType" />
         <SYMBOL ADDRESS="0x9BEB2" NAME="level__CPObjectives" />
     </SYMBOL_TABLE>
     <FUNCTIONS>
@@ -14347,7 +14841,7 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x15170" END="0x152D0" />
             <TYPEINFO_CMT>check_area_for_person_unique</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x20" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x20" NAME="p_thg_offs" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
@@ -14383,7 +14877,7 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="word" SIZE="0x2" />
@@ -14529,7 +15023,7 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>CPCanAgentDoMission</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_complr" DATATYPE="pointer" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="p_objctv" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x170E0" NAME="CPSetupDoMissionObjective">
@@ -14694,21 +15188,21 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x18BD0" END="0x18CEE" />
             <TYPEINFO_CMT>AdjustStateHappiness</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="cntstano" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x18CF0" NAME="GetRevenueFromCity">
             <ADDRESS_RANGE START="0x18CF0" END="0x18D73" />
             <TYPEINFO_CMT>GetRevenueFromCity</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="cntstano" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x18D80" NAME="ComputerPlaysMap">
             <ADDRESS_RANGE START="0x18D80" END="0x18EAE" />
             <TYPEINFO_CMT>ComputerPlaysMap</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0xC" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="-0xC" NAME="owned_ctstate" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
@@ -14716,15 +15210,15 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x18EB0" END="0x18EE2" />
             <TYPEINFO_CMT>HowManyStatesDoIOwn</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="plyrno" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x18EF0" NAME="GetNthOwnedState">
             <ADDRESS_RANGE START="0x18EF0" END="0x18F26" />
             <TYPEINFO_CMT>GetNthOwnedState</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="n" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="plyrno" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x18F30" NAME="ShowGameTime">
@@ -15244,9 +15738,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x1EA30" END="0x1EAA6" />
             <TYPEINFO_CMT>init_fireball</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="map_x" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="map_y" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="map_z" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
@@ -15330,7 +15824,7 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x22E20" END="0x22EA1" />
             <TYPEINFO_CMT>WhichIconSelected</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="a1" DATATYPE="pointer" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
@@ -15362,8 +15856,8 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>PurchaseWeapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" NAME="wepslot" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="a1" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a2" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x23430" NAME="GetNextAvailableWeaponSlot">
@@ -15462,9 +15956,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x24F60" END="0x24FB0" />
             <TYPEINFO_CMT>init_a_players_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="wtype" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="ammo" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x24FC0" NAME="clear_savegame">
@@ -15584,7 +16078,7 @@ Return: AH = scan code, AL = character </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="pckt" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="plyrno" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x26EF0" NAME="LoadSaveGame">
@@ -15716,7 +16210,7 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>show_city_info</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x28" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x38" FRAME_PTR_OFFSET="-0x28" NAME="out" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x14" NAME="a4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x14" NAME="cntstano" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x28AF0" NAME="draw_connecting_cities">
@@ -15733,9 +16227,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x28CB0" END="0x28D5F" />
             <TYPEINFO_CMT>_draw_map_area</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="cntstano" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="colour" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="base_pos" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x28D60" NAME="can_i_play_this_city">
@@ -17056,7 +17550,7 @@ Return: AH = scan code, AL = character </COMMENT>
             <TYPEINFO_CMT>car_break</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="p_tng1" DATATYPE="pointer" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
@@ -17074,9 +17568,9 @@ Return: AH = scan code, AL = character </COMMENT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x14" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_veh" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a2" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="a3" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x36C20" NAME="i_can_drive_in_this_direction">
@@ -17266,13 +17760,13 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x38AC0" END="0x38B40" />
             <TYPEINFO_CMT>DrawScreenGadget</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x8" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="a6" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a3" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0xC" DATATYPE="word" SIZE="0x2" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="text" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="a3" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0xC" NAME="arg8" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" NAME="a4" DATATYPE="word" SIZE="0x2" />
                 <STACK_VAR STACK_PTR_OFFSET="0x14" NAME="a10" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x18" DATATYPE="byte" SIZE="0x1" />
-                <STACK_VAR STACK_PTR_OFFSET="0x1C" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x18" NAME="arg14" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x1C" NAME="a7" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x38B50" NAME="DrawAcceptGadget">
@@ -17429,30 +17923,30 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x39F10" END="0x39FA3" />
             <TYPEINFO_CMT>weapon_to_person</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_wep" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x39FB0" NAME="weapons_in_weight">
             <ADDRESS_RANGE START="0x39FB0" END="0x39FEA" />
             <TYPEINFO_CMT>weapons_in_weight</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x39FF0" NAME="weapon_time_in_use">
             <ADDRESS_RANGE START="0x39FF0" END="0x3A021" />
             <TYPEINFO_CMT>weapon_time_in_use</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3A030" NAME="person_has_weapon">
             <ADDRESS_RANGE START="0x3A030" END="0x3A06F" />
             <TYPEINFO_CMT>person_has_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="wtype" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3A070" NAME="count_weapons">
@@ -17510,8 +18004,8 @@ Return: AH = scan code, AL = character </COMMENT>
             <ADDRESS_RANGE START="0x3A390" END="0x3A565" />
             <TYPEINFO_CMT>choose_best_weapon</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" NAME="p_pers" DATATYPE="pointer" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" NAME="distance" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3A5C0" NAME="choose_best_weapon_or_same">
@@ -20550,28 +21044,6 @@ Return: AH = scan code, AL = character </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x1AC7B" OPERAND_INDEX="0" TO_ADDRESS="0x5012C" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x1B1E6" OPERAND_INDEX="0" TO_ADDRESS="0x5014C" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x1B2BD" OPERAND_INDEX="0" TO_ADDRESS="0x50164" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE1C" OPERAND_INDEX="0" TO_ADDRESS="0x1C202" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE20" OPERAND_INDEX="0" TO_ADDRESS="0x1C1A7" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE24" OPERAND_INDEX="0" TO_ADDRESS="0x1C1A7" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE28" OPERAND_INDEX="0" TO_ADDRESS="0x1C1A7" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE2C" OPERAND_INDEX="0" TO_ADDRESS="0x1C1A7" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE30" OPERAND_INDEX="0" TO_ADDRESS="0x1C0B8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE34" OPERAND_INDEX="0" TO_ADDRESS="0x1C110" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE38" OPERAND_INDEX="0" TO_ADDRESS="0x1C110" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE3C" OPERAND_INDEX="0" TO_ADDRESS="0x1C110" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE40" OPERAND_INDEX="0" TO_ADDRESS="0x1C110" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE44" OPERAND_INDEX="0" TO_ADDRESS="0x1C168" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE48" OPERAND_INDEX="0" TO_ADDRESS="0x1C110" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE4C" OPERAND_INDEX="0" TO_ADDRESS="0x1C202" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE50" OPERAND_INDEX="0" TO_ADDRESS="0x1C1A7" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE54" OPERAND_INDEX="0" TO_ADDRESS="0x1C0B8" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE58" OPERAND_INDEX="0" TO_ADDRESS="0x1C110" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE5C" OPERAND_INDEX="0" TO_ADDRESS="0x1C7C0" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE60" OPERAND_INDEX="0" TO_ADDRESS="0x1C419" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE64" OPERAND_INDEX="0" TO_ADDRESS="0x1C3E1" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE68" OPERAND_INDEX="0" TO_ADDRESS="0x1C7C0" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE6C" OPERAND_INDEX="0" TO_ADDRESS="0x1C795" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x1BE70" OPERAND_INDEX="0" TO_ADDRESS="0x1C7C0" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x1C2CA" OPERAND_INDEX="1" TO_ADDRESS="0x8810E" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x1C2E2" OPERAND_INDEX="1" TO_ADDRESS="0x88110" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x1C42A" OPERAND_INDEX="1" TO_ADDRESS="0x88110" PRIMARY="y" />

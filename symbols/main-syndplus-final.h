@@ -231,28 +231,32 @@ struct __attribute__((packed)) __attribute__((aligned(1))) struc_1E9
 };
 
 /* 16 */
-struct __attribute__((packed)) __attribute__((aligned(2))) struc_5539C
+struct __attribute__((packed)) __attribute__((aligned(2))) CountryState
 {
-  __int16 field_0[1];
-  char field_2[1];
-  char field_3[1];
-  char field_4;
+  __int16 Happiness;
+  unsigned __int8 OwningPlayer;
+  char Revenue;
+  char TaxPercent;
   char field_5;
-  int field_6;
+  int Population;
+};
+
+/* 50 */
+struct EquipWeapon
+{
+  __int16 ammo;
+  __int16 wtype;
 };
 
 /* 35 */
-struct PlayerSubStr1
+struct PlayerCyborg
 {
-  char field_0;
+  char NameId;
   __attribute__((packed)) __attribute__((aligned(1))) __int16 field_1;
-  __attribute__((packed)) __attribute__((aligned(1))) __int16 field_3;
+  __attribute__((packed)) __attribute__((aligned(1))) __int16 CybMods;
   __attribute__((packed)) __attribute__((aligned(1))) __int16 field_5;
   char field_7;
-  __int16 field_8;
-  __int16 field_A;
-  __int16 field_C;
-  char field_E[22];
+  EquipWeapon Weapons[7];
   __int16 field_24;
   __int16 field_26;
 };
@@ -266,7 +270,7 @@ struct __attribute__((packed)) __attribute__((aligned(1))) PlayerInfo
   __int16 field_A;
   __int16 field_C;
   char FlagsE;
-  char field_F;
+  char OwnColourScheme;
   char field_10;
   char field_11[18];
   char field_23[146];
@@ -274,10 +278,8 @@ struct __attribute__((packed)) __attribute__((aligned(1))) PlayerInfo
   char field_B6;
   __int16 field_B7;
   char field_B9[50];
-  char field_EB[16];
-  __int16 field_FB;
-  char field_FD[32];
-  PlayerSubStr1 substrct_11D[18];
+  char field_EB[50];
+  PlayerCyborg Cyborgs[18];
   char field_3ED[30];
   __int16 field_40B[5];
   __int16 field_415;
@@ -314,21 +316,21 @@ struct __attribute__((packed)) __attribute__((aligned(1))) struc_55780
 /* 21 */
 struct Person
 {
-  __int16 PrevMapWho;
-  __int16 NextMapWho;
-  __int16 X;
-  __int16 Y;
-  __int16 Z;
-  unsigned __int16 Flags;
-  __int16 field_C;
-  __int16 field_E;
-  __int16 Frame;
-  __int16 StartFrame;
-  __int16 field_14;
-  unsigned __int16 field_16;
-  char field_18;
+  unsigned __int16 PrevMapWho;
+  unsigned __int16 NextMapWho;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
+  unsigned __int16 StatusFlg;
+  unsigned __int16 AffectFlg;
+  unsigned __int16 BaseFrame;
+  unsigned __int16 Frame;
+  unsigned __int16 OldFrame;
+  __int16 Life;
+  unsigned __int16 WhoShotMe;
+  unsigned __int8 Model;
   unsigned __int8 State;
-  unsigned __int8 field_1A;
+  unsigned __int8 Angle;
   char field_1B;
   char field_1C;
   char field_1D;
@@ -352,22 +354,22 @@ struct Person
   __int16 field_40;
   __int16 field_42;
   __int16 CurrentWeapon;
-  char field_46;
-  char field_47;
-  char field_48;
-  char field_49;
-  char field_4A;
-  char field_4B;
-  char field_4C;
-  char field_4D;
-  char field_4E;
-  char field_4F;
-  char field_50;
-  char field_51;
-  char field_52;
-  char field_53;
-  unsigned __int8 field_54;
-  unsigned __int8 field_55;
+  char WeaponInUse;
+  char Level1Base;
+  char Level1Balance;
+  char Level1True;
+  char Level1Fixed;
+  char Level2Base;
+  char Level2Balance;
+  char Level2True;
+  char Level2Fixed;
+  char Level3Base;
+  char Level3Balance;
+  char Level3True;
+  char Level3Fixed;
+  char LevelRecovery;
+  unsigned __int8 Speed;
+  unsigned __int8 MaxSpeed;
   __int16 field_56;
   char field_58;
   char field_59;
@@ -379,27 +381,28 @@ struct Vehicle
 {
   __int16 PrevMapWho;
   __int16 NextMapWho;
-  __int16 X;
-  __int16 Y;
-  __int16 Z;
-  unsigned __int16 Flags;
-  __int16 field_C;
-  __int16 field_E;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
+  unsigned __int16 StatusFlg;
+  unsigned __int16 AffectFlg;
+  __int16 BaseFrame;
   __int16 Frame;
-  __int16 StartFrame;
-  __int16 field_14;
-  __int16 field_16;
-  char field_18;
-  char field_19;
-  char field_1A;
-  char field_1B;
-  unsigned __int16 PassengerHead;
-  __int16 field_1E;
-  __int16 field_20;
-  __int16 field_22;
-  __int16 field_24;
-  __int16 field_26;
-  __int16 field_28;
+  __int16 OldFrame;
+  __int16 Life;
+  __int16 WhoShotMe;
+  char Model;
+  char State;
+  char Angle;
+  char ZAngle;
+  unsigned __int16 ChildHeld;
+  __int16 ParentHeld;
+  __int16 LinkTo;
+  __int16 LinkX;
+  __int16 LinkY;
+  __int16 LinkZ;
+  char MaxSpeed;
+  char TravelAngle;
 };
 
 /* 24 */
@@ -407,19 +410,19 @@ struct Object
 {
   __int16 PrevMapWho;
   __int16 NextMapWho;
-  __int16 X;
-  __int16 Y;
-  __int16 Z;
-  unsigned __int16 Flags;
-  __int16 field_C;
-  __int16 field_E;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
+  unsigned __int16 StatusFlg;
+  __int16 AffectFlg;
+  __int16 BaseFrame;
   __int16 Frame;
-  __int16 StartFrame;
-  __int16 field_14;
-  __int16 field_16;
-  char field_18;
-  char field_19;
-  char field_1A;
+  __int16 OldFrame;
+  __int16 Life;
+  __int16 WhoShotMe;
+  char Model;
+  char State;
+  char Angle;
   char field_1B;
   __int16 field_1C;
 };
@@ -429,17 +432,18 @@ struct Weapon
 {
   __int16 PrevMapWho;
   __int16 NextMapWho;
-  __int16 X;
-  __int16 Y;
-  __int16 Z;
-  unsigned __int16 Flags;
-  __int16 field_C;
-  __attribute__((packed)) __attribute__((aligned(1))) int field_E;
-  __int16 field_12;
-  __int16 field_14;
-  __int16 field_16;
-  char field_18;
-  unsigned __int8 field_19;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
+  unsigned __int16 StatusFlg;
+  __int16 AffectFlg;
+  __int16 BaseFrame;
+  __int16 Frame;
+  __int16 OldFrame;
+  __int16 Life;
+  __int16 WhoShotMe;
+  char Model;
+  unsigned __int8 State;
   char field_1A;
   char field_1B;
   __int16 PersonsNext;
@@ -453,19 +457,20 @@ struct Effect
 {
   __int16 PrevMapWho;
   __int16 NextMapWho;
-  __int16 X;
-  __int16 Y;
-  __int16 Z;
-  unsigned __int16 Flags;
-  __int16 field_C;
-  __int16 field_E;
-  __int16 field_10;
-  __int16 field_12;
-  __int16 field_14;
-  __int16 field_16;
-  char field_18;
-  char field_19;
-  __int16 field_1A;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
+  unsigned __int16 StatusFlg;
+  __int16 AffectFlg;
+  __int16 BaseFrame;
+  __int16 Frame;
+  __int16 OldFrame;
+  __int16 Life;
+  __int16 WhoShotMe;
+  char Model;
+  char State;
+  char field_1A;
+  char field_1B;
   __int16 field_1C;
 };
 
@@ -485,7 +490,7 @@ enum PersonCommandType
 {
   PCmd_NONE = 0x0,
   PCmd_GOTO_POINT = 0x1,
-  PCmd_GOTO_STRUCTURE2 = 0x2,
+  PCmd_USE_VEHICLE = 0x2,
   PCmd_LEAVE_VEHICLE = 0x3,
   PCmd_WAIT_FOR_MODEL = 0x4,
   PCmd_WAIT_FOR_TIME = 0x5,
@@ -493,7 +498,7 @@ enum PersonCommandType
   PCmd_FAIL_LEVEL = 0x7,
   PCmd_WAIT_FOR_TRIGGER = 0x8,
   PCmd_END_COMMANDS = 0x9,
-  PCmd_ALLOW_PASSENGERS = 0xA,
+  PCmd_WAIT_PASSENGERS = 0xA,
   PCmd_COMPLETE_LEVEL = 0xB,
   PCmd_TOTAL_COMMANDS = 0xC,
 };
@@ -553,18 +558,18 @@ enum PersonState
 struct ComputerPlayer
 {
   unsigned __int8 ObjectiveNo;
-  char field_1;
-  char field_2;
-  char field_3;
-  char field_4;
-  char field_5;
-  unsigned __int8 field_6;
-  unsigned __int8 field_7;
-  char field_8;
-  char field_9;
-  __int16 field_A;
-  void *ptrfield_C;
-  struct Person *field_10;
+  char cps_field_1;
+  char cps_field_2;
+  char cps_field_3;
+  char cps_field_4;
+  char cps_field_5;
+  unsigned __int8 cps_field_6;
+  unsigned __int8 cps_field_7;
+  char cps_field_8;
+  char cps_field_9;
+  __int16 cps_field_A;
+  void *cps_ptrfield_C;
+  struct Person *cps_field_10;
 };
 
 /* 31 */
@@ -576,39 +581,41 @@ struct __attribute__((packed)) __attribute__((aligned(1))) CPObjective
   char field_6;
   char ActionType;
   char Action;
-  unsigned __int16 X;
-  __int16 Y;
-  __int16 Z;
+  unsigned __int16 TargetOffs;
+  __int16 field_B;
+  __int16 field_D;
 };
 
 /* 32 */
 struct __attribute__((packed)) __attribute__((aligned(2))) Objective
 {
-  int field_0;
-  __int16 field_4;
-  unsigned __int16 field_6;
-  __int16 field_8;
-  __int16 field_A;
-  __int16 field_C;
+  int Status;
+  __int16 ObjctvType;
+  unsigned __int16 Data;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
 };
 
 /* 33 */
-struct __attribute__((packed)) __attribute__((aligned(1))) Thing
+struct Thing
 {
   unsigned __int16 PrevMapWho;
-  __int16 NextMapWho;
-  __int16 X;
-  __int16 Y;
-  __int16 Z;
-  unsigned __int16 Flags;
-  char field_C[2];
-  char field_E;
-  char field_F;
-  __int16 Frame;
-  __int16 StartFrame;
-  char field_14[3];
-  char field_17;
-  char field_18;
+  unsigned __int16 NextMapWho;
+  __int16 Xpos;
+  __int16 Ypos;
+  __int16 Zpos;
+  unsigned __int16 StatusFlg;
+  unsigned __int16 AffectFlg;
+  unsigned __int16 BaseFrame;
+  unsigned __int16 Frame;
+  unsigned __int16 OldFrame;
+  __int16 Life;
+  __int16 WhoShotMe;
+  char Model;
+  char State;
+  char Angle;
+  char ZAngle;
 };
 
 /* 34 */
@@ -805,5 +812,204 @@ struct NetBuffer
   __int16 Seg;
   __attribute__((packed)) __attribute__((aligned(1))) unsigned __int8 *Ptr;
   __int16 Selectr;
+};
+
+/* 41 */
+enum ThingStatusFlags
+{
+  TngStF_NONE = 0x0,
+  TngStF_1 = 0x1,
+  TngStF_2 = 0x2,
+  TngStF_MAPWHO = 0x4,
+  TngStF_8 = 0x8,
+  TngStF_10 = 0x10,
+};
+
+/* 42 */
+enum WeaponType
+{
+  WEP_NULL = 0x0,
+  WEP_PERSUADRTRN = 0x1,
+  WEP_PISTOL = 0x2,
+  WEP_GAUSSGUN = 0x3,
+  WEP_SHOTGUN = 0x4,
+  WEP_UZI = 0x5,
+  WEP_MINIGUN = 0x6,
+  WEP_LASER = 0x7,
+  WEP_FLAMER = 0x8,
+  WEP_LONGRANGE = 0x9,
+  WEP_SCANNER = 0xA,
+  WEP_MEDIKIT = 0xB,
+  WEP_TIMEBOMB = 0xC,
+  WEP_ACCESSCARD = 0xD,
+  WEP_ACCESSCRD1 = 0xE,
+  WEP_ACCESSCRD2 = 0xF,
+  WEP_AUTOMAPPER = 0x10,
+  WEP_ENERGYSHLD = 0x11,
+  WEP_SHIELD1 = 0x12,
+  WEP_SHIELD2 = 0x13,
+};
+
+/* 43 */
+enum ThingModel
+{
+  TngM_NONE = 0x0,
+  TngM_PERSON = 0x1,
+  TngM_VEHICLE = 0x2,
+  TngM_SHOT = 0x3,
+  TngM_WEAPON = 0x4,
+  TngM_5 = 0x5,
+  TngM_6 = 0x6,
+  TngM_7 = 0x7,
+  TngM_8 = 0x8,
+};
+
+/* 44 */
+struct Element
+{
+  __int16 ToSprite;
+  __int16 X;
+  __int16 Y;
+  __int16 field_6;
+  __int16 field_8;
+};
+
+/* 46 */
+enum VehicleState
+{
+  VeSt_NONE = 0x0,
+  VeSt_TYP1 = 0x1,
+  VeSt_TYP1_MOVING = 0x2,
+  VeSt_TYP1_ON_FIRE = 0x3,
+  VeSt_TYP1_DESTROYED = 0x4,
+  VeSt_TRAIN = 0x5,
+  VeSt_TRAIN_MOVING = 0x6,
+  VeSt_TRAIN_ON_FIRE = 0x7,
+  VeSt_TRAIN_DESTROYED = 0x8,
+  VeSt_CARRIAGE = 0x9,
+  VeSt_CARRIAGE_MOVING = 0xA,
+  VeSt_CARRIAGE_ON_FIRE = 0xB,
+  VeSt_CARRIAGE_DESTROYED = 0xC,
+  VeSt_TYP4 = 0xD,
+  VeSt_TYP4_MOVING = 0xE,
+  VeSt_TYP4_ON_FIRE = 0xF,
+  VeSt_TYP4_DESTROYED = 0x10,
+  VeSt_TYP5 = 0x11,
+  VeSt_TYP5_MOVING = 0x12,
+  VeSt_TYP5_ON_FIRE = 0x13,
+  VeSt_TYP5_DESTROYED = 0x14,
+  VeSt_15 = 0x15,
+  VeSt_16 = 0x16,
+  VeSt_17 = 0x17,
+  VeSt_18 = 0x18,
+  VeSt_19 = 0x19,
+  VeSt_1a = 0x1A,
+  VeSt_1b = 0x1B,
+  VeSt_TYP8 = 0x1C,
+  VeSt_TYP8_MOVING = 0x1D,
+  VeSt_TYP8_ON_FIRE = 0x1E,
+  VeSt_TYP8_DESTROYED = 0x1F,
+  VeSt_20 = 0x20,
+  VeSt_21 = 0x21,
+  VeSt_22 = 0x22,
+  VeSt_23 = 0x23,
+  VeSt_TYPa = 0x24,
+  VeSt_TYPa_MOVING = 0x25,
+  VeSt_TYPa_ON_FIRE = 0x26,
+  VeSt_TYPa_DESTROYED = 0x27,
+  VeSt_TYPb = 0x28,
+  VeSt_TYPb_MOVING = 0x29,
+  VeSt_TYPb_ON_FIRE = 0x2A,
+  VeSt_TYPb_DESTROYED = 0x2B,
+  VeSt_STATES_COUNT = 0x2C,
+};
+
+/* 47 */
+enum CompPlayerActionType
+{
+  CPActT_0 = 0x0,
+  CPActT_1 = 0x1,
+  CPActT_2 = 0x2,
+  CPActT_3 = 0x3,
+  CPActT_4 = 0x4,
+  CPActT_5 = 0x5,
+  CPActT_6 = 0x6,
+  CPActT_7 = 0x7,
+  CPActT_8 = 0x8,
+  CPActT_9 = 0x9,
+  CPActT_a = 0xA,
+  CPActT_b = 0xB,
+  CPActT_c = 0xC,
+  CPActT_d = 0xD,
+  CPActT_e = 0xE,
+  CPActT_f = 0xF,
+  CPActT_10 = 0x10,
+  CPActT_11 = 0x11,
+  CPActT_12 = 0x12,
+  CPActT_13 = 0x13,
+  CPActT_14 = 0x14,
+};
+
+/* 48 */
+enum CPObjectiveFlags
+{
+  CPObctvF_NONE = 0x0,
+  CPObctvF_1 = 0x1,
+  CPObctvF_2 = 0x2,
+  CPObctvF_4 = 0x4,
+  CPObctvF_REQ_EXPLOSIVES = 0x8,
+  CPObctvF_10 = 0x10,
+  CPObctvF_20 = 0x20,
+  CPObctvF_40 = 0x40,
+};
+
+/* 49 */
+struct __attribute__((packed)) __attribute__((aligned(1))) MapCountryState
+{
+  __int16 ScrX;
+  __int16 ScrY;
+  __int16 field_4;
+  __int16 field_6;
+  char field_8;
+  char field_9;
+  __int16 field_A;
+  __int16 field_C;
+  __int16 field_E;
+  char field_10;
+  char field_11;
+  char field_12;
+};
+
+/* 51 */
+struct World
+{
+  __int16 WindXSpeed;
+  __int16 WindYSpeed;
+  __int16 Population;
+  char Temperature;
+  unsigned __int8 WindSpeed;
+  unsigned __int8 WindAngle;
+  char Industry;
+  char Crime;
+  char Gravity;
+  char Density;
+  char field_D;
+};
+
+/* 52 */
+enum ObjectiveTypes
+{
+  ObctvT_COMPLETE_NOW = 0x0,
+  ObctvT_1 = 0x1,
+  ObctvT_2 = 0x2,
+  ObctvT_3 = 0x3,
+  ObctvT_4 = 0x4,
+  ObctvT_5 = 0x5,
+  ObctvT_6 = 0x6,
+  ObctvT_7 = 0x7,
+  ObctvT_8 = 0x8,
+  ObctvT_9 = 0x9,
+  ObctvT_a = 0xA,
+  ObctvT_TOTAL_COUNT = 0xB,
 };
 
