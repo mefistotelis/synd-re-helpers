@@ -109,7 +109,11 @@
  0001:0001D060       show_selected_frame
  0001:0001D180       set_all_changes
  0001:0001D1D0       set_block_changes
+ 0001:0001D390       jpt_1D596
+ 0001:0001D438       jpt_1DAA1
  0001:0001D450       draw_mapwho
+ 0001:0001D5CF       def_1D596
+ 0001:0001DC01       def_1DAA1
  0001:0001DCB0       number_people
  0001:0001DF10       copy_back
  0001:0001E050       draw_pelement
@@ -1419,8 +1423,8 @@
  0002:00053548       aDataMlosaoutDa
  0002:0005355C       aIntroNul
  0002:0005356C       aInvalidOptionS
- 0002:00053584       aDataGamefmDll
- 0002:00053594       aDataSyngameXmi
+ 0002:00053584       fname2
+ 0002:00053594       fname1
  0002:000535A8       aSyndicateHelpO
  0002:000535C4       aIirqNSetSoundI
  0002:000535EC       aIdmaNSetSoundD
@@ -1576,7 +1580,10 @@
  0002:00053DB0       _IsTable
  0002:00053EB4       computer_players_count
  0002:00053EB5       comp_plyr_team_size
+ 0002:00053EB6       comp_plyr_process_interval
  0002:00053EB7       comp_plyr_level_init
+ 0002:00053EB8       comp_plyr_process_timer
+ 0002:00053EBC       comp_plyr_last_process_time
  0002:00053EEC       disk_err
  0002:00053EF0       lb_tot_mem_alloced
  0002:00053F08       mission_load_files
@@ -1590,6 +1597,7 @@
  0002:00054600       text_equip
  0002:0005460C       text_button_sell
  0002:00054624       text_button_reload
+ 0002:0005463C       strings_research_funddec
  0002:00054648       text_info
  0002:00054654       text_enhance
  0002:00054660       text_load
@@ -1609,9 +1617,39 @@
  0002:0005472C       text_spec_agent
  0002:00054744       str
  0002:0005478C       a5
- 0002:00054834       text
+ 0002:000547A4       strings_cost
+ 0002:000547B0       strings_ammo
+ 0002:000547BC       strings_range
+ 0002:000547C8       strings_shot
+ 0002:000547D4       strings_reload
+ 0002:000547E0       strings_weapon_category_automatic
+ 0002:000547EC       strings_weapon_category_heavy
+ 0002:000547F8       strings_weapon_category_assault
+ 0002:00054804       strings_weapon_category_misc
+ 0002:00054810       strings_research_min_funding
+ 0002:0005481C       strings_research_max_funding
+ 0002:00054828       strings_researching
+ 0002:00054834       strings_logging_out
+ 0002:00054840       strings_multiplayer
+ 0002:0005484C       strings_loading
+ 0002:00054858       strings_mission_status
+ 0002:00054864       strings_misstat_complete
+ 0002:00054870       strings_misstat_withdrew
+ 0002:0005487C       strings_misstat_failed
+ 0002:00054888       strings_debrief_agents_used
+ 0002:00054894       strings_debrief_agents_gained
+ 0002:000548A0       strings_debrief_time
+ 0002:000548D0       strings_debrief_agents_killed
+ 0002:000548DC       strings_debrief_criminals_killed
+ 0002:000548E8       strings_debrief_civilians_killed
+ 0002:000548F4       strings_debrief_police_killed
+ 0002:00054900       strings_debrief_guards_killed
+ 0002:0005490C       strings_debrief_people_persuaded
+ 0002:00054918       strings_debrief_hit_accuracy
+ 0002:00054924       strings_debrief_no_bullets
  0002:00054A38       strings_cybmod_names
  0002:00054B10       strings_weapon_names
+ 0002:00054D92       savegame_slot
  0002:00054D94       sndcard_irq
  0002:00054D96       sndcard_dma
  0002:00054D98       sndcard_ioaddr
@@ -1623,7 +1661,9 @@
  0002:00055060       MouseOldY
  0002:00055064       MouseOldW
  0002:0005506C       MouseSwap
- 0002:00055094       p_a1
+ 0002:00055094       unkarr_5094
+ 0002:000550B8       unkarr_50B8
+ 0002:0005516C       unkarr_516C
  0002:000551B4       unkarr_551B4
  0002:00055256       unkarr_55256
  0002:00055304       game_speed
@@ -1660,10 +1700,10 @@
  0002:00055392       lbDisplay__MMouseY
  0002:00055398       AniArrayCount
  0002:0005539A       cheat_worldmap
- 0002:0005539C       CountryStates
- 0002:00055594       strct_unkn_55594
+ 0002:0005539C       country_states
+ 0002:00055594       research
  0002:00055780       cybmods
- 0002:00057BF4       arr_unkn_57BF4
+ 0002:00057BF4       weapons
  0002:0005A50D       language
  0002:0005A6FE       weapons_time_in_use
  0002:0005A73A       weapon_max_ammo
@@ -1754,6 +1794,7 @@
  0002:0005C324       __Save8087
  0002:0005C328       __Rest8087
  0002:0005C368       computer_players
+ 0002:0005C86C       thing_drawlist
  0002:0005DEFC       timer2
  0002:0005DF08       KbOldInt
  0002:0005DF0C       KbOldIntNum
@@ -1776,6 +1817,7 @@
  0002:000605D4       packets
  0002:00060644       NetUserNcb
  0002:00060AA0       m_select_pal
+ 0002:00060AA4       selected_team
  0002:00060AB4       DestinationY
  0002:00060AB8       DestinationX
  0002:00060AC0       h_col
@@ -1828,6 +1870,8 @@
  0002:00061E58       ____Argc
  0003:00070000       MouseOldData
  0003:00070800       MScreen
+ 0004:00080000       player_view_map_x
+ 0004:00080002       player_view_map_y
  0004:00080105       DrawFlags
  0004:00080108       level__Seed
  0004:0008010A       level__PersonCount_UNSURE
@@ -1849,11 +1893,11 @@
  0004:0009BE3A       level__Objectives
  0004:0009BEAA       level__ComputerPlayersCount
  0004:0009BEAB       level__CPTeamSize
- 0004:0009BEAC       level__byte_9BEAC
+ 0004:0009BEAC       level__CPProcessInterval
  0004:0009BEAD       level__CPLvlInit
  0004:0009BEAE       level__CPIsBombingTeam
  0004:0009BEAF       level__CPIsPersuadingTeam
- 0004:0009BEB0       level__byte_9BEB0
+ 0004:0009BEB0       level__CPFlags
  0004:0009BEB1       level__CPWieldedWeaponType
  0004:0009BEB2       level__CPObjectives
 

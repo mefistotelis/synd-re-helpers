@@ -220,11 +220,11 @@ struct struc_1E9_sub1
 };
 
 /* 14 */
-struct __attribute__((packed)) __attribute__((aligned(1))) struc_1E9
+struct __attribute__((packed)) __attribute__((aligned(1))) Research
 {
   char field_0;
-  char field_1;
-  char field_2;
+  char CurrentKind;
+  char WMType;
   int field_3;
   struc_1E9_sub1 field_7[10];
   __int16 field_1E7;
@@ -252,10 +252,10 @@ struct EquipWeapon
 struct PlayerCyborg
 {
   char NameId;
-  __attribute__((packed)) __attribute__((aligned(1))) __int16 field_1;
-  __attribute__((packed)) __attribute__((aligned(1))) __int16 CybMods;
+  __attribute__((packed)) __attribute__((aligned(1))) __int16 State;
+  __attribute__((packed)) __attribute__((aligned(1))) __int16 Equipment;
   __attribute__((packed)) __attribute__((aligned(1))) __int16 field_5;
-  char field_7;
+  char SelctTeamSlot;
   EquipWeapon Weapons[7];
   __int16 field_24;
   __int16 field_26;
@@ -271,9 +271,10 @@ struct __attribute__((packed)) __attribute__((aligned(1))) PlayerInfo
   __int16 field_C;
   char FlagsE;
   char OwnColourScheme;
-  char field_10;
-  char field_11[18];
-  char field_23[146];
+  char OwnLogoShape;
+  char LeaderName[18];
+  char CompanyName[18];
+  char field_35[128];
   unsigned __int8 field_B5;
   char field_B6;
   __int16 field_B7;
@@ -281,14 +282,15 @@ struct __attribute__((packed)) __attribute__((aligned(1))) PlayerInfo
   char field_EB[50];
   PlayerCyborg Cyborgs[18];
   char field_3ED[30];
-  __int16 field_40B[5];
+  __int16 field_40B;
+  char field_40D[8];
   __int16 field_415;
 };
 
 /* 19 */
-struct __attribute__((packed)) __attribute__((aligned(1))) struc_57BF4
+struct __attribute__((packed)) __attribute__((aligned(1))) EquipmentInfo
 {
-  char field_0[1];
+  unsigned __int8 text_id;
   int field_1;
   __int16 field_5;
   int field_7;
@@ -298,13 +300,13 @@ struct __attribute__((packed)) __attribute__((aligned(1))) struc_57BF4
   __int16 field_13[23];
   __int16 field_41[217];
   char field_1F3[1];
-  char field_1F4;
+  char Category;
 };
 
 /* 20 */
-struct __attribute__((packed)) __attribute__((aligned(1))) struc_55780
+struct __attribute__((packed)) __attribute__((aligned(1))) PartsInfo
 {
-  unsigned __int8 field_0;
+  unsigned __int8 text_id;
   int Cost;
   char field_5;
   __int16 field_6;
@@ -331,8 +333,8 @@ struct Person
   unsigned __int8 Model;
   unsigned __int8 State;
   unsigned __int8 Angle;
-  char field_1B;
-  char field_1C;
+  char ZAngle;
+  char UniqueFlg;
   char field_1D;
   __int16 field_1E;
   unsigned __int16 UnkPersonOffs;
@@ -350,30 +352,32 @@ struct Person
   __int16 HugGotoZ;
   __int16 ChildWeapon;
   __int16 Equipment;
-  __int16 field_3E;
+  __int16 ParentRank;
   __int16 field_40;
   __int16 field_42;
   __int16 CurrentWeapon;
   char WeaponInUse;
-  char Level1Base;
-  char Level1Balance;
-  char Level1True;
+  unsigned __int8 Level1Base;
+  unsigned __int8 Level1Balance;
+  unsigned __int8 Level1True;
   char Level1Fixed;
-  char Level2Base;
-  char Level2Balance;
-  char Level2True;
+  unsigned __int8 Level2Base;
+  unsigned __int8 Level2Balance;
+  unsigned __int8 Level2True;
   char Level2Fixed;
-  char Level3Base;
-  char Level3Balance;
-  char Level3True;
+  unsigned __int8 Level3Base;
+  unsigned __int8 Level3Balance;
+  unsigned __int8 Level3True;
   char Level3Fixed;
   char LevelRecovery;
   unsigned __int8 Speed;
   unsigned __int8 MaxSpeed;
-  __int16 field_56;
-  char field_58;
-  char field_59;
-  __int16 field_5A;
+  char BaseSpeed;
+  char OldState;
+  char NewState;
+  char HugChangeDir;
+  char HugStartAngle;
+  char HitAngle;
 };
 
 /* 23 */
@@ -414,7 +418,7 @@ struct Object
   __int16 Ypos;
   __int16 Zpos;
   unsigned __int16 StatusFlg;
-  __int16 AffectFlg;
+  unsigned __int16 AffectFlg;
   __int16 BaseFrame;
   __int16 Frame;
   __int16 OldFrame;
@@ -436,7 +440,7 @@ struct Weapon
   __int16 Ypos;
   __int16 Zpos;
   unsigned __int16 StatusFlg;
-  __int16 AffectFlg;
+  unsigned __int16 AffectFlg;
   __int16 BaseFrame;
   __int16 Frame;
   __int16 OldFrame;
@@ -461,7 +465,7 @@ struct Effect
   __int16 Ypos;
   __int16 Zpos;
   unsigned __int16 StatusFlg;
-  __int16 AffectFlg;
+  unsigned __int16 AffectFlg;
   __int16 BaseFrame;
   __int16 Frame;
   __int16 OldFrame;
@@ -558,7 +562,7 @@ enum PersonState
 struct ComputerPlayer
 {
   unsigned __int8 ObjectiveNo;
-  char cps_field_1;
+  char CPFlags;
   char cps_field_2;
   char cps_field_3;
   char cps_field_4;
@@ -760,13 +764,15 @@ enum KeyCodes
 };
 
 /* 36 */
-struct UnkArr55256
+struct PanelItem1
 {
-  __int16 field_0;
-  __int16 field_2;
-  __int16 field_4;
-  __int16 field_6;
-  __int16 field_8;
+  signed __int16 field_0;
+  unsigned __int16 field_2;
+  unsigned __int16 field_4;
+  unsigned __int8 field_6;
+  unsigned __int8 field_7;
+  char field_8;
+  char field_9;
   char field_A;
   char field_B;
   unsigned __int16 field_C;
@@ -815,14 +821,24 @@ struct NetBuffer
 };
 
 /* 41 */
-enum ThingStatusFlags
+enum __bitmask ThingStatusFlags
 {
-  TngStF_NONE = 0x0,
   TngStF_1 = 0x1,
   TngStF_2 = 0x2,
   TngStF_MAPWHO = 0x4,
   TngStF_8 = 0x8,
   TngStF_10 = 0x10,
+  TngStF_20 = 0x20,
+  TngStF_40 = 0x40,
+  TngStF_80 = 0x80,
+  TngStF_100 = 0x100,
+  TngStF_200 = 0x200,
+  TngStF_400 = 0x400,
+  TngStF_800 = 0x800,
+  TngStF_1000 = 0x1000,
+  TngStF_2000 = 0x2000,
+  TngStF_4000 = 0x4000,
+  TngStF_8000 = 0x8000,
 };
 
 /* 42 */
@@ -878,26 +894,26 @@ struct Element
 enum VehicleState
 {
   VeSt_NONE = 0x0,
-  VeSt_TYP1 = 0x1,
-  VeSt_TYP1_MOVING = 0x2,
-  VeSt_TYP1_ON_FIRE = 0x3,
-  VeSt_TYP1_DESTROYED = 0x4,
+  VeSt_APC = 0x1,
+  VeSt_APC_MOVING = 0x2,
+  VeSt_APC_ON_FIRE = 0x3,
+  VeSt_APC_DESTRYD = 0x4,
   VeSt_TRAIN = 0x5,
   VeSt_TRAIN_MOVING = 0x6,
   VeSt_TRAIN_ON_FIRE = 0x7,
-  VeSt_TRAIN_DESTROYED = 0x8,
+  VeSt_TRAIN_DESTRYD = 0x8,
   VeSt_CARRIAGE = 0x9,
   VeSt_CARRIAGE_MOVING = 0xA,
   VeSt_CARRIAGE_ON_FIRE = 0xB,
-  VeSt_CARRIAGE_DESTROYED = 0xC,
-  VeSt_TYP4 = 0xD,
-  VeSt_TYP4_MOVING = 0xE,
-  VeSt_TYP4_ON_FIRE = 0xF,
-  VeSt_TYP4_DESTROYED = 0x10,
-  VeSt_TYP5 = 0x11,
-  VeSt_TYP5_MOVING = 0x12,
-  VeSt_TYP5_ON_FIRE = 0x13,
-  VeSt_TYP5_DESTROYED = 0x14,
+  VeSt_CARRIAGE_DESTRYD = 0xC,
+  VeSt_CIVILCAR = 0xD,
+  VeSt_CIVILCAR_MOVING = 0xE,
+  VeSt_CIVILCAR_ON_FIRE = 0xF,
+  VeSt_CIVILCAR_DESTRYD = 0x10,
+  VeSt_FIREENGN = 0x11,
+  VeSt_FIREENGN_MOVING = 0x12,
+  VeSt_FIREENGN_ON_FIRE = 0x13,
+  VeSt_FIREENGN_DESTRYD = 0x14,
   VeSt_15 = 0x15,
   VeSt_16 = 0x16,
   VeSt_17 = 0x17,
@@ -905,22 +921,22 @@ enum VehicleState
   VeSt_19 = 0x19,
   VeSt_1a = 0x1A,
   VeSt_1b = 0x1B,
-  VeSt_TYP8 = 0x1C,
-  VeSt_TYP8_MOVING = 0x1D,
-  VeSt_TYP8_ON_FIRE = 0x1E,
-  VeSt_TYP8_DESTROYED = 0x1F,
+  VeSt_INDUSTRL = 0x1C,
+  VeSt_INDUSTRL_MOVING = 0x1D,
+  VeSt_INDUSTRL_ON_FIRE = 0x1E,
+  VeSt_INDUSTRL_DESTRYD = 0x1F,
   VeSt_20 = 0x20,
   VeSt_21 = 0x21,
   VeSt_22 = 0x22,
   VeSt_23 = 0x23,
-  VeSt_TYPa = 0x24,
-  VeSt_TYPa_MOVING = 0x25,
-  VeSt_TYPa_ON_FIRE = 0x26,
-  VeSt_TYPa_DESTROYED = 0x27,
-  VeSt_TYPb = 0x28,
-  VeSt_TYPb_MOVING = 0x29,
-  VeSt_TYPb_ON_FIRE = 0x2A,
-  VeSt_TYPb_DESTROYED = 0x2B,
+  VeSt_POLICCAR = 0x24,
+  VeSt_POLICCAR_MOVING = 0x25,
+  VeSt_POLICCAR_ON_FIRE = 0x26,
+  VeSt_POLICCAR_DESTRYD = 0x27,
+  VeSt_AMBULANC = 0x28,
+  VeSt_AMBULANC_MOVING = 0x29,
+  VeSt_AMBULANC_ON_FIRE = 0x2A,
+  VeSt_AMBULANC_DESTRYD = 0x2B,
   VeSt_STATES_COUNT = 0x2C,
 };
 
@@ -993,7 +1009,7 @@ struct World
   char Crime;
   char Gravity;
   char Density;
-  char field_D;
+  char wrldfield_D;
 };
 
 /* 52 */
@@ -1011,5 +1027,85 @@ enum ObjectiveTypes
   ObctvT_9 = 0x9,
   ObctvT_a = 0xA,
   ObctvT_TOTAL_COUNT = 0xB,
+};
+
+/* 53 */
+enum PersonUniqueFlags
+{
+  PersUnqF_CIVILIAN = 0x1,
+  PersUnqF_AGENT = 0x2,
+  PersUnqF_POLICE = 0x4,
+  PersUnqF_GUARD = 0x8,
+  PersUnqF_CRIMINAL = 0x10,
+  PersUnqF_20 = 0x20,
+  PersUnqF_40 = 0x40,
+  PersUnqF_80 = 0x80,
+};
+
+/* 55 */
+enum PersonEquipMasks
+{
+  EquipMsk_LEGS = 0x6,
+  EquipMsk_ARMS = 0x18,
+  EquipMsk_CHEST = 0x60,
+  EquipMsk_HEART = 0x180,
+  EquipMsk_EYES = 0x600,
+  EquipMsk_BRAIN = 0x1800,
+};
+
+/* 56 */
+enum __bitmask ThingAffectFlags
+{
+  TngAffctF_HIT_BY_VEHICLE = 0x1,
+  TngAffctF_2 = 0x2,
+  TngAffctF_4 = 0x4,
+  TngAffctF_HIT_BY_FIRE = 0x8,
+  TngAffctF_HIT_BY_LASER = 0x10,
+  TngAffctF_20 = 0x20,
+  TngAffctF_HIT_BY_BULLET = 0x40,
+  TngAffctF_HIT_BY_EXPLOSION = 0x80,
+  TngAffctF_100 = 0x100,
+  TngAffctF_200 = 0x200,
+  TngAffctF_HIT_BY_PERSUADER = 0x400,
+};
+
+/* 57 */
+struct ThingDrawItem
+{
+  struct Thing *ThingPtr;
+  __int16 XmnYdist;
+  __int16 XYmnZdist;
+  int XYsum;
+};
+
+/* 58 */
+struct struc_5DF48
+{
+  char field_0;
+  char field_1;
+  char field_2;
+  char field_3;
+  char field_4;
+  char field_5;
+  char field_6;
+  char field_7;
+  char field_8;
+  char field_9;
+  char field_A;
+};
+
+/* 59 */
+struct struc_5DF76
+{
+  char field_0[1];
+  char field_1[1];
+  char field_2[1];
+  char field_3[1];
+  char field_4[1];
+  char field_5[1];
+  char field_6[1];
+  char field_7[1];
+  char field_8[1];
+  char field_9[1];
 };
 
